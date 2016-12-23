@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E76B720F6969D4E419A3E4E /* Pods_KFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A4146257F85142A26DA876 /* Pods_KFinder.framework */; };
+		B6287E280C6EB31FE77898DE /* Pods_KFinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C366A5F2FA73684F65BC40E /* Pods_KFinderTests.framework */; };
 		E156D0851E0DC3080045850A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0841E0DC3080045850A /* AppDelegate.swift */; };
-		E156D0871E0DC3080045850A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0861E0DC3080045850A /* ViewController.swift */; };
 		E156D08A1E0DC3080045850A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E156D0881E0DC3080045850A /* Main.storyboard */; };
 		E156D08D1E0DC3080045850A /* KFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E156D08B1E0DC3080045850A /* KFinder.xcdatamodeld */; };
 		E156D08F1E0DC3080045850A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E156D08E1E0DC3080045850A /* Assets.xcassets */; };
 		E156D0921E0DC3080045850A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E156D0901E0DC3080045850A /* LaunchScreen.storyboard */; };
 		E156D09D1E0DC3090045850A /* KFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D09C1E0DC3090045850A /* KFinderTests.swift */; };
 		E156D0A81E0DC3090045850A /* KFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0A71E0DC3090045850A /* KFinderUITests.swift */; };
+		E156D0BC1E0DC68A0045850A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0B51E0DC68A0045850A /* CoreDataStack.swift */; };
+		E156D0BD1E0DC68A0045850A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0B61E0DC68A0045850A /* MainViewController.swift */; };
+		E156D0BE1E0DC68A0045850A /* UIStoryboard+Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */; };
+		E156D0C01E0DC68A0045850A /* CoreDataStack+FirstTimeDataLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0B91E0DC68A0045850A /* CoreDataStack+FirstTimeDataLoad.swift */; };
+		E156D0C11E0DC68A0045850A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0BA1E0DC68A0045850A /* DetailViewController.swift */; };
+		E156D0C21E0DC68A0045850A /* kdata.csv in Resources */ = {isa = PBXBuildFile; fileRef = E156D0BB1E0DC68A0045850A /* kdata.csv */; };
+		E156D0C71E0DC6E10045850A /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0C41E0DC6E10045850A /* StoryboardIdentifiable.swift */; };
+		E156D0C81E0DC6E10045850A /* UITableView+Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0C51E0DC6E10045850A /* UITableView+Registration.swift */; };
+		E156D0C91E0DC6E10045850A /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0C61E0DC6E10045850A /* SegueHandlerType.swift */; };
+		EB94AB5E81FADA5B0704B7A5 /* Pods_KFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6B71CF62AB70A7911D7D9B /* Pods_KFinderUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +46,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180BF4C1B2A32C1C3EC4920C /* Pods-KFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinder/Pods-KFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		25C16407D9F0FA2FF706AD20 /* Pods-KFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinder.release.xcconfig"; path = "Pods/Target Support Files/Pods-KFinder/Pods-KFinder.release.xcconfig"; sourceTree = "<group>"; };
+		3C366A5F2FA73684F65BC40E /* Pods_KFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		562192C1EAD4B2DA98E95410 /* Pods-KFinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderUITests/Pods-KFinderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		78DDE96EAE77A9CE64D85CFF /* Pods-KFinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderTests/Pods-KFinderTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C6B71CF62AB70A7911D7D9B /* Pods_KFinderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KFinderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95A4146257F85142A26DA876 /* Pods_KFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EB1F4ADF7215BD9E48846EA /* Pods-KFinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderTests/Pods-KFinderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E156D0811E0DC3080045850A /* KFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E156D0841E0DC3080045850A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E156D0861E0DC3080045850A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E156D0891E0DC3080045850A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E156D08C1E0DC3080045850A /* KFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KFinder.xcdatamodel; sourceTree = "<group>"; };
 		E156D08E1E0DC3080045850A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +67,16 @@
 		E156D0A31E0DC3090045850A /* KFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E156D0A71E0DC3090045850A /* KFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITests.swift; sourceTree = "<group>"; };
 		E156D0A91E0DC3090045850A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E156D0B51E0DC68A0045850A /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E156D0B61E0DC68A0045850A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Storyboards.swift"; sourceTree = "<group>"; };
+		E156D0B91E0DC68A0045850A /* CoreDataStack+FirstTimeDataLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreDataStack+FirstTimeDataLoad.swift"; sourceTree = "<group>"; };
+		E156D0BA1E0DC68A0045850A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E156D0BB1E0DC68A0045850A /* kdata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kdata.csv; sourceTree = "<group>"; };
+		E156D0C41E0DC6E10045850A /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
+		E156D0C51E0DC6E10045850A /* UITableView+Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Registration.swift"; sourceTree = "<group>"; };
+		E156D0C61E0DC6E10045850A /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		EA42E37DA6C56E24713755A8 /* Pods-KFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderUITests/Pods-KFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E76B720F6969D4E419A3E4E /* Pods_KFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6287E280C6EB31FE77898DE /* Pods_KFinderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +100,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB94AB5E81FADA5B0704B7A5 /* Pods_KFinderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E8B9481832FB041E445199C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95A4146257F85142A26DA876 /* Pods_KFinder.framework */,
+				3C366A5F2FA73684F65BC40E /* Pods_KFinderTests.framework */,
+				8C6B71CF62AB70A7911D7D9B /* Pods_KFinderUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		884AB27B931B45C644FD8B85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				180BF4C1B2A32C1C3EC4920C /* Pods-KFinder.debug.xcconfig */,
+				25C16407D9F0FA2FF706AD20 /* Pods-KFinder.release.xcconfig */,
+				9EB1F4ADF7215BD9E48846EA /* Pods-KFinderTests.debug.xcconfig */,
+				78DDE96EAE77A9CE64D85CFF /* Pods-KFinderTests.release.xcconfig */,
+				EA42E37DA6C56E24713755A8 /* Pods-KFinderUITests.debug.xcconfig */,
+				562192C1EAD4B2DA98E95410 /* Pods-KFinderUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E156D0781E0DC3080045850A = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +137,8 @@
 				E156D09B1E0DC3090045850A /* KFinderTests */,
 				E156D0A61E0DC3090045850A /* KFinderUITests */,
 				E156D0821E0DC3080045850A /* Products */,
+				884AB27B931B45C644FD8B85 /* Pods */,
+				4E8B9481832FB041E445199C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +155,14 @@
 		E156D0831E0DC3080045850A /* KFinder */ = {
 			isa = PBXGroup;
 			children = (
+				E156D0C31E0DC6B20045850A /* Library */,
+				E156D0B51E0DC68A0045850A /* CoreDataStack.swift */,
+				E156D0B61E0DC68A0045850A /* MainViewController.swift */,
+				E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */,
+				E156D0B91E0DC68A0045850A /* CoreDataStack+FirstTimeDataLoad.swift */,
+				E156D0BA1E0DC68A0045850A /* DetailViewController.swift */,
+				E156D0BB1E0DC68A0045850A /* kdata.csv */,
 				E156D0841E0DC3080045850A /* AppDelegate.swift */,
-				E156D0861E0DC3080045850A /* ViewController.swift */,
 				E156D0881E0DC3080045850A /* Main.storyboard */,
 				E156D08E1E0DC3080045850A /* Assets.xcassets */,
 				E156D0901E0DC3080045850A /* LaunchScreen.storyboard */,
@@ -128,6 +190,16 @@
 			path = KFinderUITests;
 			sourceTree = "<group>";
 		};
+		E156D0C31E0DC6B20045850A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				E156D0C41E0DC6E10045850A /* StoryboardIdentifiable.swift */,
+				E156D0C51E0DC6E10045850A /* UITableView+Registration.swift */,
+				E156D0C61E0DC6E10045850A /* SegueHandlerType.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +207,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E156D0AC1E0DC3090045850A /* Build configuration list for PBXNativeTarget "KFinder" */;
 			buildPhases = (
+				2EBE6A54ADABDA88624686BC /* [CP] Check Pods Manifest.lock */,
 				E156D07D1E0DC3080045850A /* Sources */,
 				E156D07E1E0DC3080045850A /* Frameworks */,
 				E156D07F1E0DC3080045850A /* Resources */,
+				4996F4705D5944B55BA05F19 /* [CP] Embed Pods Frameworks */,
+				5B742E1F0E82C5838DBA9CAD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E156D0AF1E0DC3090045850A /* Build configuration list for PBXNativeTarget "KFinderTests" */;
 			buildPhases = (
+				5C115EC5FD9BEA4824B3675C /* [CP] Check Pods Manifest.lock */,
 				E156D0941E0DC3090045850A /* Sources */,
 				E156D0951E0DC3090045850A /* Frameworks */,
 				E156D0961E0DC3090045850A /* Resources */,
+				9727F5057B74329B1E04CC75 /* [CP] Embed Pods Frameworks */,
+				E44DD7C16916B451BF14F833 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E156D0B21E0DC3090045850A /* Build configuration list for PBXNativeTarget "KFinderUITests" */;
 			buildPhases = (
+				4DDEFF8495541C0C2E1F7CE0 /* [CP] Check Pods Manifest.lock */,
 				E156D09F1E0DC3090045850A /* Sources */,
 				E156D0A01E0DC3090045850A /* Frameworks */,
 				E156D0A11E0DC3090045850A /* Resources */,
+				84AA10993E96684934DEB3F4 /* [CP] Embed Pods Frameworks */,
+				0A12237D62254AE86A19A6D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E156D0C21E0DC68A0045850A /* kdata.csv in Resources */,
 				E156D0921E0DC3080045850A /* LaunchScreen.storyboard in Resources */,
 				E156D08F1E0DC3080045850A /* Assets.xcassets in Resources */,
 				E156D08A1E0DC3080045850A /* Main.storyboard in Resources */,
@@ -260,14 +342,159 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A12237D62254AE86A19A6D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KFinderUITests/Pods-KFinderUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EBE6A54ADABDA88624686BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4996F4705D5944B55BA05F19 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KFinder/Pods-KFinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DDEFF8495541C0C2E1F7CE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5B742E1F0E82C5838DBA9CAD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KFinder/Pods-KFinder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C115EC5FD9BEA4824B3675C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84AA10993E96684934DEB3F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KFinderUITests/Pods-KFinderUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9727F5057B74329B1E04CC75 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KFinderTests/Pods-KFinderTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E44DD7C16916B451BF14F833 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KFinderTests/Pods-KFinderTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E156D07D1E0DC3080045850A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E156D0871E0DC3080045850A /* ViewController.swift in Sources */,
+				E156D0C71E0DC6E10045850A /* StoryboardIdentifiable.swift in Sources */,
+				E156D0C81E0DC6E10045850A /* UITableView+Registration.swift in Sources */,
+				E156D0BC1E0DC68A0045850A /* CoreDataStack.swift in Sources */,
 				E156D0851E0DC3080045850A /* AppDelegate.swift in Sources */,
 				E156D08D1E0DC3080045850A /* KFinder.xcdatamodeld in Sources */,
+				E156D0C01E0DC68A0045850A /* CoreDataStack+FirstTimeDataLoad.swift in Sources */,
+				E156D0BD1E0DC68A0045850A /* MainViewController.swift in Sources */,
+				E156D0BE1E0DC68A0045850A /* UIStoryboard+Storyboards.swift in Sources */,
+				E156D0C91E0DC6E10045850A /* SegueHandlerType.swift in Sources */,
+				E156D0C11E0DC68A0045850A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +644,7 @@
 		};
 		E156D0AD1E0DC3090045850A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 180BF4C1B2A32C1C3EC4920C /* Pods-KFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 94GENMY2GG;
@@ -430,6 +658,7 @@
 		};
 		E156D0AE1E0DC3090045850A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25C16407D9F0FA2FF706AD20 /* Pods-KFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 94GENMY2GG;
@@ -443,6 +672,7 @@
 		};
 		E156D0B01E0DC3090045850A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EB1F4ADF7215BD9E48846EA /* Pods-KFinderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -458,6 +688,7 @@
 		};
 		E156D0B11E0DC3090045850A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78DDE96EAE77A9CE64D85CFF /* Pods-KFinderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +704,7 @@
 		};
 		E156D0B31E0DC3090045850A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA42E37DA6C56E24713755A8 /* Pods-KFinderUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 94GENMY2GG;
@@ -487,6 +719,7 @@
 		};
 		E156D0B41E0DC3090045850A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 562192C1EAD4B2DA98E95410 /* Pods-KFinderUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 94GENMY2GG;
@@ -518,6 +751,7 @@
 				E156D0AE1E0DC3090045850A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E156D0AF1E0DC3090045850A /* Build configuration list for PBXNativeTarget "KFinderTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +760,7 @@
 				E156D0B11E0DC3090045850A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E156D0B21E0DC3090045850A /* Build configuration list for PBXNativeTarget "KFinderUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +769,7 @@
 				E156D0B41E0DC3090045850A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
