@@ -1,4 +1,4 @@
-# VitaminK
+# KFinder
 A simple iOS application for determining the amount of Vitamin K present in
 the most common foods.
 
