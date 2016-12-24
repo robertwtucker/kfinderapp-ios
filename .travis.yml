@@ -1,5 +1,5 @@
 language: objective-c
 osx_image: xcode8.2
-xcode_workspace: KFinder.xcworkspace
-xcode_scheme: KFinder
-xcode_sdk: iphonesimulator10.2
+
+script:
+  - xctool -workspace KFinder.xcworkspace -scheme KFinder -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
