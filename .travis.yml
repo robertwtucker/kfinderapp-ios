@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode8.2
+xcode_workspace: KFinder.xcworkspace
+xcode_scheme: KFinder
+xcode_sdk: iphonesimulator10.2
