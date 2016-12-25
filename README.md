@@ -1,4 +1,8 @@
 # KFinder
+
+[![Build Status](https://travis-ci.org/robertwtucker/kfinder-ios.svg?branch=master)](https://travis-ci.org/robertwtucker/kfinder-ios)
+[![License](https://img.shields.io/github/license/robertwtucker/kfinder-ios.svg)](https://github.com/robertwtucker/kfinder-ios/blob/master/LICENSE)
+
 A simple iOS application for determining the amount of Vitamin K present in
 the most common foods.
 
