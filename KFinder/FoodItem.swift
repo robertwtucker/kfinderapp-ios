@@ -20,38 +20,30 @@
  * SOFTWARE.
  */
 
-import UIKit
+import RealmSwift
 
-class DetailViewController: UIViewController {
-
-    var foodItem: FoodItem?
+class FoodItem: Object {
+    dynamic var id: Int = 0
+    dynamic var name: String = ""
+    dynamic var weight: Float = 0.0
+    dynamic var measure: String = ""
+    dynamic var k: Float = 0.0
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var servingSizeLabel: UILabel!
-    @IBOutlet weak var weightAmountLabel: UILabel!
-    @IBOutlet weak var kAmountLabel: UILabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureView()
+    convenience init(id: Int, name: String, weight: Float, measure: String, k: Float) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.weight = weight
+        self.measure = measure
+        self.k = k
     }
     
-    func configureView() {
-        guard let foodItem = foodItem else {
-            print("FoodItem not set!")
-            return
-        }
-        
-        if !foodItem.name.isEmpty, let comma = foodItem.name.characters.index(of: ",") {
-            titleLabel.text = foodItem.name.substring(to: comma)
-        } else {
-            titleLabel.text = foodItem.name
-        }
-        nameLabel.text = foodItem.name
-        servingSizeLabel.text = foodItem.measure
-        weightAmountLabel.text = "\(foodItem.weight) g"
-        kAmountLabel.text = "\(foodItem.k) mcg"
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    override static func indexedProperties() -> [String] {
+        return ["name"]
     }
     
 }
