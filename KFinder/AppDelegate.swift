@@ -21,18 +21,17 @@
  */
 
 import UIKit
-import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var coreDataStack = CoreDataStack()
-
+    var realm: Realm?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        coreDataStack.loadDataFirstTime()
+        configureRealm()
         return true
     }
 
@@ -56,8 +55,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
-        coreDataStack.saveContext()
+    }
+    
+    func configureRealm() {
+        do {
+            realm = try Realm()
+        } catch {
+            print("Error initializing Realm -> \(error)")
+        }
+        FoodItem.loadBaseData(realm: realm)
     }
     
 }

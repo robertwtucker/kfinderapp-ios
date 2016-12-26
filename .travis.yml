@@ -1,5 +1,6 @@
 language: objective-c
 osx_image: xcode8.2
-
+install:
+  - pod install --repo-update
 script:
   - xcodebuild -workspace KFinder.xcworkspace -scheme KFinder -sdk iphonesimulator

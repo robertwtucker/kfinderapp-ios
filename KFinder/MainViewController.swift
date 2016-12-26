@@ -21,38 +21,25 @@
  */
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class MainViewController: UITableViewController, UISearchResultsUpdating {
-    var foodItems = [FoodItem]()
-    var filteredFoodItems = [FoodItem]()
+    private let realm = try! Realm()
+    private var foodItems: Results<FoodItem>?
+    private var filteredFoodItems: Results<FoodItem>?
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         configureSearchBar()
+        foodItems = realm.objects(FoodItem.self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let context = appDelegate.coreDataStack.getContext()
-        let fetchRequest = NSFetchRequest<FoodItem>(entityName: "FoodItem")
-        do {
-            foodItems = try context.fetch(fetchRequest)
-        } catch {
-            print("Error fetching records: \(error) -- \(error.localizedDescription)")
-        }
     }
     
 
@@ -70,19 +57,23 @@ class MainViewController: UITableViewController, UISearchResultsUpdating {
         
         var foodItem: FoodItem
         if searchController.isActive {
-            foodItem = filteredFoodItems[indexPath.row]
+            foodItem = filteredFoodItems![indexPath.row]
         } else {
-            foodItem = foodItems[indexPath.row]
+            foodItem = foodItems![indexPath.row]
         }
         
         cell.textLabel?.text = foodItem.name
-        cell.detailTextLabel?.text = "\(foodItem.measure!) - \(foodItem.k) mcg"
+        cell.detailTextLabel?.text = "\(foodItem.measure) - \(foodItem.k) mcg"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
+        guard let foodItems = foodItems else {
+            return 0
+        }
+        
         if searchController.isActive {
-            return filteredFoodItems.count
+            return filteredFoodItems!.count
         }
         return foodItems.count
     }
@@ -97,9 +88,9 @@ class MainViewController: UITableViewController, UISearchResultsUpdating {
             if let detailViewController = segue.destination as? DetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
                 if searchController.isActive {
-                    detailViewController.foodItem = filteredFoodItems[indexPath.row]
+                    detailViewController.foodItem = filteredFoodItems![indexPath.row]
                 } else {
-                    detailViewController.foodItem = foodItems[indexPath.row]
+                    detailViewController.foodItem = foodItems![indexPath.row]
                 }
             }
         }
@@ -109,12 +100,7 @@ class MainViewController: UITableViewController, UISearchResultsUpdating {
     //MARK: - UISearchResultsUpdating
 
     func filterContent(for searchText: String, scope: String = "") {
-        filteredFoodItems = foodItems.filter { foodItem in
-            if let name = foodItem.name {
-                return name.lowercased().contains(searchText.lowercased())
-            }
-            return false
-        }
+        filteredFoodItems = realm.objects(FoodItem.self).filter("name CONTAINS[c] %@", searchText)
         tableView.reloadData()
     }
     
