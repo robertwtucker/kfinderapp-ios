@@ -658,6 +658,7 @@
 			baseConfigurationReference = 180BF4C1B2A32C1C3EC4920C /* Pods-KFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 94GENMY2GG;
 				INFOPLIST_FILE = KFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
