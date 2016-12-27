@@ -208,6 +208,7 @@
 				E156D07D1E0DC3080045850A /* Sources */,
 				E156D07E1E0DC3080045850A /* Frameworks */,
 				E156D07F1E0DC3080045850A /* Resources */,
+				E144D99F1E11F2410005BCA9 /* Set Build Number */,
 				4996F4705D5944B55BA05F19 /* [CP] Embed Pods Frameworks */,
 				5B742E1F0E82C5838DBA9CAD /* [CP] Copy Pods Resources */,
 			);
@@ -459,6 +460,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KFinderTests/Pods-KFinderTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E144D99F1E11F2410005BCA9 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/scripts/set_build_number.sh\"";
 		};
 		E44DD7C16916B451BF14F833 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
