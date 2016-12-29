@@ -32,6 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         configureRealm()
+
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.backgroundColor = .white
+        window.makeKeyAndVisible()
+
+        if let realm = realm {
+            let viewController: MainViewController = UIStoryboard.storyboard(.main).instantiateViewController()
+            viewController.viewModel = FoodSearchViewModel(realm: realm)
+            window.rootViewController = UINavigationController(rootViewController: viewController)
+        }
+        
+        self.window = window
         return true
     }
 

@@ -20,48 +20,45 @@
  * SOFTWARE.
  */
 
-import UIKit
+import RxSwift
+import RxCocoa
+import RealmSwift
+import RxRealm
 
-class DetailViewController: UIViewController {
-
+struct FoodSearchViewModel {
+    
     //MARK: Properties
     
-    var viewModel: FoodItemViewModel?
+    // Input
+    var searchText = Variable("")
+    var selectedFoodItem = PublishSubject<FoodItem>()
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var servingSizeLabel: UILabel!
-    @IBOutlet weak var weightAmountLabel: UILabel!
-    @IBOutlet weak var kAmountLabel: UILabel!
-    
-    
-    //MARK: View Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-    }
+    // Output
+    let navigationBarTitle: Driver<String>
+    let searchResults: Driver<[FoodItemCellViewModel]>
+    let selectedFoodItemViewModel: Observable<FoodItemViewModel>
     
     
-    //MARK: Configuration
+    //MARK: Initialization
     
-    func configure() {
-        guard let vm = viewModel else {
-            print("ViewModel not set!")
-            return
-        }
+    init(realm: Realm) {
+        let foodItemsObservable = Observable.from(realm.objects(FoodItem.self))
 
-        titleLabel.text = vm.title
-        nameLabel.text = vm.name
-        servingSizeLabel.text = vm.measure
-        weightAmountLabel.text = vm.weight
-        kAmountLabel.text = vm.k
+        navigationBarTitle = .just("Foods")
+        
+        searchResults = searchText.asObservable()
+            .throttle(0.3, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .filter { $0.characters.count > 0 }
+            .withLatestFrom(foodItemsObservable) { query, foodItems in
+                foodItems.filter("name CONTAINS[c] %@", query)
+            }
+            .mapToFoodItemCellViewModels()
+            .asDriver(onErrorJustReturn: [])
+        
+        selectedFoodItemViewModel = selectedFoodItem
+            .map { FoodItemViewModel($0) }
+            .shareReplay(1)
     }
     
 }
-
-
-//MARK: - StoryboardIdentifiable
-
-extension DetailViewController: StoryboardIdentifiable { }
-
