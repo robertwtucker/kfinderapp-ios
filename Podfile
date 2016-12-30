@@ -6,9 +6,8 @@ target 'KFinder' do
   use_frameworks!
 
   pod 'CSV.swift', '~> 1.1'
-#  pod 'RealmSwift', '~> 2.1'
-  pod 'RxSwift', '~> 3.0'
-  pod 'RxCocoa', '~> 3.0'
+  pod 'RxSwift', '~> 3.1'
+  pod 'RxCocoa', '~> 3.1'
   pod 'RxRealm', '~> 0.4'
 
   target 'KFinderTests' do
