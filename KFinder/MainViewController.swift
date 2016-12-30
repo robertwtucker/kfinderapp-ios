@@ -40,10 +40,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        configure()
-        
+        tableView.rx.setDelegate(self).addDisposableTo(bag)
+        configure()        
     }
 
 
@@ -59,23 +57,21 @@ class MainViewController: UIViewController {
             .bindTo(vm.searchText)
             .addDisposableTo(bag)
         
-        tableView.rx.itemSelected
-            .map { self.dataSource[$0.row].foodItem }
-            .bindTo(vm.selectedFoodItem)
+        tableView.rx.modelSelected(FoodItemCellViewModel.self)
+            .bindTo(vm.selectedModel)
             .addDisposableTo(bag)
         
         vm.navigationBarTitle
-            .drive(self.navigationItem.rx.title)
+            .bindTo(navigationItem.rx.title)
             .addDisposableTo(bag)
         
         vm.searchResults
-            .drive(onNext: { [weak self] (results: [FoodItemCellViewModel]) in
-                guard let `self` = self else { return }
-                self.dataSource = results
-                self.tableView.reloadData()
-            })
+            .bindTo(tableView.rx.items(cellIdentifier: "ItemCell")) { (index, model: FoodItemCellViewModel, cell) in
+                cell.textLabel?.text = model.name
+                cell.detailTextLabel?.text = model.description                
+            }
             .addDisposableTo(bag)
-
+                
         vm.selectedFoodItemViewModel
             .subscribe(onNext: { [weak self] viewModel in
                 guard let `self` = self else { return }
@@ -89,31 +85,6 @@ class MainViewController: UIViewController {
 }
 
 
-//MARK: - UITableViewDataSource
-
-extension MainViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: Create custom UITableViewCell
-        let cellIdentifier = "ItemCell"
-        let cell: UITableViewCell = {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else {
-                return UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellIdentifier)
-            }
-            return cell
-        }()
-        
-        cell.textLabel?.text = dataSource[indexPath.row].name
-        cell.detailTextLabel?.text = dataSource[indexPath.row].description
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
-        return dataSource.count
-    }
-}
-
-
 //MARK: - UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
@@ -121,6 +92,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+
 }
 
 
