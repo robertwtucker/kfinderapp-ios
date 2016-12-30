@@ -31,11 +31,12 @@ struct FoodSearchViewModel {
     
     // Input
     var searchText = Variable("")
-    var selectedFoodItem = PublishSubject<FoodItem>()
+//    var selectedFoodItem = PublishSubject<FoodItem>()
+    var selectedModel = PublishSubject<FoodItemCellViewModel>()
     
     // Output
-    let navigationBarTitle: Driver<String>
-    let searchResults: Driver<[FoodItemCellViewModel]>
+    let navigationBarTitle: Observable<String>
+    let searchResults: Observable<[FoodItemCellViewModel]>
     let selectedFoodItemViewModel: Observable<FoodItemViewModel>
     
     
@@ -54,10 +55,10 @@ struct FoodSearchViewModel {
                 foodItems.filter("name CONTAINS[c] %@", query)
             }
             .mapToFoodItemCellViewModels()
-            .asDriver(onErrorJustReturn: [])
+            .observeOn(MainScheduler.instance)
         
-        selectedFoodItemViewModel = selectedFoodItem
-            .map { FoodItemViewModel($0) }
+        selectedFoodItemViewModel = selectedModel
+            .map { FoodItemViewModel($0.foodItem) }
             .shareReplay(1)
     }
     
