@@ -4,15 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [v0.2.0] - 2016-12-30
+Reimplemented prototype using Reactive Programming principles and an architecture based on the Model-View-ViewModel pattern
+
 ### Added
-- Approach using Reactive Programming principles and an architecture based on the Model-View-ViewModel pattern
 - Framework dependencies: [RxSwift](https://github.com/ReactiveX/RxSwift)/RxCocoa, [RxRealm](https://github.com/RxSwiftCommunity/RxRealm)
+- Change log
 
 ### Changed
-- Updated RxSwift and RxCocoa dependencies from 3.0.1 to 3.1.0
+- Updated RxSwift and RxCocoa from v3.0.1 to v3.1.0
 
-## 0.1.0 - 2016-12-26
+## v0.1.0 - 2016-12-26
 Initial prototype with basic search and display
 
 ### Added
@@ -24,3 +26,4 @@ Initial prototype with basic search and display
 - Replaced CoreData with [Realm](https://realm.io/)
 
 [Unreleased]: https://github.com/robertwtucker/kfinder-ios/compare/master...develop
+[0.2.0]: https://github.com/robertwtucker/kfinder-ios/compare/v0.1.0...v0.2.0
