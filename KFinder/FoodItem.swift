@@ -23,11 +23,17 @@
 import RealmSwift
 
 class FoodItem: Object {
+        
+    //MARK: Properties
+    
     dynamic var id: Int = 0
     dynamic var name: String = ""
     dynamic var weight: Float = 0.0
     dynamic var measure: String = ""
     dynamic var k: Float = 0.0
+    
+    
+    //MARK: Initialization
     
     convenience init(id: Int, name: String, weight: Float, measure: String, k: Float) {
         self.init()
@@ -37,6 +43,9 @@ class FoodItem: Object {
         self.measure = measure
         self.k = k
     }
+    
+    
+    //MARK: - Class Functions
     
     override class func primaryKey() -> String? {
         return "id"

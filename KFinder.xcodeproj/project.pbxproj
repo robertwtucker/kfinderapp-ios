@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5E76B720F6969D4E419A3E4E /* Pods_KFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A4146257F85142A26DA876 /* Pods_KFinder.framework */; };
 		B6287E280C6EB31FE77898DE /* Pods_KFinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C366A5F2FA73684F65BC40E /* Pods_KFinderTests.framework */; };
+		E11643061E12F9B6004FB1FE /* FoodSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11643051E12F9B6004FB1FE /* FoodSearchViewModel.swift */; };
+		E11643091E1588E4004FB1FE /* FoodItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11643071E1588E4004FB1FE /* FoodItemViewModel.swift */; };
+		E116430A1E1588E4004FB1FE /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11643081E1588E4004FB1FE /* StoryboardIdentifiable.swift */; };
+		E116430C1E15B7F6004FB1FE /* FoodItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E116430B1E15B7F6004FB1FE /* FoodItemCellViewModel.swift */; };
 		E144D99C1E1089B90005BCA9 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144D99B1E1089B90005BCA9 /* FoodItem.swift */; };
 		E144D99E1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144D99D1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift */; };
 		E156D0851E0DC3080045850A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0841E0DC3080045850A /* AppDelegate.swift */; };
@@ -21,9 +25,6 @@
 		E156D0BE1E0DC68A0045850A /* UIStoryboard+Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */; };
 		E156D0C11E0DC68A0045850A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0BA1E0DC68A0045850A /* DetailViewController.swift */; };
 		E156D0C21E0DC68A0045850A /* kdata.csv in Resources */ = {isa = PBXBuildFile; fileRef = E156D0BB1E0DC68A0045850A /* kdata.csv */; };
-		E156D0C71E0DC6E10045850A /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0C41E0DC6E10045850A /* StoryboardIdentifiable.swift */; };
-		E156D0C81E0DC6E10045850A /* UITableView+Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0C51E0DC6E10045850A /* UITableView+Registration.swift */; };
-		E156D0C91E0DC6E10045850A /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0C61E0DC6E10045850A /* SegueHandlerType.swift */; };
 		EB94AB5E81FADA5B0704B7A5 /* Pods_KFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6B71CF62AB70A7911D7D9B /* Pods_KFinderUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,10 @@
 		8C6B71CF62AB70A7911D7D9B /* Pods_KFinderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KFinderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A4146257F85142A26DA876 /* Pods_KFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EB1F4ADF7215BD9E48846EA /* Pods-KFinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderTests/Pods-KFinderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E11643051E12F9B6004FB1FE /* FoodSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSearchViewModel.swift; sourceTree = "<group>"; };
+		E11643071E1588E4004FB1FE /* FoodItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItemViewModel.swift; sourceTree = "<group>"; };
+		E11643081E1588E4004FB1FE /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
+		E116430B1E15B7F6004FB1FE /* FoodItemCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItemCellViewModel.swift; sourceTree = "<group>"; };
 		E144D99B1E1089B90005BCA9 /* FoodItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		E144D99D1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FoodItem+LoadBaseData.swift"; sourceTree = "<group>"; };
 		E156D0811E0DC3080045850A /* KFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,9 +76,6 @@
 		E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Storyboards.swift"; sourceTree = "<group>"; };
 		E156D0BA1E0DC68A0045850A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E156D0BB1E0DC68A0045850A /* kdata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kdata.csv; sourceTree = "<group>"; };
-		E156D0C41E0DC6E10045850A /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
-		E156D0C51E0DC6E10045850A /* UITableView+Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Registration.swift"; sourceTree = "<group>"; };
-		E156D0C61E0DC6E10045850A /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		EA42E37DA6C56E24713755A8 /* Pods-KFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderUITests/Pods-KFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,12 +155,15 @@
 		E156D0831E0DC3080045850A /* KFinder */ = {
 			isa = PBXGroup;
 			children = (
-				E156D0C31E0DC6B20045850A /* Library */,
+				E156D0841E0DC3080045850A /* AppDelegate.swift */,
 				E156D0B61E0DC68A0045850A /* MainViewController.swift */,
 				E156D0BA1E0DC68A0045850A /* DetailViewController.swift */,
-				E156D0841E0DC3080045850A /* AppDelegate.swift */,
+				E11643051E12F9B6004FB1FE /* FoodSearchViewModel.swift */,
+				E11643071E1588E4004FB1FE /* FoodItemViewModel.swift */,
+				E116430B1E15B7F6004FB1FE /* FoodItemCellViewModel.swift */,
 				E144D99B1E1089B90005BCA9 /* FoodItem.swift */,
 				E144D99D1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift */,
+				E11643081E1588E4004FB1FE /* StoryboardIdentifiable.swift */,
 				E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */,
 				E156D0881E0DC3080045850A /* Main.storyboard */,
 				E156D08E1E0DC3080045850A /* Assets.xcassets */,
@@ -185,16 +190,6 @@
 				E156D0A91E0DC3090045850A /* Info.plist */,
 			);
 			path = KFinderUITests;
-			sourceTree = "<group>";
-		};
-		E156D0C31E0DC6B20045850A /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				E156D0C41E0DC6E10045850A /* StoryboardIdentifiable.swift */,
-				E156D0C51E0DC6E10045850A /* UITableView+Registration.swift */,
-				E156D0C61E0DC6E10045850A /* SegueHandlerType.swift */,
-			);
-			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,13 +492,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E156D0C71E0DC6E10045850A /* StoryboardIdentifiable.swift in Sources */,
-				E156D0C81E0DC6E10045850A /* UITableView+Registration.swift in Sources */,
 				E156D0851E0DC3080045850A /* AppDelegate.swift in Sources */,
 				E144D99C1E1089B90005BCA9 /* FoodItem.swift in Sources */,
 				E156D0BD1E0DC68A0045850A /* MainViewController.swift in Sources */,
+				E116430C1E15B7F6004FB1FE /* FoodItemCellViewModel.swift in Sources */,
 				E156D0BE1E0DC68A0045850A /* UIStoryboard+Storyboards.swift in Sources */,
-				E156D0C91E0DC6E10045850A /* SegueHandlerType.swift in Sources */,
+				E11643061E12F9B6004FB1FE /* FoodSearchViewModel.swift in Sources */,
+				E116430A1E1588E4004FB1FE /* StoryboardIdentifiable.swift in Sources */,
+				E11643091E1588E4004FB1FE /* FoodItemViewModel.swift in Sources */,
 				E144D99E1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift in Sources */,
 				E156D0C11E0DC68A0045850A /* DetailViewController.swift in Sources */,
 			);
@@ -657,7 +653,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 180BF4C1B2A32C1C3EC4920C /* Pods-KFinder.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 94GENMY2GG;
 				INFOPLIST_FILE = KFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -671,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 25C16407D9F0FA2FF706AD20 /* Pods-KFinder.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 94GENMY2GG;
 				INFOPLIST_FILE = KFinder/Info.plist;

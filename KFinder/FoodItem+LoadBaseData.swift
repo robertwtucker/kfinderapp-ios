@@ -24,6 +24,7 @@ import CSV
 import RealmSwift
 
 extension FoodItem {
+    
     enum DataField: String {
         case id = "id"
         case name = "name"
@@ -43,11 +44,8 @@ extension FoodItem {
         
         //TODO: Remove after testing load options
 //        defaults.set(false, forKey: dataInitKey)
-//        let foodItems = realm.objects(FoodItem.self)
-//        if foodItems.count > 0 {
-//            _ = try! realm.write {
-//                realm.delete(foodItems)
-//            }
+//        try! realm.write {
+//            realm.delete(realm.objects(FoodItem.self))
 //        }
         
         guard defaults.bool(forKey: dataInitKey) == false else {
