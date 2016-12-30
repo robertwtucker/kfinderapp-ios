@@ -20,48 +20,33 @@
  * SOFTWARE.
  */
 
-import UIKit
+import RxSwift
+import RealmSwift
 
-class DetailViewController: UIViewController {
-
+struct FoodItemViewModel {
+    
     //MARK: Properties
+
+    let foodItem: FoodItem
     
-    var viewModel: FoodItemViewModel?
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var servingSizeLabel: UILabel!
-    @IBOutlet weak var weightAmountLabel: UILabel!
-    @IBOutlet weak var kAmountLabel: UILabel!
-    
-    
-    //MARK: View Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-    }
-    
-    
-    //MARK: Configuration
-    
-    func configure() {
-        guard let vm = viewModel else {
-            print("ViewModel not set!")
-            return
+    var id: Int { return foodItem.id }
+    var name: String { return foodItem.name }
+    var weight: String { return "\(foodItem.weight) g" }
+    var measure: String { return foodItem.measure }
+    var k: String { return "\(foodItem.k) mcg" }
+    var title: String {
+        if !name.isEmpty, let comma = name.characters.index(of: ",") {
+            return name.substring(to: comma)
+        } else {
+            return name
         }
-
-        titleLabel.text = vm.title
-        nameLabel.text = vm.name
-        servingSizeLabel.text = vm.measure
-        weightAmountLabel.text = vm.weight
-        kAmountLabel.text = vm.k
     }
     
+    
+    //MARK: Initialization
+    
+    init(_ foodItem: FoodItem) {
+        self.foodItem = foodItem
+    }
+
 }
-
-
-//MARK: - StoryboardIdentifiable
-
-extension DetailViewController: StoryboardIdentifiable { }
-

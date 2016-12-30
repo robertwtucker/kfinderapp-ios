@@ -21,31 +21,79 @@
  */
 
 import UIKit
-import RealmSwift
+import RxSwift
+import RxCocoa
 
-class MainViewController: UITableViewController, UISearchResultsUpdating {
-    private let realm = try! Realm()
-    private var foodItems: Results<FoodItem>?
-    private var filteredFoodItems: Results<FoodItem>?
+class MainViewController: UIViewController {
     
-    let searchController = UISearchController(searchResultsController: nil)
+    //MARK: Properties
+    
+    var viewModel: FoodSearchViewModel?
+    fileprivate var dataSource = [FoodItemCellViewModel]()
+    private let bag = DisposeBag()
+    
+    @IBOutlet weak private var searchBar: UISearchBar!
+    @IBOutlet weak private var tableView: UITableView!
+    
+
+    //MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        configureSearchBar()
-        foodItems = realm.objects(FoodItem.self)
+        tableView.dataSource = self
+        tableView.delegate = self
+        configure()
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    //MARK: Configuration
+    
+    func configure() {
+        guard let vm = viewModel else {
+            print("ViewModel not set!")
+            return
+        }
+        
+        searchBar.rx.text.orEmpty
+            .bindTo(vm.searchText)
+            .addDisposableTo(bag)
+        
+        tableView.rx.itemSelected
+            .map { self.dataSource[$0.row].foodItem }
+            .bindTo(vm.selectedFoodItem)
+            .addDisposableTo(bag)
+        
+        vm.navigationBarTitle
+            .drive(self.navigationItem.rx.title)
+            .addDisposableTo(bag)
+        
+        vm.searchResults
+            .drive(onNext: { [weak self] (results: [FoodItemCellViewModel]) in
+                guard let `self` = self else { return }
+                self.dataSource = results
+                self.tableView.reloadData()
+            })
+            .addDisposableTo(bag)
+
+        vm.selectedFoodItemViewModel
+            .subscribe(onNext: { [weak self] viewModel in
+                guard let `self` = self else { return }
+                let viewController: DetailViewController = UIStoryboard.storyboard(.main).instantiateViewController()
+                viewController.viewModel = viewModel
+                self.show(viewController, sender: nil)
+            })
+            .addDisposableTo(bag)
     }
     
+}
 
-    //MARK: - UITableViewController
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//MARK: - UITableViewDataSource
+
+extension MainViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //TODO: Create custom UITableViewCell
         let cellIdentifier = "ItemCell"
         let cell: UITableViewCell = {
@@ -55,80 +103,27 @@ class MainViewController: UITableViewController, UISearchResultsUpdating {
             return cell
         }()
         
-        var foodItem: FoodItem
-        if searchController.isActive {
-            foodItem = filteredFoodItems![indexPath.row]
-        } else {
-            foodItem = foodItems![indexPath.row]
-        }
-        
-        cell.textLabel?.text = foodItem.name
-        cell.detailTextLabel?.text = "\(foodItem.measure) - \(foodItem.k) mcg"
+        cell.textLabel?.text = dataSource[indexPath.row].name
+        cell.detailTextLabel?.text = dataSource[indexPath.row].description
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
-        guard let foodItems = foodItems else {
-            return 0
-        }
-        
-        if searchController.isActive {
-            return filteredFoodItems!.count
-        }
-        return foodItems.count
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: .showDetailViewController, sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segueIdentifierForSegue(segue: segue) {
-        case .showDetailViewController:
-            if let detailViewController = segue.destination as? DetailViewController,
-                let indexPath = tableView.indexPathForSelectedRow {
-                if searchController.isActive {
-                    detailViewController.foodItem = filteredFoodItems![indexPath.row]
-                } else {
-                    detailViewController.foodItem = foodItems![indexPath.row]
-                }
-            }
-        }
-    }
-    
-
-    //MARK: - UISearchResultsUpdating
-
-    func filterContent(for searchText: String, scope: String = "") {
-        filteredFoodItems = realm.objects(FoodItem.self).filter("name CONTAINS[c] %@", searchText)
-        tableView.reloadData()
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContent(for: searchController.searchBar.text!)
-    }
-    
-    //MARK: - UI Support
-    
-    func configureSearchBar() {
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.sizeToFit()
-        searchController.searchBar.autocapitalizationType = .none
-        tableView.tableHeaderView = searchController.searchBar
-    }
-    
-}
-
-//MARK: - Extensions
-
-extension MainViewController: SegueHandlerType {
-    enum SegueIdentifier: String {
-        case showDetailViewController
+    func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
+        return dataSource.count
     }
 }
 
-extension MainViewController: StoryboardIdentifiable {}
+
+//MARK: - UITableViewDelegate
+
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
 
 
+//MARK: - StoryboardIdentifiable
+
+extension MainViewController: StoryboardIdentifiable { }

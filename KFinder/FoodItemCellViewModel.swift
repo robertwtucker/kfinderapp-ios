@@ -20,28 +20,37 @@
  * SOFTWARE.
  */
 
-import UIKit
+import RxSwift
+import RealmSwift
 
-// The SegueHandlerType pattern, as seen on [1, 2].
-//
-// [1] https://developer.apple.com/library/content/samplecode/Lister/Listings/Lister_SegueHandlerType_swift.html
-// [2] https://www.natashatherobot.com/protocol-oriented-segue-identifiers-swift/
-
-protocol SegueHandlerType {
-    associatedtype SegueIdentifier: RawRepresentable
+struct FoodItemCellViewModel {
+    
+    //MARK: Properties
+    
+    let foodItem: FoodItem
+    
+    var name: String { return foodItem.name }
+    var description: String { return "\(foodItem.measure) - \(foodItem.k) mcg" }
+    
+    
+    //MARK: Initialization
+    
+    init(foodItem: FoodItem) {
+        self.foodItem = foodItem
+    }
 }
 
-extension SegueHandlerType where Self: UIViewController, SegueIdentifier.RawValue == String {
-    
-    func performSegue(withIdentifier identifier: SegueIdentifier, sender: Any?) {
-        performSegue(withIdentifier: identifier.rawValue, sender: sender)
-    }
-    
-    func segueIdentifierForSegue(segue: UIStoryboardSegue) -> SegueIdentifier {
-        guard let identifier = segue.identifier, let segueIdentifier = SegueIdentifier(rawValue: identifier) else {
-            fatalError("Couldn't handle segue identifier \(segue.identifier) for view controller of type \(type(of: self)).")
+
+//MARK: - Extensions
+
+extension Observable {
+    func mapToFoodItemCellViewModels() -> Observable<[FoodItemCellViewModel]> {
+        return self.map { foodItems in
+            if let foodItems = foodItems as? Results<FoodItem> {
+                return foodItems.map { return FoodItemCellViewModel(foodItem: $0) }
+            } else {
+                return []
+            }
         }
-        
-        return segueIdentifier
     }
 }
