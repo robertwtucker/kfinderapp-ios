@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [v0.2.0] - 2016-12-30
+## [v0.2.0][0.2.0] - 2016-12-30
 Reimplemented prototype using Reactive Programming principles and an architecture based on the Model-View-ViewModel pattern
 
 ### Added
