@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [v0.2.0][0.2.0] - 2016-12-30
+## [v0.2.1][v0.2.1] - 2016-12-30
+Testing hotfix workflow with some items that were missed before shipping 0.2.0.
+
+### Fixed
+- Acknowledgements for new libraries omitted from the NOTICE file
+- Reference link in the Change Log for the current release is broken
+
+## [v0.2.0][v0.2.0] - 2016-12-30
 Reimplemented prototype using Reactive Programming principles and an architecture based on the Model-View-ViewModel pattern
 
 ### Added
@@ -26,4 +33,5 @@ Initial prototype with basic search and display
 - Replaced CoreData with [Realm](https://realm.io/)
 
 [Unreleased]: https://github.com/robertwtucker/kfinder-ios/compare/master...develop
-[0.2.0]: https://github.com/robertwtucker/kfinder-ios/compare/v0.1.0...v0.2.0
+[v0.2.1]: https://github.com/robertwtucker/kfinder-ios/compare/v0.2.0...v0.2.1
+[v0.2.0]: https://github.com/robertwtucker/kfinder-ios/compare/v0.1.0...v0.2.0
