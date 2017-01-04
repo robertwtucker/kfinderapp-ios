@@ -16,6 +16,6 @@ development for the iOS platform. Key interest areas include:
 * Build automation
 
 ## License
-This project is being released under the [MIT License](https://opensource.org/licenses/MIT)
+This project is being released under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
 so that others may also benefit from the things I've learned along the way (not
 likely, but that's the goal :wink:).
