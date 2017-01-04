@@ -27,23 +27,16 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var realm: Realm?
+    
+    private lazy var appCoordinator: AppCoordinator = {
+        return AppCoordinator(window: self.window!)
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        configureRealm()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        appCoordinator.start()
 
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.backgroundColor = .white
-        window.makeKeyAndVisible()
-
-        if let realm = realm {
-            let viewController: MainViewController = UIStoryboard.storyboard(.main).instantiateViewController()
-            viewController.viewModel = FoodSearchViewModel(realm: realm)
-            window.rootViewController = UINavigationController(rootViewController: viewController)
-        }
-        
-        self.window = window
         return true
     }
 
@@ -67,15 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-    func configureRealm() {
-        do {
-            realm = try Realm()
-        } catch {
-            print("Error initializing Realm -> \(error)")
-        }
-        FoodItem.loadBaseData(realm: realm)
     }
     
 }
