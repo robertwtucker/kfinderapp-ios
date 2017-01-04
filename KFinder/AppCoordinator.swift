@@ -21,12 +21,10 @@ import RealmSwift
 final class AppCoordinator: Coordinator {
     let window: UIWindow
     let rootViewController: UIViewController
-    let childCoordinators: NSMutableArray
-
-    var realm: Realm?
+    var childCoordinators: Array<Coordinator>
 
     init(window: UIWindow) {
-        childCoordinators = NSMutableArray()
+        childCoordinators = Array<Coordinator>()
         rootViewController = UINavigationController()
 
         self.window = window
@@ -36,20 +34,12 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
-        configureRealm()
-        if let realm = realm {
-            let foodSearchCoordinator = FoodSearchCoordinator(rootViewController as! UINavigationController, realm: realm)
-            childCoordinators.add(foodSearchCoordinator)
-            foodSearchCoordinator.start()
-        }
+        let realm = RealmProvider.appRealm
+        FoodItem.loadBaseData(realm: realm)
+        
+        let foodSearchCoordinator = FoodSearchCoordinator(rootViewController as! UINavigationController, realm: realm)
+        childCoordinators.append(foodSearchCoordinator)
+        foodSearchCoordinator.start()
     }
 
-    func configureRealm() {
-        do {
-            realm = try Realm()
-        } catch {
-            print("Error initializing Realm -> \(error)")
-        }
-        FoodItem.loadBaseData(realm: realm)
-    }
 }
