@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import UIKit
+// See: http://khanlou.com/2015/10/coordinators-redux/
 
 protocol Coordinator {
 
