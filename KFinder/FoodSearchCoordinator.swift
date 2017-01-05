@@ -19,16 +19,14 @@ import RealmSwift
 
 final class FoodSearchCoordinator: NavigationCoordinator {
     let navigationController: UINavigationController
-    let realm: Realm
 
-    init(_ navigationController: UINavigationController, realm: Realm) {
+    init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.realm = realm
     }
 
     func start() {
         let viewController: MainViewController = UIStoryboard.storyboard(.main).instantiateViewController()
-        viewController.viewModel = FoodSearchViewModel(realm: realm)
+        viewController.viewModel = FoodSearchViewModel(realm: RealmProvider.appRealm)
         navigationController.pushViewController(viewController, animated: false)
     }
 

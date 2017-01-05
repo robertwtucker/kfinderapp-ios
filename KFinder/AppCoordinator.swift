@@ -34,10 +34,9 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
-        let realm = RealmProvider.appRealm
-        FoodItem.loadBaseData(realm: realm)
+        FoodItem.loadBaseData(realm: RealmProvider.appRealm)
         
-        let foodSearchCoordinator = FoodSearchCoordinator(rootViewController as! UINavigationController, realm: realm)
+        let foodSearchCoordinator = FoodSearchCoordinator(rootViewController as! UINavigationController)
         childCoordinators.append(foodSearchCoordinator)
         foodSearchCoordinator.start()
     }
