@@ -16,7 +16,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class FoodItemViewController: UIViewController {
 
     //MARK: Properties
 
@@ -57,4 +57,4 @@ class DetailViewController: UIViewController {
 
 //MARK: - StoryboardIdentifiable
 
-extension DetailViewController: StoryboardIdentifiable { }
+extension FoodItemViewController: StoryboardIdentifiable { }

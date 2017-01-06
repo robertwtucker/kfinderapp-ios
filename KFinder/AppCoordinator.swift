@@ -20,23 +20,23 @@ import RealmSwift
 
 final class AppCoordinator: Coordinator {
     let window: UIWindow
-    let rootViewController: UIViewController
     var childCoordinators: Array<Coordinator>
 
     init(window: UIWindow) {
         childCoordinators = Array<Coordinator>()
-        rootViewController = UINavigationController()
 
         self.window = window
         self.window.backgroundColor = .white
-        self.window.rootViewController = rootViewController
         self.window.makeKeyAndVisible()
     }
 
     func start() {
         FoodItem.loadBaseData(realm: RealmProvider.appRealm)
-        
-        let foodSearchCoordinator = FoodSearchCoordinator(rootViewController as! UINavigationController)
+        showFoodSearch()
+    }
+    
+    func showFoodSearch() {
+        let foodSearchCoordinator = FoodSearchCoordinator(window)
         childCoordinators.append(foodSearchCoordinator)
         foodSearchCoordinator.start()
     }

@@ -26,9 +26,9 @@
 		E156D0921E0DC3080045850A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E156D0901E0DC3080045850A /* LaunchScreen.storyboard */; };
 		E156D09D1E0DC3090045850A /* KFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D09C1E0DC3090045850A /* KFinderTests.swift */; };
 		E156D0A81E0DC3090045850A /* KFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0A71E0DC3090045850A /* KFinderUITests.swift */; };
-		E156D0BD1E0DC68A0045850A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0B61E0DC68A0045850A /* MainViewController.swift */; };
+		E156D0BD1E0DC68A0045850A /* FoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0B61E0DC68A0045850A /* FoodSearchViewController.swift */; };
 		E156D0BE1E0DC68A0045850A /* UIStoryboard+Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */; };
-		E156D0C11E0DC68A0045850A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0BA1E0DC68A0045850A /* DetailViewController.swift */; };
+		E156D0C11E0DC68A0045850A /* FoodItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D0BA1E0DC68A0045850A /* FoodItemViewController.swift */; };
 		E156D0C21E0DC68A0045850A /* kdata.csv in Resources */ = {isa = PBXBuildFile; fileRef = E156D0BB1E0DC68A0045850A /* kdata.csv */; };
 		EB94AB5E81FADA5B0704B7A5 /* Pods_KFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6B71CF62AB70A7911D7D9B /* Pods_KFinderUITests.framework */; };
 /* End PBXBuildFile section */
@@ -82,9 +82,9 @@
 		E156D0A31E0DC3090045850A /* KFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E156D0A71E0DC3090045850A /* KFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITests.swift; sourceTree = "<group>"; };
 		E156D0A91E0DC3090045850A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E156D0B61E0DC68A0045850A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E156D0B61E0DC68A0045850A /* FoodSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSearchViewController.swift; sourceTree = "<group>"; };
 		E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Storyboards.swift"; sourceTree = "<group>"; };
-		E156D0BA1E0DC68A0045850A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E156D0BA1E0DC68A0045850A /* FoodItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItemViewController.swift; sourceTree = "<group>"; };
 		E156D0BB1E0DC68A0045850A /* kdata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kdata.csv; sourceTree = "<group>"; };
 		EA42E37DA6C56E24713755A8 /* Pods-KFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderUITests/Pods-KFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,24 +167,24 @@
 			children = (
 				E1087B191E1C33D6003418A5 /* AppCoordinator.swift */,
 				E156D0841E0DC3080045850A /* AppDelegate.swift */,
-				E156D0B61E0DC68A0045850A /* MainViewController.swift */,
-				E156D0BA1E0DC68A0045850A /* DetailViewController.swift */,
 				E1087B1B1E1C6B64003418A5 /* FoodSearchCoordinator.swift */,
+				E156D0B61E0DC68A0045850A /* FoodSearchViewController.swift */,
 				E11643051E12F9B6004FB1FE /* FoodSearchViewModel.swift */,
+				E156D0BA1E0DC68A0045850A /* FoodItemViewController.swift */,
 				E11643071E1588E4004FB1FE /* FoodItemViewModel.swift */,
 				E116430B1E15B7F6004FB1FE /* FoodItemCellViewModel.swift */,
 				E144D99B1E1089B90005BCA9 /* FoodItem.swift */,
 				E144D99D1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift */,
 				E11643081E1588E4004FB1FE /* StoryboardIdentifiable.swift */,
+				E1087B261E1D854B003418A5 /* RealmProvider.swift */,
+				E1087B1D1E1C7116003418A5 /* Coordinator.swift */,
+				E1087B211E1C7821003418A5 /* NavigationCoordinator.swift */,
 				E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */,
 				E156D0881E0DC3080045850A /* Main.storyboard */,
 				E156D08E1E0DC3080045850A /* Assets.xcassets */,
 				E156D0901E0DC3080045850A /* LaunchScreen.storyboard */,
 				E156D0931E0DC3080045850A /* Info.plist */,
 				E156D0BB1E0DC68A0045850A /* kdata.csv */,
-				E1087B1D1E1C7116003418A5 /* Coordinator.swift */,
-				E1087B211E1C7821003418A5 /* NavigationCoordinator.swift */,
-				E1087B261E1D854B003418A5 /* RealmProvider.swift */,
 			);
 			path = KFinder;
 			sourceTree = "<group>";
@@ -512,7 +512,7 @@
 				E1087B1E1E1C7116003418A5 /* Coordinator.swift in Sources */,
 				E156D0851E0DC3080045850A /* AppDelegate.swift in Sources */,
 				E144D99C1E1089B90005BCA9 /* FoodItem.swift in Sources */,
-				E156D0BD1E0DC68A0045850A /* MainViewController.swift in Sources */,
+				E156D0BD1E0DC68A0045850A /* FoodSearchViewController.swift in Sources */,
 				E1087B221E1C7821003418A5 /* NavigationCoordinator.swift in Sources */,
 				E116430C1E15B7F6004FB1FE /* FoodItemCellViewModel.swift in Sources */,
 				E156D0BE1E0DC68A0045850A /* UIStoryboard+Storyboards.swift in Sources */,
@@ -520,7 +520,7 @@
 				E116430A1E1588E4004FB1FE /* StoryboardIdentifiable.swift in Sources */,
 				E11643091E1588E4004FB1FE /* FoodItemViewModel.swift in Sources */,
 				E144D99E1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift in Sources */,
-				E156D0C11E0DC68A0045850A /* DetailViewController.swift in Sources */,
+				E156D0C11E0DC68A0045850A /* FoodItemViewController.swift in Sources */,
 				E1087B271E1D854B003418A5 /* RealmProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

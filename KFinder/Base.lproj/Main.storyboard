@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
+        <!--Food Item View Controller-->
         <scene sceneID="qZp-EQ-bRW">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="pvd-WX-DsU" customClass="DetailViewController" customModule="KFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodItemViewController" id="pvd-WX-DsU" customClass="FoodItemViewController" customModule="KFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bMo-G7-asu"/>
                         <viewControllerLayoutGuide type="bottom" id="dtT-2h-OIp"/>
@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="-135" y="287"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Food Search View Controller-->
         <scene sceneID="YxW-wT-qqL">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" title="Main View Controller" id="D6K-Hl-x8P" customClass="MainViewController" customModule="KFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodSearchViewController" title="Food Search View Controller" id="D6K-Hl-x8P" customClass="FoodSearchViewController" customModule="KFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sHX-jc-nsm"/>
                         <viewControllerLayoutGuide type="bottom" id="JDh-sG-2Rc"/>

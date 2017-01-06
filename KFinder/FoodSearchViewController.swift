@@ -18,7 +18,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MainViewController: UIViewController {
+class FoodSearchViewController: UIViewController {
 
     //MARK: Properties
 
@@ -69,7 +69,7 @@ class MainViewController: UIViewController {
         vm.selectedFoodItemViewModel
             .subscribe(onNext: { [weak self] viewModel in
                 guard let `self` = self else { return }
-                let viewController: DetailViewController = UIStoryboard.storyboard(.main).instantiateViewController()
+                let viewController: FoodItemViewController = UIStoryboard.storyboard(.main).instantiateViewController()
                 viewController.viewModel = viewModel
                 self.show(viewController, sender: nil)
             })
@@ -81,7 +81,7 @@ class MainViewController: UIViewController {
 
 //MARK: - UITableViewDelegate
 
-extension MainViewController: UITableViewDelegate {
+extension FoodSearchViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -92,4 +92,4 @@ extension MainViewController: UITableViewDelegate {
 
 //MARK: - StoryboardIdentifiable
 
-extension MainViewController: StoryboardIdentifiable { }
+extension FoodSearchViewController: StoryboardIdentifiable { }
