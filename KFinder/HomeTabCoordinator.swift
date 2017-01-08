@@ -15,25 +15,22 @@
  */
 
 import UIKit
-import RealmSwift
 
-final class FoodSearchCoordinator: TabCoordinator {
+final class HomeTabCoordinator: TabCoordinator {
     let tabBarController: UITabBarController
     let tabBarItem: UITabBarItem
     var viewController: UIViewController
-
+    
     init(tabBarController: UITabBarController, title: String, image: UIImage?) {
         self.tabBarController = tabBarController
         self.tabBarItem = UITabBarItem(title: title, image: image, selectedImage: nil)
         self.viewController = UIViewController()
     }
-
+    
     func start() {
-        let viewController: FoodSearchViewController = UIStoryboard.storyboard(.main).instantiateViewController()
+        let viewController: HomeViewController = UIStoryboard.storyboard(.main).instantiateViewController()
         viewController.tabBarItem = tabBarItem
-        viewController.viewModel = FoodSearchViewModel(realm: RealmProvider.appRealm)
-        let navigationController = UINavigationController(rootViewController: viewController)
-        self.viewController = navigationController
+        self.viewController = viewController
     }
-
+    
 }

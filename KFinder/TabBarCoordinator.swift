@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-// See: http://khanlou.com/2015/10/coordinators-redux/
+import UIKit
 
-protocol Coordinator: class {
+protocol TabBarCoordinator: Coordinator {
 
-    func start()
+    var tabBarController: UITabBarController { get }
+    var tabCoordinators: [TabCoordinator] { get }
 
 }
