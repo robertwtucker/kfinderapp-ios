@@ -17,7 +17,7 @@
 import UIKit
 import RealmSwift
 
-final class FoodSearchCoordinator: TabCoordinator {
+final class SearchTabCoordinator: TabCoordinator {
     let tabBarController: UITabBarController
     let tabBarItem: UITabBarItem
     var viewController: UIViewController

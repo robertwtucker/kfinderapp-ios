@@ -53,7 +53,7 @@ final class AppCoordinator: TabBarCoordinator {
     func createTabControllers() {
         tabCoordinators.append(HomeTabCoordinator(tabBarController: tabBarController, title: AppTabs.Home.rawValue, image: UIImage(named: AppTabs.Home.rawValue)))
         
-        tabCoordinators.append(FoodSearchCoordinator(tabBarController: tabBarController, title: AppTabs.Search.rawValue, image: UIImage(named: AppTabs.Search.rawValue)))
+        tabCoordinators.append(SearchTabCoordinator(tabBarController: tabBarController, title: AppTabs.Search.rawValue, image: UIImage(named: AppTabs.Search.rawValue)))
 
         tabCoordinators.append(SettingsTabCoordinator(tabBarController: tabBarController, title: AppTabs.Settings.rawValue, image: UIImage(named: AppTabs.Settings.rawValue)))
         

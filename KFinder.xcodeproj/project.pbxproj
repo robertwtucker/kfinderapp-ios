@@ -11,7 +11,7 @@
 		B6287E280C6EB31FE77898DE /* Pods_KFinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C366A5F2FA73684F65BC40E /* Pods_KFinderTests.framework */; };
 		C8D2B2504C18F699A9C741D4 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D2BFEECB54FD91F9DBCBE0 /* TabBarCoordinator.swift */; };
 		E1087B1A1E1C33D6003418A5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1087B191E1C33D6003418A5 /* AppCoordinator.swift */; };
-		E1087B1C1E1C6B64003418A5 /* FoodSearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1087B1B1E1C6B64003418A5 /* FoodSearchCoordinator.swift */; };
+		E1087B1C1E1C6B64003418A5 /* SearchTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1087B1B1E1C6B64003418A5 /* SearchTabCoordinator.swift */; };
 		E1087B1E1E1C7116003418A5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1087B1D1E1C7116003418A5 /* Coordinator.swift */; };
 		E1087B221E1C7821003418A5 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1087B211E1C7821003418A5 /* NavigationCoordinator.swift */; };
 		E1087B271E1D854B003418A5 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1087B261E1D854B003418A5 /* RealmProvider.swift */; };
@@ -68,7 +68,7 @@
 		9EB1F4ADF7215BD9E48846EA /* Pods-KFinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderTests/Pods-KFinderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8D2BFEECB54FD91F9DBCBE0 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		E1087B191E1C33D6003418A5 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		E1087B1B1E1C6B64003418A5 /* FoodSearchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSearchCoordinator.swift; sourceTree = "<group>"; };
+		E1087B1B1E1C6B64003418A5 /* SearchTabCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabCoordinator.swift; sourceTree = "<group>"; };
 		E1087B1D1E1C7116003418A5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E1087B211E1C7821003418A5 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		E1087B261E1D854B003418A5 /* RealmProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 				E156D0841E0DC3080045850A /* AppDelegate.swift */,
 				E17901561E22D051006E1E60 /* HomeTabCoordinator.swift */,
 				E17901541E22AF62006E1E60 /* HomeViewController.swift */,
-				E1087B1B1E1C6B64003418A5 /* FoodSearchCoordinator.swift */,
+				E1087B1B1E1C6B64003418A5 /* SearchTabCoordinator.swift */,
 				E156D0B61E0DC68A0045850A /* FoodSearchViewController.swift */,
 				E11643051E12F9B6004FB1FE /* FoodSearchViewModel.swift */,
 				E156D0BA1E0DC68A0045850A /* FoodItemViewController.swift */,
@@ -529,7 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1087B1C1E1C6B64003418A5 /* FoodSearchCoordinator.swift in Sources */,
+				E1087B1C1E1C6B64003418A5 /* SearchTabCoordinator.swift in Sources */,
 				E1087B1A1E1C33D6003418A5 /* AppCoordinator.swift in Sources */,
 				E17901601E22EA45006E1E60 /* SettingsViewController.swift in Sources */,
 				E1087B1E1E1C7116003418A5 /* Coordinator.swift in Sources */,
