@@ -37,6 +37,7 @@
 		E179015C1E22E856006E1E60 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E179015A1E22E856006E1E60 /* Settings.storyboard */; };
 		E179015E1E22E9D9006E1E60 /* SettingsTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179015D1E22E9D9006E1E60 /* SettingsTabCoordinator.swift */; };
 		E17901601E22EA45006E1E60 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179015F1E22EA45006E1E60 /* SettingsViewController.swift */; };
+		E17901621E234D65006E1E60 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17901611E234D65006E1E60 /* AppSettings.swift */; };
 		EB94AB5E81FADA5B0704B7A5 /* Pods_KFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6B71CF62AB70A7911D7D9B /* Pods_KFinderUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		E179015B1E22E856006E1E60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		E179015D1E22E9D9006E1E60 /* SettingsTabCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTabCoordinator.swift; sourceTree = "<group>"; };
 		E179015F1E22EA45006E1E60 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E17901611E234D65006E1E60 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		EA42E37DA6C56E24713755A8 /* Pods-KFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderUITests/Pods-KFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			children = (
 				E1087B191E1C33D6003418A5 /* AppCoordinator.swift */,
 				E156D0841E0DC3080045850A /* AppDelegate.swift */,
+				E17901611E234D65006E1E60 /* AppSettings.swift */,
 				E17901561E22D051006E1E60 /* HomeTabCoordinator.swift */,
 				E17901541E22AF62006E1E60 /* HomeViewController.swift */,
 				E1087B1B1E1C6B64003418A5 /* SearchTabCoordinator.swift */,
@@ -547,6 +550,7 @@
 				E116430A1E1588E4004FB1FE /* StoryboardIdentifiable.swift in Sources */,
 				E11643091E1588E4004FB1FE /* FoodItemViewModel.swift in Sources */,
 				E144D99E1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift in Sources */,
+				E17901621E234D65006E1E60 /* AppSettings.swift in Sources */,
 				E156D0C11E0DC68A0045850A /* FoodItemViewController.swift in Sources */,
 				E1087B271E1D854B003418A5 /* RealmProvider.swift in Sources */,
 				C8D2B2504C18F699A9C741D4 /* TabBarCoordinator.swift in Sources */,
