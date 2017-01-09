@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 TBD
 
+### Added
+- Basic tabs for Home and Settings
+
 ### Changed
+- Main UI now tab-based in preparation for adding additional functionality
 - Switched license to Apache 2.0
 
 ## [v0.2.1][v0.2.1] - 2016-12-30
