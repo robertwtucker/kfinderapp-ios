@@ -18,27 +18,46 @@ import Foundation
 import UIKit
 import RealmSwift
 
-final class AppCoordinator: Coordinator {
-    let window: UIWindow
-    var childCoordinators: Array<Coordinator>
+enum AppTabs: String, RawRepresentable {
+    case Home = "Home"
+    case Search = "Search"
+    case Settings = "Settings"
+}
+
+final class AppCoordinator: TabBarCoordinator {
+    let tabBarController: UITabBarController
+    var tabCoordinators: Array<TabCoordinator>
 
     init(window: UIWindow) {
-        childCoordinators = Array<Coordinator>()
+        tabCoordinators = Array<TabCoordinator>()
+        tabBarController = UITabBarController()
 
-        self.window = window
-        self.window.backgroundColor = .white
-        self.window.makeKeyAndVisible()
+        window.backgroundColor = .white
+        window.rootViewController = tabBarController
+        window.makeKeyAndVisible()
     }
 
     func start() {
         FoodItem.loadBaseData(realm: RealmProvider.appRealm)
-        showFoodSearch()
+        
+        createTabControllers()
+
+        var tabViewControllers = Array<UIViewController>()
+        for tabCoordinator in tabCoordinators {
+            tabCoordinator.start()
+            tabViewControllers.append(tabCoordinator.viewController)
+        }
+        tabBarController.viewControllers = tabViewControllers
     }
-    
-    func showFoodSearch() {
-        let foodSearchCoordinator = FoodSearchCoordinator(window)
-        childCoordinators.append(foodSearchCoordinator)
-        foodSearchCoordinator.start()
+        
+    func createTabControllers() {
+        tabCoordinators.append(HomeTabCoordinator(tabBarController: tabBarController, title: AppTabs.Home.rawValue, image: UIImage(named: AppTabs.Home.rawValue)))
+        
+        tabCoordinators.append(SearchTabCoordinator(tabBarController: tabBarController, title: AppTabs.Search.rawValue, image: UIImage(named: AppTabs.Search.rawValue)))
+
+        tabCoordinators.append(SettingsTabCoordinator(tabBarController: tabBarController, title: AppTabs.Settings.rawValue, image: UIImage(named: AppTabs.Settings.rawValue)))
+        
     }
 
 }
+

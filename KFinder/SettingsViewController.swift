@@ -15,20 +15,12 @@
  */
 
 import UIKit
-import RealmSwift
 
-final class FoodSearchCoordinator: NavigationCoordinator {
-    let navigationController: UINavigationController
-
-    init(_ window: UIWindow) {
-        navigationController = UINavigationController()
-        window.rootViewController = navigationController
+class SettingsViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        print("SetingsVC loaded")
     }
-
-    func start() {
-        let viewController: FoodSearchViewController = UIStoryboard.storyboard(.main).instantiateViewController()
-        viewController.viewModel = FoodSearchViewModel(realm: RealmProvider.appRealm)
-        navigationController.pushViewController(viewController, animated: true)
-    }
-
 }
+
+extension SettingsViewController: StoryboardIdentifiable { }

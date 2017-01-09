@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 
-// See: http://khanlou.com/2015/10/coordinators-redux/
+import UIKit
 
-protocol Coordinator: class {
-
-    func start()
-
+class HomeViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        print("HomeVC loaded")
+    }
 }
+
+extension HomeViewController: StoryboardIdentifiable { }
