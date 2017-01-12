@@ -16,11 +16,92 @@
 
 import UIKit
 
+private enum Item {
+    case About
+    case Account
+}
+
 class SettingsViewController: UIViewController {
     
+    //MARK: Properties
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    //MARK: View Lifecycle
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        configure()
         print("SetingsVC loaded")
     }
+
+    
+    //MARK: Configuration
+    
+    func configure() {
+        tableView.tableFooterView = UIView()
+        navigationItem.title = "Settings"
+    }
 }
+
+
+//MARK: - UITableViewDataSource
+
+extension SettingsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "SettingsCell"
+        let cell: UITableViewCell = {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else {
+                return UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: cellIdentifier)
+            }
+            return cell
+        }()
+        
+        switch indexPath.section {
+        case 0:
+            cell.textLabel?.text = "Account"
+            cell.detailTextLabel?.text = ">"
+            break
+        case 1:
+            cell.textLabel?.text = "About"
+            cell.detailTextLabel?.text = ">"
+            break
+        default:
+            break
+        }
+        
+        return cell
+    }
+    
+}
+
+//MARK: - UITableViewDelegate
+
+extension SettingsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 22
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+
+//MARK: - StoryboardIdentifiable
 
 extension SettingsViewController: StoryboardIdentifiable { }
