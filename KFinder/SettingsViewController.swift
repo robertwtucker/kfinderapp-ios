@@ -15,6 +15,8 @@
  */
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 private enum Item {
     case About
@@ -25,15 +27,17 @@ class SettingsViewController: UIViewController {
     
     //MARK: Properties
     
-    @IBOutlet weak var tableView: UITableView!
+    var viewModel: SettingsViewModel?
+    private let bag = DisposeBag()
+    
+    @IBOutlet weak var acknowledgementsButton: UIButton!
+    @IBOutlet weak var versionLabel: UILabel!
     
     
     //MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
         configure()
         print("SetingsVC loaded")
     }
@@ -42,63 +46,38 @@ class SettingsViewController: UIViewController {
     //MARK: Configuration
     
     func configure() {
-        tableView.tableFooterView = UIView()
-        navigationItem.title = "Settings"
-    }
-}
-
-
-//MARK: - UITableViewDataSource
-
-extension SettingsViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "SettingsCell"
-        let cell: UITableViewCell = {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else {
-                return UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: cellIdentifier)
-            }
-            return cell
-        }()
-        
-        switch indexPath.section {
-        case 0:
-            cell.textLabel?.text = "Account"
-            cell.detailTextLabel?.text = ">"
-            break
-        case 1:
-            cell.textLabel?.text = "About"
-            cell.detailTextLabel?.text = ">"
-            break
-        default:
-            break
+        guard let vm = viewModel else {
+            print("ViewModel not set!")
+            return
         }
         
-        return cell
+        vm.navigationBarTitle
+            .bindTo(navigationItem.rx.title)
+            .addDisposableTo(bag)
+        
+        vm.applicationVersion
+            .bindTo(versionLabel.rx.text)
+            .addDisposableTo(bag)
     }
     
-}
+    @IBAction func didTapAcknowledgements(_ sender: Any) {
+        guard let url = Bundle.main.url(forResource: "acknowledgements", withExtension: "html") else {
+            print("HTML not found!")
+            return
+        }
 
-//MARK: - UITableViewDelegate
-
-extension SettingsViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 22
+        let htmlHeader = "<html>\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link href=\"default.css\" rel=\"stylesheet\" type=\"text/css\"/>\n</head>\n<body>\n"
+        let htmlFooter = "</body>\n</html>"
+        
+        do {
+            let htmlBody = try String.init(contentsOf: url)
+            let viewController: WebViewController = UIStoryboard.storyboard(.settings).instantiateViewController()
+            viewController.html = String.init(format: "%@%@%@", htmlHeader, htmlBody, htmlFooter)
+            show(viewController, sender: nil)
+        } catch {
+            print("Unable to load HTML: \(error)")
+        }
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
 }
 
 

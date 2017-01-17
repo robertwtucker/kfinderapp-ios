@@ -28,6 +28,7 @@ final class SettingsTabCoordinator: TabCoordinator {
     func start() {
         let viewController: SettingsViewController = UIStoryboard.storyboard(.settings).instantiateViewController()
         viewController.tabBarItem = tabBarItem
+        viewController.viewModel = SettingsViewModel(realm: RealmProvider.appRealm)
         let navigationController = UINavigationController(rootViewController: viewController)
         self.viewController = navigationController
     }

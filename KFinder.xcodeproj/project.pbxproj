@@ -38,6 +38,10 @@
 		E179015E1E22E9D9006E1E60 /* SettingsTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179015D1E22E9D9006E1E60 /* SettingsTabCoordinator.swift */; };
 		E17901601E22EA45006E1E60 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179015F1E22EA45006E1E60 /* SettingsViewController.swift */; };
 		E17901621E234D65006E1E60 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17901611E234D65006E1E60 /* AppSettings.swift */; };
+		E17901821E2D1031006E1E60 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17901811E2D1031006E1E60 /* SettingsViewModel.swift */; };
+		E17901841E2D556A006E1E60 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17901831E2D556A006E1E60 /* WebViewController.swift */; };
+		E17901901E2D6E9E006E1E60 /* acknowledgements.html in Resources */ = {isa = PBXBuildFile; fileRef = E179018F1E2D6E9E006E1E60 /* acknowledgements.html */; };
+		E17901921E2DDE0D006E1E60 /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = E17901911E2DDE0D006E1E60 /* default.css */; };
 		EB94AB5E81FADA5B0704B7A5 /* Pods_KFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6B71CF62AB70A7911D7D9B /* Pods_KFinderUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +106,10 @@
 		E179015D1E22E9D9006E1E60 /* SettingsTabCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTabCoordinator.swift; sourceTree = "<group>"; };
 		E179015F1E22EA45006E1E60 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E17901611E234D65006E1E60 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		E17901811E2D1031006E1E60 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		E17901831E2D556A006E1E60 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		E179018F1E2D6E9E006E1E60 /* acknowledgements.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = acknowledgements.html; sourceTree = "<group>"; };
+		E17901911E2DDE0D006E1E60 /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
 		EA42E37DA6C56E24713755A8 /* Pods-KFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KFinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KFinderUITests/Pods-KFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +204,7 @@
 				E144D99D1E10976E0005BCA9 /* FoodItem+LoadBaseData.swift */,
 				E179015D1E22E9D9006E1E60 /* SettingsTabCoordinator.swift */,
 				E179015F1E22EA45006E1E60 /* SettingsViewController.swift */,
+				E17901811E2D1031006E1E60 /* SettingsViewModel.swift */,
 				E11643081E1588E4004FB1FE /* StoryboardIdentifiable.swift */,
 				E1087B261E1D854B003418A5 /* RealmProvider.swift */,
 				E156D0B71E0DC68A0045850A /* UIStoryboard+Storyboards.swift */,
@@ -204,11 +213,14 @@
 				E156D08E1E0DC3080045850A /* Assets.xcassets */,
 				E156D0901E0DC3080045850A /* LaunchScreen.storyboard */,
 				E156D0931E0DC3080045850A /* Info.plist */,
+				E179018F1E2D6E9E006E1E60 /* acknowledgements.html */,
+				E17901911E2DDE0D006E1E60 /* default.css */,
 				E156D0BB1E0DC68A0045850A /* kdata.csv */,
 				E1087B1D1E1C7116003418A5 /* Coordinator.swift */,
 				E17901581E22E00D006E1E60 /* TabCoordinator.swift */,
 				C8D2BFEECB54FD91F9DBCBE0 /* TabBarCoordinator.swift */,
 				E1087B211E1C7821003418A5 /* NavigationCoordinator.swift */,
+				E17901831E2D556A006E1E60 /* WebViewController.swift */,
 			);
 			path = KFinder;
 			sourceTree = "<group>";
@@ -354,6 +366,8 @@
 				E156D0C21E0DC68A0045850A /* kdata.csv in Resources */,
 				E156D0921E0DC3080045850A /* LaunchScreen.storyboard in Resources */,
 				E156D08F1E0DC3080045850A /* Assets.xcassets in Resources */,
+				E17901901E2D6E9E006E1E60 /* acknowledgements.html in Resources */,
+				E17901921E2DDE0D006E1E60 /* default.css in Resources */,
 				E156D08A1E0DC3080045850A /* Main.storyboard in Resources */,
 				E179015C1E22E856006E1E60 /* Settings.storyboard in Resources */,
 			);
@@ -533,11 +547,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1087B1C1E1C6B64003418A5 /* SearchTabCoordinator.swift in Sources */,
+				E17901821E2D1031006E1E60 /* SettingsViewModel.swift in Sources */,
 				E1087B1A1E1C33D6003418A5 /* AppCoordinator.swift in Sources */,
 				E17901601E22EA45006E1E60 /* SettingsViewController.swift in Sources */,
 				E1087B1E1E1C7116003418A5 /* Coordinator.swift in Sources */,
 				E17901591E22E00D006E1E60 /* TabCoordinator.swift in Sources */,
 				E17901551E22AF62006E1E60 /* HomeViewController.swift in Sources */,
+				E17901841E2D556A006E1E60 /* WebViewController.swift in Sources */,
 				E156D0851E0DC3080045850A /* AppDelegate.swift in Sources */,
 				E144D99C1E1089B90005BCA9 /* FoodItem.swift in Sources */,
 				E156D0BD1E0DC68A0045850A /* FoodSearchViewController.swift in Sources */,
