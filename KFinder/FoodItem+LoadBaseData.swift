@@ -28,8 +28,6 @@ extension FoodItem {
     }
 
     static func loadBaseData(realm: Realm? = try? Realm()) {
-        let dataInitKey = "baseDataLoaded"
-        let defaults = UserDefaults.standard
 
         guard let realm = realm else {
             print("Error: Realm not available to load data")
@@ -42,7 +40,7 @@ extension FoodItem {
 //            realm.delete(realm.objects(FoodItem.self))
 //        }
 
-        guard defaults.bool(forKey: dataInitKey) == false else {
+        guard AppSettings.sharedState.baseDataLoaded == false else {
             return
         }
 
@@ -84,7 +82,7 @@ extension FoodItem {
         } catch {
             print("Error saving data records -> \(error)")
         }
-        defaults.set(true, forKey: dataInitKey)
+        UserDefaults.standard.set(true, forKey: "baseDataLoaded")
     }
 
 }

@@ -17,12 +17,10 @@
 import UIKit
 
 final class SettingsTabCoordinator: TabCoordinator {
-    let tabBarController: UITabBarController
     let tabBarItem: UITabBarItem
     var viewController: UIViewController
     
     init(tabBarController: UITabBarController, title: String, image: UIImage?) {
-        self.tabBarController = tabBarController
         self.tabBarItem = UITabBarItem(title: title, image: image, selectedImage: nil)
         self.viewController = UIViewController()
     }
@@ -30,7 +28,9 @@ final class SettingsTabCoordinator: TabCoordinator {
     func start() {
         let viewController: SettingsViewController = UIStoryboard.storyboard(.settings).instantiateViewController()
         viewController.tabBarItem = tabBarItem
-        self.viewController = viewController
+        viewController.viewModel = SettingsViewModel(realm: RealmProvider.appRealm)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.viewController = navigationController
     }
     
 }
