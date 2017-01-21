@@ -127,9 +127,6 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vy0-Vw-Lzm">
                                         <rect key="frame" x="16" y="148.5" width="343" height="30"/>
-                                        <connections>
-                                            <action selector="didTapAcknowledgements:" destination="UCh-rp-DJt" eventType="touchUpInside" id="QdO-mA-9Sn"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

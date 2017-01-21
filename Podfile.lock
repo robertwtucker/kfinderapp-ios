@@ -1,4 +1,7 @@
 PODS:
+  - Action (2.2.1):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
   - CSV.swift (1.1.2)
   - Realm (2.3.0):
     - Realm/Headers (= 2.3.0)
@@ -13,6 +16,7 @@ PODS:
   - RxSwift (3.1.0)
 
 DEPENDENCIES:
+  - Action (~> 2.2)
   - CSV.swift (~> 1.1)
   - RealmSwift (~> 2.3)
   - RxCocoa (~> 3.1)
@@ -20,6 +24,7 @@ DEPENDENCIES:
   - RxSwift (~> 3.1)
 
 SPEC CHECKSUMS:
+  Action: 93c6c9eec95eb76428b2d49a6d260466c2f71b7e
   CSV.swift: 0aad3b06980034c8fa296456b708ac9128ebbdf9
   Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
   RealmSwift: dc6f99ea55e59490cec69c860f91932b6bf7efb6
@@ -27,6 +32,6 @@ SPEC CHECKSUMS:
   RxRealm: 5ff7bbc8ccf44067cf83e0ddfb6402af417f9332
   RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
 
-PODFILE CHECKSUM: 153fd0b140ac00db4604b02dca801da215c1f105
+PODFILE CHECKSUM: 22379bce4ece75d3f3924db24c78db260f633bcd
 
 COCOAPODS: 1.1.1

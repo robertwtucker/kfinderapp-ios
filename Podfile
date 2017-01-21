@@ -10,6 +10,7 @@ target 'KFinder' do
   pod 'RxCocoa', '~> 3.1'
   pod 'RealmSwift', '~> 2.3'
   pod 'RxRealm', '~> 0.4'
+  pod 'Action', '~> 2.2'
 
   target 'KFinderTests' do
     inherit! :search_paths

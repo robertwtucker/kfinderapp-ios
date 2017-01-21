@@ -24,24 +24,18 @@ struct SettingsViewModel {
     //MARK: Properties
 
     // Input
-    var aboutTapped = PublishSubject<Void>()
 
     // Output
     let navigationBarTitle: Observable<String>
     let applicationVersion: Observable<String>
-//    let didTapAbout: Observable<Void>
 
 
     //MARK: Initialization
 
     init(realm: Realm) {
         navigationBarTitle = .just("Settings")
-
         applicationVersion = .just("KFinder \(AppSettings.sharedState.versionDescription())")
 
-//        didTapAbout = selectedModel
-//                .map { FoodItemViewModel($0.foodItem) }
-//                .shareReplay(1)
     }
 
 }

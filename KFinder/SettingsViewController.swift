@@ -17,6 +17,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Action
 
 private enum Item {
     case About
@@ -27,6 +28,7 @@ class SettingsViewController: UIViewController {
     
     //MARK: Properties
     
+    var coordinator: SettingsTabCoordinator?
     var viewModel: SettingsViewModel?
     private let bag = DisposeBag()
     
@@ -46,8 +48,7 @@ class SettingsViewController: UIViewController {
     //MARK: Configuration
     
     func configure() {
-        guard let vm = viewModel else {
-            print("ViewModel not set!")
+        guard let coordinator = coordinator, let vm = viewModel else {
             return
         }
         
@@ -58,26 +59,33 @@ class SettingsViewController: UIViewController {
         vm.applicationVersion
             .bindTo(versionLabel.rx.text)
             .addDisposableTo(bag)
-    }
-    
-    @IBAction func didTapAcknowledgements(_ sender: Any) {
-        guard let url = Bundle.main.url(forResource: "acknowledgements", withExtension: "html") else {
-            print("HTML not found!")
-            return
-        }
-
-        let htmlHeader = "<html>\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link href=\"default.css\" rel=\"stylesheet\" type=\"text/css\"/>\n</head>\n<body>\n"
-        let htmlFooter = "</body>\n</html>"
         
-        do {
-            let htmlBody = try String.init(contentsOf: url)
-            let viewController: WebViewController = UIStoryboard.storyboard(.settings).instantiateViewController()
-            viewController.html = String.init(format: "%@%@%@", htmlHeader, htmlBody, htmlFooter)
-            show(viewController, sender: nil)
-        } catch {
-            print("Unable to load HTML: \(error)")
+        acknowledgementsButton.rx.action = acknowledgementsCommand()
+    }
+
+    func acknowledgementsCommand(enabled: Observable<Bool> = .just(true)) -> CocoaAction {
+        return CocoaAction(enabledIf: enabled) { _ in
+            return Observable.create { observer in
+                guard let url = Bundle.main.url(forResource: "acknowledgements", withExtension: "html") else {
+                    return Disposables.create()
+                }
+                
+                let htmlHeader = "<html>\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link href=\"default.css\" rel=\"stylesheet\" type=\"text/css\"/>\n</head>\n<body>\n"
+                let htmlFooter = "</body>\n</html>"
+                
+                do {
+                    let htmlBody = try String.init(contentsOf: url)
+                    let webVC: WebViewController = UIStoryboard.storyboard(.settings).instantiateViewController()
+                    webVC.html = String.init(format: "%@%@%@", htmlHeader, htmlBody, htmlFooter)
+                    self.show(webVC, sender: nil)
+                } catch {
+                    print("Unable to load HTML: \(error)")
+                }
+                return Disposables.create()
+            }
         }
     }
+
 }
 
 
