@@ -28,7 +28,6 @@ class SettingsViewController: UIViewController {
     
     //MARK: Properties
     
-    var coordinator: SettingsTabCoordinator?
     var viewModel: SettingsViewModel?
     private let bag = DisposeBag()
     
@@ -48,7 +47,7 @@ class SettingsViewController: UIViewController {
     //MARK: Configuration
     
     func configure() {
-        guard let coordinator = coordinator, let vm = viewModel else {
+        guard let vm = viewModel else {
             return
         }
         
@@ -60,11 +59,11 @@ class SettingsViewController: UIViewController {
             .bindTo(versionLabel.rx.text)
             .addDisposableTo(bag)
         
-        acknowledgementsButton.rx.action = acknowledgementsCommand()
+        acknowledgementsButton.rx.action = acknowledgementsAction()
     }
 
-    func acknowledgementsCommand(enabled: Observable<Bool> = .just(true)) -> CocoaAction {
-        return CocoaAction(enabledIf: enabled) { _ in
+    func acknowledgementsAction() -> CocoaAction {
+        return CocoaAction { _ in
             return Observable.create { observer in
                 guard let url = Bundle.main.url(forResource: "acknowledgements", withExtension: "html") else {
                     return Disposables.create()
