@@ -15,6 +15,7 @@
  */
 
 import UIKit
+import WebKit
 
 class WebViewController: UIViewController {
     
@@ -23,12 +24,29 @@ class WebViewController: UIViewController {
     var html: String?
     var urlRequest: URLRequest?
     
-    @IBOutlet weak var webView: UIWebView!
+    var webView: WKWebView!
     
     
     //MARK: View Lifecycle
     
+    override func loadView() {
+        super.loadView()
+        
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = false
+        
+        let configuration = WKWebViewConfiguration()
+        configuration.preferences = preferences
+        
+        webView = WKWebView(frame: .zero, configuration: configuration)
+        webView.uiDelegate = self
+        webView.allowsBackForwardNavigationGestures = false
+        view = webView
+    }
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         // Assumption: Caller will set either the HTML string to load or the URL to request
         if let html = html {
             let baseUrl = Bundle.main.url(forResource: "default", withExtension: "css")
@@ -40,11 +58,11 @@ class WebViewController: UIViewController {
             print("Neither HTML or URLRequest was set!")
             return
         }
-        webView.loadRequest(urlRequest)
+        webView.load(urlRequest)
     }
 }
 
 
-//MARK: - StoryboardIdentifiable
+//MARK: - WKUIDelegate
 
-extension WebViewController: StoryboardIdentifiable { }
+extension WebViewController: WKUIDelegate { }

@@ -64,24 +64,20 @@ class SettingsViewController: UIViewController {
 
     func acknowledgementsAction() -> CocoaAction {
         return CocoaAction { _ in
-            return Observable.create { observer in
-                guard let url = Bundle.main.url(forResource: "acknowledgements", withExtension: "html") else {
-                    return Disposables.create()
-                }
-                
+            if let url = Bundle.main.url(forResource: "acknowledgements", withExtension: "html") {
                 let htmlHeader = "<html>\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link href=\"default.css\" rel=\"stylesheet\" type=\"text/css\"/>\n</head>\n<body>\n"
                 let htmlFooter = "</body>\n</html>"
                 
                 do {
                     let htmlBody = try String.init(contentsOf: url)
-                    let webVC: WebViewController = UIStoryboard.storyboard(.settings).instantiateViewController()
-                    webVC.html = String.init(format: "%@%@%@", htmlHeader, htmlBody, htmlFooter)
-                    self.show(webVC, sender: nil)
+                    let webViewController = WebViewController()
+                    webViewController.html = String.init(format: "%@%@%@", htmlHeader, htmlBody, htmlFooter)
+                    self.show(webViewController, sender: nil)
                 } catch {
                     print("Unable to load HTML: \(error)")
                 }
-                return Disposables.create()
             }
+            return Observable.empty()
         }
     }
 
