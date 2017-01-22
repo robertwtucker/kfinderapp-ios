@@ -161,38 +161,5 @@
             </objects>
             <point key="canvasLocation" x="228" y="84.107946026986511"/>
         </scene>
-        <!--Web View Controller-->
-        <scene sceneID="5e1-9L-nYg">
-            <objects>
-                <viewController storyboardIdentifier="WebViewController" id="6Um-Q0-La7" customClass="WebViewController" customModule="KFinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="72C-0w-kQT"/>
-                        <viewControllerLayoutGuide type="bottom" id="dWc-nO-8WG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jmB-kZ-5cF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lng-rA-GSD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Lng-rA-GSD" secondAttribute="trailing" id="5ia-a7-NAK"/>
-                            <constraint firstItem="Lng-rA-GSD" firstAttribute="leading" secondItem="jmB-kZ-5cF" secondAttribute="leading" id="DKL-Hi-aXu"/>
-                            <constraint firstItem="Lng-rA-GSD" firstAttribute="top" secondItem="jmB-kZ-5cF" secondAttribute="top" id="fsK-RB-GXT"/>
-                            <constraint firstItem="dWc-nO-8WG" firstAttribute="top" secondItem="Lng-rA-GSD" secondAttribute="bottom" id="v0P-Yq-GIA"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="webView" destination="Lng-rA-GSD" id="YlZ-Oo-4Sd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ump-Xi-TjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1440.8" y="83.208395802098963"/>
-        </scene>
     </scenes>
 </document>
