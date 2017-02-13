@@ -22,14 +22,14 @@ class FoodItem: Object {
 
     dynamic var id: Int = 0
     dynamic var name: String = ""
-    dynamic var weight: Float = 0.0
+    dynamic var weight: Double = 0.0
     dynamic var measure: String = ""
-    dynamic var k: Float = 0.0
+    dynamic var k: Double = 0.0
 
 
     //MARK: Initialization
 
-    convenience init(id: Int, name: String, weight: Float, measure: String, k: Float) {
+    convenience init(id: Int, name: String, weight: Double, measure: String, k: Double) {
         self.init()
         self.id = id
         self.name = name

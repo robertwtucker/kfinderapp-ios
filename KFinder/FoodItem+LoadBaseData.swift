@@ -35,7 +35,7 @@ extension FoodItem {
         }
 
         //TODO: Remove after testing load options
-//        defaults.set(false, forKey: dataInitKey)
+//        UserDefaults.standard.set(false, forKey: "baseDataLoaded")
 //        try! realm.write {
 //            realm.delete(realm.objects(FoodItem.self))
 //        }
@@ -62,9 +62,9 @@ extension FoodItem {
                 guard
                     let id = Int(csv[DataField.id.rawValue]!),
                     let name = csv[DataField.name.rawValue],
-                    let weight = Float(csv[DataField.weight.rawValue]!),
+                    let weight = Double(csv[DataField.weight.rawValue]!),
                     let measure = csv[DataField.measure.rawValue],
-                    let k = Float(csv[DataField.k.rawValue]!)
+                    let k = Double(csv[DataField.k.rawValue]!)
                     else {
                         print("Error: Invalid record in data file -> \(csv)")
                         continue
