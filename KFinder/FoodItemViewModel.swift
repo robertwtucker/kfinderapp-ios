@@ -1,52 +1,68 @@
 /**
- * Copyright (c) 2016 Robert Tucker
+ * Copyright 2017 Robert Tucker
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 import RxSwift
-import RealmSwift
 
 struct FoodItemViewModel {
-    
+
     //MARK: Properties
 
-    let foodItem: FoodItem
-    
-    var id: Int { return foodItem.id }
-    var name: String { return foodItem.name }
-    var weight: String { return "\(foodItem.weight) g" }
-    var measure: String { return foodItem.measure }
-    var k: String { return "\(foodItem.k) mcg" }
-    var title: String {
-        if !name.isEmpty, let comma = name.characters.index(of: ",") {
-            return name.substring(to: comma)
-        } else {
-            return name
-        }
-    }
-    
-    
+    // Output
+    var id: Observable<Int>
+    var name: Observable<String>
+    var weight: Observable<Double>
+    var measure: Observable<String>
+    var k: Observable<String>
+    var title: Observable<String>
+    var formattedWeight: Observable<String>
+
+
     //MARK: Initialization
-    
+
     init(_ foodItem: FoodItem) {
-        self.foodItem = foodItem
+        
+        id = Observable.from(foodItem.id)
+        name = Observable.from(foodItem.name)
+        weight = Observable.from(foodItem.weight)
+        measure = Observable.from(foodItem.measure)
+
+        k = Observable.from(foodItem.k)
+            .map { String(format: "%.1f mcg", $0) }
+        
+        title = Observable.from(foodItem.name)
+            .map {
+                if !$0.isEmpty, let comma = $0.characters.index(of: ",") {
+                    return $0.substring(to: comma)
+                } else {
+                    return $0
+                }
+            }
+        
+        formattedWeight = AppSettings.sharedState.convertFromMetric.asObservable()
+            .withLatestFrom(weight) { convert, value in
+                guard let convert = convert else {
+                    return String(format: "%.1f g", value)
+                }
+                if convert {
+                    return String(format: "%.1f oz", value * 0.035274)
+                } else {
+                    return String(format: "%.1f g", value)
+                }
+            }
+
     }
 
 }

@@ -14,17 +14,10 @@
  * limitations under the License.
  */
 
-import UIKit
+// See: http://khanlou.com/2015/10/coordinators-redux/
 
-// Eliminating string literals to make storyboard identifiers predictable
-// See: https://medium.com/swift-programming/uistoryboard-safer-with-enums-protocol-extensions-and-generics-7aad3883b44d#.u5mer0bhc
+protocol Coordinator: class {
 
-protocol StoryboardIdentifiable {
-    static var storyboardIdentifier: String { get }
-}
+    func start()
 
-extension StoryboardIdentifiable where Self: UIViewController {
-    static var storyboardIdentifier: String {
-        return String(describing: Self.self)
-    }
 }

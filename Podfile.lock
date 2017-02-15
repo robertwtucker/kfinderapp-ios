@@ -1,31 +1,37 @@
 PODS:
+  - Action (2.2.1):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
   - CSV.swift (1.1.2)
-  - Realm (2.1.2):
-    - Realm/Headers (= 2.1.2)
-  - Realm/Headers (2.1.2)
-  - RealmSwift (2.1.2):
-    - Realm (= 2.1.2)
-  - RxCocoa (3.1.0):
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
+  - RealmSwift (2.4.2):
+    - Realm (= 2.4.2)
+  - RxCocoa (3.2.0):
     - RxSwift (~> 3.1)
-  - RxRealm (0.4.1):
-    - RealmSwift (~> 2.1)
+  - RxRealm (0.5.1):
+    - RealmSwift (~> 2.2)
     - RxSwift (~> 3.1)
-  - RxSwift (3.1.0)
+  - RxSwift (3.2.0)
 
 DEPENDENCIES:
+  - Action (~> 2.2)
   - CSV.swift (~> 1.1)
-  - RxCocoa (~> 3.1)
-  - RxRealm (~> 0.4)
-  - RxSwift (~> 3.1)
+  - RealmSwift (~> 2.4)
+  - RxCocoa (~> 3.2)
+  - RxRealm (~> 0.5)
+  - RxSwift (~> 3.2)
 
 SPEC CHECKSUMS:
+  Action: 93c6c9eec95eb76428b2d49a6d260466c2f71b7e
   CSV.swift: 0aad3b06980034c8fa296456b708ac9128ebbdf9
-  Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
-  RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
-  RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
-  RxRealm: 5ff7bbc8ccf44067cf83e0ddfb6402af417f9332
-  RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
+  RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
+  RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
+  RxRealm: c80d17d42fc362f4d8af4ac62de360b014be5c3f
+  RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
 
-PODFILE CHECKSUM: abe653c8751dd59b9dea70c48e1d3d13d56fe0a5
+PODFILE CHECKSUM: 957122315980b3f11a5e6fd59c62cf4b2ba4360d
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

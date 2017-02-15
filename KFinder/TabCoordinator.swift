@@ -16,15 +16,9 @@
 
 import UIKit
 
-// Eliminating string literals to make storyboard identifiers predictable
-// See: https://medium.com/swift-programming/uistoryboard-safer-with-enums-protocol-extensions-and-generics-7aad3883b44d#.u5mer0bhc
+protocol TabCoordinator: Coordinator {
 
-protocol StoryboardIdentifiable {
-    static var storyboardIdentifier: String { get }
-}
-
-extension StoryboardIdentifiable where Self: UIViewController {
-    static var storyboardIdentifier: String {
-        return String(describing: Self.self)
-    }
+    var tabBarItem: UITabBarItem { get }
+    var viewController: UIViewController { get }
+    
 }

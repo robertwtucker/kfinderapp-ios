@@ -1,30 +1,24 @@
 /**
- * Copyright (c) 2016 Robert Tucker
+ * Copyright 2017 Robert Tucker
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 import CSV
 import RealmSwift
 
 extension FoodItem {
-    
+
     enum DataField: String {
         case id = "id"
         case name = "name"
@@ -32,65 +26,63 @@ extension FoodItem {
         case measure = "measure"
         case k = "k"
     }
-    
+
     static func loadBaseData(realm: Realm? = try? Realm()) {
-        let dataInitKey = "baseDataLoaded"
-        let defaults = UserDefaults.standard
 
         guard let realm = realm else {
             print("Error: Realm not available to load data")
             return
         }
-        
+
         //TODO: Remove after testing load options
-//        defaults.set(false, forKey: dataInitKey)
+//        UserDefaults.standard.set(false, forKey: "baseDataLoaded")
 //        try! realm.write {
 //            realm.delete(realm.objects(FoodItem.self))
 //        }
-        
-        guard defaults.bool(forKey: dataInitKey) == false else {
+
+        guard AppSettings.sharedState.baseDataLoaded == false else {
             return
         }
-        
+
         guard let dataFileURL = Bundle.main.url(forResource: "kdata", withExtension: "csv") else {
             print("Error: Unable to locate data file")
             return
         }
-        
+
         guard let stream = InputStream(url: dataFileURL) else {
             return
         }
 
         do {
             var csv = try CSV(stream: stream, hasHeaderRow: true, trimFields: false, delimiter: ",")
-            
+
             realm.beginWrite()
-            
+
             while let _ = csv.next() {
                 guard
                     let id = Int(csv[DataField.id.rawValue]!),
                     let name = csv[DataField.name.rawValue],
-                    let weight = Float(csv[DataField.weight.rawValue]!),
+                    let weight = Double(csv[DataField.weight.rawValue]!),
                     let measure = csv[DataField.measure.rawValue],
-                    let k = Float(csv[DataField.k.rawValue]!)
+                    let k = Double(csv[DataField.k.rawValue]!)
                     else {
                         print("Error: Invalid record in data file -> \(csv)")
                         continue
                 }
-                
+
                 let foodItem = FoodItem(id: id, name: name, weight: weight, measure: measure, k: k)
                 realm.add(foodItem)
             }
         } catch {
             print("Error parsing the data file -> \(error)")
         }
-        
+
         do {
             _ = try realm.commitWrite()
         } catch {
             print("Error saving data records -> \(error)")
         }
-        defaults.set(true, forKey: dataInitKey)
+        UserDefaults.standard.set(true, forKey: "baseDataLoaded")
     }
-    
+
 }
