@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="EdX-7W-UAx" userLabel="Root Stack View">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="248"/>
+                                        <rect key="frame" x="16" y="0.0" width="343" height="304"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pU6-dX-bPK" userLabel="Account Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="73"/>
@@ -71,7 +71,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="PpX-y1-pGE" userLabel="Application Stack View">
-                                                <rect key="frame" x="0.0" y="109" width="343" height="82.5"/>
+                                                <rect key="frame" x="0.0" y="109" width="343" height="138.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPLICATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLW-hx-D3V">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="14.5"/>
@@ -86,16 +86,37 @@
                                                             <constraint firstAttribute="height" constant="1" id="AJt-Ui-beO"/>
                                                         </constraints>
                                                     </view>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U32-Jp-J5s" userLabel="Acknowledgements Stack View">
-                                                        <rect key="frame" x="0.0" y="39.5" width="343" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U32-Jp-J5s" userLabel="Convert Stack View">
+                                                        <rect key="frame" x="0.0" y="39.5" width="343" height="31"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Acknowledgements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeI-v2-jj1">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Convert weights from Metric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeI-v2-jj1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="294" height="31"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yH9-bk-f34">
+                                                                <rect key="frame" x="294" y="0.0" width="51" height="31"/>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8D-Wl-Hoi">
+                                                        <rect key="frame" x="0.0" y="82.5" width="343" height="1"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="Sjm-dZ-ePf"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnI-Q6-Dyb" userLabel="Acknowledgements Stack View">
+                                                        <rect key="frame" x="0.0" y="95.5" width="343" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Acknowledgements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpr-Ae-Zgo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="332" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kx-5r-yaW">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V29-Q2-XLm">
                                                                 <rect key="frame" x="332" y="0.0" width="11" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -104,7 +125,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQJ-Ep-TzI">
-                                                        <rect key="frame" x="0.0" y="81.5" width="343" height="1"/>
+                                                        <rect key="frame" x="0.0" y="137.5" width="343" height="1"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="dqh-0d-Gwn"/>
@@ -113,7 +134,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="8zM-KD-CmN" userLabel="Version Stack View">
-                                                <rect key="frame" x="0.0" y="227.5" width="343" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="283.5" width="343" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version X.X (Build)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCe-aA-qyH">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -126,20 +147,19 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vy0-Vw-Lzm">
-                                        <rect key="frame" x="16" y="148.5" width="343" height="30"/>
+                                        <rect key="frame" x="16" y="204.5" width="343" height="30"/>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="EdX-7W-UAx" firstAttribute="leading" secondItem="Wzj-Pb-7eg" secondAttribute="leading" constant="16" id="APr-hn-jwz"/>
-                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="width" secondItem="U32-Jp-J5s" secondAttribute="width" id="HKs-L5-UF3"/>
-                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="height" secondItem="U32-Jp-J5s" secondAttribute="height" id="RuZ-4g-nQQ"/>
-                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="top" secondItem="U32-Jp-J5s" secondAttribute="top" id="bFh-Nq-9Lg"/>
+                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="top" secondItem="tnI-Q6-Dyb" secondAttribute="top" id="Y52-Jm-ze6"/>
+                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="leading" secondItem="tnI-Q6-Dyb" secondAttribute="leading" id="aiw-lt-3mv"/>
+                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="bottom" secondItem="tnI-Q6-Dyb" secondAttribute="bottom" id="d8M-og-qPK"/>
                                     <constraint firstAttribute="trailing" secondItem="EdX-7W-UAx" secondAttribute="trailing" constant="16" id="deO-wC-Iqf"/>
                                     <constraint firstItem="EdX-7W-UAx" firstAttribute="width" secondItem="Wzj-Pb-7eg" secondAttribute="width" constant="-32" id="eGr-lT-sTe"/>
+                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="trailing" secondItem="tnI-Q6-Dyb" secondAttribute="trailing" id="lB0-Y2-mtW"/>
                                     <constraint firstItem="EdX-7W-UAx" firstAttribute="top" secondItem="Wzj-Pb-7eg" secondAttribute="top" id="lpI-7F-nlS"/>
                                     <constraint firstAttribute="bottom" secondItem="EdX-7W-UAx" secondAttribute="bottom" id="mBA-Gd-bkm"/>
-                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="leading" secondItem="U32-Jp-J5s" secondAttribute="leading" id="pjk-yt-PqT"/>
-                                    <constraint firstItem="vy0-Vw-Lzm" firstAttribute="bottom" secondItem="U32-Jp-J5s" secondAttribute="bottom" id="y1w-9H-I55"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -154,6 +174,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="t6j-9a-rsn"/>
                     <connections>
                         <outlet property="acknowledgementsButton" destination="vy0-Vw-Lzm" id="dsG-uy-aMt"/>
+                        <outlet property="convertMetricSwitch" destination="yH9-bk-f34" id="AZr-fK-Kj9"/>
                         <outlet property="versionLabel" destination="hCe-aA-qyH" id="yaQ-QE-wkp"/>
                     </connections>
                 </viewController>

@@ -29,8 +29,9 @@ class SettingsViewController: UIViewController {
     //MARK: Properties
     
     var viewModel: SettingsViewModel?
-    private let bag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
+    @IBOutlet weak var convertMetricSwitch: UISwitch!
     @IBOutlet weak var acknowledgementsButton: UIButton!
     @IBOutlet weak var versionLabel: UILabel!
     
@@ -47,19 +48,29 @@ class SettingsViewController: UIViewController {
     //MARK: Configuration
     
     func configure() {
-        guard let vm = viewModel else {
-            return
-        }
+        guard let vm = viewModel else { return }
         
         vm.navigationBarTitle
             .bindTo(navigationItem.rx.title)
-            .addDisposableTo(bag)
+            .disposed(by: disposeBag)
         
         vm.applicationVersion
             .bindTo(versionLabel.rx.text)
-            .addDisposableTo(bag)
+            .disposed(by: disposeBag)
         
         acknowledgementsButton.rx.action = acknowledgementsAction()
+        
+        vm.convertFromMetricSetting
+            .bindTo(convertMetricSwitch.rx.isOn)
+            .disposed(by: disposeBag)
+
+        convertMetricSwitch.rx.value
+            .bindTo(vm.convertMetricSwitchIsOn)
+            .disposed(by: disposeBag)
+        
+        vm.convertFromMetricTracking
+            .subscribe()
+            .disposed(by: disposeBag)
     }
 
     func acknowledgementsAction() -> CocoaAction {

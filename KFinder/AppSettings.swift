@@ -15,32 +15,53 @@
  */
 
 import Foundation
+import RxSwift
 
 final class AppSettings {
+    
+    //MARK: Key Constants
+    
+    enum Keys: String {
+        case baseDataLoaded = "baseDataLoaded"
+        case convertFromMetric = "convertFromMetric"
+    }
     
     //MARK: Properties
     
     static let sharedState = AppSettings()
+    fileprivate let disposeBag = DisposeBag()
     
     private(set) lazy var baseDataLoaded = false
     private(set) lazy var versionNumber = "Unknown"
     private(set) lazy var buildNumber = "Unknown"
     
+    
+    // Observable
+    
+    var convertFromMetric = Variable<Bool?>(false)
 
     //MARK: Initialization
     
     private init() {
         let defaults = UserDefaults.standard
         
-        baseDataLoaded = defaults.bool(forKey: "baseDataLoaded")
-        
+        baseDataLoaded = defaults.bool(forKey: Keys.baseDataLoaded.rawValue)
         if let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") {
             self.versionNumber = versionNumber as! String
         }
         if let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") {
             self.buildNumber = buildNumber as! String
         }
-    }
+        _ = defaults.rx
+            .observe(Bool.self, Keys.convertFromMetric.rawValue)
+            .debug("AppSettings.\(Keys.convertFromMetric.rawValue).observer")
+            .do()
+            .bindTo(convertFromMetric)
+            .disposed(by: disposeBag)
+        
+        print("AppSettings.init.convertFromMetric: \(convertFromMetric.value)")
+        
+}
 
 
     //MARK: Support

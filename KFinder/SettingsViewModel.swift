@@ -22,12 +22,15 @@ import RxRealm
 struct SettingsViewModel {
 
     //MARK: Properties
-
+    
     // Input
+    var convertMetricSwitchIsOn = Variable(false)
 
     // Output
     let navigationBarTitle: Observable<String>
     let applicationVersion: Observable<String>
+    let convertFromMetricSetting: Observable<Bool>
+    let convertFromMetricTracking: Observable<Void>
 
 
     //MARK: Initialization
@@ -35,8 +38,19 @@ struct SettingsViewModel {
     init(realm: Realm) {
         navigationBarTitle = .just("Settings")
         applicationVersion = .just("KFinder \(AppSettings.sharedState.versionDescription())")
-
+        
+        convertFromMetricSetting = AppSettings.sharedState.convertFromMetric.asObservable()
+            .map { guard let convert = $0 else { return false }
+                return convert
+            }
+        
+        convertFromMetricTracking = convertMetricSwitchIsOn.asObservable()
+            .withLatestFrom(convertFromMetricSetting) { switchIsOn, settingIsOn in
+                if switchIsOn != settingIsOn {
+                    print("Setting \(AppSettings.Keys.convertFromMetric.rawValue): \(switchIsOn)")
+                    UserDefaults.standard.set(switchIsOn, forKey: AppSettings.Keys.convertFromMetric.rawValue)
+                }
+            }
     }
 
 }
-
