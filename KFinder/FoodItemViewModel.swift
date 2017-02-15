@@ -15,32 +15,54 @@
  */
 
 import RxSwift
-import RealmSwift
 
 struct FoodItemViewModel {
 
     //MARK: Properties
 
-    let foodItem: FoodItem
-
-    var id: Int { return foodItem.id }
-    var name: String { return foodItem.name }
-    var weight: String { return "\(foodItem.weight) g" }
-    var measure: String { return foodItem.measure }
-    var k: String { return "\(foodItem.k) mcg" }
-    var title: String {
-        if !name.isEmpty, let comma = name.characters.index(of: ",") {
-            return name.substring(to: comma)
-        } else {
-            return name
-        }
-    }
+    // Output
+    var id: Observable<Int>
+    var name: Observable<String>
+    var weight: Observable<Double>
+    var measure: Observable<String>
+    var k: Observable<String>
+    var title: Observable<String>
+    var formattedWeight: Observable<String>
 
 
     //MARK: Initialization
 
     init(_ foodItem: FoodItem) {
-        self.foodItem = foodItem
+        
+        id = Observable.from(foodItem.id)
+        name = Observable.from(foodItem.name)
+        weight = Observable.from(foodItem.weight)
+        measure = Observable.from(foodItem.measure)
+
+        k = Observable.from(foodItem.k)
+            .map { String(format: "%.1f mcg", $0) }
+        
+        title = Observable.from(foodItem.name)
+            .map {
+                if !$0.isEmpty, let comma = $0.characters.index(of: ",") {
+                    return $0.substring(to: comma)
+                } else {
+                    return $0
+                }
+            }
+        
+        formattedWeight = AppSettings.sharedState.convertFromMetric.asObservable()
+            .withLatestFrom(weight) { convert, value in
+                guard let convert = convert else {
+                    return String(format: "%.1f g", value)
+                }
+                if convert {
+                    return String(format: "%.1f oz", value * 0.035274)
+                } else {
+                    return String(format: "%.1f g", value)
+                }
+            }
+
     }
 
 }

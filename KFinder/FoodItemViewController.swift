@@ -15,12 +15,14 @@
  */
 
 import UIKit
+import RxSwift
 
 class FoodItemViewController: UIViewController {
 
     //MARK: Properties
 
     var viewModel: FoodItemViewModel?
+    fileprivate let disposeBag = DisposeBag()
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,16 +42,23 @@ class FoodItemViewController: UIViewController {
     //MARK: Configuration
 
     func configure() {
-        guard let vm = viewModel else {
-            print("ViewModel not set!")
-            return
-        }
-
-        titleLabel.text = vm.title
-        nameLabel.text = vm.name
-        servingSizeLabel.text = vm.measure
-        weightAmountLabel.text = vm.weight
-        kAmountLabel.text = vm.k
+        guard let vm = viewModel else { return }
+        
+        vm.title
+            .bindTo(titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        vm.name
+            .bindTo(nameLabel.rx.text)
+            .disposed(by: disposeBag)
+        vm.measure
+            .bindTo(servingSizeLabel.rx.text)
+            .disposed(by: disposeBag)
+        vm.formattedWeight
+            .bindTo(weightAmountLabel.rx.text)
+            .disposed(by: disposeBag)
+        vm.k
+            .bindTo(kAmountLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 
 }
