@@ -1,7 +1,0 @@
-language: objective-c
-osx_image: xcode8.2
-install:
-  - gem install xcpretty xcpretty-travis-formatter --no-document
-  - pod install --repo-update
-script:
-  - set -o pipefail && xcodebuild -workspace KFinder.xcworkspace -scheme KFinder -sdk iphonesimulator -configuration Release | xcpretty -c -f `xcpretty-travis-formatter`
