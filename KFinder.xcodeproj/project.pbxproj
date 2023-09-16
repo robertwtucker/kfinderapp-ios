@@ -14,6 +14,26 @@
 		E11C07682A9907F30024334E /* KFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07672A9907F30024334E /* KFinderTests.swift */; };
 		E11C07722A9907F30024334E /* KFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07712A9907F30024334E /* KFinderUITests.swift */; };
 		E11C07742A9907F30024334E /* KFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */; };
+		E124336B2AAF9FD00021C5BA /* FDCFoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124336A2AAF9FD00021C5BA /* FDCFoodModel.swift */; };
+		E1B589392AA10A0D00E64F18 /* FoodDataCentralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589382AA10A0D00E64F18 /* FoodDataCentralService.swift */; };
+		E1B5893B2AA16ACD00E64F18 /* FoodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5893A2AA16ACD00E64F18 /* FoodsView.swift */; };
+		E1B5893D2AA16AED00E64F18 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5893C2AA16AED00E64F18 /* SettingsView.swift */; };
+		E1B589482AA7D48700E64F18 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589472AA7D48700E64F18 /* AppState.swift */; };
+		E1B5894B2AA7D5E800E64F18 /* SystemServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5894A2AA7D5E800E64F18 /* SystemServices.swift */; };
+		E1B5894F2AA7E7BE00E64F18 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5894E2AA7E7BE00E64F18 /* AppTabView.swift */; };
+		E1B589522AA8C38A00E64F18 /* FoodSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589512AA8C38A00E64F18 /* FoodSearchModel.swift */; };
+		E1B589542AA9FBA100E64F18 /* FoodsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589532AA9FBA100E64F18 /* FoodsListCellView.swift */; };
+		E1B589562AA9FE3800E64F18 /* FoodsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589552AA9FE3800E64F18 /* FoodsListView.swift */; };
+		E1B589582AA9FF7700E64F18 /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589572AA9FF7700E64F18 /* FoodDetailView.swift */; };
+		E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5895C2AABAC1C00E64F18 /* Secrets.swift */; };
+		E1E65D072AB2419B007E30A2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E65D062AB2419B007E30A2 /* LoadingView.swift */; };
+		E1E65D092AB244D5007E30A2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E65D082AB244D5007E30A2 /* DashboardView.swift */; };
+		E1FE058F2AB51DB800529B5F /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE058E2AB51DB800529B5F /* SearchResult.swift */; };
+		E1FE05932AB51FB900529B5F /* SearchFoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05922AB51FB900529B5F /* SearchFoodItem.swift */; };
+		E1FE05952AB5207B00529B5F /* SearchFoodNutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05942AB5207B00529B5F /* SearchFoodNutrient.swift */; };
+		E1FE05992AB5482700529B5F /* FoodHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05982AB5482700529B5F /* FoodHeaderView.swift */; };
+		E1FE059B2AB548C900529B5F /* FoodNutrientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */; };
+		E1FE059D2AB5494100529B5F /* FoodNutrientCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE059C2AB5494100529B5F /* FoodNutrientCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +64,28 @@
 		E11C076D2A9907F30024334E /* KFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11C07712A9907F30024334E /* KFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITests.swift; sourceTree = "<group>"; };
 		E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E124336A2AAF9FD00021C5BA /* FDCFoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDCFoodModel.swift; sourceTree = "<group>"; };
+		E1B589382AA10A0D00E64F18 /* FoodDataCentralService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataCentralService.swift; sourceTree = "<group>"; };
+		E1B5893A2AA16ACD00E64F18 /* FoodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsView.swift; sourceTree = "<group>"; };
+		E1B5893C2AA16AED00E64F18 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E1B589472AA7D48700E64F18 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E1B5894A2AA7D5E800E64F18 /* SystemServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemServices.swift; sourceTree = "<group>"; };
+		E1B5894E2AA7E7BE00E64F18 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		E1B589512AA8C38A00E64F18 /* FoodSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchModel.swift; sourceTree = "<group>"; };
+		E1B589532AA9FBA100E64F18 /* FoodsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListCellView.swift; sourceTree = "<group>"; };
+		E1B589552AA9FE3800E64F18 /* FoodsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListView.swift; sourceTree = "<group>"; };
+		E1B589572AA9FF7700E64F18 /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
+		E1B5895B2AABA9D800E64F18 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		E1B5895C2AABAC1C00E64F18 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		E1B5895E2AABAE4D00E64F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E1E65D062AB2419B007E30A2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E1E65D082AB244D5007E30A2 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		E1FE058E2AB51DB800529B5F /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		E1FE05922AB51FB900529B5F /* SearchFoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodItem.swift; sourceTree = "<group>"; };
+		E1FE05942AB5207B00529B5F /* SearchFoodNutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodNutrient.swift; sourceTree = "<group>"; };
+		E1FE05982AB5482700529B5F /* FoodHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodHeaderView.swift; sourceTree = "<group>"; };
+		E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNutrientListView.swift; sourceTree = "<group>"; };
+		E1FE059C2AB5494100529B5F /* FoodNutrientCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNutrientCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +136,15 @@
 		E11C07552A9907F00024334E /* KFinder */ = {
 			isa = PBXGroup;
 			children = (
-				E11C07562A9907F00024334E /* KFinderApp.swift */,
-				E11C07582A9907F00024334E /* ContentView.swift */,
+				E1B589462AA7D45400E64F18 /* Application */,
 				E11C075A2A9907F20024334E /* Assets.xcassets */,
+				E1FE059E2AB54F7900529B5F /* Dashboard */,
+				E1B589502AA8BDD500E64F18 /* Foods */,
+				E1B5895E2AABAE4D00E64F18 /* Info.plist */,
+				E12433672AAF82290021C5BA /* Settings */,
+				E1E65CFC2AB22F7B007E30A2 /* Shared */,
+				E1B5895B2AABA9D800E64F18 /* Secrets.xcconfig */,
+				E1B5895C2AABAC1C00E64F18 /* Secrets.swift */,
 				E11C075C2A9907F20024334E /* Preview Content */,
 			);
 			path = KFinder;
@@ -127,6 +175,86 @@
 			path = KFinderUITests;
 			sourceTree = "<group>";
 		};
+		E12433672AAF82290021C5BA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E1B5893C2AA16AED00E64F18 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E12433682AAF9DB20021C5BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E124336A2AAF9FD00021C5BA /* FDCFoodModel.swift */,
+				E1FE058E2AB51DB800529B5F /* SearchResult.swift */,
+				E1FE05922AB51FB900529B5F /* SearchFoodItem.swift */,
+				E1FE05942AB5207B00529B5F /* SearchFoodNutrient.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E12433692AAF9DEC0021C5BA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E1B589382AA10A0D00E64F18 /* FoodDataCentralService.swift */,
+				E1B5894A2AA7D5E800E64F18 /* SystemServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E1B589462AA7D45400E64F18 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E11C07562A9907F00024334E /* KFinderApp.swift */,
+				E11C07582A9907F00024334E /* ContentView.swift */,
+				E1B589472AA7D48700E64F18 /* AppState.swift */,
+				E1B5894E2AA7E7BE00E64F18 /* AppTabView.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E1B589502AA8BDD500E64F18 /* Foods */ = {
+			isa = PBXGroup;
+			children = (
+				E1B5893A2AA16ACD00E64F18 /* FoodsView.swift */,
+				E1B589512AA8C38A00E64F18 /* FoodSearchModel.swift */,
+				E1B589552AA9FE3800E64F18 /* FoodsListView.swift */,
+				E1B589532AA9FBA100E64F18 /* FoodsListCellView.swift */,
+				E1B589572AA9FF7700E64F18 /* FoodDetailView.swift */,
+				E1FE05982AB5482700529B5F /* FoodHeaderView.swift */,
+				E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */,
+				E1FE059C2AB5494100529B5F /* FoodNutrientCellView.swift */,
+			);
+			path = Foods;
+			sourceTree = "<group>";
+		};
+		E1E65CFC2AB22F7B007E30A2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E12433682AAF9DB20021C5BA /* Models */,
+				E12433692AAF9DEC0021C5BA /* Services */,
+				E1E65D052AB2417A007E30A2 /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E1E65D052AB2417A007E30A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1E65D062AB2419B007E30A2 /* LoadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1FE059E2AB54F7900529B5F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				E1E65D082AB244D5007E30A2 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +271,8 @@
 			dependencies = (
 			);
 			name = KFinder;
+			packageProductDependencies = (
+			);
 			productName = KFinder;
 			productReference = E11C07532A9907F00024334E /* KFinder.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +345,8 @@
 				Base,
 			);
 			mainGroup = E11C074A2A9907EF0024334E;
+			packageReferences = (
+			);
 			productRefGroup = E11C07542A9907F00024334E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +389,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B5894B2AA7D5E800E64F18 /* SystemServices.swift in Sources */,
+				E1E65D092AB244D5007E30A2 /* DashboardView.swift in Sources */,
+				E1FE059B2AB548C900529B5F /* FoodNutrientListView.swift in Sources */,
+				E1FE05952AB5207B00529B5F /* SearchFoodNutrient.swift in Sources */,
+				E1E65D072AB2419B007E30A2 /* LoadingView.swift in Sources */,
+				E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */,
+				E1FE058F2AB51DB800529B5F /* SearchResult.swift in Sources */,
+				E1B589582AA9FF7700E64F18 /* FoodDetailView.swift in Sources */,
+				E1B589542AA9FBA100E64F18 /* FoodsListCellView.swift in Sources */,
+				E1FE059D2AB5494100529B5F /* FoodNutrientCellView.swift in Sources */,
+				E1FE05932AB51FB900529B5F /* SearchFoodItem.swift in Sources */,
+				E1B5893D2AA16AED00E64F18 /* SettingsView.swift in Sources */,
+				E1B589562AA9FE3800E64F18 /* FoodsListView.swift in Sources */,
+				E1B5894F2AA7E7BE00E64F18 /* AppTabView.swift in Sources */,
+				E1B5893B2AA16ACD00E64F18 /* FoodsView.swift in Sources */,
+				E1B589522AA8C38A00E64F18 /* FoodSearchModel.swift in Sources */,
+				E1B589392AA10A0D00E64F18 /* FoodDataCentralService.swift in Sources */,
+				E124336B2AAF9FD00021C5BA /* FDCFoodModel.swift in Sources */,
 				E11C07592A9907F00024334E /* ContentView.swift in Sources */,
 				E11C07572A9907F00024334E /* KFinderApp.swift in Sources */,
+				E1B589482AA7D48700E64F18 /* AppState.swift in Sources */,
+				E1FE05992AB5482700529B5F /* FoodHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +449,7 @@
 /* Begin XCBuildConfiguration section */
 		E11C07752A9907F30024334E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1B5895B2AABA9D800E64F18 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -357,6 +510,7 @@
 		};
 		E11C07762A9907F30024334E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1B5895B2AABA9D800E64F18 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -420,6 +574,8 @@
 				DEVELOPMENT_TEAM = 94GENMY2GG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KFinder/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +605,8 @@
 				DEVELOPMENT_TEAM = 94GENMY2GG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KFinder/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
