@@ -7,9 +7,9 @@ import SwiftUI
 
 @main
 struct KFinderApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
     }
+  }
 }
