@@ -6,9 +6,13 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State private var appState = AppState()
+  
   var body: some View {
     #if os(iOS)
-    AppTabView().modifier(SystemServices())
+//    AppTabView().modifier(SystemServices())
+    AppTabView()
+        .environment(appState)
     #endif
   }
 }

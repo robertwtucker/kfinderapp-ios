@@ -87,7 +87,7 @@ struct SearchFoodItem: Codable {
       return []
     }
     return foodNutrients.filter {
-      try! FoodSearchModel.kNutrientNumberRegEx.firstMatch(in: $0.number) != nil
+      try! FDCSearch.kNutrientNumberRegEx.firstMatch(in: $0.number) != nil
     }
   }
   
@@ -96,7 +96,7 @@ struct SearchFoodItem: Codable {
       return []
     }
     return foodNutrients.filter {
-      try! FoodSearchModel.kNutrientNumberRegEx.firstMatch(in: $0.number) == nil
+      try! FDCSearch.kNutrientNumberRegEx.firstMatch(in: $0.number) == nil
     }
   }
   

@@ -7,10 +7,10 @@ import SwiftUI
 
 struct SystemServices: ViewModifier {
   
-  static var appState = AppState()
+  @State private var appState = AppState()
   
   func body(content: Content) -> some View {
     content
-      .environmentObject(Self.appState)
+//      .environment(appState)
   }
 }
