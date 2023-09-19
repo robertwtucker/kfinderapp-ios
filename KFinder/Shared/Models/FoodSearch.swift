@@ -5,10 +5,16 @@
 
 import Foundation
 
-@Observable class FDCSearch {
+@Observable class FoodSearch {
+  enum DataSet: String, Codable {
+    case branded = "Branded"
+    case foundation = "Foundation"
+    case survey = "Survey (FNDDS)"
+    case legacy = "SR Legacy"
+    case unspecified = ""
+  }
+
   private let service = FoodDataCentralService()
-  static let kNutrientNumberRegEx = /428|429|430/
-  
   var query = ""
   var foods: [SearchFoodItem] = []
 

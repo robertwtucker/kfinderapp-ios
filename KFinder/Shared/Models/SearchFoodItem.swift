@@ -9,7 +9,7 @@ struct SearchFoodItem: Codable {
   // Unique ID of the food.
   let fdcId: Int
   // The type of the food data.
-  let dataType: SearchDataSet
+  let dataType: FoodSearch.DataSet
   // The description of the food.
   let description: String
   // Additional information describing the food.
@@ -31,7 +31,9 @@ struct SearchFoodItem: Codable {
   // Unique number assigned for foundation foods -- only applies to Foundation and SRLegacy Foods
   let ndbNumber: Int?
   
-  init(fdcId: Int, dataType: SearchDataSet, description: String, additionalDescriptions: String? = nil, foodCode: Int? = nil, publishedDate: String? = nil, foodCategory: String? = nil, foodNutrients: [SearchFoodNutrient]? = nil, foodMeasures: [SearchFoodMeasure]? = nil, brandOwner: String? = nil, gtinUpc: String? = nil, ndbNumber: Int? = nil) {
+  static let kNutrientNumberRegEx = /428|429|430/
+  
+  init(fdcId: Int, dataType: FoodSearch.DataSet, description: String, additionalDescriptions: String? = nil, foodCode: Int? = nil, publishedDate: String? = nil, foodCategory: String? = nil, foodNutrients: [SearchFoodNutrient]? = nil, foodMeasures: [SearchFoodMeasure]? = nil, brandOwner: String? = nil, gtinUpc: String? = nil, ndbNumber: Int? = nil) {
     self.fdcId = fdcId
     self.dataType = dataType
     self.description = description
@@ -87,7 +89,7 @@ struct SearchFoodItem: Codable {
       return []
     }
     return foodNutrients.filter {
-      try! FDCSearch.kNutrientNumberRegEx.firstMatch(in: $0.number) != nil
+      try! Self.kNutrientNumberRegEx.firstMatch(in: $0.number) != nil
     }
   }
   
@@ -96,7 +98,7 @@ struct SearchFoodItem: Codable {
       return []
     }
     return foodNutrients.filter {
-      try! FDCSearch.kNutrientNumberRegEx.firstMatch(in: $0.number) == nil
+      try! Self.kNutrientNumberRegEx.firstMatch(in: $0.number) == nil
     }
   }
   
