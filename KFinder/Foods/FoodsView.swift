@@ -16,7 +16,7 @@ struct FoodsView: View {
     subsystem: Bundle.main.bundleIdentifier!,
     category: String(describing: FoodsView.self))
   
-  @State var foodSearch = FDCSearch()
+  @State var foodSearch = FoodSearch()
   @State private var searchScope = SearchScope.fdc
   @State private var isSearching = false
   

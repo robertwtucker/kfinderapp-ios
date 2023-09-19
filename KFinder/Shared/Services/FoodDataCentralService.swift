@@ -14,13 +14,13 @@ struct FoodDataCentralService {
   private let apiKeyHeader = "X-Api-Key"
   private let baseURL = URL(string: "https://api.nal.usda.gov/fdc/v1")
   
-  func searchFoods(for query: String) async -> SearchResult? {
+  func searchFoods(for query: String) async -> FoodSearchResult? {
     let request = buildSearchURLRequest(with: query)
     
     do {
       logger.debug("\(request.httpMethod!) \(request.url!)")
       let (data, _) = try await URLSession.shared.data(for: request)
-      let result = try JSONDecoder().decode(SearchResult.self, from: data)
+      let result = try JSONDecoder().decode(FoodSearchResult.self, from: data)
       logger.debug("search returned with \(result.totalHits) hit(s)")
       return result
     } catch {
@@ -47,12 +47,12 @@ struct FoodDataCentralService {
   
   private func buildSearchURLRequest(with query: String) -> URLRequest {
     let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-    let dataTypes = "\(SearchDataSet.survey.rawValue)"
+    let dataTypes = "\(FoodSearch.DataSet.survey.rawValue)"
     let url = baseURL!.appending(path: "/foods/search")
     let queryItems = [
       URLQueryItem(name: "dataType", value: dataTypes),
-      URLQueryItem(name: "sortBy", value: SearchCriteria.SortBy.description.rawValue),
-      URLQueryItem(name: "sortOrder", value: SearchCriteria.SortOrder.ascending.rawValue),
+      URLQueryItem(name: "sortBy", value: FoodSearchCriteria.SortBy.description.rawValue),
+      URLQueryItem(name: "sortOrder", value: FoodSearchCriteria.SortOrder.ascending.rawValue),
       URLQueryItem(name: "requireAllWords", value: "true"),
       URLQueryItem(name: "query", value: encodedQuery)
     ]
