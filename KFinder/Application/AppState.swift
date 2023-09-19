@@ -11,6 +11,6 @@ enum AppTabs: Int {
   case settings
 }
 
-class AppState: ObservableObject {
-  @Published var currentTab = AppTabs.foods
+@Observable class AppState {
+  var currentTab = AppTabs.foods
 }

@@ -6,22 +6,27 @@
 import SwiftUI
 
 struct AppTabView: View {
-  @EnvironmentObject var appState: AppState
+  @Environment(AppState.self) private var appState
   
   var body: some View {
-    TabView(selection: $appState.currentTab) {
+    @Bindable var state = appState
+    
+    TabView(selection: $state.currentTab) {
       DashboardView()
         .tabItem {
           Label("Dashboard", systemImage: "chart.bar")
-        }.tag(AppTabs.dashboard)
+        }
+        .tag(AppTabs.dashboard)
       FoodsView()
         .tabItem {
           Label("Foods", systemImage: "takeoutbag.and.cup.and.straw")
-        }.tag(AppTabs.foods)
+        }
+        .tag(AppTabs.foods)
       SettingsView()
         .tabItem {
           Label("Settings", systemImage: "gear")
-        }.tag(AppTabs.settings)
+        }
+        .tag(AppTabs.settings)
     }
 //    .onAppear {
 //      if #available(iOS 15.0, *) {
@@ -34,6 +39,6 @@ struct AppTabView: View {
 
 struct AppTabView_Previews: PreviewProvider {
   static var previews: some View {
-    AppTabView().environmentObject(AppState())
+    AppTabView().environment(AppState())
   }
 }
