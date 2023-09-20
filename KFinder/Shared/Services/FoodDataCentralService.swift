@@ -15,7 +15,7 @@ struct FoodDataCentralService {
   private let baseURL = URL(string: "https://api.nal.usda.gov/fdc/v1")
   
   func searchFoods(for query: String) async -> FoodSearchResult? {
-    let request = buildSearchURLRequest(with: query)
+    let request = buildSearchURLRequest(with: query.trimmingCharacters(in: [" "]))
     
     do {
       logger.debug("\(request.httpMethod!) \(request.url!)")
