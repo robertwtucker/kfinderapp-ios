@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct VitaminKTargetView: View {
-  @AppStorage("kTarget") var kTarget = "120"
+  @AppStorage(StorageKeys.kTarget.rawValue) private var kTarget = "120"
   @State private var showingVitaminKInfo = false
   
   var body: some View {

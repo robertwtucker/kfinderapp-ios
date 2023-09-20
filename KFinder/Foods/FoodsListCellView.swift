@@ -6,6 +6,7 @@
 import SwiftUI
 
 struct FoodsListCellView: View {
+  @AppStorage(StorageKeys.kTarget.rawValue) private var kTarget: Int = 120
   let food: SearchFoodItem
   
   init(for food: SearchFoodItem) {
@@ -21,7 +22,7 @@ struct FoodsListCellView: View {
           .font(.subheadline)
       }
       Spacer()
-      Image(systemName: "ellipsis.circle", variableValue: food.vitaminKAsPercent(of: 90))
+      Image(systemName: "ellipsis.circle", variableValue: food.vitaminKAsPercent(of: kTarget))
         .symbolRenderingMode(.monochrome)
         .foregroundColor(getImageColor())
         .font(.title)
@@ -30,7 +31,7 @@ struct FoodsListCellView: View {
   }
   
   func getImageColor() -> Color {
-    switch food.vitaminKAsPercent(of: 90)*100 {
+    switch food.vitaminKAsPercent(of: kTarget) * 100 {
     case 0:
       return .gray
     case 1..<25:
