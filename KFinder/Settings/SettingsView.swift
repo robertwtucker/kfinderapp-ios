@@ -12,7 +12,11 @@ struct SettingsView: View {
     NavigationStack {
       List {
         Section {
-          VitaminKTargetView()
+          NavigationLink {
+            VitaminKTargetDetailView()
+          } label: {
+            VitaminKTargetView()
+          }
         }
         Section("About") {
           Button(action: {
