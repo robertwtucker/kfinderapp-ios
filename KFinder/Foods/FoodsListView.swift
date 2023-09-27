@@ -13,14 +13,14 @@ struct FoodsListView: View {
   }
   
   var body: some View {
-      List(foods) { food in
-        NavigationLink(value: food) {
-          FoodsListCellView(for: food)
-        }
+    List(foods) { food in
+      NavigationLink(value: food) {
+        FoodsListCellView(for: food)
       }
-      .navigationDestination(for: SearchFoodItem.self) { food in
-        FoodDetailView(food)
-      }
+    }
+    .navigationDestination(for: SearchFoodItem.self) { food in
+      FoodDetailView(food)
+    }
   }
 }
 
