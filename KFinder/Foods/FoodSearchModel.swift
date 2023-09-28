@@ -5,7 +5,7 @@
 
 import Foundation
 
-@Observable class FoodSearch {
+@Observable class FoodSearchModel {
   enum DataSet: String, Codable {
     case branded = "Branded"
     case foundation = "Foundation"

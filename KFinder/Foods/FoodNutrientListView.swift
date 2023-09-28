@@ -8,10 +8,6 @@ import SwiftUI
 struct FoodNutrientListView: View {
   let food: SearchFoodItem
   
-  init(for food: SearchFoodItem) {
-    self.food = food
-  }
-  
   var body: some View {
     List {
       Section("Vitamin K") {
@@ -20,7 +16,7 @@ struct FoodNutrientListView: View {
           Text("None reported")
         } else {
           ForEach(kNutrients) { kNutrient in
-            FoodNutrientCellView(kNutrient)
+            FoodNutrientCellView(nutrient: kNutrient)
           }
         }
       }
@@ -30,7 +26,7 @@ struct FoodNutrientListView: View {
           Text("None reported")
         } else {
           ForEach(otherNutrients) { otherNutrient in
-            FoodNutrientCellView(otherNutrient)
+            FoodNutrientCellView(nutrient: otherNutrient)
           }
         }
       }

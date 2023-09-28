@@ -9,10 +9,6 @@ struct FoodsListCellView: View {
   @AppStorage(StorageKeys.kTarget.rawValue) private var kTarget: Int = 120
   let food: SearchFoodItem
   
-  init(for food: SearchFoodItem) {
-    self.food = food
-  }
-  
   var body: some View {
     HStack {
       VStack(alignment: .leading) {
@@ -50,6 +46,6 @@ struct FoodsListCellView: View {
 
 struct FoodItemCellView_Previews: PreviewProvider {
   static var previews: some View {
-    FoodsListCellView(for: SearchFoodItem.samples[0])
+    FoodsListCellView(food: SearchFoodItem.samples[0])
   }
 }
