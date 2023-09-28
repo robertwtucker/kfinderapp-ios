@@ -47,7 +47,7 @@ struct FoodDataCentralService {
   
   private func buildSearchURLRequest(with query: String) -> URLRequest {
     let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-    let dataTypes = "\(FoodSearchModel.DataSet.survey.rawValue)"
+    let dataTypes = "\(FoodSearch.DataSet.survey.rawValue)"
     let url = baseURL!.appending(path: "/foods/search")
     let queryItems = [
       URLQueryItem(name: "dataType", value: dataTypes),

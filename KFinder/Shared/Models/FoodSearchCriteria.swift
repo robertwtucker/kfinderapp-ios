@@ -21,7 +21,7 @@ struct FoodSearchCriteria: Codable {
   // Search terms to use in the search. The string may also include standard [search operators](https://fdc.nal.usda.gov/help.html#bkmk-2)
   let query: String
   // Optional. Filter on a specific data type; specify one or more values in an array.
-  let dataType: [FoodSearchModel.DataSet]?
+  let dataType: [FoodSearch.DataSet]?
   // Optional. Maximum number of results to return for the current page. Default is 50.
   let pageSize: Int?
   // Optional. Page number to retrieve. The offset into the overall result set is expressed as (pageNumber * pageSize)
