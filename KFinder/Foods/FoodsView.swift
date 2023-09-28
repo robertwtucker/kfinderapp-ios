@@ -16,7 +16,7 @@ struct FoodsView: View {
     subsystem: Bundle.main.bundleIdentifier!,
     category: String(describing: FoodsView.self))
   
-  @State private var model = FoodSearchModel()
+  @State private var model = FoodSearch()
   @State private var searchScope = SearchScope.fdc
   @State private var isSearching = false
   
@@ -45,7 +45,7 @@ struct FoodsView: View {
         logger.debug("dispatching FDC search for '\(model.query)'")
         Task {
           isSearching.toggle()
-          await model.loadAsync()
+          await model.fetchAsync()
           isSearching.toggle()
         }
       case .favorites:

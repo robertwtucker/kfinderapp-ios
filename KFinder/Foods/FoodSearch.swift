@@ -5,7 +5,7 @@
 
 import Foundation
 
-@Observable class FoodSearchModel {
+@Observable class FoodSearch {
   enum DataSet: String, Codable {
     case branded = "Branded"
     case foundation = "Foundation"
@@ -19,7 +19,7 @@ import Foundation
   var foods: [SearchFoodItem] = []
 
   @MainActor
-  func loadAsync() async {
+  func fetchAsync() async {
     guard let result = await service.searchFoods(for: query), let foods = result.foods else {
       self.foods = []
       return

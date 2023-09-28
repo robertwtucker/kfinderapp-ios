@@ -9,7 +9,7 @@ struct SearchFoodItem: Codable {
   // Unique ID of the food.
   let fdcId: Int
   // The type of the food data.
-  let dataType: FoodSearchModel.DataSet
+  let dataType: FoodSearch.DataSet
   // The description of the food.
   let description: String
   // Additional information describing the food.
@@ -33,7 +33,7 @@ struct SearchFoodItem: Codable {
   
   static let kNutrientNumberRegEx = /428|429|430/
   
-  init(fdcId: Int, dataType: FoodSearchModel.DataSet, description: String, additionalDescriptions: String? = nil, foodCode: Int? = nil, publishedDate: String? = nil, foodCategory: String? = nil, foodNutrients: [SearchFoodNutrient]? = nil, foodMeasures: [SearchFoodMeasure]? = nil, brandOwner: String? = nil, gtinUpc: String? = nil, ndbNumber: Int? = nil) {
+  init(fdcId: Int, dataType: FoodSearch.DataSet, description: String, additionalDescriptions: String? = nil, foodCode: Int? = nil, publishedDate: String? = nil, foodCategory: String? = nil, foodNutrients: [SearchFoodNutrient]? = nil, foodMeasures: [SearchFoodMeasure]? = nil, brandOwner: String? = nil, gtinUpc: String? = nil, ndbNumber: Int? = nil) {
     self.fdcId = fdcId
     self.dataType = dataType
     self.description = description
