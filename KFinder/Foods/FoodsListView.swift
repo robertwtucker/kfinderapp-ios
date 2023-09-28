@@ -6,26 +6,23 @@
 import SwiftUI
 
 struct FoodsListView: View {
-  let foods: [SearchFoodItem]
-  
-  init(with foods: [SearchFoodItem]) {
-    self.foods = foods
-  }
+  @Binding var foods: [SearchFoodItem]
   
   var body: some View {
     List(foods) { food in
       NavigationLink(value: food) {
-        FoodsListCellView(for: food)
+        FoodsListCellView(food: food)
       }
     }
     .navigationDestination(for: SearchFoodItem.self) { food in
-      FoodDetailView(food)
+      FoodDetailView(food: food)
     }
   }
 }
 
 struct FoodsListView_Previews: PreviewProvider {
   static var previews: some View {
-    FoodsListView(with: SearchFoodItem.samples)
+    @State var foods = SearchFoodItem.samples
+    FoodsListView(foods: $foods)
   }
 }

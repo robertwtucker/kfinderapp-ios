@@ -16,13 +16,13 @@ struct FoodsView: View {
     subsystem: Bundle.main.bundleIdentifier!,
     category: String(describing: FoodsView.self))
   
-  @State var foodSearch = FoodSearch()
+  @State private var model = FoodSearchModel()
   @State private var searchScope = SearchScope.fdc
   @State private var isSearching = false
   
   var body: some View {
     NavigationStack {
-      FoodsListView(with: foodSearch.foods)
+      FoodsListView(foods: $model.foods)
         .navigationTitle("Foods")
     }
     .overlay {
@@ -30,7 +30,7 @@ struct FoodsView: View {
         LoadingView()
       }
     }
-    .searchable(text: $foodSearch.query, prompt: "Food name or keywords")
+    .searchable(text: $model.query, prompt: "Food name or keywords")
     // TODO: Implement Favorites
     //    .searchScopes($searchScope) {
     //      ForEach(SearchScope.allCases, id: \.self) { scope in
@@ -42,14 +42,14 @@ struct FoodsView: View {
     .onSubmit(of: .search) {
       switch searchScope {
       case .fdc:
-        logger.debug("dispatching FDC search for '\(foodSearch.query)'")
+        logger.debug("dispatching FDC search for '\(model.query)'")
         Task {
           isSearching.toggle()
-          await foodSearch.loadAsync()
+          await model.loadAsync()
           isSearching.toggle()
         }
       case .favorites:
-        logger.debug("searching Favorites for '\(foodSearch.query)'")
+        logger.debug("searching Favorites for '\(model.query)'")
         // TODO: Implement Favorites
       }
     }

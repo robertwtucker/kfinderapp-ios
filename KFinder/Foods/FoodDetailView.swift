@@ -8,20 +8,16 @@ import SwiftUI
 struct FoodDetailView: View {
   let food: SearchFoodItem
   
-  init(_ food: SearchFoodItem) {
-    self.food = food
-  }
-  
   var body: some View {
     VStack {
-      FoodHeaderView(for: food)
-      FoodNutrientListView(for: food)
+      FoodHeaderView(food: food)
+      FoodNutrientListView(food: food)
     }
   }
 }
 
 struct FoodDetailView_Previews: PreviewProvider {
   static var previews: some View {
-    FoodDetailView(SearchFoodItem.samples[0])
+    FoodDetailView(food: SearchFoodItem.samples[0])
   }
 }

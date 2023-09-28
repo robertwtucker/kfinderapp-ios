@@ -6,17 +6,13 @@
 import SwiftUI
 
 struct FoodNutrientCellView: View {
-  let foodNutrient: SearchFoodNutrient
-  
-  init(_ foodNutrient: SearchFoodNutrient) {
-    self.foodNutrient = foodNutrient
-  }
+  let nutrient: SearchFoodNutrient
   
   var body: some View {
     HStack {
-      Text(foodNutrient.name)
+      Text(nutrient.name)
       Spacer()
-      Text(foodNutrient.unitValue)
+      Text(nutrient.unitValue)
     }
   }
 }

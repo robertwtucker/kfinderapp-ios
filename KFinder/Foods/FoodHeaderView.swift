@@ -8,12 +8,8 @@ import SwiftUI
 struct FoodHeaderView: View {
   let food: SearchFoodItem
   
-  init(for food: SearchFoodItem) {
-    self.food = food
-  }
-  
   var body: some View {
-    VStack(alignment: .leading) {
+    VStack(alignment: .leading, spacing: 8) {
       Text(food.description)
         .font(.title)
       Text(food.foodCategory?.description ?? "")
@@ -26,5 +22,6 @@ struct FoodHeaderView: View {
         .font(.footnote)
         .padding(.top)
     }
+    .padding(.horizontal)
   }
 }
