@@ -14,17 +14,17 @@ struct AppTabView: View {
     TabView(selection: $state.currentTab) {
       DashboardView()
         .tabItem {
-          Label("Dashboard", systemImage: "chart.bar")
+          Label("tab.dashboard", systemImage: "chart.bar")
         }
         .tag(AppTabs.dashboard)
       FoodsView()
         .tabItem {
-          Label("Foods", systemImage: "takeoutbag.and.cup.and.straw")
+          Label("tab.foods", systemImage: "takeoutbag.and.cup.and.straw")
         }
         .tag(AppTabs.foods)
       SettingsView()
         .tabItem {
-          Label("Settings", systemImage: "gear")
+          Label("tab.settings", systemImage: "gear")
         }
         .tag(AppTabs.settings)
     }

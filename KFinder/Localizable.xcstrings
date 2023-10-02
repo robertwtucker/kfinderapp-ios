@@ -7,64 +7,220 @@
     "%lld µg" : {
 
     },
-    "About" : {
-
-    },
-    "Daily Target" : {
-
+    "button.dismiss" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss"
+          }
+        }
+      }
     },
     "Dashboard" : {
 
     },
-    "Dismiss" : {
-
+    "foods.nutrient.k" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin K"
+          }
+        }
+      }
     },
-    "Food name or keywords" : {
-
+    "foods.nutrient.none" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "None reported"
+          }
+        }
+      }
     },
-    "FoodData Central" : {
-
+    "foods.nutrient.other" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other Nutrients"
+          }
+        }
+      }
     },
-    "Foods" : {
-
+    "foods.search.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Food name or keyword(s)"
+          }
+        }
+      }
     },
-    "KFinder" : {
-
+    "foods.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foods"
+          }
+        }
+      }
     },
-    "None reported" : {
-
+    "settings.about" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        }
+      }
     },
-    "Other Nutrients" : {
-
+    "settings.about.fdc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FoodData Central"
+          }
+        }
+      }
     },
-    "See: [Food Labeling: Revision of the Nutrition and Supplement Facts Labels](https://www.federalregister.gov/documents/2016/05/27/2016-11867/food-labeling-revision-of-the-nutrition-and-supplement-facts-labels)" : {
-
+    "settings.about.kfinder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KFinder"
+          }
+        }
+      }
     },
-    "Settings" : {
-
+    "settings.fdc.footnote" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. [fdc.nal.usda.gov](https://fdc.nal.usda.gov)."
+          }
+        }
+      }
     },
-    "Source: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. [fdc.nal.usda.gov](https://fdc.nal.usda.gov)." : {
-
+    "settings.fdc.info" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The foods and nutritional values used in KFinder are provided by the U.S. Department of Agriculture (USDA). The USDA makes its food composition data available via [FoodData Central](https://fdc.nal.usda.gov)."
+          }
+        }
+      }
     },
-    "The foods and nutritional values used in KFinder are provided by the U.S. Department of Agriculture (USDA). The USDA makes its food composition data available via [FoodData Central](https://fdc.nal.usda.gov)." : {
-
+    "settings.ktarget" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin K Target"
+          }
+        }
+      }
     },
-    "The U.S. Food and Drug Administration (FDA) has established a recommended Daily Value of 120 micrograms (µg or mcg) for adults and children over 4 years of age." : {
-
+    "settings.ktarget.footnote" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See: [Food Labeling: Revision of the Nutrition and Supplement Facts Labels](https://www.federalregister.gov/documents/2016/05/27/2016-11867/food-labeling-revision-of-the-nutrition-and-supplement-facts-labels)"
+          }
+        }
+      }
+    },
+    "settings.ktarget.info" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The U.S. Food and Drug Administration (FDA) has established a recommended Daily Value of 120 micrograms (µg or mcg) for adults and children over 4 years of age."
+          }
+        }
+      }
+    },
+    "settings.ktarget.measure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vitamin K (micrograms)"
+          }
+        }
+      }
+    },
+    "settings.ktarget.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily Target"
+          }
+        }
+      }
+    },
+    "settings.ktarget.value" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Value"
+          }
+        }
+      }
+    },
+    "settings.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "tab.dashboard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dashboard"
+          }
+        }
+      }
+    },
+    "tab.foods" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foods"
+          }
+        }
+      }
+    },
+    "tab.settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
     },
     "v%@" : {
-
-    },
-    "Value" : {
-
-    },
-    "Vitamin K" : {
-
-    },
-    "Vitamin K (micrograms)" : {
-
-    },
-    "Vitamin K Target" : {
 
     }
   },

@@ -20,7 +20,7 @@ struct InfoPageView: View {
         Button(action: {
           dismiss()
         }, label: {
-          Text("Dismiss")
+          Text("button.dismiss")
         })
       }
     }

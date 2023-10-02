@@ -10,20 +10,20 @@ struct FoodNutrientListView: View {
   
   var body: some View {
     List {
-      Section("Vitamin K") {
+      Section("foods.nutrient.k") {
         let kNutrients = food.nutrientsWithVitaminK()
         if kNutrients.isEmpty {
-          Text("None reported")
+          Text("foods.nutrient.none")
         } else {
           ForEach(kNutrients) { kNutrient in
             FoodNutrientCellView(nutrient: kNutrient)
           }
         }
       }
-      Section("Other Nutrients") {
+      Section("foods.nutrient.other") {
         let otherNutrients = food.nutrientsOtherThanVitaminK()
         if otherNutrients.isEmpty {
-          Text("None reported")
+          Text("foods.nutrient.none")
         } else {
           ForEach(otherNutrients) { otherNutrient in
             FoodNutrientCellView(nutrient: otherNutrient)
