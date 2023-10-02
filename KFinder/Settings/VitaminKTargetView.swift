@@ -10,7 +10,7 @@ struct VitaminKTargetView: View {
   
   var body: some View {
     HStack {
-      Label("Vitamin K Target", systemImage: "target")
+      Label("settings.ktarget", systemImage: "target")
       Spacer()
       Text("\(kTarget) µg")
     }

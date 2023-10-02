@@ -16,8 +16,8 @@ struct VitaminKTargetDetailView: View {
   
   var body: some View {
     Form {
-      Section(header: Text("Vitamin K (micrograms)")) {
-        TextField("Value", value: $kTarget, format: .number)
+      Section(header: Text("settings.ktarget.measure")) {
+        TextField("settings.ktarget.value", value: $kTarget, format: .number)
           .multilineTextAlignment(.trailing)
           .keyboardType(.numbersAndPunctuation)
           .focused($focusedField, equals: .target)
@@ -36,11 +36,11 @@ struct VitaminKTargetDetailView: View {
       }
       .defaultFocus($focusedField, .target)
     }
-    .navigationTitle("Daily Target")
+    .navigationTitle("settings.ktarget.title")
   }
   
-  let info: LocalizedStringKey = "The U.S. Food and Drug Administration (FDA) has established a recommended Daily Value of 120 micrograms (µg or mcg) for adults and children over 4 years of age."
-  let footnote: LocalizedStringKey = "See: [Food Labeling: Revision of the Nutrition and Supplement Facts Labels](https://www.federalregister.gov/documents/2016/05/27/2016-11867/food-labeling-revision-of-the-nutrition-and-supplement-facts-labels)"
+  let info: LocalizedStringKey = "settings.ktarget.info"
+  let footnote: LocalizedStringKey = "settings.ktarget.footnote"
 }
 
 #Preview {

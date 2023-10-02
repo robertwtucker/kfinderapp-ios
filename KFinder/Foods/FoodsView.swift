@@ -23,14 +23,14 @@ struct FoodsView: View {
   var body: some View {
     NavigationStack {
       FoodsListView(foods: $model.foods)
-        .navigationTitle("Foods")
+        .navigationTitle("foods.title")
     }
     .overlay {
       if isSearching {
         LoadingView()
       }
     }
-    .searchable(text: $model.query, prompt: "Food name or keywords")
+    .searchable(text: $model.query, prompt: "foods.search.prompt")
     // TODO: Implement Favorites
     //    .searchScopes($searchScope) {
     //      ForEach(SearchScope.allCases, id: \.self) { scope in

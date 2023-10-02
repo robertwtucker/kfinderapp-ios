@@ -18,23 +18,23 @@ struct SettingsView: View {
             VitaminKTargetView()
           }
         }
-        Section("About") {
+        Section("settings.about") {
           Button(action: {
             showingFDCInfo.toggle()
           }, label: {
-            Label("FoodData Central", systemImage: "square.3.layers.3d.top.filled")
+            Label("settings.about.fdc", systemImage: "square.3.layers.3d.top.filled")
           })
           HStack {
-            Label("KFinder", systemImage: "number.square")
+            Label("settings.about.kfinder", systemImage: "number.square")
             Spacer()
             Text("v\(UIApplication.version)")
           }
         }
       }
-      .navigationTitle("Settings")
+      .navigationTitle("settings.title")
       .sheet(isPresented: $showingFDCInfo, content: {
-        let info: LocalizedStringKey = "The foods and nutritional values used in KFinder are provided by the U.S. Department of Agriculture (USDA). The USDA makes its food composition data available via [FoodData Central](https://fdc.nal.usda.gov)."
-        let footnote: LocalizedStringKey = "Source: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. [fdc.nal.usda.gov](https://fdc.nal.usda.gov)."
+        let info: LocalizedStringKey = "settings.fdc.info"
+        let footnote: LocalizedStringKey = "settings.fdc.footnote"
         
         InfoPageView(info: info, footnote: footnote)
           .presentationDetents([.fraction(0.40)])
