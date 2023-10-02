@@ -1,0 +1,72 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%lld µg" : {
+
+    },
+    "About" : {
+
+    },
+    "Daily Target" : {
+
+    },
+    "Dashboard" : {
+
+    },
+    "Dismiss" : {
+
+    },
+    "Food name or keywords" : {
+
+    },
+    "FoodData Central" : {
+
+    },
+    "Foods" : {
+
+    },
+    "KFinder" : {
+
+    },
+    "None reported" : {
+
+    },
+    "Other Nutrients" : {
+
+    },
+    "See: [Food Labeling: Revision of the Nutrition and Supplement Facts Labels](https://www.federalregister.gov/documents/2016/05/27/2016-11867/food-labeling-revision-of-the-nutrition-and-supplement-facts-labels)" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Source: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. [fdc.nal.usda.gov](https://fdc.nal.usda.gov)." : {
+
+    },
+    "The foods and nutritional values used in KFinder are provided by the U.S. Department of Agriculture (USDA). The USDA makes its food composition data available via [FoodData Central](https://fdc.nal.usda.gov)." : {
+
+    },
+    "The U.S. Food and Drug Administration (FDA) has established a recommended Daily Value of 120 micrograms (µg or mcg) for adults and children over 4 years of age." : {
+
+    },
+    "v%@" : {
+
+    },
+    "Value" : {
+
+    },
+    "Vitamin K" : {
+
+    },
+    "Vitamin K (micrograms)" : {
+
+    },
+    "Vitamin K Target" : {
+
+    }
+  },
+  "version" : "1.0"
+}
