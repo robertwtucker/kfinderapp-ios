@@ -20,7 +20,7 @@
 		E1A5C2AE2ABA6BF30088D5F3 /* UIApplication+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2AD2ABA6BF30088D5F3 /* UIApplication+Version.swift */; };
 		E1A5C2B02ABA71D40088D5F3 /* InfoPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2AF2ABA71D40088D5F3 /* InfoPageView.swift */; };
 		E1A5C2B22ABB78EB0088D5F3 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2B12ABB78EB0088D5F3 /* AppSettings.swift */; };
-		E1A5C2F32ABE07020088D5F3 /* VitaminKTargetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2F22ABE07020088D5F3 /* VitaminKTargetDetailView.swift */; };
+		E1A5C2F32ABE07020088D5F3 /* VitaminKTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2F22ABE07020088D5F3 /* VitaminKTargetView.swift */; };
 		E1B589392AA10A0D00E64F18 /* FoodDataCentralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589382AA10A0D00E64F18 /* FoodDataCentralService.swift */; };
 		E1B5893B2AA16ACD00E64F18 /* FoodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5893A2AA16ACD00E64F18 /* FoodsView.swift */; };
 		E1B5893D2AA16AED00E64F18 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5893C2AA16AED00E64F18 /* SettingsView.swift */; };
@@ -40,7 +40,6 @@
 		E1FE05992AB5482700529B5F /* FoodHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05982AB5482700529B5F /* FoodHeaderView.swift */; };
 		E1FE059B2AB548C900529B5F /* FoodNutrientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */; };
 		E1FE059D2AB5494100529B5F /* FoodNutrientCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE059C2AB5494100529B5F /* FoodNutrientCellView.swift */; };
-		E1FE05A02AB5B80000529B5F /* VitaminKTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE059F2AB5B80000529B5F /* VitaminKTargetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +76,7 @@
 		E1A5C2AD2ABA6BF30088D5F3 /* UIApplication+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Version.swift"; sourceTree = "<group>"; };
 		E1A5C2AF2ABA71D40088D5F3 /* InfoPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageView.swift; sourceTree = "<group>"; };
 		E1A5C2B12ABB78EB0088D5F3 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		E1A5C2F22ABE07020088D5F3 /* VitaminKTargetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitaminKTargetDetailView.swift; sourceTree = "<group>"; };
+		E1A5C2F22ABE07020088D5F3 /* VitaminKTargetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitaminKTargetView.swift; sourceTree = "<group>"; };
 		E1B589382AA10A0D00E64F18 /* FoodDataCentralService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataCentralService.swift; sourceTree = "<group>"; };
 		E1B5893A2AA16ACD00E64F18 /* FoodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsView.swift; sourceTree = "<group>"; };
 		E1B5893C2AA16AED00E64F18 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -99,7 +98,6 @@
 		E1FE05982AB5482700529B5F /* FoodHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodHeaderView.swift; sourceTree = "<group>"; };
 		E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNutrientListView.swift; sourceTree = "<group>"; };
 		E1FE059C2AB5494100529B5F /* FoodNutrientCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNutrientCellView.swift; sourceTree = "<group>"; };
-		E1FE059F2AB5B80000529B5F /* VitaminKTargetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitaminKTargetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +193,7 @@
 			children = (
 				E1A5C2B12ABB78EB0088D5F3 /* AppSettings.swift */,
 				E1B5893C2AA16AED00E64F18 /* SettingsView.swift */,
-				E1FE059F2AB5B80000529B5F /* VitaminKTargetView.swift */,
-				E1A5C2F22ABE07020088D5F3 /* VitaminKTargetDetailView.swift */,
+				E1A5C2F22ABE07020088D5F3 /* VitaminKTargetView.swift */,
 				E1A5C2AF2ABA71D40088D5F3 /* InfoPageView.swift */,
 			);
 			path = Settings;
@@ -433,13 +430,12 @@
 				E1FE05932AB51FB900529B5F /* SearchFoodItem.swift in Sources */,
 				E1B5893D2AA16AED00E64F18 /* SettingsView.swift in Sources */,
 				E1B589562AA9FE3800E64F18 /* FoodsListView.swift in Sources */,
-				E1A5C2F32ABE07020088D5F3 /* VitaminKTargetDetailView.swift in Sources */,
+				E1A5C2F32ABE07020088D5F3 /* VitaminKTargetView.swift in Sources */,
 				E1B5894F2AA7E7BE00E64F18 /* AppTabView.swift in Sources */,
 				E1B5893B2AA16ACD00E64F18 /* FoodsView.swift in Sources */,
 				E1A5C2B02ABA71D40088D5F3 /* InfoPageView.swift in Sources */,
 				E1B589522AA8C38A00E64F18 /* FoodSearch.swift in Sources */,
 				E1B589392AA10A0D00E64F18 /* FoodDataCentralService.swift in Sources */,
-				E1FE05A02AB5B80000529B5F /* VitaminKTargetView.swift in Sources */,
 				E124336B2AAF9FD00021C5BA /* FDCFoodModel.swift in Sources */,
 				E11C07592A9907F00024334E /* ContentView.swift in Sources */,
 				E11C07572A9907F00024334E /* KFinderApp.swift in Sources */,

@@ -1,10 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
-    "%lld µg" : {
+    "%@ µg" : {
 
     },
     "button.dismiss" : {

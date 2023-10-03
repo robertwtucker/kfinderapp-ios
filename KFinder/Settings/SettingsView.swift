@@ -6,6 +6,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+  @AppStorage(StorageKeys.kTarget.rawValue) private var kTarget: Double = 120
   @State private var showingFDCInfo = false
   
   var body: some View {
@@ -29,9 +30,13 @@ struct SettingsView: View {
   private var kTargetSection: some View {
     Section {
       NavigationLink {
-        VitaminKTargetDetailView()
-      } label: {
         VitaminKTargetView()
+      } label: {
+        HStack {
+          Label("settings.ktarget", systemImage: "target")
+          Spacer()
+          Text("\(String(format: "%.0f", kTarget)) µg")
+        }
       }
     }
   }
