@@ -4,25 +4,25 @@
 //
 
 import SwiftUI
-import os
+import OSLog
 
 enum SearchScope: String, CaseIterable {
   case fdc = "FoodData Central"
   case favorites = "Favorites"
 }
 
-struct FoodsView: View {
+struct FoodsTab: View {
   private let logger = Logger(
     subsystem: Bundle.main.bundleIdentifier!,
-    category: String(describing: FoodsView.self))
+    category: String(describing: FoodsTab.self))
   
-  @State private var model = FoodSearch()
+  @Bindable private var model = FoodSearch()
   @State private var searchScope = SearchScope.fdc
   @State private var isSearching = false
   
   var body: some View {
     NavigationStack {
-      FoodsListView(foods: $model.foods)
+      FoodsListView(foods: model.foods)
         .navigationTitle("foods.title")
     }
     .overlay {
@@ -45,7 +45,7 @@ struct FoodsView: View {
         logger.debug("dispatching FDC search for '\(model.query)'")
         Task {
           isSearching.toggle()
-          await model.fetchAsync()
+          await model.search()
           isSearching.toggle()
         }
       case .favorites:
@@ -58,6 +58,6 @@ struct FoodsView: View {
 
 struct FoodsView_Previews: PreviewProvider {
   static var previews: some View {
-    FoodsView()
+    FoodsTab()
   }
 }

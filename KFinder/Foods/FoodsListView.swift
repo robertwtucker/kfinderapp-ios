@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct FoodsListView: View {
-  @Binding var foods: [SearchFoodItem]
+  var foods: [SearchFoodItem]
   
   var body: some View {
     List(foods) { food in
@@ -20,9 +20,6 @@ struct FoodsListView: View {
   }
 }
 
-struct FoodsListView_Previews: PreviewProvider {
-  static var previews: some View {
-    @State var foods = SearchFoodItem.samples
-    FoodsListView(foods: $foods)
-  }
+#Preview {
+  FoodsListView(foods: SearchFoodItem.samples)
 }

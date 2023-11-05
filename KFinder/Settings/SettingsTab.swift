@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct SettingsTab: View {
   @AppStorage(StorageKeys.kTarget.rawValue) private var kTarget: Double = 120
   @State private var showingFDCInfo = false
   
@@ -59,6 +59,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingsView()
+    SettingsTab()
   }
 }
