@@ -8,8 +8,11 @@ import SwiftUI
 @main
 struct KFinderApp: App {
   var body: some Scene {
+    @State var userPreferences = UserPreferences.shared
+    
     WindowGroup {
       ContentView()
+        .environment(userPreferences)
     }
   }
 }

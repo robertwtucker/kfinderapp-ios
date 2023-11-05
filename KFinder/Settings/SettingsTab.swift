@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct SettingsTab: View {
-  @AppStorage(StorageKeys.kTarget.rawValue) private var kTarget: Double = 120
+  @Environment(UserPreferences.self) private var userPreferences
   @State private var showingFDCInfo = false
   
   var body: some View {
@@ -35,7 +35,7 @@ struct SettingsTab: View {
         HStack {
           Label("settings.ktarget", systemImage: "target")
           Spacer()
-          Text("\(String(format: "%.0f", kTarget)) µg")
+          Text("\(String(format: "%.0f", userPreferences.kTarget)) µg")
         }
       }
     }
@@ -60,5 +60,6 @@ struct SettingsTab: View {
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
     SettingsTab()
+      .environment(UserPreferences.shared)
   }
 }
