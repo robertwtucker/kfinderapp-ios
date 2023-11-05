@@ -10,7 +10,7 @@ struct VitaminKTargetView: View {
     case target
   }
   
-  @AppStorage(StorageKeys.kTarget.rawValue) private var kTarget: Double = 120
+  @Environment(UserPreferences.self) private var userPreferences
   @State private var showingVitaminKInfo = false
   @FocusState private var focusedField: Field?
   
@@ -23,9 +23,11 @@ struct VitaminKTargetView: View {
     .navigationTitle("settings.ktarget.title")
   }
   
+  @ViewBuilder
   private var valueSection: some View {
+    @Bindable var userPrefs = userPreferences
     Section(header: Text("settings.ktarget.measure")) {
-      TextField("settings.ktarget.value", value: $kTarget, format: .number)
+      TextField("settings.ktarget.value", value: $userPrefs.kTarget, format: .number)
         .multilineTextAlignment(.trailing)
         .keyboardType(.numbersAndPunctuation)
         .focused($focusedField, equals: .target)
@@ -55,4 +57,5 @@ struct VitaminKTargetView: View {
 
 #Preview {
   VitaminKTargetView()
+    .environment(UserPreferences.shared)
 }
