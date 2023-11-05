@@ -19,7 +19,7 @@ import Foundation
   var foods: [SearchFoodItem] = []
 
   @MainActor
-  func fetchAsync() async {
+  func search() async {
     guard let result = await service.searchFoods(for: query), let foods = result.foods else {
       self.foods = []
       return

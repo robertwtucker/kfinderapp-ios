@@ -6,19 +6,27 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var appState = AppState()
+  @State private var selectedTab: Tab = .foods
   
   var body: some View {
     #if os(iOS)
-//    AppTabView().modifier(SystemServices())
-    AppTabView()
-        .environment(appState)
+    TabView(selection: .init(get: {
+      selectedTab
+    }, set: { newTab in
+      selectedTab = newTab
+    })) {
+      ForEach(Tab.validTabs) { tab in
+        tab.makeContentView()
+          .tabItem {
+            tab.label
+          }
+          .tag(tab)
+      }
+    }
     #endif
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+#Preview {
+  ContentView()
 }
