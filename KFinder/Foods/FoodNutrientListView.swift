@@ -11,25 +11,33 @@ struct FoodNutrientListView: View {
   var body: some View {
     List {
       Section("foods.nutrient.k") {
-        let kNutrients = food.nutrientsWithVitaminK()
+        let kNutrients = food.nutrientsWithVitaminK
         if kNutrients.isEmpty {
           Text("foods.nutrient.none")
         } else {
           ForEach(kNutrients) { kNutrient in
-            FoodNutrientCellView(nutrient: kNutrient)
+            foodNutrientRow(kNutrient)
           }
         }
       }
       Section("foods.nutrient.other") {
-        let otherNutrients = food.nutrientsOtherThanVitaminK()
+        let otherNutrients = food.nutrientsOtherThanVitaminK
         if otherNutrients.isEmpty {
           Text("foods.nutrient.none")
         } else {
           ForEach(otherNutrients) { otherNutrient in
-            FoodNutrientCellView(nutrient: otherNutrient)
+            foodNutrientRow(otherNutrient)
           }
         }
       }
+    }
+  }
+  
+  private func foodNutrientRow(_ nutrient: SearchFoodNutrient) -> some View {
+    HStack {
+      Text(nutrient.name)
+      Spacer()
+      Text(nutrient.unitValue)
     }
   }
 }

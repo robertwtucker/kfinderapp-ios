@@ -35,9 +35,7 @@
 		E1FE058F2AB51DB800529B5F /* FoodSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE058E2AB51DB800529B5F /* FoodSearchResult.swift */; };
 		E1FE05932AB51FB900529B5F /* SearchFoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05922AB51FB900529B5F /* SearchFoodItem.swift */; };
 		E1FE05952AB5207B00529B5F /* SearchFoodNutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05942AB5207B00529B5F /* SearchFoodNutrient.swift */; };
-		E1FE05992AB5482700529B5F /* FoodHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05982AB5482700529B5F /* FoodHeaderView.swift */; };
 		E1FE059B2AB548C900529B5F /* FoodNutrientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */; };
-		E1FE059D2AB5494100529B5F /* FoodNutrientCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE059C2AB5494100529B5F /* FoodNutrientCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,9 +89,7 @@
 		E1FE058E2AB51DB800529B5F /* FoodSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchResult.swift; sourceTree = "<group>"; };
 		E1FE05922AB51FB900529B5F /* SearchFoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodItem.swift; sourceTree = "<group>"; };
 		E1FE05942AB5207B00529B5F /* SearchFoodNutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodNutrient.swift; sourceTree = "<group>"; };
-		E1FE05982AB5482700529B5F /* FoodHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodHeaderView.swift; sourceTree = "<group>"; };
 		E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNutrientListView.swift; sourceTree = "<group>"; };
-		E1FE059C2AB5494100529B5F /* FoodNutrientCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNutrientCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,9 +237,7 @@
 				E1B589552AA9FE3800E64F18 /* FoodsListView.swift */,
 				E1B589532AA9FBA100E64F18 /* FoodsListCellView.swift */,
 				E1B589572AA9FF7700E64F18 /* FoodDetailView.swift */,
-				E1FE05982AB5482700529B5F /* FoodHeaderView.swift */,
 				E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */,
-				E1FE059C2AB5494100529B5F /* FoodNutrientCellView.swift */,
 				E1B589512AA8C38A00E64F18 /* FoodSearch.swift */,
 			);
 			path = Foods;
@@ -420,7 +414,6 @@
 				E1FE058F2AB51DB800529B5F /* FoodSearchResult.swift in Sources */,
 				E1B589582AA9FF7700E64F18 /* FoodDetailView.swift in Sources */,
 				E1B589542AA9FBA100E64F18 /* FoodsListCellView.swift in Sources */,
-				E1FE059D2AB5494100529B5F /* FoodNutrientCellView.swift in Sources */,
 				E1FE05932AB51FB900529B5F /* SearchFoodItem.swift in Sources */,
 				E1B5893D2AA16AED00E64F18 /* SettingsTab.swift in Sources */,
 				E1B589562AA9FE3800E64F18 /* FoodsListView.swift in Sources */,
@@ -434,7 +427,6 @@
 				E1A8A2BB2AF725DD00BEA760 /* UserPreferences.swift in Sources */,
 				E11C07572A9907F00024334E /* KFinderApp.swift in Sources */,
 				E1A5C2AE2ABA6BF30088D5F3 /* UIApplication+Version.swift in Sources */,
-				E1FE05992AB5482700529B5F /* FoodHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
