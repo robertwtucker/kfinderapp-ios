@@ -33,7 +33,10 @@ struct SearchFoodItem: Codable {
   
   static let kNutrientNumberRegEx = /428|429|430/
   
-  init(fdcId: Int, dataType: FoodSearch.DataSet, description: String, additionalDescriptions: String? = nil, foodCode: Int? = nil, publishedDate: String? = nil, foodCategory: String? = nil, foodNutrients: [SearchFoodNutrient]? = nil, foodMeasures: [SearchFoodMeasure]? = nil, brandOwner: String? = nil, gtinUpc: String? = nil, ndbNumber: Int? = nil) {
+  init(fdcId: Int, dataType: FoodSearch.DataSet, description: String, additionalDescriptions: String? = nil,
+       foodCode: Int? = nil, publishedDate: String? = nil, foodCategory: String? = nil,
+       foodNutrients: [SearchFoodNutrient]? = nil, foodMeasures: [SearchFoodMeasure]? = nil,
+       brandOwner: String? = nil, gtinUpc: String? = nil, ndbNumber: Int? = nil) {
     self.fdcId = fdcId
     self.dataType = dataType
     self.description = description
@@ -81,29 +84,37 @@ struct SearchFoodItem: Codable {
   }
   
   func vitaminKAsPercent(of target: Int) -> Double {
-    return sumOfVitaminKValues() / Double(target)
+    return sumOfVitaminKValues / Double(target)
   }
   
-  func nutrientsWithVitaminK() -> [SearchFoodNutrient] {
+  var nutrientsWithVitaminK: [SearchFoodNutrient] {
     guard let foodNutrients = foodNutrients else {
       return []
     }
-    return foodNutrients.filter {
-      try! Self.kNutrientNumberRegEx.firstMatch(in: $0.number) != nil
+    do {
+      return try foodNutrients.filter {
+        try Self.kNutrientNumberRegEx.firstMatch(in: $0.number) != nil
+      }
+    } catch {
+      return []
     }
   }
   
-  func nutrientsOtherThanVitaminK() -> [SearchFoodNutrient] {
+  var nutrientsOtherThanVitaminK: [SearchFoodNutrient] {
     guard let foodNutrients = foodNutrients else {
       return []
     }
-    return foodNutrients.filter {
-      try! Self.kNutrientNumberRegEx.firstMatch(in: $0.number) == nil
+    do {
+      return try foodNutrients.filter {
+        try Self.kNutrientNumberRegEx.firstMatch(in: $0.number) == nil
+      }
+    } catch {
+      return []
     }
   }
   
-  func sumOfVitaminKValues() -> Double {
-    return nutrientsWithVitaminK().reduce(0) { $0 + $1.value }
+  var sumOfVitaminKValues: Double {
+    nutrientsWithVitaminK.reduce(0) { $0 + $1.value }
   }
 }
 

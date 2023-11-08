@@ -12,13 +12,13 @@ enum SearchScope: String, CaseIterable {
 }
 
 struct FoodsTab: View {
-  private let logger = Logger(
-    subsystem: Bundle.main.bundleIdentifier!,
-    category: String(describing: FoodsTab.self))
-  
   @Bindable private var model = FoodSearch()
   @State private var searchScope = SearchScope.fdc
   @State private var isSearching = false
+  
+  private let logger = Logger(
+    subsystem: Bundle.main.bundleIdentifier!,
+    category: String(describing: FoodsTab.self))
   
   var body: some View {
     NavigationStack {
@@ -56,8 +56,6 @@ struct FoodsTab: View {
   }
 }
 
-struct FoodsView_Previews: PreviewProvider {
-  static var previews: some View {
-    FoodsTab()
-  }
+#Preview {
+  FoodsTab()
 }

@@ -10,14 +10,25 @@ struct FoodDetailView: View {
   
   var body: some View {
     VStack {
-      FoodHeaderView(food: food)
+      VStack(alignment: .leading, spacing: 8) {
+        Text(food.description)
+          .font(.title)
+        Text(food.foodCategory?.description ?? "")
+          .font(.headline)
+        if let extra = food.additionalDescriptions {
+          Text(extra.capitalized)
+            .font(.callout)
+        }
+        Text(food.citation)
+          .font(.footnote)
+          .padding(.top)
+      }
+      .padding(.horizontal, 8)
       FoodNutrientListView(food: food)
     }
   }
 }
 
-struct FoodDetailView_Previews: PreviewProvider {
-  static var previews: some View {
-    FoodDetailView(food: SearchFoodItem.samples[0])
-  }
+#Preview {
+  FoodDetailView(food: SearchFoodItem.samples[0])
 }
