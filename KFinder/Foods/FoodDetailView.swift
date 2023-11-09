@@ -19,9 +19,11 @@ struct FoodDetailView: View {
           Text(extra.capitalized)
             .font(.callout)
         }
-        Text(food.citation)
-          .font(.footnote)
-          .padding(.top)
+        HStack {
+          Text(food.citation).font(.footnote)
+          Spacer()
+          Text("100g").font(.headline)
+        }.padding(.top, 4)
       }
       .padding(.horizontal, 8)
       FoodNutrientListView(food: food)
