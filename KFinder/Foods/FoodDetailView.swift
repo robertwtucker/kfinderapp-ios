@@ -25,7 +25,7 @@ struct FoodDetailView: View {
           Text("foods.portion.default").font(.headline)
         }.padding(.top, 4)
       }
-      .padding(.horizontal, 8)
+      .padding(.horizontal, 24)
       FoodNutrientListView(food: food)
     }
   }
