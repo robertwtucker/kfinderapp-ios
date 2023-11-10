@@ -22,7 +22,7 @@ struct FoodDetailView: View {
         HStack {
           Text(food.citation).font(.footnote)
           Spacer()
-          Text("100g").font(.headline)
+          Text("foods.portion.default").font(.headline)
         }.padding(.top, 4)
       }
       .padding(.horizontal, 8)

@@ -5,8 +5,9 @@
 
 import SwiftUI
 
-struct SettingsTab: View {
+struct SettingsView: View {
   @Environment(UserPreferences.self) private var userPreferences
+  @Binding var showSettings: Bool
   @State private var showingFDCInfo = false
   
   var body: some View {
@@ -14,6 +15,7 @@ struct SettingsTab: View {
       Form {
         kTargetSection
         aboutSection
+        dismissButton
       }
       .navigationTitle("settings.title")
       .sheet(isPresented: $showingFDCInfo, content: {
@@ -28,7 +30,7 @@ struct SettingsTab: View {
   }
   
   private var kTargetSection: some View {
-    Section {
+    Section("settings.tracking") {
       NavigationLink {
         VitaminKTargetView()
       } label: {
@@ -55,11 +57,23 @@ struct SettingsTab: View {
       }
     }
   }
+  
+  private var dismissButton: some View {
+    Section {
+      Button(action: {
+        showSettings.toggle()
+      }, label: {
+        HStack {
+          Spacer()
+          Text("button.dismiss")
+          Spacer()
+        }
+      })
+    }
+  }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-  static var previews: some View {
-    SettingsTab()
-      .environment(UserPreferences.shared)
-  }
+#Preview {
+  SettingsView(showSettings: .constant(true))
+    .environment(UserPreferences.shared)
 }

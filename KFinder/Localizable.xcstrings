@@ -47,6 +47,16 @@
         }
       }
     },
+    "foods.portion.default" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "100g"
+          }
+        }
+      }
+    },
     "foods.search.prompt" : {
       "localizations" : {
         "en" : {
@@ -187,6 +197,16 @@
         }
       }
     },
+    "settings.tracking" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tracking"
+          }
+        }
+      }
+    },
     "tab.dashboard" : {
       "localizations" : {
         "en" : {
@@ -203,16 +223,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foods"
-          }
-        }
-      }
-    },
-    "tab.settings" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
           }
         }
       }
