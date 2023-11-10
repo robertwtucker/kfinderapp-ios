@@ -53,7 +53,7 @@ struct FoodDataCentralService {
       URLQueryItem(name: "dataType", value: dataTypes),
       URLQueryItem(name: "sortBy", value: FoodSearchCriteria.SortBy.description.rawValue),
       URLQueryItem(name: "sortOrder", value: FoodSearchCriteria.SortOrder.ascending.rawValue),
-      URLQueryItem(name: "requireAllWords", value: "true"),
+      URLQueryItem(name: "requireAllWords", value: "false"),
       URLQueryItem(name: "query", value: encodedQuery)
     ]
     var request = URLRequest(url: url.appending(queryItems: queryItems))
