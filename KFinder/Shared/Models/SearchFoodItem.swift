@@ -84,7 +84,11 @@ struct SearchFoodItem: Codable {
   }
   
   func vitaminKAsPercent(of target: Int) -> Double {
-    return sumOfVitaminKValues / Double(target)
+    if sumOfVitaminKValues > 0 {
+      return sumOfVitaminKValues / Double(target)
+    } else {
+      return 0
+    }
   }
   
   var nutrientsWithVitaminK: [SearchFoodNutrient] {
