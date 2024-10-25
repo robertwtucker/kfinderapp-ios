@@ -117,6 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8D2BD7227CEC1455412406B /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = xcschemes;
+			path = KFinder.xcodeproj/project.xcworkspace/xcuserdata/robert.xcuserdatad/xcschemes;
+			sourceTree = "<group>";
+		};
 		E11C074A2A9907EF0024334E = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +132,7 @@
 				E11C07662A9907F30024334E /* KFinderTests */,
 				E11C07702A9907F30024334E /* KFinderUITests */,
 				E11C07542A9907F00024334E /* Products */,
+				C8D2BD7227CEC1455412406B /* xcschemes */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,7 +344,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					E11C07522A9907F00024334E = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -648,7 +657,6 @@
 		E11C077B2A9907F30024334E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -668,7 +676,6 @@
 		E11C077C2A9907F30024334E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -688,7 +695,6 @@
 		E11C077E2A9907F30024334E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 94GENMY2GG;
@@ -706,7 +712,6 @@
 		E11C077F2A9907F30024334E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 94GENMY2GG;
