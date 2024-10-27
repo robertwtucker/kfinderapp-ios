@@ -1,17 +1,20 @@
 //
-// SPDX-FileCopyrightText: 2016-2023 Robert Tucker
+// SPDX-FileCopyrightText: 2016-2024 Robert Tucker
 // SPDX-License-Identifier: Apache-2.0
 //
 
 import SwiftUI
+import Models
 
 struct FoodNutrientListView: View {
   let food: SearchFoodItem
   
   var body: some View {
+    let displayHelper = FoodDisplayHelper(food)
+    
     List {
       Section("foods.nutrient.k") {
-        let kNutrients = food.nutrientsWithVitaminK
+        let kNutrients = displayHelper.nutrientsWithVitaminK
         if kNutrients.isEmpty {
           Text("foods.nutrient.none")
         } else {
@@ -21,7 +24,7 @@ struct FoodNutrientListView: View {
         }
       }
       Section("foods.nutrient.other") {
-        let otherNutrients = food.nutrientsOtherThanVitaminK
+        let otherNutrients = displayHelper.nutrientsOtherThanVitaminK
         if otherNutrients.isEmpty {
           Text("foods.nutrient.none")
         } else {

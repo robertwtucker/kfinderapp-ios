@@ -1,9 +1,11 @@
 //
-// SPDX-FileCopyrightText: 2016-2023 Robert Tucker
+// SPDX-FileCopyrightText: 2016-2024 Robert Tucker
 // SPDX-License-Identifier: Apache-2.0
 //
 
 import SwiftUI
+import Models
+import Services
 
 struct FoodsListCellView: View {
   @Environment(UserPreferences.self) private var userPreferences
@@ -11,6 +13,8 @@ struct FoodsListCellView: View {
   let food: SearchFoodItem
   
   var body: some View {
+    let displayHelper = FoodDisplayHelper(food)
+    
     HStack {
       VStack(alignment: .leading) {
         Text(food.description)
@@ -19,7 +23,7 @@ struct FoodsListCellView: View {
           .font(.subheadline)
       }
       Spacer()
-      Image(systemName: "ellipsis.circle", variableValue: food.vitaminKAsPercent(of: Int(userPreferences.kTarget)))
+      Image(systemName: "ellipsis.circle", variableValue: displayHelper.vitaminKAsPercent(of: Int(userPreferences.kTarget)))
         .symbolRenderingMode(.monochrome)
         .foregroundColor(getImageColor())
         .font(.title)
@@ -28,7 +32,9 @@ struct FoodsListCellView: View {
   }
   
   func getImageColor() -> Color {
-    switch food.vitaminKAsPercent(of: Int(userPreferences.kTarget)) * 100 {
+    let displayHelper = FoodDisplayHelper(food)
+    
+    switch displayHelper.vitaminKAsPercent(of: Int(userPreferences.kTarget)) * 100 {
     case 0:
       return .gray
     case 1..<25:

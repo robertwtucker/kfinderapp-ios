@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,27 +14,23 @@
 		E11C07682A9907F30024334E /* KFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07672A9907F30024334E /* KFinderTests.swift */; };
 		E11C07722A9907F30024334E /* KFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07712A9907F30024334E /* KFinderUITests.swift */; };
 		E11C07742A9907F30024334E /* KFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */; };
-		E124336B2AAF9FD00021C5BA /* FDCFoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E124336A2AAF9FD00021C5BA /* FDCFoodModel.swift */; };
+		E151F8912CCD9CAE0091FB0C /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8902CCD9CAE0091FB0C /* Services */; };
+		E151F8932CCD9CBA0091FB0C /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8922CCD9CBA0091FB0C /* Models */; };
+		E151F8972CCDBE130091FB0C /* FoodDisplayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */; };
 		E174C8EA2ACB483A007053E2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E174C8E92ACB483A007053E2 /* Localizable.xcstrings */; };
 		E174C8EC2ACBCFD2007053E2 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E174C8EB2ACBCFD2007053E2 /* Tabs.swift */; };
-		E1A5C2AB2AB94EB60088D5F3 /* FoodSearchCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2AA2AB94EB60088D5F3 /* FoodSearchCriteria.swift */; };
 		E1A5C2AE2ABA6BF30088D5F3 /* UIApplication+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2AD2ABA6BF30088D5F3 /* UIApplication+Version.swift */; };
 		E1A5C2B02ABA71D40088D5F3 /* InfoPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2AF2ABA71D40088D5F3 /* InfoPageView.swift */; };
 		E1A5C2F32ABE07020088D5F3 /* VitaminKTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2F22ABE07020088D5F3 /* VitaminKTargetView.swift */; };
-		E1A8A2BB2AF725DD00BEA760 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A8A2BA2AF725DD00BEA760 /* UserPreferences.swift */; };
-		E1B589392AA10A0D00E64F18 /* FoodDataCentralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589382AA10A0D00E64F18 /* FoodDataCentralService.swift */; };
 		E1B5893B2AA16ACD00E64F18 /* FoodsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5893A2AA16ACD00E64F18 /* FoodsTab.swift */; };
 		E1B5893D2AA16AED00E64F18 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5893C2AA16AED00E64F18 /* SettingsView.swift */; };
-		E1B589522AA8C38A00E64F18 /* FoodSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589512AA8C38A00E64F18 /* FoodSearch.swift */; };
+		E1B589522AA8C38A00E64F18 /* FoodSearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */; };
 		E1B589542AA9FBA100E64F18 /* FoodsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589532AA9FBA100E64F18 /* FoodsListCellView.swift */; };
 		E1B589562AA9FE3800E64F18 /* FoodsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589552AA9FE3800E64F18 /* FoodsListView.swift */; };
 		E1B589582AA9FF7700E64F18 /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589572AA9FF7700E64F18 /* FoodDetailView.swift */; };
 		E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5895C2AABAC1C00E64F18 /* Secrets.swift */; };
 		E1E65D072AB2419B007E30A2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E65D062AB2419B007E30A2 /* LoadingView.swift */; };
 		E1E65D092AB244D5007E30A2 /* DashboardTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E65D082AB244D5007E30A2 /* DashboardTab.swift */; };
-		E1FE058F2AB51DB800529B5F /* FoodSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE058E2AB51DB800529B5F /* FoodSearchResult.swift */; };
-		E1FE05932AB51FB900529B5F /* SearchFoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05922AB51FB900529B5F /* SearchFoodItem.swift */; };
-		E1FE05952AB5207B00529B5F /* SearchFoodNutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE05942AB5207B00529B5F /* SearchFoodNutrient.swift */; };
 		E1FE059B2AB548C900529B5F /* FoodNutrientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,18 +62,17 @@
 		E11C076D2A9907F30024334E /* KFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11C07712A9907F30024334E /* KFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITests.swift; sourceTree = "<group>"; };
 		E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E124336A2AAF9FD00021C5BA /* FDCFoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDCFoodModel.swift; sourceTree = "<group>"; };
+		E151F8832CCD8D2A0091FB0C /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Models; path = Packages/Models; sourceTree = "<group>"; };
+		E151F8842CCD8D600091FB0C /* Services */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Services; path = Packages/Services; sourceTree = "<group>"; };
+		E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDisplayHelper.swift; sourceTree = "<group>"; };
 		E174C8E92ACB483A007053E2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E174C8EB2ACBCFD2007053E2 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
-		E1A5C2AA2AB94EB60088D5F3 /* FoodSearchCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchCriteria.swift; sourceTree = "<group>"; };
 		E1A5C2AD2ABA6BF30088D5F3 /* UIApplication+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Version.swift"; sourceTree = "<group>"; };
 		E1A5C2AF2ABA71D40088D5F3 /* InfoPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPageView.swift; sourceTree = "<group>"; };
 		E1A5C2F22ABE07020088D5F3 /* VitaminKTargetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitaminKTargetView.swift; sourceTree = "<group>"; };
-		E1A8A2BA2AF725DD00BEA760 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
-		E1B589382AA10A0D00E64F18 /* FoodDataCentralService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataCentralService.swift; sourceTree = "<group>"; };
 		E1B5893A2AA16ACD00E64F18 /* FoodsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsTab.swift; sourceTree = "<group>"; };
 		E1B5893C2AA16AED00E64F18 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		E1B589512AA8C38A00E64F18 /* FoodSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearch.swift; sourceTree = "<group>"; };
+		E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchHelper.swift; sourceTree = "<group>"; };
 		E1B589532AA9FBA100E64F18 /* FoodsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListCellView.swift; sourceTree = "<group>"; };
 		E1B589552AA9FE3800E64F18 /* FoodsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsListView.swift; sourceTree = "<group>"; };
 		E1B589572AA9FF7700E64F18 /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
@@ -86,9 +81,6 @@
 		E1B5895E2AABAE4D00E64F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E1E65D062AB2419B007E30A2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E1E65D082AB244D5007E30A2 /* DashboardTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTab.swift; sourceTree = "<group>"; };
-		E1FE058E2AB51DB800529B5F /* FoodSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchResult.swift; sourceTree = "<group>"; };
-		E1FE05922AB51FB900529B5F /* SearchFoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodItem.swift; sourceTree = "<group>"; };
-		E1FE05942AB5207B00529B5F /* SearchFoodNutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodNutrient.swift; sourceTree = "<group>"; };
 		E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNutrientListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E151F8932CCD9CBA0091FB0C /* Models in Frameworks */,
+				E151F8912CCD9CAE0091FB0C /* Services in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,14 +111,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C8D2BD7227CEC1455412406B /* xcschemes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = xcschemes;
-			path = KFinder.xcodeproj/project.xcworkspace/xcuserdata/robert.xcuserdatad/xcschemes;
-			sourceTree = "<group>";
-		};
 		E11C074A2A9907EF0024334E = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +118,9 @@
 				E11C07662A9907F30024334E /* KFinderTests */,
 				E11C07702A9907F30024334E /* KFinderUITests */,
 				E11C07542A9907F00024334E /* Products */,
-				C8D2BD7227CEC1455412406B /* xcschemes */,
+				E151F8832CCD8D2A0091FB0C /* Models */,
+				E151F8842CCD8D600091FB0C /* Services */,
+				E151F8852CCD8FF00091FB0C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,25 +187,11 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		E12433682AAF9DB20021C5BA /* Models */ = {
+		E151F8852CCD8FF00091FB0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E1A5C2AA2AB94EB60088D5F3 /* FoodSearchCriteria.swift */,
-				E1FE058E2AB51DB800529B5F /* FoodSearchResult.swift */,
-				E1FE05922AB51FB900529B5F /* SearchFoodItem.swift */,
-				E1FE05942AB5207B00529B5F /* SearchFoodNutrient.swift */,
-				E124336A2AAF9FD00021C5BA /* FDCFoodModel.swift */,
 			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E12433692AAF9DEC0021C5BA /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				E1B589382AA10A0D00E64F18 /* FoodDataCentralService.swift */,
-				E1A8A2BA2AF725DD00BEA760 /* UserPreferences.swift */,
-			);
-			path = Services;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E1A5C2AC2ABA6B090088D5F3 /* Support */ = {
@@ -247,7 +221,6 @@
 				E1B589532AA9FBA100E64F18 /* FoodsListCellView.swift */,
 				E1B589572AA9FF7700E64F18 /* FoodDetailView.swift */,
 				E1FE059A2AB548C900529B5F /* FoodNutrientListView.swift */,
-				E1B589512AA8C38A00E64F18 /* FoodSearch.swift */,
 			);
 			path = Foods;
 			sourceTree = "<group>";
@@ -255,8 +228,8 @@
 		E1E65CFC2AB22F7B007E30A2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E12433682AAF9DB20021C5BA /* Models */,
-				E12433692AAF9DEC0021C5BA /* Services */,
+				E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */,
+				E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */,
 				E1E65D052AB2417A007E30A2 /* Views */,
 			);
 			path = Shared;
@@ -295,6 +268,8 @@
 			);
 			name = KFinder;
 			packageProductDependencies = (
+				E151F8902CCD9CAE0091FB0C /* Services */,
+				E151F8922CCD9CBA0091FB0C /* Models */,
 			);
 			productName = KFinder;
 			productReference = E11C07532A9907F00024334E /* KFinder.app */;
@@ -369,6 +344,8 @@
 			);
 			mainGroup = E11C074A2A9907EF0024334E;
 			packageReferences = (
+				E151F88A2CCD92C90091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Models" */,
+				E151F88D2CCD92E00091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Services" */,
 			);
 			productRefGroup = E11C07542A9907F00024334E /* Products */;
 			projectDirPath = "";
@@ -415,25 +392,19 @@
 			files = (
 				E1E65D092AB244D5007E30A2 /* DashboardTab.swift in Sources */,
 				E1FE059B2AB548C900529B5F /* FoodNutrientListView.swift in Sources */,
-				E1FE05952AB5207B00529B5F /* SearchFoodNutrient.swift in Sources */,
-				E1A5C2AB2AB94EB60088D5F3 /* FoodSearchCriteria.swift in Sources */,
 				E1E65D072AB2419B007E30A2 /* LoadingView.swift in Sources */,
 				E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */,
 				E174C8EC2ACBCFD2007053E2 /* Tabs.swift in Sources */,
-				E1FE058F2AB51DB800529B5F /* FoodSearchResult.swift in Sources */,
 				E1B589582AA9FF7700E64F18 /* FoodDetailView.swift in Sources */,
 				E1B589542AA9FBA100E64F18 /* FoodsListCellView.swift in Sources */,
-				E1FE05932AB51FB900529B5F /* SearchFoodItem.swift in Sources */,
 				E1B5893D2AA16AED00E64F18 /* SettingsView.swift in Sources */,
 				E1B589562AA9FE3800E64F18 /* FoodsListView.swift in Sources */,
 				E1A5C2F32ABE07020088D5F3 /* VitaminKTargetView.swift in Sources */,
 				E1B5893B2AA16ACD00E64F18 /* FoodsTab.swift in Sources */,
 				E1A5C2B02ABA71D40088D5F3 /* InfoPageView.swift in Sources */,
-				E1B589522AA8C38A00E64F18 /* FoodSearch.swift in Sources */,
-				E1B589392AA10A0D00E64F18 /* FoodDataCentralService.swift in Sources */,
-				E124336B2AAF9FD00021C5BA /* FDCFoodModel.swift in Sources */,
+				E1B589522AA8C38A00E64F18 /* FoodSearchHelper.swift in Sources */,
 				E11C07592A9907F00024334E /* ContentView.swift in Sources */,
-				E1A8A2BB2AF725DD00BEA760 /* UserPreferences.swift in Sources */,
+				E151F8972CCDBE130091FB0C /* FoodDisplayHelper.swift in Sources */,
 				E11C07572A9907F00024334E /* KFinderApp.swift in Sources */,
 				E1A5C2AE2ABA6BF30088D5F3 /* UIApplication+Version.swift in Sources */,
 			);
@@ -766,6 +737,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E151F88A2CCD92C90091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Models" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = KFinder/Packages/Models;
+		};
+		E151F88D2CCD92E00091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Services" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = KFinder/Packages/Services;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E151F8902CCD9CAE0091FB0C /* Services */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Services;
+		};
+		E151F8922CCD9CBA0091FB0C /* Models */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Models;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E11C074B2A9907EF0024334E /* Project object */;
 }

@@ -12,7 +12,7 @@ enum SearchScope: String, CaseIterable {
 }
 
 struct FoodsTab: View {
-  @Bindable private var model = FoodSearch()
+  @Bindable private var helper = FoodSearchHelper()
   @State private var searchScope = SearchScope.fdc
   @State private var isSearching = false
   
@@ -22,7 +22,7 @@ struct FoodsTab: View {
   
   var body: some View {
     NavigationStack {
-      FoodsListView(foods: model.foods)
+      FoodsListView(foods: helper.foods)
         .navigationTitle("foods.title")
     }
     .overlay {
@@ -30,7 +30,7 @@ struct FoodsTab: View {
         LoadingView()
       }
     }
-    .searchable(text: $model.query, prompt: "foods.search.prompt")
+    .searchable(text: $helper.query, prompt: "foods.search.prompt")
     // TODO: Implement Favorites
     //    .searchScopes($searchScope) {
     //      ForEach(SearchScope.allCases, id: \.self) { scope in
@@ -42,14 +42,14 @@ struct FoodsTab: View {
     .onSubmit(of: .search) {
       switch searchScope {
       case .fdc:
-        logger.debug("dispatching FDC search for '\(model.query)'")
+        logger.debug("dispatching FDC search for '\(helper.query)'")
         Task {
           isSearching.toggle()
-          await model.search()
+          await helper.search()
           isSearching.toggle()
         }
       case .favorites:
-        logger.debug("searching Favorites for '\(model.query)'")
+        logger.debug("searching Favorites for '\(helper.query)'")
         // TODO: Implement Favorites
       }
     }

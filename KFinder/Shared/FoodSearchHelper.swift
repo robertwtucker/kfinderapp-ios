@@ -4,21 +4,16 @@
 //
 
 import Foundation
+import Models
+import Services
 
-@Observable class FoodSearch {
-  enum DataSet: String, Codable {
-    case branded = "Branded"
-    case foundation = "Foundation"
-    case survey = "Survey (FNDDS)"
-    case legacy = "SR Legacy"
-    case unspecified = ""
-  }
+@Observable class FoodSearchHelper {
 
-  private let service = FoodDataCentralService()
+  private let service = FoodDataCentralService(apiKey: Secrets.FoodDataCentral.apiKey ?? "")
+  
   var query = ""
   var foods: [SearchFoodItem] = []
 
-  @MainActor
   func search() async {
     guard let result = await service.searchFoods(for: query), let foods = result.foods else {
       self.foods = []
