@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct SurveyFoodItem: Codable {
+public struct SurveyFoodItem: Codable, Sendable {
     public let fdcId: Int
     public let dataType: String
     public let description: String
@@ -35,7 +35,6 @@ public struct SurveyFoodItem: Codable {
 }
 
 // MARK: - Samples
-@MainActor
 public extension SurveyFoodItem {
   static let empty = SurveyFoodItem(fdcId: 0, dataType: "", description: "")
   static let sample = SurveyFoodItem(

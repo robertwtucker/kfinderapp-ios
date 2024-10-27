@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct SearchFoodMeasure: Codable {
+public struct SearchFoodMeasure: Codable, Sendable {
   public let disseminationText: String
   public let gramWeight: Double
   public let id: Int

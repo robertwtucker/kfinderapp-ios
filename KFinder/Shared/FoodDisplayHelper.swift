@@ -7,7 +7,6 @@ import Foundation
 import Models
 import Services
 
-@MainActor
 @Observable class FoodDisplayHelper {
 
   let food: SearchFoodItem
