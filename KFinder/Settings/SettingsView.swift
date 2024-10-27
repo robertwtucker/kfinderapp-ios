@@ -1,9 +1,10 @@
 //
-// SPDX-FileCopyrightText: 2016-2023 Robert Tucker
+// SPDX-FileCopyrightText: 2016-2024 Robert Tucker
 // SPDX-License-Identifier: Apache-2.0
 //
 
 import SwiftUI
+import Services
 
 struct SettingsView: View {
   @Environment(UserPreferences.self) private var userPreferences
