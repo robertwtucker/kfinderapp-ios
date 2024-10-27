@@ -7,7 +7,7 @@ import SwiftUI
 import Models
 
 struct FoodsListView: View {
-  var foods: [SearchFoodItem]
+  var foods: [FoodItem]
   
   var body: some View {
     List(foods) { food in
@@ -15,12 +15,12 @@ struct FoodsListView: View {
         FoodsListCellView(food: food)
       }
     }
-    .navigationDestination(for: SearchFoodItem.self) { food in
+    .navigationDestination(for: FoodItem.self) { food in
       FoodDetailView(food: food)
     }
   }
 }
 
 #Preview {
-  FoodsListView(foods: SearchFoodItem.samples)
+  FoodsListView(foods: FoodItem.samples)
 }

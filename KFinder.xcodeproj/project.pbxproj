@@ -118,9 +118,9 @@
 				E11C07662A9907F30024334E /* KFinderTests */,
 				E11C07702A9907F30024334E /* KFinderUITests */,
 				E11C07542A9907F00024334E /* Products */,
+				E151F8852CCD8FF00091FB0C /* Frameworks */,
 				E151F8832CCD8D2A0091FB0C /* Models */,
 				E151F8842CCD8D600091FB0C /* Services */,
-				E151F8852CCD8FF00091FB0C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

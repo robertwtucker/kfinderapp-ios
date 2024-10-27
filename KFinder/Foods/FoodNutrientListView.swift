@@ -7,7 +7,7 @@ import SwiftUI
 import Models
 
 struct FoodNutrientListView: View {
-  let food: SearchFoodItem
+  let food: FoodItem
   
   var body: some View {
     let displayHelper = FoodDisplayHelper(food)
@@ -36,7 +36,7 @@ struct FoodNutrientListView: View {
     }
   }
   
-  private func foodNutrientRow(_ nutrient: SearchFoodNutrient) -> some View {
+  private func foodNutrientRow(_ nutrient: FoodNutrient) -> some View {
     HStack {
       Text(nutrient.name)
       Spacer()

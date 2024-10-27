@@ -7,21 +7,25 @@ import SwiftUI
 import Models
 
 struct FoodDetailView: View {
-  let food: SearchFoodItem
+  let food: FoodItem
   
   var body: some View {
+    let helper = FoodDisplayHelper(food)
+    
     VStack {
       VStack(alignment: .leading, spacing: 8) {
-        Text(food.description)
+        Text(food.name)
           .font(.title)
-        Text(food.foodCategory?.description ?? "")
-          .font(.headline)
-        if let extra = food.additionalDescriptions {
+        if let category = food.category {
+          Text(category)
+            .font(.headline)
+        }
+        if let extra = food.extraDesc {
           Text(extra.capitalized)
             .font(.callout)
         }
         HStack {
-          Text(food.citation).font(.footnote)
+          Text(helper.citation).font(.footnote)
           Spacer()
           Text("foods.portion.default").font(.headline)
         }.padding(.top, 4)
@@ -33,5 +37,5 @@ struct FoodDetailView: View {
 }
 
 #Preview {
-  FoodDetailView(food: SearchFoodItem.samples[0])
+  FoodDetailView(food: FoodItem.samples[0])
 }

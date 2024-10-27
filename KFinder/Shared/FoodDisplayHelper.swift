@@ -9,13 +9,23 @@ import Services
 
 @Observable class FoodDisplayHelper {
 
-  let food: SearchFoodItem
+  let food: FoodItem
   static let kNutrientNumberRegEx = /428|429|430/
 
-  init(_ food: SearchFoodItem) {
+  init(_ food: FoodItem) {
     self.food = food
   }
 
+  public var citation: String {
+    if food.publicationDate == .distantPast {
+      return "\(food.dataType)/\(food.id)"
+    } else {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd"
+      return "\(food.dataType)/\(food.id)/pub:\(dateFormatter.string(from: food.publicationDate))"
+    }
+  }
+  
   public func vitaminKAsPercent(of target: Int) -> Double {
     if sumOfVitaminKValues > 0 {
       return sumOfVitaminKValues / Double(target)
@@ -24,12 +34,9 @@ import Services
     }
   }
   
-  public var nutrientsWithVitaminK: [SearchFoodNutrient] {
-    guard let foodNutrients = food.foodNutrients else {
-      return []
-    }
+  public var nutrientsWithVitaminK: [FoodNutrient] {
     do {
-      return try foodNutrients.filter {
+      return try food.nutrients.filter {
         try Self.kNutrientNumberRegEx.firstMatch(in: $0.number) != nil
       }
     } catch {
@@ -37,12 +44,9 @@ import Services
     }
   }
   
-  public var nutrientsOtherThanVitaminK: [SearchFoodNutrient] {
-    guard let foodNutrients = food.foodNutrients else {
-      return []
-    }
+  public var nutrientsOtherThanVitaminK: [FoodNutrient] {
     do {
-      return try foodNutrients.filter {
+      return try food.nutrients.filter {
         try Self.kNutrientNumberRegEx.firstMatch(in: $0.number) == nil
       }
     } catch {
