@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct FoodCategory: Codable {
+public struct FoodCategory: Codable, Sendable {
   public let code: Int
   public let description: String
   

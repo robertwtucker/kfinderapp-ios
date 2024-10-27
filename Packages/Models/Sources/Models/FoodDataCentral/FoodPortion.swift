@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct FoodPortion: Codable {
+public struct FoodPortion: Codable, Sendable {
     public let id: Int
     public let gramWeight: Int
     public let sequenceNumber: Int
