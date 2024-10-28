@@ -5,23 +5,26 @@
 
 import SwiftUI
 import Models
+import SwiftData
 
 struct FoodDetailView: View {
-  let food: SearchFoodItem
+  @Environment(\.modelContext) private var context
+  
+  let food: FoodItem
   
   var body: some View {
+    let helper = FoodDisplayHelper(food)
+    
     VStack {
       VStack(alignment: .leading, spacing: 8) {
-        Text(food.description)
+        Text(food.name)
           .font(.title)
-        Text(food.foodCategory?.description ?? "")
+        Text(helper.category)
           .font(.headline)
-        if let extra = food.additionalDescriptions {
-          Text(extra.capitalized)
-            .font(.callout)
-        }
+        Text(helper.extra)
+          .font(.callout)
         HStack {
-          Text(food.citation).font(.footnote)
+          Text(helper.citation).font(.footnote)
           Spacer()
           Text("foods.portion.default").font(.headline)
         }.padding(.top, 4)
@@ -29,9 +32,18 @@ struct FoodDetailView: View {
       .padding(.horizontal, 24)
       FoodNutrientListView(food: food)
     }
+    .onAppear {
+      upsert(food)
+    }
+  }
+  
+  private func upsert(_ food: FoodItem) {
+    food.dateUpdated = Date.now
+    context.insert(food)
   }
 }
 
+
 #Preview {
-  FoodDetailView(food: SearchFoodItem.samples[0])
+  FoodDetailView(food: FoodItem.samples[0])
 }

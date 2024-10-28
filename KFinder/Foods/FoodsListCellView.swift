@@ -10,16 +10,16 @@ import Services
 struct FoodsListCellView: View {
   @Environment(UserPreferences.self) private var userPreferences
   
-  let food: SearchFoodItem
+  let food: FoodItem
   
   var body: some View {
     let displayHelper = FoodDisplayHelper(food)
     
     HStack {
       VStack(alignment: .leading) {
-        Text(food.description)
+        Text(food.name)
           .font(.headline)
-        Text(food.categoryLine)
+        Text(food.category ?? "")
           .font(.subheadline)
       }
       Spacer()
@@ -52,6 +52,6 @@ struct FoodsListCellView: View {
 }
 
 #Preview {
-  FoodsListCellView(food: SearchFoodItem.samples[0])
+  FoodsListCellView(food: FoodItem.samples[0])
     .environment(UserPreferences.shared)
 }

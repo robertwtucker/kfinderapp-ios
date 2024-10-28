@@ -1,5 +1,5 @@
 //
-// SPDX-FileCopyrightText: 2016-2023 Robert Tucker
+// SPDX-FileCopyrightText: 2016-2024 Robert Tucker
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -33,22 +33,6 @@ public struct FoodDataCentralService {
       logger.error("\(error, privacy: .public)")
     }
     return nil
-  }
-  
-  public func getFood(with id: Int) async -> SurveyFoodItem {
-    let request = buildFoodURLRequest(with: id)
-    
-    do {
-      logger.debug("\(request.httpMethod!) \(request.url!)")
-      let (data, _) = try await URLSession.shared.data(for: request)
-      let food = try JSONDecoder().decode(SurveyFoodItem.self, from: data)
-      logger.debug("fetched details for \(food.description)")
-      return food
-    } catch {
-      print("Error: \(error)")
-    }
-    
-    return SurveyFoodItem.empty
   }
   
   private func buildSearchURLRequest(with query: String) -> URLRequest {

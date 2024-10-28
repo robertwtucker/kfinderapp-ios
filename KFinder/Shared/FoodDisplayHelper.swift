@@ -5,17 +5,33 @@
 
 import Foundation
 import Models
-import Services
 
 @Observable class FoodDisplayHelper {
-
-  let food: SearchFoodItem
+  let food: FoodItem
   static let kNutrientNumberRegEx = /428|429|430/
 
-  init(_ food: SearchFoodItem) {
+  init(_ food: FoodItem) {
     self.food = food
   }
 
+  public var category: String {
+    return food.category?.capitalized ?? ""
+  }
+  
+  public var extra: String {
+    return food.extraDesc?.capitalized ?? ""
+  }
+  
+  public var citation: String {
+    guard let publicationDate = food.publicationDate else {
+      return "\(food.dataType)/\(food.id)"
+    }
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    return "\(food.dataType)/\(food.id)/pub:\(dateFormatter.string(from: publicationDate))"
+  }
+  
   public func vitaminKAsPercent(of target: Int) -> Double {
     if sumOfVitaminKValues > 0 {
       return sumOfVitaminKValues / Double(target)
@@ -24,12 +40,10 @@ import Services
     }
   }
   
-  public var nutrientsWithVitaminK: [SearchFoodNutrient] {
-    guard let foodNutrients = food.foodNutrients else {
-      return []
-    }
+  public var nutrientsWithVitaminK: [FoodNutrient] {
+    guard let nutrients = food.nutrients else { return [] }
     do {
-      return try foodNutrients.filter {
+      return try nutrients.filter {
         try Self.kNutrientNumberRegEx.firstMatch(in: $0.number) != nil
       }
     } catch {
@@ -37,12 +51,10 @@ import Services
     }
   }
   
-  public var nutrientsOtherThanVitaminK: [SearchFoodNutrient] {
-    guard let foodNutrients = food.foodNutrients else {
-      return []
-    }
+  public var nutrientsOtherThanVitaminK: [FoodNutrient] {
+    guard let nutrients = food.nutrients else { return [] }
     do {
-      return try foodNutrients.filter {
+      return try nutrients.filter {
         try Self.kNutrientNumberRegEx.firstMatch(in: $0.number) == nil
       }
     } catch {

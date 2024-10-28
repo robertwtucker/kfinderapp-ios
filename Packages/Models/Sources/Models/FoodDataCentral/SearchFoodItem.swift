@@ -63,23 +63,6 @@ public struct SearchFoodItem: Codable, Sendable {
       return "Unspecified"
     }
   }
-  
-  public var categoryLine: String {
-    if let category = foodCategory {
-      return category.capitalized
-    }
-    if let published = publishedDate {
-      return "\(dataType.rawValue) - \(published))"
-    }
-    return dataType.rawValue
-  }
-  
-  public var citation: String {
-    guard let publishedDate = publishedDate else {
-      return foodDataType
-    }
-    return "\(foodDataType)/\(fdcId)/pub:\(publishedDate)"
-  }
 }
 
 // MARK: - Identifiable
