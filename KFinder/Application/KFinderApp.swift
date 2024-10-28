@@ -4,7 +4,9 @@
 //
 
 import SwiftUI
+import Models
 import Services
+import SwiftData
 
 @main
 struct KFinderApp: App {
@@ -14,6 +16,9 @@ struct KFinderApp: App {
     WindowGroup {
       ContentView()
         .environment(userPreferences)
+        .modelContainer(for: [
+          FoodItem.self,
+        ])
     }
   }
 }
