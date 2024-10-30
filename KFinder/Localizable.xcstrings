@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
     "%@ µg" : {
 
     },
@@ -13,9 +16,6 @@
           }
         }
       }
-    },
-    "Dashboard" : {
-
     },
     "foods.nutrient.k" : {
       "localizations" : {
@@ -76,6 +76,18 @@
           }
         }
       }
+    },
+    "Here's what's up..." : {
+
+    },
+    "Hey there!" : {
+
+    },
+    "Next scheduled test..." : {
+
+    },
+    "Recent Foods" : {
+
     },
     "settings.about" : {
       "localizations" : {
@@ -207,22 +219,23 @@
         }
       }
     },
-    "tab.dashboard" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dashboard"
-          }
-        }
-      }
-    },
     "tab.foods" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foods"
+          }
+        }
+      }
+    },
+    "tab.home" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
           }
         }
       }

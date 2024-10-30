@@ -6,7 +6,7 @@
 import SwiftUI
 
 enum Tab: Int, Identifiable, Hashable {
-  case dashboard, foods, other
+  case home, foods, other
   
   var id: Int {
     rawValue
@@ -15,8 +15,8 @@ enum Tab: Int, Identifiable, Hashable {
   @ViewBuilder
   func makeContentView() -> some View {
     switch self {
-    case .dashboard:
-      DashboardTab()
+    case .home:
+      HomeTab()
     case .foods:
       FoodsTab()
     case .other:
@@ -25,14 +25,14 @@ enum Tab: Int, Identifiable, Hashable {
   }
   
   static var validTabs: [Tab] {
-    [.dashboard, .foods]
+    [.home, .foods]
   }
   
   @ViewBuilder
   var label: some View {
     switch self {
-    case .dashboard:
-      Label("tab.dashboard", systemImage: iconName)
+    case .home:
+      Label("tab.home", systemImage: iconName)
     case .foods:
       Label("tab.foods", systemImage: iconName)
     case .other:
@@ -42,8 +42,8 @@ enum Tab: Int, Identifiable, Hashable {
   
   var iconName: String {
     switch self {
-    case .dashboard:
-      "chart.bar"
+    case .home:
+      "house"
     case .foods:
       "takeoutbag.and.cup.and.straw"
     case .other:

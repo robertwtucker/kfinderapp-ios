@@ -4,9 +4,11 @@
 //
 
 import SwiftUI
+import SwiftData
+import Models
 
 struct ContentView: View {
-  @State private var selectedTab: Tab = .foods
+  @State private var selectedTab: Tab = .home
   @State private var showSettings = false
   
   var body: some View {
@@ -46,4 +48,19 @@ struct ContentView: View {
 
 #Preview {
   ContentView()
+    .modelContainer(previewContainer)
 }
+
+@MainActor
+let previewContainer: ModelContainer = {
+  do {
+    let container = try ModelContainer(
+      for: FoodItem.self, configurations: .init(isStoredInMemoryOnly: true))
+    for sample in FoodItem.samples {
+      container.mainContext.insert(sample)
+    }
+    return container
+  } catch {
+    fatalError("Failed to create preview container")
+  }
+}()
