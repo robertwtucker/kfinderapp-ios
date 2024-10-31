@@ -20,17 +20,8 @@ struct HomeTab: View {
 
   var body: some View {
     NavigationStack {
-      VStack(alignment: .leading, spacing: 8) {
-        HStack {
-          VStack(alignment: .leading, spacing: 2) {
-            Text("Hey there!")
-              .font(.footnote)
-            Text("Here's what's up...")
-          }
-          Spacer()
-          Color.primary.frame(width: 50, height: 50)
-            .clipShape(.circle)
-        }
+      VStack(alignment: .leading) {
+        HomeHeaderView()
         HomeStatusView()
         RecentFoodsListView()
         Spacer()
@@ -40,7 +31,22 @@ struct HomeTab: View {
   }
 }
 
+struct HomeHeaderView: View {
+  var body: some View {
+    HStack {
+      VStack(alignment: .leading, spacing: 2) {
+        Text("Hey there!").font(.footnote)
+        Text("Here's what's up...").font(.headline)
+      }
+      Spacer()
+      Color.primary.frame(width: 50, height: 50)
+        .clipShape(.circle)
+    }
+  }
+}
+
 #Preview {
   HomeTab()
     .modelContainer(previewContainer)
 }
+
