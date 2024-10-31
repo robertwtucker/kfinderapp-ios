@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E10729892CD183DA00263C15 /* TestingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10729882CD183DA00263C15 /* TestingStatusView.swift */; };
+		E10729892CD183DA00263C15 /* HomeStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10729882CD183DA00263C15 /* HomeStatusView.swift */; };
 		E107298B2CD188F500263C15 /* RecentFoodsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E107298A2CD188F500263C15 /* RecentFoodsListView.swift */; };
 		E11C07572A9907F00024334E /* KFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07562A9907F00024334E /* KFinderApp.swift */; };
 		E11C07592A9907F00024334E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07582A9907F00024334E /* ContentView.swift */; };
@@ -54,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E10729882CD183DA00263C15 /* TestingStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingStatusView.swift; sourceTree = "<group>"; };
+		E10729882CD183DA00263C15 /* HomeStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatusView.swift; sourceTree = "<group>"; };
 		E107298A2CD188F500263C15 /* RecentFoodsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentFoodsListView.swift; sourceTree = "<group>"; };
 		E11C07532A9907F00024334E /* KFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11C07562A9907F00024334E /* KFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderApp.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E65D082AB244D5007E30A2 /* HomeTab.swift */,
-				E10729882CD183DA00263C15 /* TestingStatusView.swift */,
+				E10729882CD183DA00263C15 /* HomeStatusView.swift */,
 				E107298A2CD188F500263C15 /* RecentFoodsListView.swift */,
 			);
 			path = Home;
@@ -408,7 +408,7 @@
 				E1B5893D2AA16AED00E64F18 /* SettingsView.swift in Sources */,
 				E1B589562AA9FE3800E64F18 /* FoodsListView.swift in Sources */,
 				E107298B2CD188F500263C15 /* RecentFoodsListView.swift in Sources */,
-				E10729892CD183DA00263C15 /* TestingStatusView.swift in Sources */,
+				E10729892CD183DA00263C15 /* HomeStatusView.swift in Sources */,
 				E1A5C2F32ABE07020088D5F3 /* VitaminKTargetView.swift in Sources */,
 				E1B5893B2AA16ACD00E64F18 /* FoodsTab.swift in Sources */,
 				E1A5C2B02ABA71D40088D5F3 /* InfoPageView.swift in Sources */,
