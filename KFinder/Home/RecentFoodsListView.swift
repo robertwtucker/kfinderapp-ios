@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RecentFoodsListView: View {
   @Environment(\.colorScheme) private var colorScheme
-  @Query(sort: \FoodItem.dateUpdated, order: .reverse)
+  @Query(sort: \FoodItem.updatedAt, order: .reverse)
   var foods: [FoodItem]
 
   private let logger = Logger(

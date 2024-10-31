@@ -9,26 +9,26 @@ import SwiftData
 @Model public class FoodItem: Equatable {
   public var id: Int = 0
   public var name: String = ""
-  public var extraDesc: String? = nil
+  public var extra: String? = nil
   public var dataType: String = FoodSearchCriteria.DataSet.unspecified.rawValue
   public var category: String? = nil
-  public var publicationDate: Date? = nil
+  public var publishedOn: Date? = nil
   @Relationship(deleteRule: .cascade) public var nutrients: [FoodNutrient]?
   @Relationship(deleteRule: .cascade) public var measures: [FoodMeasure]?
-  public var dateCreated: Date = Date.now
-  public var dateUpdated: Date = Date.now
+  public var createdAt: Date = Date.now
+  public var updatedAt: Date = Date.now
 
   public init(
-    id: Int, name: String, extraDesc: String? = nil, dataType: String,
-    category: String? = nil, publicationDate: Date? = nil,
+    id: Int, name: String, extra: String? = nil, dataType: String,
+    category: String? = nil, publishedOn: Date? = nil,
     nutrients: [FoodNutrient]? = nil, measures: [FoodMeasure]? = nil
   ) {
     self.id = id
     self.name = name
-    self.extraDesc = extraDesc
+    self.extra = extra
     self.dataType = dataType
     self.category = category
-    self.publicationDate = publicationDate
+    self.publishedOn = publishedOn
     self.nutrients = nutrients
     self.measures = measures
   }
@@ -36,13 +36,13 @@ import SwiftData
   public init(from: SearchFoodItem) {
     self.id = from.fdcId
     self.name = from.description
-    self.extraDesc = from.additionalDescriptions
+    self.extra = from.additionalDescriptions
     self.dataType = from.foodDataType
     self.category = from.foodCategory
 
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
-    self.publicationDate =
+    self.publishedOn =
       dateFormatter.date(from: from.publishedDate ?? "") ?? Date.distantPast
 
     self.nutrients = from.foodNutrients?.map { FoodNutrient(from: $0) } ?? []
@@ -62,10 +62,10 @@ extension FoodItem: @unchecked Sendable {
     FoodItem(
       id: 2341130,
       name: "Cheese, Muenster, reduced fat",
-      extraDesc: "made with 2% milk;lowfat;part skim",
+      extra: "made with 2% milk;lowfat;part skim",
       dataType: FoodSearchCriteria.DataSet.survey.rawValue,
       category: "Cheese",
-      publicationDate: Date.distantPast,
+      publishedOn: Date.distantPast,
       nutrients: [
         FoodNutrient(number: "203", name: "Protein", unitName: "G", value: 24.7),
         FoodNutrient(number: "204", name: "Total lipid (fat)", unitName: "G", value: 17.6),
@@ -144,10 +144,10 @@ extension FoodItem: @unchecked Sendable {
     FoodItem(
       id: 2345430,
       name: "Fennel bulb, cooked",
-      extraDesc: "with or without fat",
+      extra: "with or without fat",
       dataType: FoodSearchCriteria.DataSet.survey.rawValue,
       category: "Other vegetables and combinations",
-      publicationDate: Date.distantPast,
+      publishedOn: Date.distantPast,
       nutrients: [
         FoodNutrient(number: "203", name: "Protein", unitName: "G", value: 1.42),
         FoodNutrient(number: "204", name: "Total lipid (fat)", unitName: "G", value: 3.22),

@@ -19,17 +19,17 @@ import Models
   }
   
   public var extra: String {
-    return food.extraDesc?.capitalized ?? ""
+    return food.extra?.capitalized ?? ""
   }
   
   public var citation: String {
-    guard let publicationDate = food.publicationDate else {
+    guard let publicationDate = food.publishedOn else {
       return "\(food.dataType)/\(food.id)"
     }
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
-    return "\(food.dataType)/\(food.id)/pub:\(dateFormatter.string(from: publicationDate))"
+    return "\(food.dataType)/\(food.id)/Pub:\(dateFormatter.string(from: publicationDate))"
   }
   
   public func vitaminKAsPercent(of target: Int) -> Double {

@@ -46,10 +46,10 @@ struct FoodDetailView: View {
     .onAppear {
       if let stored = foods.first {
         logger.debug("Updating stored food item: '[\(food.id)]  \(food.name)'")
-        stored.dateUpdated = Date.now
+        stored.updatedAt = Date.now
       } else {
         logger.debug("Storing new food item: '[\(food.id)]  \(food.name)'")
-        food.dateUpdated = Date.now
+        food.updatedAt = Date.now
         context.insert(food)
       }
     }
