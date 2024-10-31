@@ -6,11 +6,22 @@
 import SwiftUI
 import Models
 import SwiftData
+import OSLog
 
 struct FoodDetailView: View {
   @Environment(\.modelContext) private var context
+  @Query private var foods: [FoodItem]
+  @State var food: FoodItem
   
-  let food: FoodItem
+  private let logger = Logger(
+    subsystem: Bundle.main.bundleIdentifier!,
+    category: String(describing: FoodDetailView.self))
+  
+  init(food: FoodItem) {
+    self.food = food
+    let id = food.id
+    _foods = Query(filter: #Predicate<FoodItem> { $0.id == id })
+  }
   
   var body: some View {
     let helper = FoodDisplayHelper(food)
@@ -33,17 +44,18 @@ struct FoodDetailView: View {
       FoodNutrientListView(food: food)
     }
     .onAppear {
-      upsert(food)
+      if let stored = foods.first {
+        logger.debug("Updating stored food item: '[\(food.id)]  \(food.name)'")
+        stored.dateUpdated = Date.now
+      } else {
+        logger.debug("Storing new food item: '[\(food.id)]  \(food.name)'")
+        food.dateUpdated = Date.now
+        context.insert(food)
+      }
     }
-  }
-  
-  private func upsert(_ food: FoodItem) {
-    food.dateUpdated = Date.now
-    context.insert(food)
   }
 }
 
-
 #Preview {
-  FoodDetailView(food: FoodItem.samples[0])
+  FoodDetailView(food: FoodItem.samples[1])
 }

@@ -10,7 +10,7 @@ struct FoodsListView: View {
   var foods: [FoodItem]
   
   var body: some View {
-    List(foods) { food in
+    List(foods, id: \.self) { food in
       NavigationLink(value: food) {
         FoodsListCellView(food: food)
       }
