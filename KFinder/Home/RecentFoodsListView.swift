@@ -10,9 +10,19 @@ import SwiftUI
 
 struct RecentFoodsListView: View {
   @Environment(\.colorScheme) private var colorScheme
-  @Query(sort: \FoodItem.updatedAt, order: .reverse)
-  var foods: [FoodItem]
+  @Query(RecentFoodsListView.fetchDescriptor) var foods: [FoodItem]
 
+  static var fetchDescriptor: FetchDescriptor<FoodItem> {
+    var descriptor = FetchDescriptor<FoodItem>(
+      sortBy: [
+        .init(\.updatedAt, order: .reverse)
+      ]
+    )
+    // TODO: Make this configurable in Settings
+    descriptor.fetchLimit = 5
+    return descriptor
+  }
+  
   private let logger = Logger(
     subsystem: Bundle.main.bundleIdentifier!,
     category: String(describing: RecentFoodsListView.self))
@@ -21,17 +31,16 @@ struct RecentFoodsListView: View {
   var body: some View {
 
     VStack(alignment: .leading, spacing: 8) {
-      Text("Recent Foods")
+      Text("Recent Foods").font(.headline)
       ForEach(foods, id: \.self) { food in
         HStack {
           Text("\(food.name)")
-            .font(.headline)
             .frame(maxWidth: .infinity, maxHeight: 100)
             .foregroundStyle(colorScheme == .light ? .white : .black)
-          //          Spacer()
         }
         .background(RoundedRectangle(cornerRadius: 16))
       }
+      Spacer()
     }
   }
 }
