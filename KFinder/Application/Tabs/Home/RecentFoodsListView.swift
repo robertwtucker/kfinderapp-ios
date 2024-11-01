@@ -44,8 +44,3 @@ struct RecentFoodsListView: View {
     }
   }
 }
-
-#Preview {
-  RecentFoodsListView()
-    .modelContainer(previewContainer)
-}

@@ -44,9 +44,3 @@ struct HomeHeaderView: View {
     }
   }
 }
-
-#Preview {
-  HomeTab()
-    .modelContainer(previewContainer)
-}
-

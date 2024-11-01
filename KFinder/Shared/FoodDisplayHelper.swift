@@ -17,21 +17,22 @@ import Models
   public var category: String {
     return food.category?.capitalized ?? ""
   }
-  
+
   public var extra: String {
     return food.extra?.capitalized ?? ""
   }
-  
+
   public var citation: String {
     guard let publicationDate = food.publishedOn else {
       return "\(food.dataType)/\(food.id)"
     }
-    
+
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
-    return "\(food.dataType)/\(food.id)/Pub:\(dateFormatter.string(from: publicationDate))"
+    return
+      "\(food.dataType)/\(food.id)/Pub:\(dateFormatter.string(from: publicationDate))"
   }
-  
+
   public func vitaminKAsPercent(of target: Int) -> Double {
     if sumOfVitaminKValues > 0 {
       return sumOfVitaminKValues / Double(target)
@@ -39,7 +40,7 @@ import Models
       return 0
     }
   }
-  
+
   public var nutrientsWithVitaminK: [FoodNutrient] {
     guard let nutrients = food.nutrients else { return [] }
     do {
@@ -50,7 +51,7 @@ import Models
       return []
     }
   }
-  
+
   public var nutrientsOtherThanVitaminK: [FoodNutrient] {
     guard let nutrients = food.nutrients else { return [] }
     do {
@@ -61,7 +62,7 @@ import Models
       return []
     }
   }
-  
+
   public var sumOfVitaminKValues: Double {
     nutrientsWithVitaminK.reduce(0) { $0 + $1.value }
   }

@@ -3,15 +3,15 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
-import SwiftUI
 import Models
+import SwiftUI
 
 struct FoodNutrientListView: View {
   let food: FoodItem
-  
+
   var body: some View {
     let displayHelper = FoodDisplayHelper(food)
-    
+
     List {
       Section("foods.nutrient.k") {
         let kNutrients = displayHelper.nutrientsWithVitaminK
@@ -35,7 +35,7 @@ struct FoodNutrientListView: View {
       }
     }
   }
-  
+
   private func foodNutrientRow(_ nutrient: FoodNutrient) -> some View {
     HStack {
       Text(nutrient.name)
@@ -44,4 +44,3 @@ struct FoodNutrientListView: View {
     }
   }
 }
-

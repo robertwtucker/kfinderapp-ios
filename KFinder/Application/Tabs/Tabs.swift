@@ -1,5 +1,5 @@
 //
-// SPDX-FileCopyrightText: 2016-2023 Robert Tucker
+// SPDX-FileCopyrightText: 2016-2024 Robert Tucker
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -7,11 +7,11 @@ import SwiftUI
 
 enum Tab: Int, Identifiable, Hashable {
   case home, foods, settings, other
-  
+
   var id: Int {
     rawValue
   }
-  
+
   @ViewBuilder
   func makeContentView() -> some View {
     switch self {
@@ -25,11 +25,11 @@ enum Tab: Int, Identifiable, Hashable {
       EmptyView()
     }
   }
-  
+
   static var validTabs: [Tab] {
     [.home, .foods, .settings]
   }
-  
+
   @ViewBuilder
   var label: some View {
     switch self {
@@ -43,7 +43,7 @@ enum Tab: Int, Identifiable, Hashable {
       EmptyView()
     }
   }
-  
+
   var iconName: String {
     switch self {
     case .home:

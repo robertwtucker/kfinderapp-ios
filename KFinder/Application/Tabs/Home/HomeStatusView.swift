@@ -39,7 +39,3 @@ struct HomeStatusView: View {
     }
   }
 }
-
-#Preview {
-  HomeStatusView()
-}

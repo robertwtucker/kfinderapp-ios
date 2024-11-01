@@ -1,5 +1,5 @@
 //
-// SPDX-FileCopyrightText: 2016-2023 Robert Tucker
+// SPDX-FileCopyrightText: 2016-2024 Robert Tucker
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -54,8 +54,4 @@ struct FoodsTab: View {
       }
     }
   }
-}
-
-#Preview {
-  FoodsTab()
 }

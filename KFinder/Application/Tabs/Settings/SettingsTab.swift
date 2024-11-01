@@ -62,8 +62,3 @@ struct SettingsTab: View {
     }
   }
 }
-
-#Preview {
-  SettingsTab()
-    .environment(UserPreferences.shared)
-}

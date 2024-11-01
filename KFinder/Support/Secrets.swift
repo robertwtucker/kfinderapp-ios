@@ -1,5 +1,5 @@
 //
-// SPDX-FileCopyrightText: 2016-2023 Robert Tucker
+// SPDX-FileCopyrightText: 2016-2024 Robert Tucker
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -9,7 +9,7 @@ enum Secrets {
   enum FoodDataCentral {
     static let apiKey = Secrets.configVariable(named: "FDC_API_KEY")
   }
-  
+
   fileprivate static func configVariable(named: String) -> String? {
     guard let infoDictionary = Bundle.main.infoDictionary else {
       return nil
