@@ -1,10 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    " – " : {
+
+    },
     "%@" : {
 
     },
-    "%@ µg" : {
+    "%@ µg " : {
 
     },
     "button.dismiss" : {
@@ -99,6 +102,16 @@
         }
       }
     },
+    "settings.about.copyright" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright © 2016-2024 Robert Tucker"
+          }
+        }
+      }
+    },
     "settings.about.fdc" : {
       "localizations" : {
         "en" : {
@@ -115,6 +128,56 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "KFinder"
+          }
+        }
+      }
+    },
+    "settings.about.legal.disclaimer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Disclaimer](https://www.termsfeed.com/live/e21caf09-d02c-46e8-b96c-d9aded5dcf2e)"
+          }
+        }
+      }
+    },
+    "settings.about.legal.privacy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Privacy Policy](https://www.termsfeed.com/live/a84d29ee-2bb5-4bcc-b338-c1d10d4c5cf5)"
+          }
+        }
+      }
+    },
+    "settings.about.legal.terms" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Terms](https://www.termsfeed.com/live/5b99e9e3-5fbc-44fe-8d1d-c8bdc8bf4f89)"
+          }
+        }
+      }
+    },
+    "settings.about.warranty" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This software is provided \"AS IS\" with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR PURPOSE."
+          }
+        }
+      }
+    },
+    "settings.about.website" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://kfinderapp.com"
           }
         }
       }

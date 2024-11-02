@@ -14,6 +14,7 @@ struct InfoPageView: View {
       VStack {
         VStack(alignment: .leading, spacing: 16) {
           Text(info)
+            .multilineTextAlignment(.leading)
           Text(footnote).font(.footnote)
         }
         Spacer()

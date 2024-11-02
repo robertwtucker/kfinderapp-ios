@@ -38,7 +38,7 @@ struct SettingsTab: View {
         HStack {
           Label("settings.ktarget", systemImage: "target")
           Spacer()
-          Text("\(String(format: "%.0f", userPreferences.kTarget)) µg")
+          Text("\(String(format: "%.0f", userPreferences.kTarget)) µg ")
         }
       }
     }
@@ -52,13 +52,22 @@ struct SettingsTab: View {
         },
         label: {
           Label(
-            "settings.about.fdc", systemImage: "square.3.layers.3d.top.filled")
+            "settings.about.fdc", systemImage: "fork.knife")
         })
       HStack {
-        Label("settings.about.kfinder", systemImage: "number.square")
-        Spacer()
-        Text("v\(UIApplication.version)")
+        NavigationLink {
+          AboutView()
+        } label: {
+          Label("settings.about.kfinder", systemImage: "chevron.left.to.line")
+          Spacer()
+          Text("v\(UIApplication.version)")
+        }
       }
     }
   }
+}
+
+#Preview {
+  SettingsTab()
+    .environment(UserPreferences.shared)
 }
