@@ -12,13 +12,27 @@ struct SettingsView: View {
   @State private var showingFDCInfo = false
 
   var body: some View {
+    HStack {
+      Text("settings.title")
+        .font(.title)
+        .fontWeight(.bold)
+        .padding()
+      Spacer()
+      Button(
+        action: {
+          dismiss()
+        },
+        label: {
+          Image(systemName: "xmark")
+            .font(.title)
+            .padding()
+        })
+    }
     NavigationStack {
       Form {
         kTargetSection
         aboutSection
-        dismissButton
       }
-      .navigationTitle("settings.title")
       .sheet(
         isPresented: $showingFDCInfo,
         content: {
@@ -66,21 +80,6 @@ struct SettingsView: View {
         }
       }
     }
-  }
-
-  private var dismissButton: some View {
-    Button(
-      action: {
-        dismiss()
-      },
-      label: {
-        HStack {
-          Spacer()
-          Text("button.dismiss")
-          Spacer()
-        }
-      }
-    )
   }
 }
 
