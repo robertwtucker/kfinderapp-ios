@@ -4,6 +4,7 @@
 //
 
 import Models
+import Services
 import SwiftData
 import SwiftUI
 
@@ -35,6 +36,7 @@ struct ContentView: View {
 
 #Preview {
   ContentView()
+    .environment(UserPreferences.shared)
     .modelContainer(previewContainer)
 }
 
