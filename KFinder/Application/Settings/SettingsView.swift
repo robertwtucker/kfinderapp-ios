@@ -6,7 +6,8 @@
 import Services
 import SwiftUI
 
-struct SettingsTab: View {
+struct SettingsView: View {
+  @Environment(\.dismiss) private var dismiss
   @Environment(UserPreferences.self) private var userPreferences
   @State private var showingFDCInfo = false
 
@@ -15,6 +16,7 @@ struct SettingsTab: View {
       Form {
         kTargetSection
         aboutSection
+        dismissButton
       }
       .navigationTitle("settings.title")
       .sheet(
@@ -65,9 +67,24 @@ struct SettingsTab: View {
       }
     }
   }
+
+  private var dismissButton: some View {
+    Button(
+      action: {
+        dismiss()
+      },
+      label: {
+        HStack {
+          Spacer()
+          Text("button.dismiss")
+          Spacer()
+        }
+      }
+    )
+  }
 }
 
 #Preview {
-  SettingsTab()
+  SettingsView()
     .environment(UserPreferences.shared)
 }

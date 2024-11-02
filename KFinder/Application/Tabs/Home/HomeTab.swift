@@ -21,7 +21,6 @@ struct HomeTab: View {
   var body: some View {
     NavigationStack {
       VStack(alignment: .leading) {
-        HomeHeaderView()
         HomeStatusView()
         RecentFoodsListView()
         Spacer()

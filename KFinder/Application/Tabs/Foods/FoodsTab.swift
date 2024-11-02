@@ -23,7 +23,6 @@ struct FoodsTab: View {
   var body: some View {
     NavigationStack {
       FoodsListView(foods: helper.foods)
-        .navigationTitle("foods.title")
     }
     .overlay {
       if isSearching {
@@ -32,24 +31,24 @@ struct FoodsTab: View {
     }
     .searchable(text: $helper.query, prompt: "foods.search.prompt")
     // TODO: Implement Favorites
-    //    .searchScopes($searchScope) {
-    //      ForEach(SearchScope.allCases, id: \.self) { scope in
-    //        Text(scope.rawValue)
-    //      }
-    //    }
+//    .searchScopes($searchScope) {
+//      ForEach(SearchScope.allCases, id: \.self) { scope in
+//        Text(scope.rawValue)
+//      }
+//    }
     .autocapitalization(.none)
     .disableAutocorrection(true)
     .onSubmit(of: .search) {
       switch searchScope {
       case .fdc:
-        logger.debug("dispatching FDC search for '\(helper.query)'")
+        logger.debug("Dispatching FDC search for '\(helper.query)'")
         Task {
           isSearching.toggle()
           await helper.search()
           isSearching.toggle()
         }
       case .favorites:
-        logger.debug("searching Favorites for '\(helper.query)'")
+        logger.debug("Searching Favorites for '\(helper.query)'")
         // TODO: Implement Favorites
       }
     }

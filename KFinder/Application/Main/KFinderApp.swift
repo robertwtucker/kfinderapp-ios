@@ -17,7 +17,8 @@ struct KFinderApp: App {
       ContentView()
         .environment(userPreferences)
         .modelContainer(for: [
-          FoodItem.self
+          FoodItem.self,
+          UserSettings.self
         ])
     }
   }

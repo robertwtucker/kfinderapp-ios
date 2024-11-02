@@ -7,26 +7,27 @@ import Services
 import SwiftUI
 
 struct VitaminKTargetView: View {
-  enum Field: Hashable {
-    case target
-  }
-
   @Environment(UserPreferences.self) private var userPreferences
   @State private var showingVitaminKInfo = false
   @FocusState private var focusedField: Field?
+
+  enum Field: Hashable {
+    case target
+  }
 
   var body: some View {
     Form {
       valueSection
       infoSection
-        .defaultFocus($focusedField, .target)
     }
+    .defaultFocus($focusedField, .target)
     .navigationTitle("settings.ktarget.title")
   }
 
   @ViewBuilder
   private var valueSection: some View {
     @Bindable var userPrefs = userPreferences
+    
     Section(header: Text("settings.ktarget.measure")) {
       TextField(
         "settings.ktarget.value", value: $userPrefs.kTarget, format: .number
@@ -37,11 +38,12 @@ struct VitaminKTargetView: View {
     }
   }
 
+  @ViewBuilder
   private var infoSection: some View {
     let info: LocalizedStringKey = "settings.ktarget.info"
     let footnote: LocalizedStringKey = "settings.ktarget.footnote"
 
-    return Section {
+    Section {
       VStack(spacing: 16) {
         Label("settings.ktarget", systemImage: "info.circle.fill")
           .font(.title)

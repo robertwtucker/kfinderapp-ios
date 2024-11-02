@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     " – " : {
 
     },
@@ -66,16 +69,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Food name or keyword(s)"
-          }
-        }
-      }
-    },
-    "foods.title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Foods"
           }
         }
       }
@@ -299,16 +292,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Home"
-          }
-        }
-      }
-    },
-    "tab.settings" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
           }
         }
       }

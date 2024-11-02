@@ -10,9 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
   @State private var selectedTab: Tab = .home
+  @State private var showSettings = false
 
   var body: some View {
     VStack {
+      AppHeaderView(selectedTab: $selectedTab, showSettings: $showSettings)
       TabView(
         selection: .init(
           get: {
@@ -31,6 +33,39 @@ struct ContentView: View {
         }
       }
     }
+    .sheet(isPresented: $showSettings) {
+      SettingsView()
+        .presentationDetents([.large])
+    }
+  }
+}
+
+struct AppHeaderView: View {
+  @Binding var selectedTab: Tab
+  @Binding var showSettings: Bool
+
+  var body: some View {
+    HStack {
+      Text(selectedTab.header)
+        .font(.largeTitle)
+        .fontWeight(.bold)
+      Spacer()
+      ZStack {
+        Button(action: {
+          showSettings.toggle()
+        }) {
+          // TODO: Externalize/sync this color with theme definition
+          Color(red: 180 / 255, green: 180 / 255, blue: 180 / 255)
+            .frame(width: 50, height: 50)
+            .clipShape(.circle)
+        }
+        Image(systemName: "gearshape")
+          .resizable()
+          .scaledToFit()
+          .frame(width: 30, height: 30)
+          .foregroundColor(.black)
+      }
+    }.padding(8)
   }
 }
 

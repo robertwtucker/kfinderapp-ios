@@ -58,6 +58,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		E117D1EB2CD6E409001BE0D6 /* Settings */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Settings; sourceTree = "<group>"; };
 		E11F8AE72CD475B800D59181 /* Main */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Main; sourceTree = "<group>"; };
 		E11F8AE82CD475C300D59181 /* Tabs */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Tabs; sourceTree = "<group>"; };
 		E11F8B022CD4760F00D59181 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				E11F8AE72CD475B800D59181 /* Main */,
+				E117D1EB2CD6E409001BE0D6 /* Settings */,
 				E11F8AE82CD475C300D59181 /* Tabs */,
 			);
 			path = Application;
@@ -204,6 +206,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				E117D1EB2CD6E409001BE0D6 /* Settings */,
 				E11F8AE72CD475B800D59181 /* Main */,
 				E11F8AE82CD475C300D59181 /* Tabs */,
 				E11F8B022CD4760F00D59181 /* Resources */,
