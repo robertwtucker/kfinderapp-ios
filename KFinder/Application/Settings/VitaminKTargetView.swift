@@ -30,7 +30,7 @@ struct VitaminKTargetView: View {
     
     Section(header: Text("settings.ktarget.measure")) {
       TextField(
-        "settings.ktarget.value", value: $userPrefs.kTarget, format: .number
+        "settings.ktarget.value", value: $userPrefs.dailyKTarget, format: .number
       )
       .multilineTextAlignment(.trailing)
       .keyboardType(.numbersAndPunctuation)

@@ -56,7 +56,7 @@ struct SettingsView: View {
         HStack {
           Label("settings.ktarget", systemImage: "target")
           Spacer()
-          Text("\(String(format: "%.0f", userPreferences.kTarget)) µg ")
+          Text("\(String(format: "%.0f", userPreferences.dailyKTarget)) µg ")
         }
       }
     }

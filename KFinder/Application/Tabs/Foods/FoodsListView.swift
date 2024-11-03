@@ -41,7 +41,7 @@ struct FoodsListCellView: View {
       Image(
         systemName: "ellipsis.circle",
         variableValue: displayHelper.vitaminKAsPercent(
-          of: Int(userPreferences.kTarget))
+          of: Int(userPreferences.dailyKTarget))
       )
       .symbolRenderingMode(.monochrome)
       .foregroundColor(getImageColor())
@@ -53,7 +53,7 @@ struct FoodsListCellView: View {
   func getImageColor() -> Color {
     let displayHelper = FoodDisplayHelper(food)
 
-    switch displayHelper.vitaminKAsPercent(of: Int(userPreferences.kTarget))
+    switch displayHelper.vitaminKAsPercent(of: Int(userPreferences.dailyKTarget))
       * 100
     {
     case 0:
