@@ -73,16 +73,27 @@
         }
       }
     },
-    "Here's what's up..." : {
-
+    "home.section.recentFoods" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Foods"
+          }
+        }
+      }
     },
-    "Hey there!" : {
-
+    "home.section.welcome" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome back 👋"
+          }
+        }
+      }
     },
     "Next scheduled test..." : {
-
-    },
-    "Recent Foods" : {
 
     },
     "settings.about" : {

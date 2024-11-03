@@ -13,8 +13,20 @@ struct ContentView: View {
   @State private var showSettings = false
 
   var body: some View {
-    VStack {
-      AppHeaderView(selectedTab: $selectedTab, showSettings: $showSettings)
+    VStack(spacing: 0) {
+      ZStack {
+        LinearGradient(
+          gradient: Gradient(colors: [
+            // TODO: Externalize/sync these colors with theme definition
+            Color(red: 99 / 255, green: 102 / 255, blue: 241 / 255),  //indigo-500
+            Color(red: 229 / 255, green: 229 / 255, blue: 229 / 255)  //neutral-200
+          ]), startPoint: .top, endPoint: .bottom
+        )
+        .ignoresSafeArea()
+        .frame(height: 72)
+        AppHeaderView(selectedTab: $selectedTab, showSettings: $showSettings)
+          .padding(.horizontal, 8)
+      }
       TabView(
         selection: .init(
           get: {
@@ -35,7 +47,7 @@ struct ContentView: View {
     }
     .sheet(isPresented: $showSettings) {
       SettingsView()
-        .presentationDetents([.large])
+        .presentationDetents([.fraction(0.65), .fraction(0.95)])
     }
   }
 }
@@ -50,22 +62,23 @@ struct AppHeaderView: View {
         .font(.largeTitle)
         .fontWeight(.bold)
       Spacer()
-      ZStack {
-        Button(action: {
-          showSettings.toggle()
-        }) {
+      Button(action: {
+        showSettings.toggle()
+      }) {
+        ZStack {
           // TODO: Externalize/sync this color with theme definition
-          Color(red: 180 / 255, green: 180 / 255, blue: 180 / 255)
+          Color(red: 165 / 255, green: 180 / 255, blue: 252 / 255)  //indigo-300
             .frame(width: 50, height: 50)
             .clipShape(.circle)
+            .shadow(radius: 1)
+          Image(systemName: "gearshape")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 30, height: 30)
+            .foregroundStyle(.black)
         }
-        Image(systemName: "gearshape")
-          .resizable()
-          .scaledToFit()
-          .frame(width: 30, height: 30)
-          .foregroundColor(.black)
       }
-    }.padding(8)
+    }
   }
 }
 

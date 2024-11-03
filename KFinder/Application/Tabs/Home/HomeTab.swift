@@ -10,9 +10,8 @@ import SwiftUI
 
 struct HomeTab: View {
   @Environment(\.colorScheme) private var colorScheme
-
   @Query(sort: \FoodItem.updatedAt, order: .reverse)
-  var foods: [FoodItem]
+  private var foods: [FoodItem]
 
   private let logger = Logger(
     subsystem: Bundle.main.bundleIdentifier!,
@@ -20,26 +19,33 @@ struct HomeTab: View {
 
   var body: some View {
     NavigationStack {
-      VStack(alignment: .leading) {
-        HomeStatusView()
-        RecentFoodsListView()
-        Spacer()
+      ZStack {
+        // TODO: Externalize/sync these colors with theme definition
+        if colorScheme == .dark {
+          Color.black
+          //          Color(red: 38/255, green: 38/255, blue: 38/255)  //neutral-800
+        } else {
+          Color(red: 229 / 255, green: 229 / 255, blue: 229 / 255)  //neutral-200
+        }
+        ScrollView(Axis.Set.vertical, showsIndicators: false) {
+          VStack(alignment: .leading, spacing: 16) {
+            Section("home.section.welcome") {
+              HomeStatusView()
+            }
+            .font(.system(size: 20)).bold()
+            Section("home.section.recentFoods") {
+              RecentFoodsListView()
+            }
+            .font(.system(size: 20)).bold()
+          }
+          .padding()
+        }
       }
-      .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
     }
   }
 }
 
-struct HomeHeaderView: View {
-  var body: some View {
-    HStack {
-      VStack(alignment: .leading, spacing: 2) {
-        Text("Hey there!").font(.footnote)
-        Text("Here's what's up...").font(.headline)
-      }
-      Spacer()
-      Color.primary.frame(width: 50, height: 50)
-        .clipShape(.circle)
-    }
-  }
+#Preview {
+  HomeTab()
+    .modelContainer(previewContainer)
 }

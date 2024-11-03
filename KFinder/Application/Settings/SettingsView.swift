@@ -7,6 +7,7 @@ import Services
 import SwiftUI
 
 struct SettingsView: View {
+  @Environment(\.colorScheme) private var colorScheme
   @Environment(\.dismiss) private var dismiss
   @Environment(UserPreferences.self) private var userPreferences
   @State private var showingFDCInfo = false
@@ -27,6 +28,7 @@ struct SettingsView: View {
             .font(.title)
             .padding()
         })
+      .tint(colorScheme == .light ? .black : .white)
     }
     NavigationStack {
       Form {

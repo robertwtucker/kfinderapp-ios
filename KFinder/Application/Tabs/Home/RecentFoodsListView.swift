@@ -22,25 +22,46 @@ struct RecentFoodsListView: View {
     descriptor.fetchLimit = 5
     return descriptor
   }
-  
+
   private let logger = Logger(
     subsystem: Bundle.main.bundleIdentifier!,
     category: String(describing: RecentFoodsListView.self))
 
   @ViewBuilder
   var body: some View {
-
-    VStack(alignment: .leading, spacing: 8) {
-      Text("Recent Foods").font(.headline)
+    VStack(alignment: .leading, spacing: 16) {
       ForEach(foods, id: \.self) { food in
-        HStack {
-          Text("\(food.name)")
-            .frame(maxWidth: .infinity, maxHeight: 100)
-            .foregroundStyle(colorScheme == .light ? .white : .black)
+        VStack {
+          Group {
+            HStack {
+              Text("\(food.name)")
+                .font(.headline)
+                .foregroundStyle(colorScheme == .light ? .black : .white)
+                .padding(.vertical, 24)
+                .padding(.horizontal)
+              Spacer()
+            }
+            .background(
+              RoundedRectangle(cornerRadius: 8)
+                .fill(
+                  colorScheme == .light
+                    ? Color.white
+                    :  // TODO: Externalize/sync this color with theme definition
+                    Color(red: 41 / 255, green: 41 / 255, blue: 41 / 255)  //neutral-750
+                  // Color(red: 64/255, green: 64/255, blue: 64/255))  //neutral-700
+                  // Color(red: 38/255, green: 38/255, blue: 38/255))  //neutral-800
+                )
+                .shadow(radius: 1, x: 1, y: 1)
+            )
+          }
         }
-        .background(RoundedRectangle(cornerRadius: 16))
       }
       Spacer()
     }
   }
+}
+
+#Preview {
+  RecentFoodsListView()
+    .modelContainer(previewContainer)
 }
