@@ -7,6 +7,7 @@ import Services
 import SwiftUI
 
 struct VitaminKTargetView: View {
+  @Environment(\.dismiss) private var dismiss
   @Environment(UserPreferences.self) private var userPreferences
   @State private var showingVitaminKInfo = false
   @FocusState private var focusedField: Field?
@@ -16,46 +17,37 @@ struct VitaminKTargetView: View {
   }
 
   var body: some View {
-    Form {
-      valueSection
-      infoSection
+    VStack {
+      Text("settings.ktarget.title")
+        .font(.title2).bold()
+        .padding(.top, 8)
+      Form {
+        valueSection
+        InfoPageView(
+          info: "settings.ktarget.info", footnote: "settings.ktarget.footnote")
+      }
+      .defaultFocus($focusedField, .target)
+      .navigationTitle("settings.ktarget.title")
     }
-    .defaultFocus($focusedField, .target)
-    .navigationTitle("settings.ktarget.title")
   }
 
   @ViewBuilder
   private var valueSection: some View {
     @Bindable var userPrefs = userPreferences
-    
+
     Section(header: Text("settings.ktarget.measure")) {
       TextField(
-        "settings.ktarget.value", value: $userPrefs.dailyKTarget, format: .number
+        "settings.ktarget.value", value: $userPrefs.dailyKTarget,
+        format: .number
       )
       .multilineTextAlignment(.trailing)
       .keyboardType(.numbersAndPunctuation)
       .focused($focusedField, equals: .target)
     }
   }
+}
 
-  @ViewBuilder
-  private var infoSection: some View {
-    let info: LocalizedStringKey = "settings.ktarget.info"
-    let footnote: LocalizedStringKey = "settings.ktarget.footnote"
-
-    Section {
-      VStack(spacing: 16) {
-        Label("settings.ktarget", systemImage: "info.circle.fill")
-          .font(.title)
-          .fontWeight(.bold)
-          .foregroundColor(.accentColor)
-          .labelStyle(.iconOnly)
-        VStack(alignment: .leading, spacing: 32) {
-          Text(info)
-          Text(footnote)
-            .font(.footnote)
-        }
-      }
-    }
-  }
+#Preview {
+  VitaminKTargetView()
+    .environment(UserPreferences.shared)
 }

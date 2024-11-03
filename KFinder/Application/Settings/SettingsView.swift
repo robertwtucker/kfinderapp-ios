@@ -10,7 +10,9 @@ struct SettingsView: View {
   @Environment(\.colorScheme) private var colorScheme
   @Environment(\.dismiss) private var dismiss
   @Environment(UserPreferences.self) private var userPreferences
+  @State private var showingKTarget = false
   @State private var showingFDCInfo = false
+  @State private var showingAboutInfo = false
 
   var body: some View {
     HStack {
@@ -27,38 +29,44 @@ struct SettingsView: View {
           Image(systemName: "xmark")
             .font(.title)
             .padding()
-        })
+        }
+      )
       .tint(colorScheme == .light ? .black : .white)
     }
-    NavigationStack {
+    VStack {
       Form {
         kTargetSection
         aboutSection
       }
-      .sheet(
-        isPresented: $showingFDCInfo,
-        content: {
-          let info: LocalizedStringKey = "settings.fdc.info"
-          let footnote: LocalizedStringKey = "settings.fdc.footnote"
-
-          InfoPageView(info: info, footnote: footnote)
-            .presentationDetents([.fraction(0.40)])
-            .padding(EdgeInsets(top: 32, leading: 16, bottom: 8, trailing: 16))
-        })
+      .sheet(isPresented: $showingKTarget) {
+        VitaminKTargetView()
+          .presentationDetents([.fraction(0.75)])
+      }
+      .sheet(isPresented: $showingFDCInfo) {
+        InfoPageView(
+          info: "settings.fdc.info", footnote: "settings.fdc.footnote"
+        )
+        .presentationDetents([.fraction(0.45)])
+      }
+      .sheet(isPresented: $showingAboutInfo) {
+        AboutView()
+      }
     }
   }
 
   private var kTargetSection: some View {
     Section("settings.tracking") {
-      NavigationLink {
-        VitaminKTargetView()
-      } label: {
-        HStack {
-          Label("settings.ktarget", systemImage: "target")
-          Spacer()
-          Text("\(String(format: "%.0f", userPreferences.dailyKTarget)) µg ")
-        }
-      }
+      Button(
+        action: {
+          showingKTarget.toggle()
+        },
+        label: {
+          HStack {
+            Label("settings.ktarget", systemImage: "target")
+            Spacer()
+            Text("\(String(format: "%.0f", userPreferences.dailyKTarget)) µg ")
+          }
+        })
     }
   }
 
@@ -73,13 +81,18 @@ struct SettingsView: View {
             "settings.about.fdc", systemImage: "fork.knife")
         })
       HStack {
-        NavigationLink {
-          AboutView()
-        } label: {
-          Label("settings.about.kfinder", systemImage: "chevron.left.to.line")
-          Spacer()
-          Text("v\(UIApplication.version)")
-        }
+        Button(
+          action: {
+            showingAboutInfo.toggle()
+          },
+          label: {
+            HStack {
+              Label(
+                "settings.about.kfinder", systemImage: "chevron.left.to.line")
+              Text("v\(UIApplication.version)")
+            }
+          }
+        )
       }
     }
   }

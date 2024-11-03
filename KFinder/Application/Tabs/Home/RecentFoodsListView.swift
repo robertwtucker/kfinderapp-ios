@@ -36,21 +36,14 @@ struct RecentFoodsListView: View {
             HStack {
               Text("\(food.name)")
                 .font(.headline)
-                .foregroundStyle(colorScheme == .light ? .black : .white)
+                .foregroundStyle(Color.appForeground(for: colorScheme))
                 .padding(.vertical, 24)
                 .padding(.horizontal)
               Spacer()
             }
             .background(
               RoundedRectangle(cornerRadius: 8)
-                .fill(
-                  colorScheme == .light
-                    ? Color.white
-                    :  // TODO: Externalize/sync this color with theme definition
-                    Color(red: 41 / 255, green: 41 / 255, blue: 41 / 255)  //neutral-750
-                  // Color(red: 64/255, green: 64/255, blue: 64/255))  //neutral-700
-                  // Color(red: 38/255, green: 38/255, blue: 38/255))  //neutral-800
-                )
+                .fill(Color.appBackground(for: colorScheme))
                 .shadow(radius: 1, x: 1, y: 1)
             )
           }

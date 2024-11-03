@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+import DesignSystem
 import Models
 import Services
 import SwiftData
@@ -17,9 +18,8 @@ struct ContentView: View {
       ZStack {
         LinearGradient(
           gradient: Gradient(colors: [
-            // TODO: Externalize/sync these colors with theme definition
-            Color(red: 99 / 255, green: 102 / 255, blue: 241 / 255),  //indigo-500
-            Color(red: 229 / 255, green: 229 / 255, blue: 229 / 255)  //neutral-200
+            Color.appIndigo,
+            Color.appLightGray,
           ]), startPoint: .top, endPoint: .bottom
         )
         .ignoresSafeArea()
@@ -47,7 +47,7 @@ struct ContentView: View {
     }
     .sheet(isPresented: $showSettings) {
       SettingsView()
-        .presentationDetents([.fraction(0.65), .fraction(0.95)])
+        .presentationDetents([.large])
     }
   }
 }
@@ -66,15 +66,13 @@ struct AppHeaderView: View {
         showSettings.toggle()
       }) {
         ZStack {
-          // TODO: Externalize/sync this color with theme definition
-          Color(red: 165 / 255, green: 180 / 255, blue: 252 / 255)  //indigo-300
-            .frame(width: 50, height: 50)
-            .clipShape(.circle)
+          Circle()
+            .fill(Color.appLightIndigo)
+            .frame(width: 48, height: 48)
             .shadow(radius: 1)
           Image(systemName: "gearshape")
             .resizable()
-            .scaledToFit()
-            .frame(width: 30, height: 30)
+            .frame(width: 32, height: 32)
             .foregroundStyle(.black)
         }
       }

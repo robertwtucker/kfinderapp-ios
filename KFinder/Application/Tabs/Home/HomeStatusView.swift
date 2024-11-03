@@ -20,12 +20,7 @@ struct HomeStatusView: View {
       }
       .background(
         RoundedRectangle(cornerRadius: 8)
-          .fill(
-            colorScheme == .light
-              ? Color.white
-            // TODO: Externalize/sync this color with theme definition
-              : Color(red: 40 / 255, green: 40 / 255, blue: 40 / 255) //neutral-750
-          )
+          .fill(Color.appBackground(for: colorScheme))
           .shadow(radius: 1, x:1, y:1)
       )
       Spacer()

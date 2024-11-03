@@ -11,6 +11,7 @@
 		E11C07682A9907F30024334E /* KFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07672A9907F30024334E /* KFinderTests.swift */; };
 		E11C07722A9907F30024334E /* KFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07712A9907F30024334E /* KFinderUITests.swift */; };
 		E11C07742A9907F30024334E /* KFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */; };
+		E1473E9C2CD7FF2D00D8303F /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E1473E9B2CD7FF2D00D8303F /* DesignSystem */; };
 		E151F8912CCD9CAE0091FB0C /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8902CCD9CAE0091FB0C /* Services */; };
 		E151F8932CCD9CBA0091FB0C /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8922CCD9CBA0091FB0C /* Models */; };
 		E151F8972CCDBE130091FB0C /* FoodDisplayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E117D4032CD7FEB4001BE0D6 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = Packages/DesignSystem; sourceTree = "<group>"; };
 		E11C07532A9907F00024334E /* KFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11C075A2A9907F20024334E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E11C07632A9907F30024334E /* KFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1473E9C2CD7FF2D00D8303F /* DesignSystem in Frameworks */,
 				E151F8932CCD9CBA0091FB0C /* Models in Frameworks */,
 				E151F8912CCD9CAE0091FB0C /* Services in Frameworks */,
 			);
@@ -99,6 +102,7 @@
 				E11C07702A9907F30024334E /* KFinderUITests */,
 				E11C07542A9907F00024334E /* Products */,
 				E151F8852CCD8FF00091FB0C /* Frameworks */,
+				E117D4032CD7FEB4001BE0D6 /* DesignSystem */,
 				E151F8832CCD8D2A0091FB0C /* Models */,
 				E151F8842CCD8D600091FB0C /* Services */,
 			);
@@ -215,6 +219,7 @@
 			packageProductDependencies = (
 				E151F8902CCD9CAE0091FB0C /* Services */,
 				E151F8922CCD9CBA0091FB0C /* Models */,
+				E1473E9B2CD7FF2D00D8303F /* DesignSystem */,
 			);
 			productName = KFinder;
 			productReference = E11C07532A9907F00024334E /* KFinder.app */;
@@ -291,6 +296,7 @@
 			packageReferences = (
 				E151F88A2CCD92C90091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Models" */,
 				E151F88D2CCD92E00091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Services" */,
+				E1473E9A2CD7FF2D00D8303F /* XCLocalSwiftPackageReference "Packages/DesignSystem" */,
 			);
 			productRefGroup = E11C07542A9907F00024334E /* Products */;
 			projectDirPath = "";
@@ -678,6 +684,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		E1473E9A2CD7FF2D00D8303F /* XCLocalSwiftPackageReference "Packages/DesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/DesignSystem;
+		};
 		E151F88A2CCD92C90091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Models" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = KFinder/Packages/Models;
@@ -689,6 +699,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E1473E9B2CD7FF2D00D8303F /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
 		E151F8902CCD9CAE0091FB0C /* Services */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Services;

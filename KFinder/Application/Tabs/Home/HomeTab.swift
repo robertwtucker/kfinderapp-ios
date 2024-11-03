@@ -20,13 +20,7 @@ struct HomeTab: View {
   var body: some View {
     NavigationStack {
       ZStack {
-        // TODO: Externalize/sync these colors with theme definition
-        if colorScheme == .dark {
-          Color.black
-          //          Color(red: 38/255, green: 38/255, blue: 38/255)  //neutral-800
-        } else {
-          Color(red: 229 / 255, green: 229 / 255, blue: 229 / 255)  //neutral-200
-        }
+        Color.appBaseBackground(for: colorScheme)
         ScrollView(Axis.Set.vertical, showsIndicators: false) {
           VStack(alignment: .leading, spacing: 16) {
             Section("home.section.welcome") {
