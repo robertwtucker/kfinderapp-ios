@@ -46,7 +46,7 @@ struct SettingsView: View {
         InfoPageView(
           info: "settings.fdc.info", footnote: "settings.fdc.footnote"
         )
-        .presentationDetents([.fraction(0.45)])
+        .presentationDetents([.fraction(0.55)])
       }
       .sheet(isPresented: $showingAboutInfo) {
         AboutView()
