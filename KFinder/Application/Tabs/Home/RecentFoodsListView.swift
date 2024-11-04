@@ -1,6 +1,6 @@
 //
-// SPDX-FileCopyrightText: 2016-2024 Robert Tucker
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: (c) 2024 Robert Tucker
+// SPDX-License-Identifier: MIT
 //
 
 import Models

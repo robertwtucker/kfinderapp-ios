@@ -1,6 +1,6 @@
-//
-// SPDX-FileCopyrightText: 2016-2023 Robert Tucker
-// SPDX-License-Identifier: Apache-2.0
+///
+// SPDX-FileCopyrightText: (c) 2023 Robert Tucker
+// SPDX-License-Identifier: MIT
 //
 
 import XCTest
