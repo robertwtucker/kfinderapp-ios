@@ -42,6 +42,7 @@ struct AppTabView: View {
             .tag(tab)
         }
       }
+      .accentColor(Color.appDarkIndigo)
     }
     .sheet(isPresented: $showSettings) {
       SettingsView()

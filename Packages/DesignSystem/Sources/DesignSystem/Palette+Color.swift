@@ -8,6 +8,7 @@ import SwiftUI
 public extension Color {
   static let appIndigo = Color("indigo-500")
   static let appLightIndigo = Color("indigo-300")
+  static let appDarkIndigo = Color("indigo-700")
   static let appLightGray = Color("neutral-200")
   static let appDarkGray = Color("neutral-800")
   
