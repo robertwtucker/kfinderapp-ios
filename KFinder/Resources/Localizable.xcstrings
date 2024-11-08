@@ -11,7 +11,17 @@
 
     },
     "%@ µg " : {
-
+      "comment" : "K uom specifier"
+    },
+    "button.cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
     },
     "button.dismiss" : {
       "localizations" : {
@@ -19,6 +29,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dismiss"
+          }
+        }
+      }
+    },
+    "button.save" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
           }
         }
       }
@@ -92,9 +112,6 @@
           }
         }
       }
-    },
-    "Next scheduled test..." : {
-
     },
     "settings.about" : {
       "localizations" : {
@@ -307,8 +324,129 @@
         }
       }
     },
+    "test.add.reminder.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Test Reminder"
+          }
+        }
+      }
+    },
+    "test.reminder.date" : {
+      "comment" : "Hidden by default",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reminder Date:"
+          }
+        }
+      }
+    },
+    "test.reminder.time" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reminder Time:"
+          }
+        }
+      }
+    },
+    "test.reminder.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PT/INR Test"
+          }
+        }
+      }
+    },
+    "testing.status.button.create" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create"
+          }
+        }
+      }
+    },
+    "testing.status.button.enable" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable"
+          }
+        }
+      }
+    },
+    "testing.status.button.open" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open"
+          }
+        }
+      }
+    },
+    "testing.status.button.reset" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset ⚠️"
+          }
+        }
+      }
+    },
+    "testing.status.card.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PT/INR Testing"
+          }
+        }
+      }
+    },
+    "testing.status.disabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test scheduling is currently off."
+          }
+        }
+      }
+    },
+    "testing.status.enabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Test scheduling is enabled, but a reminder has not been set."
+          }
+        }
+      }
+    },
+    "testing.status.scheduled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The next test is due on: "
+          }
+        }
+      }
+    },
     "v%@" : {
-
+      "comment" : "App version format specifier"
     }
   },
   "version" : "1.0"
