@@ -7,6 +7,9 @@
     " – " : {
 
     },
+    ":  %lld " : {
+
+    },
     "%@" : {
 
     },
@@ -279,6 +282,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Value"
+          }
+        }
+      }
+    },
+    "settings.testing" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Testing"
+          }
+        }
+      }
+    },
+    "settings.testing.enabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set PT/INR Reminders"
+          }
+        }
+      }
+    },
+    "settings.testing.interval.default" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Default Interval"
+          }
+        }
+      }
+    },
+    "settings.testing.interval.measure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "weeks"
           }
         }
       }
