@@ -5,18 +5,18 @@
 
 import SwiftUI
 
-struct LoadingView: View {
-  var body: some View {
+public struct LoadingView: View {
+  public var body: some View {
     VStack {
       ProgressView()
       Spacer()
     }
     .padding()
   }
+  
+  public init() { }
 }
 
-struct SimpleLoadingView_Previews: PreviewProvider {
-  static var previews: some View {
-    LoadingView()
-  }
+#Preview {
+  LoadingView()
 }

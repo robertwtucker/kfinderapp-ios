@@ -15,11 +15,9 @@
 		E151F8912CCD9CAE0091FB0C /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8902CCD9CAE0091FB0C /* Services */; };
 		E151F8932CCD9CBA0091FB0C /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8922CCD9CBA0091FB0C /* Models */; };
 		E151F8972CCDBE130091FB0C /* FoodDisplayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */; };
-		E18811B52CDD3A24004971DA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18811B42CDD3A24004971DA /* ErrorView.swift */; };
 		E1A5C2AE2ABA6BF30088D5F3 /* UIApplication+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2AD2ABA6BF30088D5F3 /* UIApplication+Version.swift */; };
 		E1B589522AA8C38A00E64F18 /* FoodSearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */; };
 		E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5895C2AABAC1C00E64F18 /* Secrets.swift */; };
-		E1E65D072AB2419B007E30A2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E65D062AB2419B007E30A2 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,14 +49,12 @@
 		E151F8832CCD8D2A0091FB0C /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Models; path = Packages/Models; sourceTree = "<group>"; };
 		E151F8842CCD8D600091FB0C /* Services */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Services; path = Packages/Services; sourceTree = "<group>"; };
 		E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDisplayHelper.swift; sourceTree = "<group>"; };
-		E18811B42CDD3A24004971DA /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E1A3C3572CCEF83600579D94 /* KFinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KFinder.entitlements; sourceTree = "<group>"; };
 		E1A5C2AD2ABA6BF30088D5F3 /* UIApplication+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Version.swift"; sourceTree = "<group>"; };
 		E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchHelper.swift; sourceTree = "<group>"; };
 		E1B5895B2AABA9D800E64F18 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		E1B5895C2AABAC1C00E64F18 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		E1B5895E2AABAE4D00E64F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E1E65D062AB2419B007E30A2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -183,18 +179,8 @@
 			children = (
 				E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */,
 				E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */,
-				E1E65D052AB2417A007E30A2 /* Views */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		E1E65D052AB2417A007E30A2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E1E65D062AB2419B007E30A2 /* LoadingView.swift */,
-				E18811B42CDD3A24004971DA /* ErrorView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,10 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1E65D072AB2419B007E30A2 /* LoadingView.swift in Sources */,
 				E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */,
 				E1B589522AA8C38A00E64F18 /* FoodSearchHelper.swift in Sources */,
-				E18811B52CDD3A24004971DA /* ErrorView.swift in Sources */,
 				E151F8972CCDBE130091FB0C /* FoodDisplayHelper.swift in Sources */,
 				E1A5C2AE2ABA6BF30088D5F3 /* UIApplication+Version.swift in Sources */,
 			);

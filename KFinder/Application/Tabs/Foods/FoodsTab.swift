@@ -3,8 +3,9 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SwiftUI
+import DesignSystem
 import OSLog
+import SwiftUI
 
 enum SearchScope: String, CaseIterable {
   case fdc = "FoodData Central"
@@ -15,11 +16,11 @@ struct FoodsTab: View {
   @Bindable private var helper = FoodSearchHelper()
   @State private var searchScope = SearchScope.fdc
   @State private var isSearching = false
-  
+
   private let logger = Logger(
     subsystem: Bundle.main.bundleIdentifier!,
     category: String(describing: FoodsTab.self))
-  
+
   var body: some View {
     NavigationStack {
       FoodsListView(foods: helper.foods)
@@ -31,11 +32,11 @@ struct FoodsTab: View {
     }
     .searchable(text: $helper.query, prompt: "foods.search.prompt")
     // TODO: Implement Favorites
-//    .searchScopes($searchScope) {
-//      ForEach(SearchScope.allCases, id: \.self) { scope in
-//        Text(scope.rawValue)
-//      }
-//    }
+    //    .searchScopes($searchScope) {
+    //      ForEach(SearchScope.allCases, id: \.self) { scope in
+    //        Text(scope.rawValue)
+    //      }
+    //    }
     .autocapitalization(.none)
     .disableAutocorrection(true)
     .onSubmit(of: .search) {
@@ -49,7 +50,7 @@ struct FoodsTab: View {
         }
       case .favorites:
         logger.debug("Searching Favorites for '\(helper.query)'")
-        // TODO: Implement Favorites
+      // TODO: Implement Favorites
       }
     }
   }
