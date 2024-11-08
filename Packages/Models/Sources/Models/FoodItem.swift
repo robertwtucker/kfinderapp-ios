@@ -51,6 +51,7 @@ import SwiftData
 }
 
 // MARK: - Samples
+#if DEBUG
 extension FoodItem: @unchecked Sendable {
   public static let empty = FoodItem(
     id: 0,
@@ -222,3 +223,4 @@ extension FoodItem: @unchecked Sendable {
     ),
   ]
 }
+#endif
