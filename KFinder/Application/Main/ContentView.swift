@@ -10,6 +10,21 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
+  @Environment(ReminderManager.self) private var reminderManager
+
+  var body: some View {
+    AppTabView()
+      .task {
+        do {
+          try await reminderManager.listenForReminderChanges()
+        } catch {
+          // display error
+        }
+      }
+  }
+}
+
+struct AppTabView: View {
   @State private var selectedTab: Tab = .home
   @State private var showSettings = false
 
@@ -53,21 +68,22 @@ struct ContentView: View {
 }
 
 struct AppHeaderView: View {
+  @Environment(\.colorScheme) private var colorScheme
   @Binding var selectedTab: Tab
   @Binding var showSettings: Bool
 
   var body: some View {
     HStack {
       Text(selectedTab.header)
-        .font(.largeTitle)
-        .fontWeight(.bold)
+        .font(.largeTitle).bold()
+        .foregroundStyle(.black)
       Spacer()
       Button(action: {
         showSettings.toggle()
       }) {
         ZStack {
-          Circle()
-            .fill(Color.appLightIndigo)
+          Color.appLightIndigo
+            .clipShape(.circle)
             .frame(width: 48, height: 48)
             .shadow(radius: 1)
           Image(systemName: "gearshape")
@@ -75,6 +91,7 @@ struct AppHeaderView: View {
             .frame(width: 32, height: 32)
             .foregroundStyle(.black)
         }
+        .accentColor(Color.appForeground(for: colorScheme))
       }
     }
   }
@@ -83,6 +100,7 @@ struct AppHeaderView: View {
 #Preview {
   ContentView()
     .environment(UserPreferences.shared)
+    .environment(ReminderManager.shared)
     .modelContainer(previewContainer)
 }
 
