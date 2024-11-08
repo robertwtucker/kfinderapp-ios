@@ -14,9 +14,7 @@
 		E1473E9C2CD7FF2D00D8303F /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E1473E9B2CD7FF2D00D8303F /* DesignSystem */; };
 		E151F8912CCD9CAE0091FB0C /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8902CCD9CAE0091FB0C /* Services */; };
 		E151F8932CCD9CBA0091FB0C /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8922CCD9CBA0091FB0C /* Models */; };
-		E151F8972CCDBE130091FB0C /* FoodDisplayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */; };
 		E1A5C2AE2ABA6BF30088D5F3 /* UIApplication+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5C2AD2ABA6BF30088D5F3 /* UIApplication+Version.swift */; };
-		E1B589522AA8C38A00E64F18 /* FoodSearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */; };
 		E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5895C2AABAC1C00E64F18 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,10 +46,8 @@
 		E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E151F8832CCD8D2A0091FB0C /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Models; path = Packages/Models; sourceTree = "<group>"; };
 		E151F8842CCD8D600091FB0C /* Services */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Services; path = Packages/Services; sourceTree = "<group>"; };
-		E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDisplayHelper.swift; sourceTree = "<group>"; };
 		E1A3C3572CCEF83600579D94 /* KFinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KFinder.entitlements; sourceTree = "<group>"; };
 		E1A5C2AD2ABA6BF30088D5F3 /* UIApplication+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Version.swift"; sourceTree = "<group>"; };
-		E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchHelper.swift; sourceTree = "<group>"; };
 		E1B5895B2AABA9D800E64F18 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		E1B5895C2AABAC1C00E64F18 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		E1B5895E2AABAE4D00E64F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -124,7 +120,6 @@
 				E11C075A2A9907F20024334E /* Assets.xcassets */,
 				E1B5895E2AABAE4D00E64F18 /* Info.plist */,
 				E11F8B022CD4760F00D59181 /* Resources */,
-				E1E65CFC2AB22F7B007E30A2 /* Shared */,
 				E1A5C2AC2ABA6B090088D5F3 /* Support */,
 				E1B5895B2AABA9D800E64F18 /* Secrets.xcconfig */,
 			);
@@ -172,15 +167,6 @@
 				E11F8AE82CD475C300D59181 /* Tabs */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		E1E65CFC2AB22F7B007E30A2 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				E151F8962CCDBE130091FB0C /* FoodDisplayHelper.swift */,
-				E1B589512AA8C38A00E64F18 /* FoodSearchHelper.swift */,
-			);
-			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,8 +315,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */,
-				E1B589522AA8C38A00E64F18 /* FoodSearchHelper.swift in Sources */,
-				E151F8972CCDBE130091FB0C /* FoodDisplayHelper.swift in Sources */,
 				E1A5C2AE2ABA6BF30088D5F3 /* UIApplication+Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
