@@ -13,12 +13,6 @@ struct TestingStatusView: View {
 
   @State private var showAddView = false
 
-  private let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .medium
-    return formatter
-  }()
-
   var body: some View {
     VStack(alignment: .leading) {
       HStack {
@@ -73,36 +67,18 @@ struct TestingStatusView: View {
         Text("testing.status.scheduled")
           .font(.callout)
           + Text(
-            "\(reminderManager.reminder?.dueDate ?? Date.distantPast, formatter: dateFormatter)"
+            " \(reminderManager.reminder?.dueDate ?? Date.distantPast, formatter: .dueDateFormatter)."
           )
           .font(.callout).bold()
         Spacer()
       }
       .padding(.bottom)
       HStack {
-        #if DEBUG
-          Button(action: {
-            userPreferences.setProTimeReminders.toggle()
-            userPreferences.proTimeReminderId = ""
-          }) {
-            Text("testing.status.button.reset")
-              .font(.callout)
-              .padding()
-              .background(Color.appBackgroundInverted(for: colorScheme))
-              .cornerRadius(8)
-          }
-          .accentColor(Color.appForegroundInverted(for: colorScheme))
-        #endif
         Spacer()
         Button(action: {
-          // FIXME: https://github.com/robertwtucker/kfinderapp-ios/issues/21
-          guard let reminder = reminderManager.reminder else { return }
-          guard let url = URL(string: "x-apple-reminder://\(reminder.id.uppercased())") else { return }
+          guard let url = URL(string: "x-apple-reminderkit://") else { return }
           if UIApplication.shared.canOpenURL(url) {
-            print("Opening URL: \(url)")
             UIApplication.shared.open(url)
-          } else {
-            print("Unable to open URL: \(url)")
           }
         }) {
           Text("testing.status.button.open")
@@ -127,7 +103,6 @@ struct TestingStatusView: View {
           showAddView.toggle()
         }
       }) {
-        // Image(systemName: "calendar.badge.plus")
         Text("testing.status.button.create")
           .font(.callout)
           .padding()
