@@ -4,12 +4,14 @@
 //
 
 import Models
-import OSLog
+import Services
 import SwiftData
 import SwiftUI
 
 struct RecentFoodsListView: View {
   @Environment(\.colorScheme) private var colorScheme
+  @Environment(\.editMode) private var editMode
+  @Environment(\.modelContext) private var modelContext
   @Query(RecentFoodsListView.fetchDescriptor) var foods: [FoodItem]
 
   static var fetchDescriptor: FetchDescriptor<FoodItem> {
@@ -23,30 +25,24 @@ struct RecentFoodsListView: View {
     return descriptor
   }
 
-  private let logger = Logger(
-    subsystem: Bundle.main.bundleIdentifier!,
-    category: String(describing: RecentFoodsListView.self))
-
-  @ViewBuilder
   var body: some View {
     VStack(alignment: .leading, spacing: 16) {
       ForEach(foods, id: \.self) { food in
-        VStack {
-          Group {
-            HStack {
-              Text("\(food.name)")
-                .font(.headline)
-                .foregroundStyle(Color.appForeground(for: colorScheme))
-                .padding(.vertical, 24)
-                .padding(.horizontal)
-              Spacer()
-            }
+        NavigationLink(destination: FoodDetailView(food: food)) {
+          FoodsListCellView(food: food)
+            .padding(.vertical)
             .background(
               RoundedRectangle(cornerRadius: 8)
                 .fill(Color.appBackground(for: colorScheme))
                 .shadow(radius: 1, x: 1, y: 1)
             )
-          }
+        }
+        .accentColor(Color.appForeground(for: colorScheme))
+      }
+      .onDelete { indexSet in
+        for i in indexSet {
+          let food = foods[i]
+          modelContext.delete(food)
         }
       }
       Spacer()
@@ -56,5 +52,6 @@ struct RecentFoodsListView: View {
 
 #Preview {
   RecentFoodsListView()
+    .environment(UserPreferences.shared)
     .modelContainer(previewContainer)
 }
