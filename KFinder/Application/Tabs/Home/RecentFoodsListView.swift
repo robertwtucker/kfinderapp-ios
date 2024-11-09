@@ -11,7 +11,7 @@ import SwiftUI
 struct RecentFoodsListView: View {
   @Environment(\.colorScheme) private var colorScheme
   @Environment(\.modelContext) private var modelContext
-  @Query(RecentFoodsListView.fetchDescriptor) var foods: [FoodItem]
+  @Query(RecentFoodsListView.fetchDescriptor) private var foods: [FoodItem]
 
   static var fetchDescriptor: FetchDescriptor<FoodItem> {
     var descriptor = FetchDescriptor<FoodItem>(
@@ -19,8 +19,7 @@ struct RecentFoodsListView: View {
         .init(\.updatedAt, order: .reverse)
       ]
     )
-    // TODO: Make this configurable in Settings
-    descriptor.fetchLimit = 5
+    descriptor.fetchLimit = UserPreferences.shared.recentFoodsLimit
     return descriptor
   }
 

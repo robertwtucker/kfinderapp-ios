@@ -18,6 +18,7 @@ import SwiftUI
     @AppStorage("setProTimeReminders", store: sharedDefaults) public var setProTimeReminders: Bool = false
     @AppStorage("defaultProTimeInterval", store: sharedDefaults) var defaultProTimeInterval: Int = 3
     @AppStorage("proTimeReminderId", store: sharedDefaults) var proTimeReminderId: String = ""
+    @AppStorage("recentFoodsLimit", store: sharedDefaults) var recentFoodsLimit: Int = 5
   }
   
   public static let sharedDefaults = UserDefaults(suiteName: "group.dev.eclectic.kfinder.shared")
@@ -66,6 +67,12 @@ import SwiftUI
     }
   }
   
+  public var recentFoodsLimit: Int {
+    didSet {
+      storage.recentFoodsLimit = recentFoodsLimit
+    }
+  }
+  
   private init() {
     email = storage.email
     firstName = storage.firstName
@@ -74,5 +81,6 @@ import SwiftUI
     setProTimeReminders = storage.setProTimeReminders
     defaultProTimeInterval = storage.defaultProTimeInterval
     proTimeReminderId = storage.proTimeReminderId
+    recentFoodsLimit = storage.recentFoodsLimit
   }
 }

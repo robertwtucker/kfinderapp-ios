@@ -10,11 +10,11 @@
     " %@." : {
 
     },
-    ":  %lld " : {
-
-    },
     "%@ µg " : {
       "comment" : "K uom specifier"
+    },
+    "%lld " : {
+
     },
     "button.cancel" : {
       "localizations" : {
@@ -326,6 +326,16 @@
         }
       }
     },
+    "settings.recent.foods.limit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Foods Limit:"
+          }
+        }
+      }
+    },
     "settings.testing" : {
       "localizations" : {
         "en" : {
@@ -351,17 +361,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Default Interval"
-          }
-        }
-      }
-    },
-    "settings.testing.interval.measure" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "weeks"
+            "value" : "Default Interval (wk):"
           }
         }
       }

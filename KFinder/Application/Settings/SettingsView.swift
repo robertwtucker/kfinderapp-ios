@@ -41,7 +41,10 @@ struct SettingsView: View {
     }
   }
 
+  @ViewBuilder
   private var kTargetSection: some View {
+    @Bindable var userPrefs = userPreferences
+
     Section("settings.tracking") {
       Button(
         action: {
@@ -49,14 +52,25 @@ struct SettingsView: View {
         },
         label: {
           HStack {
-            Label("settings.ktarget", systemImage: "target")
-              .foregroundStyle(Color.appForeground(for: colorScheme))
+            HStack {
+              Image(systemName: "target")
+              Text("settings.ktarget")
+                .foregroundStyle(Color.appForeground(for: colorScheme))
+            }
             Spacer()
             Text("\(String(format: "%.0f", userPreferences.dailyKTarget)) µg ")
           }
           .accentColor(Color.appForeground(for: colorScheme))
         }
       )
+      Stepper(value: $userPrefs.recentFoodsLimit, in: 3...10) {
+        HStack {
+          Image(systemName: "calendar")
+          Text("settings.recent.foods.limit")
+          Spacer()
+          Text("\(userPrefs.recentFoodsLimit) ")
+        }
+      }
     }
   }
 
@@ -76,8 +90,8 @@ struct SettingsView: View {
         HStack {
           Image(systemName: "calendar")
           Text("settings.testing.interval.default")
-            + Text(":  \(userPrefs.defaultProTimeInterval) ")
-            + Text("settings.testing.interval.measure")
+          Spacer()
+          Text("\(userPrefs.defaultProTimeInterval) ")
         }
       }
       .accentColor(Color.appForeground(for: colorScheme))
