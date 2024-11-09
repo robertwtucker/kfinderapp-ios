@@ -1,4 +1,4 @@
-///
+//
 // SPDX-FileCopyrightText: (c) 2024 Robert Tucker
 // SPDX-License-Identifier: MIT
 //
@@ -45,7 +45,7 @@ struct FoodsTab: View {
       }
     }
     .searchable(text: $helper.query, prompt: "foods.search.prompt")
-    // TODO: Implement Favorites
+    // TODO: Implement Favorites  //swiftlint:disable:this todo
     //    .searchScopes($searchScope) {
     //      ForEach(SearchScope.allCases, id: \.self) { scope in
     //        Text(scope.rawValue)
@@ -64,8 +64,8 @@ struct FoodsTab: View {
           isSearching.toggle()
         }
       case .favorites:
+        // TODO: Implement Favorites  //swiftlint:disable:this todo
         logger.debug("Searching Favorites for '\(helper.query)'")
-      // TODO: Implement Favorites
       }
     }
   }

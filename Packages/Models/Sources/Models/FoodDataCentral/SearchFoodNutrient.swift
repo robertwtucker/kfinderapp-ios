@@ -5,6 +5,7 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
 public struct SearchFoodNutrient: Codable, Sendable {
   public enum UnitName: String, Codable {
     case g = "G"
@@ -13,21 +14,21 @@ public struct SearchFoodNutrient: Codable, Sendable {
     case mg = "MG"
     case ug = "UG"
   }
-  
+
   public let _id: Int
   public let name: String
   public let number: String
   public let unitName: String
   public let value: Double
   public let indentLevel: Int
-  
+
   public enum CodingKeys: String, CodingKey {
     case _id = "nutrientId"
     case name = "nutrientName"
     case number = "nutrientNumber"
     case unitName, value, indentLevel
   }
-  
+
   public var unitOfMeasure: String {
     switch unitName.lowercased() {
     case "kj":
@@ -40,7 +41,7 @@ public struct SearchFoodNutrient: Codable, Sendable {
       return unitName.lowercased()
     }
   }
-  
+
   public var unitValue: String {
     return "\(String(format: "%.f", value)) \(unitOfMeasure)"
   }
@@ -50,3 +51,4 @@ public struct SearchFoodNutrient: Codable, Sendable {
 extension SearchFoodNutrient: Identifiable {
   public var id: Int { _id }
 }
+// swiftlint:enable identifier_name

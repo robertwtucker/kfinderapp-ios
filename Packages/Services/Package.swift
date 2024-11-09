@@ -7,16 +7,16 @@ let package = Package(
     name: "Services",
     defaultLocalization: "en",
     platforms: [
-      .iOS(.v17)
+        .iOS(.v17)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Services",
-            targets: ["Services"]),
+            targets: ["Services"])
     ],
     dependencies: [
-      .package(name: "Models", path: "../Models")
+        .package(name: "Models", path: "../Models")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,15 +24,15 @@ let package = Package(
         .target(
             name: "Services",
             dependencies: [
-              .product(name: "Models", package: "Models")
+                .product(name: "Models", package: "Models")
             ],
             swiftSettings: [
-              .swiftLanguageMode(.v6)
+                .swiftLanguageMode(.v6)
             ]
         ),
         .testTarget(
             name: "ServicesTests",
             dependencies: ["Services"]
-        ),
+        )
     ]
 )
