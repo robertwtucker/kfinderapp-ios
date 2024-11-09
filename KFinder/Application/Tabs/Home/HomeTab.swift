@@ -3,20 +3,12 @@
 // SPDX-License-Identifier: MIT
 //
 
-import Models
-import OSLog
+import DesignSystem
 import Services
-import SwiftData
 import SwiftUI
 
 struct HomeTab: View {
   @Environment(\.colorScheme) private var colorScheme
-  @Query(sort: \FoodItem.updatedAt, order: .reverse)
-  private var foods: [FoodItem]
-
-//  private let logger = Logger(
-//    subsystem: Bundle.main.bundleIdentifier!,
-//    category: String(describing: HomeTab.self))
 
   var body: some View {
     NavigationStack {

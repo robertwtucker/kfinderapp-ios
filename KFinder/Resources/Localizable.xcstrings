@@ -86,6 +86,26 @@
         }
       }
     },
+    "foods.search.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use the search bar above to get started…"
+          }
+        }
+      }
+    },
+    "foods.search.init" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Foods"
+          }
+        }
+      }
+    },
     "foods.search.prompt" : {
       "localizations" : {
         "en" : {
