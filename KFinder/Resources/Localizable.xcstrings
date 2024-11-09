@@ -10,11 +10,11 @@
     " %@." : {
 
     },
-    ":  %lld " : {
-
-    },
     "%@ µg " : {
       "comment" : "K uom specifier"
+    },
+    "%lld " : {
+
     },
     "button.cancel" : {
       "localizations" : {
@@ -82,6 +82,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "100g"
+          }
+        }
+      }
+    },
+    "foods.recent.none" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No recent foods"
+          }
+        }
+      }
+    },
+    "foods.recent.none.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use the search box in Foods tab to get started..."
           }
         }
       }
@@ -306,6 +326,16 @@
         }
       }
     },
+    "settings.recent.foods.limit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent Foods Limit:"
+          }
+        }
+      }
+    },
     "settings.testing" : {
       "localizations" : {
         "en" : {
@@ -331,17 +361,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Default Interval"
-          }
-        }
-      }
-    },
-    "settings.testing.interval.measure" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "weeks"
+            "value" : "Default Interval (wk):"
           }
         }
       }
