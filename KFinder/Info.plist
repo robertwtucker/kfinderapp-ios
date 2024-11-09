@@ -4,7 +4,7 @@
 <dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>x-apple-reminder</string>
+		<string>x-apple-reminderkit</string>
 	</array>
 	<key>FDC_API_KEY</key>
 	<string>$(FDC_API_KEY)</string>
