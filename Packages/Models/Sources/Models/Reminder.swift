@@ -9,10 +9,13 @@ public struct Reminder: Equatable, Identifiable {
   public var id: String = UUID().uuidString
   public var title: String
   public var dueDate: Date
-  public var notes: String? = nil
+  public var notes: String?
   public var isComplete: Bool = false
-  
-  public init(id: String = UUID().uuidString, title: String, dueDate: Date, notes: String? = nil, isComplete: Bool = false) {
+
+  public init(
+    id: String = UUID().uuidString, title: String, dueDate: Date,
+    notes: String? = nil, isComplete: Bool = false
+  ) {
     self.id = id
     self.title = title
     self.dueDate = dueDate

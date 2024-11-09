@@ -6,6 +6,7 @@
 import SwiftUI
 
 extension UIApplication {
+  // swiftlint:disable force_cast
   static var release: String {
     return Bundle.main.object(
       forInfoDictionaryKey: "CFBundleShortVersionString") as! String?
@@ -15,6 +16,7 @@ extension UIApplication {
     return Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
       as! String? ?? "unknown"
   }
+  // swiftlint:enable force_cast
   static var version: String {
     return "\(release) (\(build))"
   }

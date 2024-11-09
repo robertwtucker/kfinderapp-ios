@@ -24,7 +24,7 @@ struct TestingStatusView: View {
         .padding()
         Spacer()
       }
-      TestReminderView()
+      testReminderView()
         .padding()
     }
     .background(
@@ -38,7 +38,7 @@ struct TestingStatusView: View {
     .onAppear {
       if userPreferences.setProTimeReminders
         && !userPreferences.proTimeReminderId.isEmpty
-      {
+      { // swiftlint:disable:this opening_brace
         Task {
           try await reminderManager.setupReminders()
         }
@@ -47,21 +47,21 @@ struct TestingStatusView: View {
 
   }
 
-  private func TestReminderView() -> some View {
+  private func testReminderView() -> some View {
     VStack {
       if userPreferences.setProTimeReminders {
         if userPreferences.proTimeReminderId.isEmpty {
-          TestsEnabledView()
+          testsEnabledView()
         } else {
-          TestScheduledView()
+          testScheduledView()
         }
       } else {
-        TestsDisabledView()
+        testsDisabledView()
       }
     }
   }
 
-  private func TestScheduledView() -> some View {
+  private func testScheduledView() -> some View {
     VStack {
       HStack {
         Text("testing.status.scheduled")
@@ -75,45 +75,53 @@ struct TestingStatusView: View {
       .padding(.bottom)
       HStack {
         Spacer()
-        Button(action: {
-          guard let url = URL(string: "x-apple-reminderkit://") else { return }
-          if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url)
+        Button(
+          action: {
+            guard let url = URL(string: "x-apple-reminderkit://") else {
+              return
+            }
+            if UIApplication.shared.canOpenURL(url) {
+              UIApplication.shared.open(url)
+            }
+          },
+          label: {
+            Text("testing.status.button.open")
+              .font(.callout)
+              .padding()
+              .background(Color.appBackgroundInverted(for: colorScheme))
+              .cornerRadius(8)
           }
-        }) {
-          Text("testing.status.button.open")
-            .font(.callout)
-            .padding()
-            .background(Color.appBackgroundInverted(for: colorScheme))
-            .cornerRadius(8)
-        }
+        )
         .accentColor(Color.appForegroundInverted(for: colorScheme))
       }
     }
   }
 
-  private func TestsEnabledView() -> some View {
+  private func testsEnabledView() -> some View {
     HStack {
       Text("testing.status.enabled")
         .font(.callout)
       Spacer()
-      Button(action: {
-        Task {
-          try await reminderManager.setupReminders()
-          showAddView.toggle()
+      Button(
+        action: {
+          Task {
+            try await reminderManager.setupReminders()
+            showAddView.toggle()
+          }
+        },
+        label: {
+          Text("testing.status.button.create")
+            .font(.callout)
+            .padding()
+            .background(Color.appBackgroundInverted(for: colorScheme))
+            .cornerRadius(8)
         }
-      }) {
-        Text("testing.status.button.create")
-          .font(.callout)
-          .padding()
-          .background(Color.appBackgroundInverted(for: colorScheme))
-          .cornerRadius(8)
-      }
+      )
       .accentColor(Color.appForegroundInverted(for: colorScheme))
     }
   }
 
-  private func TestsDisabledView() -> some View {
+  private func testsDisabledView() -> some View {
     HStack {
       Text("testing.status.disabled")
         .font(.callout)
@@ -121,14 +129,16 @@ struct TestingStatusView: View {
       Button(
         action: {
           userPreferences.setProTimeReminders.toggle()
-        }) {
+        },
+        label: {
           Text("testing.status.button.enable")
             .font(.callout)
             .padding()
             .background(Color.appBackgroundInverted(for: colorScheme))
             .cornerRadius(8)
         }
-        .accentColor(Color.appForegroundInverted(for: colorScheme))
+      )
+      .accentColor(Color.appForegroundInverted(for: colorScheme))
     }
   }
 }

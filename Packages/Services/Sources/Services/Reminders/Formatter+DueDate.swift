@@ -6,11 +6,11 @@
 import Foundation
 
 public extension Formatter {
-  static let dueDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.locale = .autoupdatingCurrent
-    formatter.timeStyle = .none
-    formatter.dateStyle = .short
-    return formatter
-  }()
+    static let dueDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = .autoupdatingCurrent
+        formatter.timeStyle = .none
+        formatter.dateStyle = .short
+        return formatter
+    }()
 }

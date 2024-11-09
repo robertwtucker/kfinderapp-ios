@@ -8,79 +8,79 @@ import SwiftUI
 
 @MainActor
 @Observable public class UserPreferences {
-  
-  @MainActor
-  private class Storage {
-    @AppStorage("email", store: sharedDefaults) public var email: String = "user@kfinderapp.com"
-    @AppStorage("firstName", store: sharedDefaults) public var firstName: String = "K"
-    @AppStorage("lastName", store: sharedDefaults) public var lastName: String = "Finder"
-    @AppStorage("dailyKTarget", store: sharedDefaults) public var dailyKTarget: Double = 120
-    @AppStorage("setProTimeReminders", store: sharedDefaults) public var setProTimeReminders: Bool = false
-    @AppStorage("defaultProTimeInterval", store: sharedDefaults) var defaultProTimeInterval: Int = 3
-    @AppStorage("proTimeReminderId", store: sharedDefaults) var proTimeReminderId: String = ""
-    @AppStorage("recentFoodsLimit", store: sharedDefaults) var recentFoodsLimit: Int = 5
-  }
-  
-  public static let sharedDefaults = UserDefaults(suiteName: "group.dev.eclectic.kfinder.shared")
-  public static let shared = UserPreferences()
-  private let storage = Storage()
-  
-  public var email: String {
-    didSet {
-      storage.email = email
+
+    @MainActor
+    private class Storage {
+        @AppStorage("email", store: sharedDefaults) public var email: String = "user@kfinderapp.com"
+        @AppStorage("firstName", store: sharedDefaults) public var firstName: String = "K"
+        @AppStorage("lastName", store: sharedDefaults) public var lastName: String = "Finder"
+        @AppStorage("dailyKTarget", store: sharedDefaults) public var dailyKTarget: Double = 120
+        @AppStorage("setProTimeReminders", store: sharedDefaults) public var setProTimeReminders: Bool = false
+        @AppStorage("defaultProTimeInterval", store: sharedDefaults) var defaultProTimeInterval: Int = 3
+        @AppStorage("proTimeReminderId", store: sharedDefaults) var proTimeReminderId: String = ""
+        @AppStorage("recentFoodsLimit", store: sharedDefaults) var recentFoodsLimit: Int = 5
     }
-  }
-  
-  public var firstName: String {
-    didSet {
-      storage.firstName = firstName
+
+    public static let sharedDefaults = UserDefaults(suiteName: "group.dev.eclectic.kfinder.shared")
+    public static let shared = UserPreferences()
+    private let storage = Storage()
+
+    public var email: String {
+        didSet {
+            storage.email = email
+        }
     }
-  }
-  
-  public var lastName: String {
-    didSet {
-      storage.lastName = lastName
+
+    public var firstName: String {
+        didSet {
+            storage.firstName = firstName
+        }
     }
-  }
-  
-  public var dailyKTarget: Double {
-    didSet {
-      storage.dailyKTarget = dailyKTarget
+
+    public var lastName: String {
+        didSet {
+            storage.lastName = lastName
+        }
     }
-  }
-  
-  public var setProTimeReminders: Bool {
-    didSet {
-      storage.setProTimeReminders = setProTimeReminders
+
+    public var dailyKTarget: Double {
+        didSet {
+            storage.dailyKTarget = dailyKTarget
+        }
     }
-  }
-  
-  public var defaultProTimeInterval: Int {
-    didSet {
-      storage.defaultProTimeInterval = defaultProTimeInterval
+
+    public var setProTimeReminders: Bool {
+        didSet {
+            storage.setProTimeReminders = setProTimeReminders
+        }
     }
-  }
-  
-  public var proTimeReminderId: String {
-    didSet {
-      storage.proTimeReminderId = proTimeReminderId
+
+    public var defaultProTimeInterval: Int {
+        didSet {
+            storage.defaultProTimeInterval = defaultProTimeInterval
+        }
     }
-  }
-  
-  public var recentFoodsLimit: Int {
-    didSet {
-      storage.recentFoodsLimit = recentFoodsLimit
+
+    public var proTimeReminderId: String {
+        didSet {
+            storage.proTimeReminderId = proTimeReminderId
+        }
     }
-  }
-  
-  private init() {
-    email = storage.email
-    firstName = storage.firstName
-    lastName = storage.lastName
-    dailyKTarget = storage.dailyKTarget
-    setProTimeReminders = storage.setProTimeReminders
-    defaultProTimeInterval = storage.defaultProTimeInterval
-    proTimeReminderId = storage.proTimeReminderId
-    recentFoodsLimit = storage.recentFoodsLimit
-  }
+
+    public var recentFoodsLimit: Int {
+        didSet {
+            storage.recentFoodsLimit = recentFoodsLimit
+        }
+    }
+
+    private init() {
+        email = storage.email
+        firstName = storage.firstName
+        lastName = storage.lastName
+        dailyKTarget = storage.dailyKTarget
+        setProTimeReminders = storage.setProTimeReminders
+        defaultProTimeInterval = storage.defaultProTimeInterval
+        proTimeReminderId = storage.proTimeReminderId
+        recentFoodsLimit = storage.recentFoodsLimit
+    }
 }

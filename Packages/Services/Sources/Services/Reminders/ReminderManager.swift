@@ -10,7 +10,7 @@ import SwiftUI
 
 @MainActor
 @Observable public class ReminderManager {
-  public var reminder: Reminder? = nil
+  public var reminder: Reminder?
 
   public static let shared = ReminderManager()
   private let reminderStore: ReminderStore
@@ -22,7 +22,7 @@ import SwiftUI
   private let logger = Logger(
     subsystem: Bundle.main.bundleIdentifier!,
     category: String(describing: ReminderManager.self))
-  
+
   public func setupReminders() async throws {
     guard UserPreferences.shared.setProTimeReminders else { return }
 
@@ -66,8 +66,10 @@ import SwiftUI
 
   public func listenForReminderChanges() async throws {
     let center = NotificationCenter.default
-    let notifications = center.notifications(named: .EKEventStoreChanged).map({
-      (notification: Notification) in notification.name
+    let notifications = center.notifications(
+      named: .EKEventStoreChanged
+    ).map({ (notification: Notification) in
+      notification.name
     })
 
     for await _ in notifications {
