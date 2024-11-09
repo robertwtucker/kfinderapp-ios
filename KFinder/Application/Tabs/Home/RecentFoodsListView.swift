@@ -10,7 +10,6 @@ import SwiftUI
 
 struct RecentFoodsListView: View {
   @Environment(\.colorScheme) private var colorScheme
-  @Environment(\.editMode) private var editMode
   @Environment(\.modelContext) private var modelContext
   @Query(RecentFoodsListView.fetchDescriptor) var foods: [FoodItem]
 
@@ -27,26 +26,50 @@ struct RecentFoodsListView: View {
 
   var body: some View {
     VStack(alignment: .leading, spacing: 16) {
-      ForEach(foods, id: \.self) { food in
-        NavigationLink(destination: FoodDetailView(food: food)) {
-          FoodsListCellView(food: food)
-            .padding(.vertical)
-            .background(
-              RoundedRectangle(cornerRadius: 8)
-                .fill(Color.appBackground(for: colorScheme))
-                .shadow(radius: 1, x: 1, y: 1)
-            )
+      if foods.count > 0 {
+        ForEach(foods, id: \.self) { food in
+          NavigationLink(destination: FoodDetailView(food: food)) {
+            FoodsListCellView(food: food)
+              .padding(.vertical)
+              .background(
+                RoundedRectangle(cornerRadius: 8)
+                  .fill(Color.appBackground(for: colorScheme))
+                  .shadow(radius: 1, x: 1, y: 1)
+              )
+          }
         }
-        .accentColor(Color.appForeground(for: colorScheme))
+      } else {
+        EmptyRecentFoodsView()
       }
-      .onDelete { indexSet in
-        for i in indexSet {
-          let food = foods[i]
-          modelContext.delete(food)
+    }
+    .accentColor(Color.appForeground(for: colorScheme))
+  }
+}
+
+struct EmptyRecentFoodsView: View {
+  @Environment(\.colorScheme) private var colorScheme
+
+  var body: some View {
+    VStack(alignment: .leading) {
+      HStack {
+        HStack {
+          Image(systemName: "carrot")
+          Text("foods.recent.none")
         }
+        Spacer()
       }
+      .font(.headline)
+      .padding()
+      Text("foods.recent.none.message")
+        .font(.subheadline)
+        .padding(.horizontal)
       Spacer()
     }
+    .padding(.bottom)
+    .background(
+      RoundedRectangle(cornerRadius: 8)
+        .fill(Color.appBackground(for: colorScheme))
+        .shadow(radius: 1, x: 1, y: 1))
   }
 }
 
