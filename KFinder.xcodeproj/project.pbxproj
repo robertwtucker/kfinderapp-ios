@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E11C075B2A9907F20024334E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E11C075A2A9907F20024334E /* Assets.xcassets */; };
-		E11C07682A9907F30024334E /* KFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07672A9907F30024334E /* KFinderTests.swift */; };
-		E11C07722A9907F30024334E /* KFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07712A9907F30024334E /* KFinderUITests.swift */; };
-		E11C07742A9907F30024334E /* KFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */; };
 		E1473E9C2CD7FF2D00D8303F /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E1473E9B2CD7FF2D00D8303F /* DesignSystem */; };
 		E151F8912CCD9CAE0091FB0C /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8902CCD9CAE0091FB0C /* Services */; };
 		E151F8932CCD9CBA0091FB0C /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8922CCD9CBA0091FB0C /* Models */; };
@@ -18,32 +15,10 @@
 		E1B5895D2AABAC1C00E64F18 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5895C2AABAC1C00E64F18 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E11C07642A9907F30024334E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E11C074B2A9907EF0024334E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E11C07522A9907F00024334E;
-			remoteInfo = KFinder;
-		};
-		E11C076E2A9907F30024334E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E11C074B2A9907EF0024334E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E11C07522A9907F00024334E;
-			remoteInfo = KFinder;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		E117D4032CD7FEB4001BE0D6 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = Packages/DesignSystem; sourceTree = "<group>"; };
 		E11C07532A9907F00024334E /* KFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11C075A2A9907F20024334E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E11C07632A9907F30024334E /* KFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E11C07672A9907F30024334E /* KFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderTests.swift; sourceTree = "<group>"; };
-		E11C076D2A9907F30024334E /* KFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E11C07712A9907F30024334E /* KFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITests.swift; sourceTree = "<group>"; };
-		E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E151F8832CCD8D2A0091FB0C /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Models; path = Packages/Models; sourceTree = "<group>"; };
 		E151F8842CCD8D600091FB0C /* Services */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Services; path = Packages/Services; sourceTree = "<group>"; };
 		E1A3C3572CCEF83600579D94 /* KFinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KFinder.entitlements; sourceTree = "<group>"; };
@@ -71,20 +46,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E11C07602A9907F30024334E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E11C076A2A9907F30024334E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -92,8 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				E11C07552A9907F00024334E /* KFinder */,
-				E11C07662A9907F30024334E /* KFinderTests */,
-				E11C07702A9907F30024334E /* KFinderUITests */,
 				E11C07542A9907F00024334E /* Products */,
 				E151F8852CCD8FF00091FB0C /* Frameworks */,
 				E117D4032CD7FEB4001BE0D6 /* DesignSystem */,
@@ -106,8 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				E11C07532A9907F00024334E /* KFinder.app */,
-				E11C07632A9907F30024334E /* KFinderTests.xctest */,
-				E11C076D2A9907F30024334E /* KFinderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,23 +81,6 @@
 				E1B5895B2AABA9D800E64F18 /* Secrets.xcconfig */,
 			);
 			path = KFinder;
-			sourceTree = "<group>";
-		};
-		E11C07662A9907F30024334E /* KFinderTests */ = {
-			isa = PBXGroup;
-			children = (
-				E11C07672A9907F30024334E /* KFinderTests.swift */,
-			);
-			path = KFinderTests;
-			sourceTree = "<group>";
-		};
-		E11C07702A9907F30024334E /* KFinderUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E11C07712A9907F30024334E /* KFinderUITests.swift */,
-				E11C07732A9907F30024334E /* KFinderUITestsLaunchTests.swift */,
-			);
-			path = KFinderUITests;
 			sourceTree = "<group>";
 		};
 		E151F8852CCD8FF00091FB0C /* Frameworks */ = {
@@ -200,42 +140,6 @@
 			productReference = E11C07532A9907F00024334E /* KFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E11C07622A9907F30024334E /* KFinderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E11C077A2A9907F30024334E /* Build configuration list for PBXNativeTarget "KFinderTests" */;
-			buildPhases = (
-				E11C075F2A9907F30024334E /* Sources */,
-				E11C07602A9907F30024334E /* Frameworks */,
-				E11C07612A9907F30024334E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E11C07652A9907F30024334E /* PBXTargetDependency */,
-			);
-			name = KFinderTests;
-			productName = KFinderTests;
-			productReference = E11C07632A9907F30024334E /* KFinderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		E11C076C2A9907F30024334E /* KFinderUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E11C077D2A9907F30024334E /* Build configuration list for PBXNativeTarget "KFinderUITests" */;
-			buildPhases = (
-				E11C07692A9907F30024334E /* Sources */,
-				E11C076A2A9907F30024334E /* Frameworks */,
-				E11C076B2A9907F30024334E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E11C076F2A9907F30024334E /* PBXTargetDependency */,
-			);
-			name = KFinderUITests;
-			productName = KFinderUITests;
-			productReference = E11C076D2A9907F30024334E /* KFinderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -248,14 +152,6 @@
 				TargetAttributes = {
 					E11C07522A9907F00024334E = {
 						CreatedOnToolsVersion = 14.3.1;
-					};
-					E11C07622A9907F30024334E = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = E11C07522A9907F00024334E;
-					};
-					E11C076C2A9907F30024334E = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = E11C07522A9907F00024334E;
 					};
 				};
 			};
@@ -278,8 +174,6 @@
 			projectRoot = "";
 			targets = (
 				E11C07522A9907F00024334E /* KFinder */,
-				E11C07622A9907F30024334E /* KFinderTests */,
-				E11C076C2A9907F30024334E /* KFinderUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,20 +184,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E11C075B2A9907F20024334E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E11C07612A9907F30024334E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E11C076B2A9907F30024334E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,37 +199,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E11C075F2A9907F30024334E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E11C07682A9907F30024334E /* KFinderTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E11C07692A9907F30024334E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E11C07742A9907F30024334E /* KFinderUITestsLaunchTests.swift in Sources */,
-				E11C07722A9907F30024334E /* KFinderUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E11C07652A9907F30024334E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E11C07522A9907F00024334E /* KFinder */;
-			targetProxy = E11C07642A9907F30024334E /* PBXContainerItemProxy */;
-		};
-		E11C076F2A9907F30024334E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E11C07522A9907F00024334E /* KFinder */;
-			targetProxy = E11C076E2A9907F30024334E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E11C07752A9907F30024334E /* Debug */ = {
@@ -542,78 +392,6 @@
 			};
 			name = Release;
 		};
-		E11C077B2A9907F30024334E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94GENMY2GG;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.eclectic.KFinderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KFinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KFinder";
-			};
-			name = Debug;
-		};
-		E11C077C2A9907F30024334E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94GENMY2GG;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.eclectic.KFinderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KFinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KFinder";
-			};
-			name = Release;
-		};
-		E11C077E2A9907F30024334E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94GENMY2GG;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.eclectic.KFinderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KFinder;
-			};
-			name = Debug;
-		};
-		E11C077F2A9907F30024334E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94GENMY2GG;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.eclectic.KFinderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KFinder;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -631,24 +409,6 @@
 			buildConfigurations = (
 				E11C07782A9907F30024334E /* Debug */,
 				E11C07792A9907F30024334E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E11C077A2A9907F30024334E /* Build configuration list for PBXNativeTarget "KFinderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E11C077B2A9907F30024334E /* Debug */,
-				E11C077C2A9907F30024334E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E11C077D2A9907F30024334E /* Build configuration list for PBXNativeTarget "KFinderUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E11C077E2A9907F30024334E /* Debug */,
-				E11C077F2A9907F30024334E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
