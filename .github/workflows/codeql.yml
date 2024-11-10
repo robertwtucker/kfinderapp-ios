@@ -41,7 +41,7 @@ jobs:
         # platform: [iOS]
         # platform-version: [^18]
         swift:
-          - 6
+          - "5.10.1"
         xcode:
           - 16
         destination:
@@ -72,10 +72,10 @@ jobs:
       - name: Show current version of Xcode
         run: xcodebuild -version
 
-      # - name: Setup Swift
-      #   uses: swift-actions/setup-swift@v2
-      #   with:
-      #     swift-version: ${{ matrix.swift }}
+      - name: Setup Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: ${{ matrix.swift }}
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -100,7 +100,7 @@ jobs:
       # ℹ️ Command-line programs to run using the OS shell.
       # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
       - name: Manual Build
-        run: set -o pipefail && xcodebuild -scheme KFinder -destination "${{matrix.destination}}"
+        run: set -o pipefail && xcodebuild -scheme KFinder -destination "${{matrix.destination}}" -configuration Debug CODE_SIGN_IDENTITY=""
         # uses: mxcl/xcodebuild@v3
         # with:
         #   swift: ${{ matrix.swift }}
