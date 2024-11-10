@@ -1,15 +1,17 @@
-name: 'SwiftLint'
+name: "SwiftLint"
 
 on:
   push:
-    branches: ['master']
+    branches: ["master"]
   pull_request:
-    branches: ['master']
+    branches: ["master"]
+  schedule:
+    - cron: "42 7 * * 0"
   workflow_dispatch:
 
 jobs:
   scan-app:
-    name: SwiftLint Check
+    name: SwiftLint
     permissions:
       security-events: write
 
@@ -24,18 +26,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: GitHub Action for SwiftLint
+      - name: Run SwiftLint
         uses: stanfordbdhg/action-swiftlint@v4
         with:
           args: --reporter sarif --output lint-results.sarif
 
-      - name: Upload Swift app report
+      - name: Upload SwiftLint app report
         uses: github/codeql-action/upload-sarif@v3
         if: success() || failure()
         with:
           sarif_file: lint-results.sarif
 
-      - name: Run reviewdog for app
+      - name: Run reviewdog
         if: success() || failure()
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
