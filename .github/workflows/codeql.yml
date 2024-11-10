@@ -109,6 +109,7 @@ jobs:
           configuration: debug
           authentication-key-base64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
           authentication-key-id: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          authentication-key-issuer-id: ${{ secrets.APP_STORE_CONNECT_KEY_ISSER_ID }}
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
