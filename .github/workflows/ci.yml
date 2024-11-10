@@ -1,0 +1,35 @@
+name: 'CI Build'
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: '08 8 * * 0'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        xcode:
+          - '16'
+        destination:
+          - 'platform=iOS Simulator,OS=18.1,name=iPhone 15'
+    steps:
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ matrix.xcode }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: set -o pipefail && xcodebuild clean build -scheme KFinder -project KFinder.xcodeproj -destination "${{matrix.destination}}" | xcpretty && exit ${PIPESTATUS[0]}
