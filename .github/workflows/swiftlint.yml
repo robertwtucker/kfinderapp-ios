@@ -1,0 +1,44 @@
+name: "SwiftLint"
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+  schedule:
+    - cron: "42 7 * * 0"
+  workflow_dispatch:
+
+jobs:
+  scan-app:
+    name: SwiftLint
+    permissions:
+      security-events: write
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup reviewdog
+        uses: reviewdog/action-setup@v1
+
+      - name: Display reviewdog version
+        run: reviewdog -version
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run SwiftLint
+        uses: stanfordbdhg/action-swiftlint@v4
+        with:
+          args: --reporter sarif --output lint-results.sarif
+
+      - name: Upload SwiftLint app report
+        uses: github/codeql-action/upload-sarif@v3
+        if: success() || failure()
+        with:
+          sarif_file: lint-results.sarif
+
+      - name: Run reviewdog
+        if: success() || failure()
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: reviewdog -f=sarif -diff="git diff FETCH_HEAD" -name="lint" -reporter=github-pr-check < lint-results.sarif
