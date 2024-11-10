@@ -1,4 +1,4 @@
-name: 'CodeQL'
+name: "CodeQL"
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [master]
   schedule:
-    - cron: '41 7 * * 0'
+    - cron: "41 7 * * 0"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -99,16 +99,18 @@ jobs:
       # to build your code.
       # ℹ️ Command-line programs to run using the OS shell.
       # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-      - name: Build
+      - name: Build App
         uses: mxcl/xcodebuild@v3
         with:
           swift: ${{ matrix.swift }}
           platform: ${{ matrix.platform }}
           platform-version: ${{ matrix.platform-version }}
           action: build
-          configuration: release
+          configuration: debug
+          authentication-key-base64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          authentication-key-id: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: '/language:${{matrix.language}}'
+          category: "/language:${{matrix.language}}"
