@@ -107,7 +107,6 @@ jobs:
           platform-version: ${{ matrix.platform-version }}
           action: build
           configuration: release
-          code-sign-identity: '-'
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
