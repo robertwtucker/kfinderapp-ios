@@ -35,17 +35,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift: [^6]
-        # xcode: [ ^16 ]
-        language: [swift]
-        platform: [iOS]
-        platform-version: [^18]
-        build-mode: [manual]
-        # destination:
-        #   - "platform=iOS Simulator,OS=18.1,name=iPhone 15"
-        # include:
-        # - language: swift
-        #   build-mode: autobuild
+        include:
+          - language: swift
+            build-mode: manual
+        # platform: [iOS]
+        # platform-version: [^18]
+        swift:
+          - 6
+        xcode:
+          - 16
+        destination:
+          - "platform=iOS Simulator,OS=18.1,name=iPhone 15"
         # CodeQL supports the following values keywords for 'language': 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
         # Use `c-cpp` to analyze code written in C, C++ or both
         # Use 'java-kotlin' to analyze code written in Java, Kotlin or both
@@ -55,11 +55,11 @@ jobs:
         # If you are analyzing a compiled language, you can modify the 'build-mode' for that language to customize how
         # your codebase is analyzed, see https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
     steps:
-      # - name: Setup Xcode
-      #   uses: maxim-lobanov/setup-xcode@v1.6.0
-      #   with:
-      #     xcode-version: ${{ matrix.xcode }}
-      #
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ matrix.xcode }}
+
       # - name: Remove old Xcode versions
       #   run: |
       #     echo "Searching for Xcode versions:"
@@ -68,14 +68,14 @@ jobs:
       #     find /Applications -name "Xcode_*" -maxdepth 1 -mindepth 1 | grep -v ${{ matrix.xcode }} | xargs rm -rf
       #     echo "Available Xcode versions after removal:"
       #     find /Applications -name "Xcode_*" -maxdepth 1 -mindepth 1
-      #
-      # - name: Show current version of Xcode
-      #   run: xcodebuild -version
-      #
-      # - name: Setup Swift
-      #   uses: swift-actions/setup-swift@v2.1.0
-      #   with:
-      #     swift-version: ${{ matrix.swift }}
+
+      - name: Show current version of Xcode
+        run: xcodebuild -version
+
+      - name: Setup Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: ${{ matrix.swift }}
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -99,18 +99,19 @@ jobs:
       # to build your code.
       # ℹ️ Command-line programs to run using the OS shell.
       # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-      - name: Build App
-        uses: mxcl/xcodebuild@v3
-        with:
-          swift: ${{ matrix.swift }}
-          platform: ${{ matrix.platform }}
-          platform-version: ${{ matrix.platform-version }}
-          scheme: KFinder
-          action: build
-          # configuration: debug
-          authentication-key-base64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
-          authentication-key-id: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
-          authentication-key-issuer-id: ${{ secrets.APP_STORE_CONNECT_KEY_ISSER_ID }}
+      - name: Manual Build
+        run: set -o pipefail && xcodebuild -scheme KFinder -destination "${{matrix.destination}}"
+        # uses: mxcl/xcodebuild@v3
+        # with:
+        #   swift: ${{ matrix.swift }}
+        #   platform: ${{ matrix.platform }}
+        #   platform-version: ${{ matrix.platform-version }}
+        #   scheme: KFinder
+        #   action: build
+        #   # configuration: debug
+        #   authentication-key-base64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+        #   authentication-key-id: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+        #   authentication-key-issuer-id: ${{ secrets.APP_STORE_CONNECT_KEY_ISSER_ID }}
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
