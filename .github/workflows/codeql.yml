@@ -72,10 +72,10 @@ jobs:
       - name: Show current version of Xcode
         run: xcodebuild -version
 
-      - name: Setup Swift
-        uses: swift-actions/setup-swift@v2
-        with:
-          swift-version: ${{ matrix.swift }}
+      # - name: Setup Swift
+      #   uses: swift-actions/setup-swift@v2
+      #   with:
+      #     swift-version: ${{ matrix.swift }}
 
       - name: Checkout repository
         uses: actions/checkout@v4
