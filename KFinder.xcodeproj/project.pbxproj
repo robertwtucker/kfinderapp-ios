@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1473E9C2CD7FF2D00D8303F /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E1473E9B2CD7FF2D00D8303F /* DesignSystem */; };
-		E151F8912CCD9CAE0091FB0C /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8902CCD9CAE0091FB0C /* Services */; };
-		E151F8932CCD9CBA0091FB0C /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8922CCD9CBA0091FB0C /* Models */; };
+		E188EBBB2CE190770080F0AB /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; fileRef = E117D4032CD7FEB4001BE0D6 /* DesignSystem */; };
+		E188EBBC2CE1907A0080F0AB /* Models in Frameworks */ = {isa = PBXBuildFile; fileRef = E151F8832CCD8D2A0091FB0C /* Models */; };
+		E188EBBD2CE1907E0080F0AB /* Services in Frameworks */ = {isa = PBXBuildFile; fileRef = E151F8842CCD8D600091FB0C /* Services */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1473E9C2CD7FF2D00D8303F /* DesignSystem in Frameworks */,
-				E151F8932CCD9CBA0091FB0C /* Models in Frameworks */,
-				E151F8912CCD9CAE0091FB0C /* Services in Frameworks */,
+				E188EBBB2CE190770080F0AB /* DesignSystem in Frameworks */,
+				E188EBBC2CE1907A0080F0AB /* Models in Frameworks */,
+				E188EBBD2CE1907E0080F0AB /* Services in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,9 +128,9 @@
 			);
 			mainGroup = E11C074A2A9907EF0024334E;
 			packageReferences = (
-				E151F88A2CCD92C90091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Models" */,
-				E151F88D2CCD92E00091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Services" */,
 				E1473E9A2CD7FF2D00D8303F /* XCLocalSwiftPackageReference "Packages/DesignSystem" */,
+				E188EBB52CE18FD80080F0AB /* XCLocalSwiftPackageReference "Packages/Models" */,
+				E188EBB82CE18FEC0080F0AB /* XCLocalSwiftPackageReference "Packages/Services" */,
 			);
 			productRefGroup = E11C07542A9907F00024334E /* Products */;
 			projectDirPath = "";
@@ -386,13 +386,13 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/DesignSystem;
 		};
-		E151F88A2CCD92C90091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Models" */ = {
+		E188EBB52CE18FD80080F0AB /* XCLocalSwiftPackageReference "Packages/Models" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = KFinder/Packages/Models;
+			relativePath = Packages/Models;
 		};
-		E151F88D2CCD92E00091FB0C /* XCLocalSwiftPackageReference "KFinder/Packages/Services" */ = {
+		E188EBB82CE18FEC0080F0AB /* XCLocalSwiftPackageReference "Packages/Services" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = KFinder/Packages/Services;
+			relativePath = Packages/Services;
 		};
 /* End XCLocalSwiftPackageReference section */
 
