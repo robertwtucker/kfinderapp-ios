@@ -5,9 +5,3 @@ updates:
     schedule:
       interval: weekly
       day: sunday
-
-  - package-ecosystem: swift
-    directory: /
-    schedule:
-      interval: weekly
-      day: friday
