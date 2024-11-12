@@ -55,8 +55,7 @@ struct FoodsListCellView: View {
 
     switch displayHelper.vitaminKAsPercent(
       of: Int(userPreferences.dailyKTarget))
-      * 100
-    {
+      * 100 {
     case 0:
       return .gray
     case 1..<25:

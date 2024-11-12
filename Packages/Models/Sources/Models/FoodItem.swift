@@ -214,7 +214,7 @@ import SwiftData
             unitName: "G", value: 5.09),
           FoodNutrient(
             number: "646", name: "Fatty acids, total polyunsaturated",
-            unitName: "G", value: 0.65),
+            unitName: "G", value: 0.65)
         ],
         measures: [
           FoodMeasure(
@@ -225,7 +225,7 @@ import SwiftData
             id: 269083, text: "1 cup, shredded", gramWeight: 113, rank: 3),
           FoodMeasure(
             id: 269084, text: "1 cubic inch", gramWeight: 17.5, rank: 4),
-          FoodMeasure(id: 269082, text: "1 slice", gramWeight: 21, rank: 2),
+          FoodMeasure(id: 269082, text: "1 slice", gramWeight: 21, rank: 2)
         ]
       ),
       FoodItem(
@@ -382,15 +382,15 @@ import SwiftData
             unitName: "G", value: 1.1),
           FoodNutrient(
             number: "646", name: "Fatty acids, total polyunsaturated",
-            unitName: "G", value: 1.08),
+            unitName: "G", value: 1.08)
         ],
         measures: [
           FoodMeasure(
             id: 286407, text: "Quantity not specified", gramWeight: 78, rank: 2),
           FoodMeasure(
-            id: 286406, text: "1 fennel bulb", gramWeight: 218, rank: 1),
+            id: 286406, text: "1 fennel bulb", gramWeight: 218, rank: 1)
         ]
-      ),
+      )
     ]
   }
 #endif
