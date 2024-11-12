@@ -101,7 +101,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Use the search box in Foods tab to get started..."
+            "value" : "Use the search box in the Foods tab to get started..."
           }
         }
       }
@@ -504,6 +504,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Test scheduling is enabled, but a reminder has not been set."
+          }
+        }
+      }
+    },
+    "testing.status.overdue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The next test was due on"
           }
         }
       }

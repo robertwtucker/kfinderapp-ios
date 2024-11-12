@@ -5,30 +5,30 @@
 
 import SwiftUI
 
-public extension Color {
-    static let appIndigo = Color("indigo-500")
-    static let appLightIndigo = Color("indigo-300")
-    static let appDarkIndigo = Color("indigo-700")
-    static let appLightGray = Color("neutral-200")
-    static let appDarkGray = Color("neutral-800")
+extension Color {
+  public static let appIndigo = Color("indigo-500")
+  public static let appLightIndigo = Color("indigo-300")
+  public static let appDarkIndigo = Color("indigo-700")
+  public static let appLightGray = Color("neutral-200")
+  public static let appDarkGray = Color("neutral-800")
 
-    static func appBaseBackground(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? .black : .appLightGray
-    }
+  public static func appBaseBackground(for colorScheme: ColorScheme) -> Color {
+    colorScheme == .dark ? .black : .appLightGray
+  }
 
-    static func appBackground(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? .appDarkGray : .white
-    }
+  public static func appBackground(for colorScheme: ColorScheme) -> Color {
+    colorScheme == .dark ? .appDarkGray : .white
+  }
 
-    static func appBackgroundInverted(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? .white : .black
-    }
+  public static func appBackgroundInverted(for colorScheme: ColorScheme) -> Color {
+    colorScheme == .dark ? .appLightGray : .appDarkGray
+  }
 
-    static func appForeground(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? .white : .black
-    }
+  public static func appForeground(for colorScheme: ColorScheme) -> Color {
+    colorScheme == .dark ? .appLightGray : .black
+  }
 
-    static func appForegroundInverted(for colorScheme: ColorScheme) -> Color {
-        colorScheme == .dark ? .black : .white
-    }
+  public static func appForegroundInverted(for colorScheme: ColorScheme) -> Color {
+    colorScheme == .dark ? .black : .white
+  }
 }
