@@ -11,12 +11,9 @@ struct AddTestReminderView: View {
   @Environment(\.colorScheme) var colorScheme
   @Environment(\.dismiss) var dismiss
   @Environment(ReminderManager.self) var reminderManager
+  @Environment(UserPreferences.self) var userPreferences
 
-  @State private var reminderDate: Date
-
-  init() {
-    reminderDate = Date.now + (3 * 60 * 60 * 24 * 7)
-  }
+  @State private var reminderDate = Date.now
 
   var body: some View {
     VStack {
@@ -87,10 +84,23 @@ struct AddTestReminderView: View {
       .padding()
       Spacer()
     }
+    .onAppear {
+      reminderDate = setDefaults(from: Date.now)
+    }
+  }
+
+  private func setDefaults(from date: Date) -> Date {
+    let defaultDate = date.addingTimeInterval(
+      .week * Double(userPreferences.defaultProTimeInterval))
+    var components = Calendar.current.dateComponents(
+      [.year, .month, .day], from: defaultDate)
+    components.hour = 8
+    return Calendar.current.date(from: components) ?? defaultDate
   }
 }
 
 #Preview {
   AddTestReminderView()
     .environment(ReminderManager.shared)
+    .environment(UserPreferences.shared)
 }
