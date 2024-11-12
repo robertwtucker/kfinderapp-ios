@@ -14,6 +14,8 @@ struct TestingStatusView: View {
   @State private var showAddView = false
 
   var body: some View {
+    @Bindable var statusHelper = TestingStatusHelper()
+
     VStack(alignment: .leading) {
       HStack {
         HStack {
@@ -24,8 +26,14 @@ struct TestingStatusView: View {
         .padding()
         Spacer()
       }
-      testReminderView()
-        .padding()
+      switch statusHelper.status {
+      case .disabled:
+        testsDisabledView()
+      case .enabled:
+        testsEnabledView()
+      case .scheduled:
+        testScheduledView(statusHelper.reminderIsOverdue())
+      }
     }
     .background(
       RoundedRectangle(cornerRadius: 8)
@@ -36,44 +44,30 @@ struct TestingStatusView: View {
       AddTestReminderView()
     }
     .onAppear {
-      if userPreferences.setProTimeReminders
-        && !userPreferences.proTimeReminderId.isEmpty
-      { // swiftlint:disable:this opening_brace
-        Task {
-          try await reminderManager.setupReminders()
-        }
+      Task {
+        try await reminderManager.setupReminders()
       }
     }
-
   }
 
-  private func testReminderView() -> some View {
+  private func testScheduledView(_ isOverdue: Bool) -> some View {
     VStack {
-      if userPreferences.setProTimeReminders {
-        if userPreferences.proTimeReminderId.isEmpty {
-          testsEnabledView()
+      HStack {
+        if isOverdue {
+          Text("testing.status.overdue")
+            .font(.callout)
+            + Text(
+              " \(reminderManager.reminder?.dueDate ?? Date.distantPast, formatter: .dueDateFormatter)."
+            )
+            .font(.callout).bold()
         } else {
-          testScheduledView()
+          Text("testing.status.scheduled")
+            .font(.callout)
+            + Text(
+              " \(reminderManager.reminder?.dueDate ?? Date.distantPast, formatter: .dueDateFormatter)."
+            )
+            .font(.callout).bold()
         }
-      } else {
-        testsDisabledView()
-      }
-    }
-  }
-
-  private func testScheduledView() -> some View {
-    VStack {
-      HStack {
-        Text("testing.status.scheduled")
-          .font(.callout)
-          + Text(
-            " \(reminderManager.reminder?.dueDate ?? Date.distantPast, formatter: .dueDateFormatter)."
-          )
-          .font(.callout).bold()
-        Spacer()
-      }
-      .padding(.bottom)
-      HStack {
         Spacer()
         Button(
           action: {
@@ -94,6 +88,8 @@ struct TestingStatusView: View {
         )
         .accentColor(Color.appForegroundInverted(for: colorScheme))
       }
+      .padding(.horizontal)
+      .padding(.bottom)
     }
   }
 
@@ -119,6 +115,7 @@ struct TestingStatusView: View {
       )
       .accentColor(Color.appForegroundInverted(for: colorScheme))
     }
+    .padding()
   }
 
   private func testsDisabledView() -> some View {
@@ -140,6 +137,7 @@ struct TestingStatusView: View {
       )
       .accentColor(Color.appForegroundInverted(for: colorScheme))
     }
+    .padding()
   }
 }
 

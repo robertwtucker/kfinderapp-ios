@@ -9,71 +9,61 @@ import SwiftData
 import SwiftUI
 
 struct RecentFoodsListView: View {
-    @Environment(\.colorScheme) private var colorScheme
-    @Environment(\.modelContext) private var modelContext
-    @Query(RecentFoodsListView.fetchDescriptor) private var foods: [FoodItem]
+  @Environment(\.colorScheme) private var colorScheme
+  @Environment(\.modelContext) private var modelContext
+  @Environment(\.defaultMinListRowHeight) var minRowHeight
 
-    static var fetchDescriptor: FetchDescriptor<FoodItem> {
-        var descriptor = FetchDescriptor<FoodItem>(
-            sortBy: [
-                .init(\.updatedAt, order: .reverse)
-            ]
-        )
-        descriptor.fetchLimit = UserPreferences.shared.recentFoodsLimit
-        return descriptor
-    }
+  @Query(RecentFoodsListView.fetchDescriptor) private var foods: [FoodItem]
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            if foods.count > 0 {
-                ForEach(foods, id: \.self) { food in
-                    NavigationLink(destination: FoodDetailView(food: food)) {
-                        FoodsListCellView(food: food)
-                            .padding(.vertical)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(Color.appBackground(for: colorScheme))
-                                    .shadow(radius: 1, x: 1, y: 1)
-                            )
-                    }
-                }
-            } else {
-                EmptyRecentFoodsView()
-            }
-        }
-        .accentColor(Color.appForeground(for: colorScheme))
-    }
-}
+  static var fetchDescriptor: FetchDescriptor<FoodItem> {
+    var descriptor = FetchDescriptor<FoodItem>(
+      sortBy: [
+        .init(\.updatedAt, order: .reverse)
+      ]
+    )
+    descriptor.fetchLimit = UserPreferences.shared.recentFoodsLimit
+    return descriptor
+  }
 
-struct EmptyRecentFoodsView: View {
-    @Environment(\.colorScheme) private var colorScheme
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                HStack {
-                    Image(systemName: "carrot")
-                    Text("foods.recent.none")
-                }
-                Spacer()
-            }
-            .font(.headline)
-            .padding()
-            Text("foods.recent.none.message")
-                .font(.subheadline)
-                .padding(.horizontal)
-            Spacer()
-        }
-        .padding(.bottom)
-        .background(
-            RoundedRectangle(cornerRadius: 8)
+  var body: some View {
+    if foods.count > 0 {
+      ForEach(foods, id: \.self) { food in
+        NavigationLink(destination: FoodDetailView(food: food)) {
+          FoodsListCellView(food: food)
+            .padding(.vertical)
+            .background(
+              RoundedRectangle(cornerRadius: 8)
                 .fill(Color.appBackground(for: colorScheme))
-                .shadow(radius: 1, x: 1, y: 1))
+                .shadow(radius: 1, x: 1, y: 1)
+            )
+        }
+      }
+    } else {
+      VStack(alignment: .leading, spacing: 16) {
+        HStack {
+          HStack {
+            Image(systemName: "carrot")
+            Text("foods.recent.none")
+          }
+          .font(.headline)
+          Spacer()
+        }
+        .padding(.horizontal)
+        Text("foods.recent.none.message")
+          .font(.subheadline)
+          .padding(.horizontal)
+      }
+      .padding(.vertical)
+      .background(
+        RoundedRectangle(cornerRadius: 8)
+          .fill(Color.appBackground(for: colorScheme))
+      )
     }
+  }
 }
 
 #Preview {
-    RecentFoodsListView()
-        .environment(UserPreferences.shared)
-        .modelContainer(previewContainer)
+  RecentFoodsListView()
+    .environment(UserPreferences.shared)
+    .modelContainer(previewContainer)
 }

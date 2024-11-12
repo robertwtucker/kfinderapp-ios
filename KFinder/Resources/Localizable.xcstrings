@@ -508,6 +508,16 @@
         }
       }
     },
+    "testing.status.overdue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The next test was due on"
+          }
+        }
+      }
+    },
     "testing.status.scheduled" : {
       "localizations" : {
         "en" : {
