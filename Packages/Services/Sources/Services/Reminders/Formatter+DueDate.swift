@@ -5,12 +5,12 @@
 
 import Foundation
 
-public extension Formatter {
-    static let dueDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = .autoupdatingCurrent
-        formatter.timeStyle = .none
-        formatter.dateStyle = .short
-        return formatter
-    }()
+extension Formatter {
+  public static let dueDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.locale = .autoupdatingCurrent
+    formatter.timeStyle = .none
+    formatter.dateStyle = .short
+    return formatter
+  }()
 }

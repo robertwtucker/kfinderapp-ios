@@ -294,7 +294,7 @@ extension SearchFoodItem {
           unitName: "G", value: 5.09, indentLevel: 1),
         SearchFoodNutrient(
           _id: 1293, name: "Fatty acids, total polyunsaturated", number: "646",
-          unitName: "G", value: 0.65, indentLevel: 1)
+          unitName: "G", value: 0.65, indentLevel: 1),
       ],
       foodMeasures: [
         SearchFoodMeasure(
@@ -310,7 +310,7 @@ extension SearchFoodItem {
           disseminationText: "1 cubic inch", gramWeight: 17.5, id: 269084,
           rank: 4),
         SearchFoodMeasure(
-          disseminationText: "1 slice", gramWeight: 21, id: 269082, rank: 2)
+          disseminationText: "1 slice", gramWeight: 21, id: 269082, rank: 2),
       ]
     )
   ]

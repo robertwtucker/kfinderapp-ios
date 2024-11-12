@@ -19,8 +19,8 @@ struct GradientModifier: ViewModifier {
   }
 }
 
-public extension View {
-  func withGradient(startColor: Color, endColor: Color) -> some View {
+extension View {
+  public func withGradient(startColor: Color, endColor: Color) -> some View {
     self.modifier(GradientModifier(startColor: startColor, endColor: endColor))
   }
 }

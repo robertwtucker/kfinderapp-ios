@@ -6,18 +6,18 @@
 import Foundation
 
 enum Secrets {
-    enum FoodDataCentral {
-        static let apiKey = Secrets.configVariable(named: "FDC_API_KEY")
-    }
+  enum FoodDataCentral {
+    static let apiKey = Secrets.configVariable(named: "FDC_API_KEY")
+  }
 
-    fileprivate static func configVariable(named: String) -> String? {
-        guard let infoDictionary = Bundle.main.infoDictionary else {
-            return nil
-        }
-        guard let value = infoDictionary[named] as? String else {
-            print("Error: Missing config variable '\(named)'")
-            return nil
-        }
-        return value
+  fileprivate static func configVariable(named: String) -> String? {
+    guard let infoDictionary = Bundle.main.infoDictionary else {
+      return nil
     }
+    guard let value = infoDictionary[named] as? String else {
+      print("Error: Missing config variable '\(named)'")
+      return nil
+    }
+    return value
+  }
 }

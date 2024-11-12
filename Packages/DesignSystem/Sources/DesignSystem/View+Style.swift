@@ -10,13 +10,13 @@ public enum CustomViewStyle {
   case sectionHeader
 }
 
-public extension View {
-    @ViewBuilder func style(_ style: CustomViewStyle) -> some View {
-        switch style {
-        case .tabHeader:
-          self.font(.largeTitle).bold()
-        case .sectionHeader:
-          self.font(.title3).bold()
-        }
+extension View {
+  @ViewBuilder public func style(_ style: CustomViewStyle) -> some View {
+    switch style {
+    case .tabHeader:
+      self.font(.largeTitle).bold()
+    case .sectionHeader:
+      self.font(.title3).bold()
     }
+  }
 }
