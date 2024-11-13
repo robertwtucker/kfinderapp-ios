@@ -11,40 +11,37 @@ struct AboutView: View {
   @Environment(\.dismiss) var dismiss
 
   var body: some View {
-    ZStack {
-      Color.appBaseBackground(for: colorScheme)
-      VStack(spacing: 32) {
-        Image(uiImage: UIImage(named: "about")!)
-          .frame(width: 200, height: 200)
-        VStack {
-          Text("settings.about.kfinder")
-            .font(.title)
-          Text("v\(UIApplication.version)")
-            .font(.subheadline)
-            .padding(.top, -16)
-        }
-        Text("settings.about.copyright")
-          .font(.footnote)
-        Text("settings.about.website")
-        Text("settings.about.warranty")
-          .multilineTextAlignment(.center)
-          .padding(.horizontal)
-        HStack {
-          Text("settings.about.legal.privacy")
-          Text(" – ")
-          Text("settings.about.legal.terms")
-          Text(" – ")
-          Text("settings.about.legal.disclaimer")
-        }
-        Button(
-          action: {
-            dismiss()
-          },
-          label: {
-            Text("button.dismiss")
-          })
+    VStack(spacing: .aboutComponentSpacing) {
+      Image(uiImage: UIImage(named: "about")!)
+        .frame(width: 200, height: 200)
+      VStack {
+        Text("settings.about.kfinder")
+          .font(.title)
+        Text("v\(UIApplication.version)")
+          .font(.subheadline)
       }
+      Text("settings.about.copyright")
+        .font(.footnote)
+      Text("settings.about.website")
+      Text("settings.about.warranty")
+        .multilineTextAlignment(.center)
+        .padding(.horizontal)
+      HStack {
+        Text("settings.about.legal.privacy")
+        Text(" – ")
+        Text("settings.about.legal.terms")
+        Text(" – ")
+        Text("settings.about.legal.disclaimer")
+      }
+      Button {
+        dismiss()
+      } label: {
+        Text("button.dismiss")
+      }
+      .padding(.bottom)
     }
+    .background(Color.appBaseBackground(for: colorScheme))
+    .cornerRadius(.cornerRadius)
   }
 }
 

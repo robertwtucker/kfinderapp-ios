@@ -6,38 +6,28 @@
 import SwiftUI
 
 struct InfoPageView: View {
-  @Environment(\.dismiss) private var dismiss
+  @Environment(\.colorScheme) private var colorScheme
+
   let info: LocalizedStringKey
   let footnote: LocalizedStringKey
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 32) {
+    VStack(alignment: .leading, spacing: .aboutComponentSpacing) {
       HStack {
         Spacer()
         Label("settings.about", systemImage: "info.circle.fill")
-          .font(.title)
-          .fontWeight(.bold)
-          .foregroundColor(.accentColor)
           .labelStyle(.iconOnly)
+          .font(.largeTitle).bold()
+          .foregroundColor(.appIndigo)
         Spacer()
       }
       Text(info)
         .multilineTextAlignment(.leading)
       Text(footnote).font(.footnote)
-      Spacer()
-      Button(
-        action: {
-          dismiss()
-        },
-        label: {
-          HStack {
-            Spacer()
-            Text("button.dismiss")
-            Spacer()
-          }
-        })
     }
     .padding()
+    .background(Color.appBaseBackground(for: colorScheme))
+    .cornerRadius(.cornerRadius)
   }
 }
 

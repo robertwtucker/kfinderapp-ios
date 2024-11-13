@@ -7,8 +7,10 @@ import Services
 import SwiftUI
 
 struct VitaminKTargetView: View {
+  @Environment(\.colorScheme) private var colorScheme
   @Environment(\.dismiss) private var dismiss
   @Environment(UserPreferences.self) private var userPreferences
+
   @State private var showingVitaminKInfo = false
   @FocusState private var focusedField: Field?
 
@@ -24,11 +26,13 @@ struct VitaminKTargetView: View {
       Form {
         valueSection
         InfoPageView(
-          info: "settings.ktarget.info", footnote: "settings.ktarget.footnote")
+          info: "settings.ktarget.info", footnote: "settings.ktarget.footnote"
+        )
+        .listRowBackground(Color.appBaseBackground(for: colorScheme))
       }
-      .defaultFocus($focusedField, .target)
-      .navigationTitle("settings.ktarget.title")
+      Spacer()
     }
+    .defaultFocus($focusedField, .target)
   }
 
   @ViewBuilder

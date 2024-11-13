@@ -36,9 +36,9 @@ struct TestingStatusView: View {
       }
     }
     .background(
-      RoundedRectangle(cornerRadius: 8)
+      RoundedRectangle(cornerRadius: .cornerRadius)
         .fill(Color.appBackground(for: colorScheme))
-        .shadow(radius: 1, x: 1, y: 1)
+        .withCardShadow()
     )
     .sheet(isPresented: $showAddView) {
       AddTestReminderView()
@@ -83,7 +83,7 @@ struct TestingStatusView: View {
               .font(.callout)
               .padding()
               .background(Color.appBackgroundInverted(for: colorScheme))
-              .cornerRadius(8)
+              .cornerRadius(.cornerRadius)
           }
         )
         .accentColor(Color.appForegroundInverted(for: colorScheme))
