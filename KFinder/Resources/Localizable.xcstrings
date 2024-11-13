@@ -106,6 +106,16 @@
         }
       }
     },
+    "foods.recent.remove" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove"
+          }
+        }
+      }
+    },
     "foods.search.description" : {
       "localizations" : {
         "en" : {

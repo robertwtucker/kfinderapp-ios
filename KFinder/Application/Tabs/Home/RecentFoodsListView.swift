@@ -14,6 +14,7 @@ struct RecentFoodsListView: View {
   @Environment(\.defaultMinListRowHeight) var minRowHeight
 
   @Query(RecentFoodsListView.fetchDescriptor) private var foods: [FoodItem]
+  @State private var isLongPress = false
 
   static var fetchDescriptor: FetchDescriptor<FoodItem> {
     var descriptor = FetchDescriptor<FoodItem>(
@@ -36,6 +37,16 @@ struct RecentFoodsListView: View {
                 .fill(Color.appBackground(for: colorScheme))
                 .shadow(radius: 1, x: 1, y: 1)
             )
+        }
+        .onLongPressGesture {
+          isLongPress.toggle()
+        }
+        .contextMenu {
+          Button {
+            modelContext.delete(food)
+          } label: {
+            Label("foods.recent.remove", systemImage: "trash")
+          }
         }
       }
     } else {
