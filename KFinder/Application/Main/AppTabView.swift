@@ -3,12 +3,12 @@
 // SPDX-License-Identifier: MIT
 //
 
-import DesignSystem
 import Services
 import SwiftUI
 
 struct AppTabView: View {
   @Environment(\.colorScheme) private var colorScheme
+
   @State private var selectedTab: Tab = .home
   @State private var showSettings = false
 
@@ -55,7 +55,6 @@ struct AppTabView: View {
             .tag(tab)
         }
       }
-      .accentColor(Color.appDarkIndigo)
     }
     .sheet(isPresented: $showSettings) {
       SettingsView()

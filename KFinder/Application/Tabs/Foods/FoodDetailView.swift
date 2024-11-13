@@ -27,7 +27,7 @@ struct FoodDetailView: View {
     let helper = FoodDisplayHelper(food)
 
     VStack {
-      VStack(alignment: .leading, spacing: 8) {
+      VStack(alignment: .leading, spacing: .foodComponentPadding) {
         Text(food.name)
           .font(.title)
         Text(helper.category)
@@ -54,4 +54,8 @@ struct FoodDetailView: View {
       }
     }
   }
+}
+
+#Preview {
+  FoodDetailView(food: FoodItem.samples[1])
 }

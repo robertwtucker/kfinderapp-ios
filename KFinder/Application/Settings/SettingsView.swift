@@ -17,7 +17,20 @@ struct SettingsView: View {
 
   var body: some View {
     VStack {
-      SettingsHeaderView()
+      HStack {
+        Text("settings.title")
+          .font(.title)
+          .fontWeight(.bold)
+          .padding()
+        Spacer()
+        Button {
+          dismiss()
+        } label: {
+          Image(systemName: "xmark")
+            .font(.title)
+            .padding()
+        }
+      }
       VStack {
         Form {
           kTargetSection
@@ -28,14 +41,15 @@ struct SettingsView: View {
           VitaminKTargetView()
             .presentationDetents([.fraction(0.75)])
         }
-        .sheet(isPresented: $showingFDCInfo) {
+        .popUp(isPresented: $showingFDCInfo) {
           InfoPageView(
             info: "settings.fdc.info", footnote: "settings.fdc.footnote"
           )
-          .presentationDetents([.fraction(0.55)])
+          .padding(.horizontal)
         }
-        .sheet(isPresented: $showingAboutInfo) {
+        .popUp(isPresented: $showingAboutInfo) {
           AboutView()
+            .padding(.horizontal)
         }
       }
     }
@@ -46,27 +60,18 @@ struct SettingsView: View {
     @Bindable var userPrefs = userPreferences
 
     Section("settings.tracking") {
-      Button(
-        action: {
-          showingKTarget.toggle()
-        },
-        label: {
-          HStack {
-            HStack {
-              Image(systemName: "target")
-              Text("settings.ktarget")
-                .foregroundStyle(Color.appForeground(for: colorScheme))
-            }
-            Spacer()
-            Text("\(String(format: "%.0f", userPreferences.dailyKTarget)) µg ")
-          }
-          .accentColor(Color.appForeground(for: colorScheme))
+      Button {
+        showingKTarget.toggle()
+      } label: {
+        HStack {
+          Label("settings.ktarget", systemImage: "target")
+          Spacer()
+          Text("\(String(format: "%.0f", userPreferences.dailyKTarget)) µg ")
         }
-      )
+      }
       Stepper(value: $userPrefs.recentFoodsLimit, in: 3...10) {
         HStack {
-          Image(systemName: "calendar")
-          Text("settings.recent.foods.limit")
+          Label("settings.recent.foods.limit", systemImage: "carrot")
           Spacer()
           Text("\(userPrefs.recentFoodsLimit) ")
         }
@@ -80,82 +85,41 @@ struct SettingsView: View {
 
     Section("settings.testing") {
       Toggle(isOn: $userPrefs.setProTimeReminders) {
-        HStack {
-          Image(systemName: "alarm")
-          Text("settings.testing.enabled")
-        }
+        Label("settings.testing.enabled", systemImage: "alarm")
       }
-      .accentColor(Color.appForeground(for: colorScheme))
       Stepper(value: $userPrefs.defaultProTimeInterval, in: 2...6) {
         HStack {
-          Image(systemName: "calendar")
-          Text("settings.testing.interval.default")
+          Label(
+            "settings.testing.interval.default", systemImage: "calendar")
           Spacer()
           Text("\(userPrefs.defaultProTimeInterval) ")
         }
       }
-      .accentColor(Color.appForeground(for: colorScheme))
     }
   }
 
   private var aboutSection: some View {
     Section("settings.about") {
-      Button(
-        action: {
-          showingFDCInfo.toggle()
-        },
-        label: {
-          Label(
-            "settings.about.fdc", systemImage: "fork.knife"
-          )
-          .foregroundStyle(Color.appForeground(for: colorScheme))
-        }
-      )
-      .accentColor(Color.appForeground(for: colorScheme))
-      HStack {
-        Button(
-          action: {
-            showingAboutInfo.toggle()
-          },
-          label: {
-            HStack {
-              Label(
-                "settings.about.kfinder", systemImage: "apps.iphone"
-              )
-              .foregroundStyle(Color.appForeground(for: colorScheme))
-              Spacer()
-              Text("v\(UIApplication.version)")
-            }
-          }
+      Button {
+        showingFDCInfo.toggle()
+      } label: {
+        Label(
+          "settings.about.fdc", systemImage: "fork.knife"
         )
-        .accentColor(Color.appForeground(for: colorScheme))
       }
-    }
-  }
-}
-
-struct SettingsHeaderView: View {
-  @Environment(\.colorScheme) private var colorScheme
-  @Environment(\.dismiss) private var dismiss
-
-  var body: some View {
-    HStack {
-      Text("settings.title")
-        .font(.title)
-        .fontWeight(.bold)
-        .padding()
-      Spacer()
-      Button(
-        action: {
-          dismiss()
-        },
-        label: {
-          Image(systemName: "xmark")
-            .font(.title)
-            .padding()
+      HStack {
+        Button {
+          showingAboutInfo.toggle()
+        } label: {
+          HStack {
+            Label(
+              "settings.about.kfinder", systemImage: "apps.iphone"
+            )
+            Spacer()
+            Text("v\(UIApplication.version)")
+          }
         }
-      )
-      .accentColor(Color.appForeground(for: colorScheme))
+      }
     }
   }
 }

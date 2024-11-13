@@ -32,7 +32,6 @@ struct AddTestReminderView: View {
               .padding()
           }
         )
-        .accentColor(Color.appForeground(for: colorScheme))
       }
       DatePicker(
         "test.reminder.date",
@@ -58,7 +57,6 @@ struct AddTestReminderView: View {
               .padding(.horizontal, 32)
           }
         )
-        .accentColor(Color.appForeground(for: colorScheme))
         Spacer()
         Button(
           action: {

@@ -371,7 +371,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Default Interval (wk):"
+            "value" : "Default Interval (weeks):"
           }
         }
       }

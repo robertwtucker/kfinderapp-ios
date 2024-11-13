@@ -14,7 +14,6 @@ struct RecentFoodsListView: View {
   @Environment(\.defaultMinListRowHeight) var minRowHeight
 
   @Query(RecentFoodsListView.fetchDescriptor) private var foods: [FoodItem]
-  @State private var isLongPress = false
 
   static var fetchDescriptor: FetchDescriptor<FoodItem> {
     var descriptor = FetchDescriptor<FoodItem>(
@@ -32,15 +31,12 @@ struct RecentFoodsListView: View {
         NavigationLink(destination: FoodDetailView(food: food)) {
           FoodsListCellView(food: food)
             .padding(.vertical)
-            .background(
-              RoundedRectangle(cornerRadius: 8)
-                .fill(Color.appBackground(for: colorScheme))
-                .shadow(radius: 1, x: 1, y: 1)
-            )
         }
-        .onLongPressGesture {
-          isLongPress.toggle()
-        }
+        .background(
+          RoundedRectangle(cornerRadius: .cornerRadius)
+            .fill(Color.appBackground(for: colorScheme))
+            .withCardShadow()
+        )
         .contextMenu {
           Button {
             modelContext.delete(food)
@@ -50,7 +46,7 @@ struct RecentFoodsListView: View {
         }
       }
     } else {
-      VStack(alignment: .leading, spacing: 16) {
+      VStack(alignment: .leading) {
         HStack {
           HStack {
             Image(systemName: "carrot")
@@ -66,7 +62,7 @@ struct RecentFoodsListView: View {
       }
       .padding(.vertical)
       .background(
-        RoundedRectangle(cornerRadius: 8)
+        RoundedRectangle(cornerRadius: .cornerRadius)
           .fill(Color.appBackground(for: colorScheme))
       )
     }
