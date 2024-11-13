@@ -1,15 +1,26 @@
 # KFinder
 
+[![Build](https://img.shields.io/github/actions/workflow/status/robertwtucker/kfinderapp-ios/ci.yml)](https://github.com/robertwtucker/kfinderapp-ios/actions/workflows/ci.yml)
 [![Issues](https://img.shields.io/github/issues/robertwtucker/kfinderapp-ios)](https://img.shields.io/github/issues/robertwtucker/kfinderapp-ios)
 [![License](https://img.shields.io/github/license/robertwtucker/kfinderapp-ios.svg)](https://github.com/robertwtucker/kfinderapp-ios/blob/master/LICENSE)
 
-A simple iOS application for determining the amount of Vitamin K present in
-the most common foods.
+KFinder is a simple iOS application designed to help with two key factors in a
+successful anti-coagulation therapy program: consistent intake of Vitamin K and
+regular blood testing.
+
+Features:
+
+- Search the USDA’s Food and Nutrient Database for Dietary Studies
+- See a graphical indicator of Vitamin K content in relation to a configurable
+  daily intake target
+- View detailed food composition breakdowns for Vitamin K and other nutrients
+- Create reminders for regular PT/INR testing
 
 ## Background
 
-This project is an on-going effort to learn/practice the fundamentals of
-application development for the iOS platform. Key interest areas include:
+This project has been an on-going effort to learn/practice the fundamentals of
+application development for the iOS platform. Iterations have included versions
+using Swift with UI Kit, RxSwift and now SwiftUI. Interest areas include:
 
 - SwiftUI
 - Application architecture (alternatives to MVVM)
@@ -18,13 +29,13 @@ application development for the iOS platform. Key interest areas include:
 
 ## License
 
-This project is being released under the
+This project is made available under the
 [MIT](http://www.apache.org/licenses/LICENSE-2.0) License
 so that others may also benefit from the things I've learned along the way (not
 likely, but that's the goal :wink:).
 
 ## Contact
 
-Robert Tucker - [@robertwtucker](https://twitter.com/robertwtucker)
+Robert Tucker - [@robertwtucker](https://x.com/robertwtucker)
 
 Project Link: [https://github.com/robertwtucker/kfinderapp-ios](https://github.com/robertwtucker/kfinderapp-ios)
