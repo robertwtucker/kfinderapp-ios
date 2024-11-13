@@ -15,7 +15,6 @@ enum Secrets {
       return nil
     }
     guard let value = infoDictionary[named] as? String else {
-      print("Error: Missing config variable '\(named)'")
       return nil
     }
     return value
