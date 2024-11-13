@@ -30,7 +30,7 @@ import SwiftUI
       do {
         try await fetch(with: UserPreferences.shared.proTimeReminderId)
       } catch {
-        print(
+        logger.error(
           "Setup error fetching reminder with ID: \(UserPreferences.shared.proTimeReminderId)"
         )
         reminder = nil
