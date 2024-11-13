@@ -17,7 +17,7 @@ extension View {
       .overlay {
         if isPresented.wrappedValue {
           ZStack {
-            Color(.gray)
+            Color(Color.appDarkGray)
               .edgesIgnoringSafeArea(.all)
               .opacity(0.8)
               .onTapGesture {
