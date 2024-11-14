@@ -20,17 +20,26 @@ struct VitaminKTargetView: View {
 
   var body: some View {
     VStack {
-      Text("settings.ktarget.title")
-        .font(.title2).bold()
-        .padding(.top, 8)
       Form {
+        HStack {
+          Spacer()
+          Text("settings.ktarget.title")
+            .font(.title2).bold()
+            .padding(.top, 8)
+          Spacer()
+        }
+        .listRowBackground(Color.appBaseBackground(for: colorScheme))
         valueSection
         InfoPageView(
           info: "settings.ktarget.info", footnote: "settings.ktarget.footnote"
         )
         .listRowBackground(Color.appBaseBackground(for: colorScheme))
       }
-      Spacer()
+      Button {
+        dismiss()
+      } label: {
+        Text("button.dismiss")
+      }
     }
     .defaultFocus($focusedField, .target)
   }
