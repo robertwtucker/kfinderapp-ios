@@ -21,7 +21,7 @@ jobs:
         xcode:
           - '16'
         destination:
-          - 'platform=iOS Simulator,OS=18.1,name=iPhone 15'
+          - 'platform=iOS Simulator,OS=18.1,name=iPhone 16'
     steps:
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
