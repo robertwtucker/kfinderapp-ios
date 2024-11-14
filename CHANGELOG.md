@@ -7,11 +7,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.5.0] - 2024-11-13
+
+Feature-complete MVP to begin testing for release in the app store.
+
+### Added
+
+- Added CI and code scanning scripts ([#28](https://github.com/robertwtucker/kfinderapp-ios/pull/28))
+- Feature to create and track PT/INR testing reminders ([#32](https://github.com/robertwtucker/kfinderapp-ios/pull/32),
+  [#25](https://github.com/robertwtucker/kfinderapp-ios/pull/25))
+- Support for listing configurable number of most-recenly viewed foods ([#35](https://github.com/robertwtucker/kfinderapp-ios/pull/35),
+  [#26](https://github.com/robertwtucker/kfinderapp-ios/pull/26),
+  [#22](https://github.com/robertwtucker/kfinderapp-ios/pull/22))
+- Synchronized storage with SwiftData and CloudKit ([#17](https://github.com/robertwtucker/kfinderapp-ios/pull/17))
+
+### Changed
+
+- Refactored app directory structure, moved shared components to internal
+  packages
+- Updated to Xcode 16 and Swift 6 ([#15](https://github.com/robertwtucker/kfinderapp-ios/pull/15))
+
 ## [v0.4.0] - 2023-11-09
 
 ### Changed
 
-- Rewrote using SwiftUI
+- Rewrote using SwiftUI and Swift 5
 
 ## [v0.3.0] - 2017-02-15
 
@@ -64,7 +84,7 @@ Initial prototype with basic search and display
 
 - [CSV.swift](https://github.com/yaslab/CSV.swift) library for parsing the
   USDA's food data on first run
-- Continuous integration (CI) build support with [Travis CI](https://travis-ci.org/robertwtucker/kfinder-ios)
+- Continuous integration (CI) build support with [Travis CI](https://travis-ci.org/robertwtucker/kfinderapp-ios)
 
 ### Changed
 
@@ -72,8 +92,9 @@ Initial prototype with basic search and display
   [CocoaPods](https://cocoapods.org/about) for dependency management
 - Replaced CoreData with [Realm](https://realm.io/)
 
-[Unreleased]: https://github.com/robertwtucker/kfinder-ios/compare/master...v0.4.0
-[v0.4.0]: https://github.com/robertwtucker/kfinder-ios/compare/v0.3.0...v0.4.0
-[v0.3.0]: https://github.com/robertwtucker/kfinder-ios/compare/v0.2.1...v0.3.0
-[v0.2.1]: https://github.com/robertwtucker/kfinder-ios/compare/v0.2.0...v0.2.1
-[v0.2.0]: https://github.com/robertwtucker/kfinder-ios/compare/v0.1.0...v0.2.0
+[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.4.0...v0.5.0
+[v0.4.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.3.0...v0.4.0
+[v0.3.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.2.1...v0.3.0
+[v0.2.1]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.2.0...v0.2.1
+[v0.2.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.1.0...v0.2.0
