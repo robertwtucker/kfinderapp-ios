@@ -54,6 +54,7 @@ public struct ErrorView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   ErrorView(
     title: "Error",
@@ -61,3 +62,4 @@ public struct ErrorView: View {
     buttonTitle: "Retry"
   ) {}
 }
+#endif

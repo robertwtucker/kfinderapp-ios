@@ -31,6 +31,8 @@ struct InfoPageView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   InfoPageView(info: "settings.fdc.info", footnote: "settings.fdc.footnote")
 }
+#endif

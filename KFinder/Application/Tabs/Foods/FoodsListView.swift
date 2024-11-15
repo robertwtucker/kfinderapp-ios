@@ -72,8 +72,10 @@ struct FoodsListCellView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   FoodsListView(foods: FoodItem.samples)
     .environment(UserPreferences.shared)
     .modelContainer(previewContainer)
 }
+#endif

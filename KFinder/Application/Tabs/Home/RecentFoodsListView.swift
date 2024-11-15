@@ -69,8 +69,10 @@ struct RecentFoodsListView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   RecentFoodsListView()
     .environment(UserPreferences.shared)
     .modelContainer(previewContainer)
 }
+#endif

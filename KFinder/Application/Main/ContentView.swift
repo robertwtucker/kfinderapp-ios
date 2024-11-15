@@ -29,9 +29,11 @@ struct ContentView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   ContentView()
     .environment(UserPreferences.shared)
     .environment(ReminderManager.shared)
     .modelContainer(previewContainer)
 }
+#endif

@@ -56,6 +56,8 @@ struct FoodDetailView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   FoodDetailView(food: FoodItem.samples[1])
 }
+#endif
