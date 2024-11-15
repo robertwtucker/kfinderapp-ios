@@ -5,7 +5,6 @@
 
 import Foundation
 
-// swiftlint:disable identifier_name
 public struct SearchFoodNutrient: Codable, Sendable {
   public enum UnitName: String, Codable {
     case g = "G"
@@ -51,4 +50,3 @@ public struct SearchFoodNutrient: Codable, Sendable {
 extension SearchFoodNutrient: Identifiable {
   public var id: Int { _id }
 }
-// swiftlint:enable identifier_name

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Use fastlane to support beta and release distribution ([#39](https://github.com/robertwtucker/kfinderapp-ios/pull/39))
+
 ## [v0.5.0] - 2024-11-13
 
 Feature-complete MVP to begin testing for release in the app store.
