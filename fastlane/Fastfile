@@ -15,6 +15,12 @@
 
 default_platform(:ios)
 
+lane :screenshots do
+  capture_screenshots
+  frame_screenshots(white: false)
+  # upload_to_app_store
+end
+
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do

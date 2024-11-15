@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 71;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,15 +12,26 @@
 		E14779562CE27F2F00261F49 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E1473E9B2CD7FF2D00D8303F /* DesignSystem */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E193F5A12CE67F6900C28655 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E11C074B2A9907EF0024334E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E11C07522A9907F00024334E;
+			remoteInfo = KFinder;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		E117D4032CD7FEB4001BE0D6 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = Packages/DesignSystem; sourceTree = "<group>"; };
 		E11C07532A9907F00024334E /* KFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E151F8832CCD8D2A0091FB0C /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Models; path = Packages/Models; sourceTree = "<group>"; };
 		E151F8842CCD8D600091FB0C /* Services */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Services; path = Packages/Services; sourceTree = "<group>"; };
+		E193F59B2CE67F6900C28655 /* KFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E1D9714A2CE008E700570B5B /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		E1D9714A2CE008E700570B5B /* Exceptions for "KFinder" folder in "KFinder" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -31,7 +42,19 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		E1D9712F2CE008E700570B5B /* KFinder */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E1D9714A2CE008E700570B5B /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = KFinder; sourceTree = "<group>"; };
+		E193F59C2CE67F6900C28655 /* KFinderUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KFinderUITests;
+			sourceTree = "<group>";
+		};
+		E1D9712F2CE008E700570B5B /* KFinder */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E1D9714A2CE008E700570B5B /* Exceptions for "KFinder" folder in "KFinder" target */,
+			);
+			path = KFinder;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +68,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E193F5982CE67F6900C28655 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -52,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				E1D9712F2CE008E700570B5B /* KFinder */,
+				E193F59C2CE67F6900C28655 /* KFinderUITests */,
 				E11C07542A9907F00024334E /* Products */,
 				E151F8852CCD8FF00091FB0C /* Frameworks */,
 				E117D4032CD7FEB4001BE0D6 /* DesignSystem */,
@@ -64,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				E11C07532A9907F00024334E /* KFinder.app */,
+				E193F59B2CE67F6900C28655 /* KFinderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +135,29 @@
 			productReference = E11C07532A9907F00024334E /* KFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E193F59A2CE67F6900C28655 /* KFinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E193F5A52CE67F6900C28655 /* Build configuration list for PBXNativeTarget "KFinderUITests" */;
+			buildPhases = (
+				E193F5972CE67F6900C28655 /* Sources */,
+				E193F5982CE67F6900C28655 /* Frameworks */,
+				E193F5992CE67F6900C28655 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E193F5A22CE67F6900C28655 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E193F59C2CE67F6900C28655 /* KFinderUITests */,
+			);
+			name = KFinderUITests;
+			packageProductDependencies = (
+			);
+			productName = KFinderUITests;
+			productReference = E193F59B2CE67F6900C28655 /* KFinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -110,16 +165,19 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					E11C07522A9907F00024334E = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
+					E193F59A2CE67F6900C28655 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = E11C07522A9907F00024334E;
+					};
 				};
 			};
 			buildConfigurationList = E11C074E2A9907EF0024334E /* Build configuration list for PBXProject "KFinder" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -132,17 +190,26 @@
 				E188EBB52CE18FD80080F0AB /* XCLocalSwiftPackageReference "Packages/Models" */,
 				E188EBB82CE18FEC0080F0AB /* XCLocalSwiftPackageReference "Packages/Services" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = E11C07542A9907F00024334E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E11C07522A9907F00024334E /* KFinder */,
+				E193F59A2CE67F6900C28655 /* KFinderUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E11C07512A9907F00024334E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E193F5992CE67F6900C28655 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -159,7 +226,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E193F5972CE67F6900C28655 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E193F5A22CE67F6900C28655 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E11C07522A9907F00024334E /* KFinder */;
+			targetProxy = E193F5A12CE67F6900C28655 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E11C07752A9907F30024334E /* Debug */ = {
@@ -358,6 +440,47 @@
 			};
 			name = Release;
 		};
+		E193F5A32CE67F6900C28655 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94GENMY2GG;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.eclectic.KFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KFinder;
+			};
+			name = Debug;
+		};
+		E193F5A42CE67F6900C28655 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 94GENMY2GG;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.eclectic.KFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KFinder;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -375,6 +498,15 @@
 			buildConfigurations = (
 				E11C07782A9907F30024334E /* Debug */,
 				E11C07792A9907F30024334E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E193F5A52CE67F6900C28655 /* Build configuration list for PBXNativeTarget "KFinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E193F5A32CE67F6900C28655 /* Debug */,
+				E193F5A42CE67F6900C28655 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "6C34253A-DE3D-4B19-B1A2-15BA0126C364",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "KFinderUITests",
+        "KFinderUITests\/testExample()",
+        "KFinderUITests\/testLaunchPerformance()"
+      ],
+      "target" : {
+        "containerPath" : "container:KFinder.xcodeproj",
+        "identifier" : "E193F59A2CE67F6900C28655",
+        "name" : "KFinderUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
