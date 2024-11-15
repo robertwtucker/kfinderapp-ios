@@ -60,7 +60,9 @@ struct VitaminKTargetView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   VitaminKTargetView()
     .environment(UserPreferences.shared)
 }
+#endif

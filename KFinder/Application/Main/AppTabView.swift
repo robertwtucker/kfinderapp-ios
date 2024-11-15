@@ -63,9 +63,11 @@ struct AppTabView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   AppTabView()
     .environment(UserPreferences.shared)
     .environment(ReminderManager.shared)
     .modelContainer(previewContainer)
 }
+#endif

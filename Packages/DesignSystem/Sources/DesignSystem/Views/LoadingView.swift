@@ -17,6 +17,8 @@ public struct LoadingView: View {
   public init() {}
 }
 
+#if DEBUG
 #Preview {
   LoadingView()
 }
+#endif

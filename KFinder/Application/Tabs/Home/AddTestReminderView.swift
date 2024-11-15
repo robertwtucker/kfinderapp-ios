@@ -97,8 +97,10 @@ struct AddTestReminderView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   AddTestReminderView()
     .environment(ReminderManager.shared)
     .environment(UserPreferences.shared)
 }
+#endif

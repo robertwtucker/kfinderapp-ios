@@ -124,7 +124,9 @@ struct SettingsView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   SettingsView()
     .environment(UserPreferences.shared)
 }
+#endif

@@ -141,8 +141,10 @@ struct TestingStatusView: View {
   }
 }
 
+#if DEBUG
 #Preview {
   TestingStatusView()
     .environment(UserPreferences.shared)
     .environment(ReminderManager.shared)
 }
+#endif
