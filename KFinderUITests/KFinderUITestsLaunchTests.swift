@@ -5,7 +5,7 @@
 
 import XCTest
 
-final class KFinderUITestsLaunchTests: XCTestCase {
+class KFinderUITestsLaunchTests: XCTestCase {
 
   override class var runsForEachTargetApplicationUIConfiguration: Bool {
     true
@@ -23,8 +23,7 @@ final class KFinderUITestsLaunchTests: XCTestCase {
 
     // Insert steps here to perform after app launch but before taking a screenshot,
     // such as logging into a test account or navigating somewhere in the app
-    let monitor = addUIInterruptionMonitor(withDescription: "System Dialog") {
-      (alert) -> Bool in
+    let monitor = addUIInterruptionMonitor(withDescription: "System Dialog") { (alert) -> Bool in
       let permissionText = "Would Like to Access Your Reminders"
       let predicate = NSPredicate(format: "label CONTAINS %@", permissionText)
       if alert.staticTexts.matching(predicate).firstMatch.exists {
@@ -47,8 +46,7 @@ final class KFinderUITestsLaunchTests: XCTestCase {
     foodNameOrKeywordSSearchField.tap()
     foodNameOrKeywordSSearchField.typeText("cashews\n")
     if collectionViewsQuery.buttons["Cashews, salted, Nuts and seeds"]
-      .waitForExistence(timeout: 2)
-    {
+      .waitForExistence(timeout: 2) {
       snapshot("00FoodSearch")
     } else {
       throw XCTSkip("Food search failed")

@@ -1,0 +1,15 @@
+excluded:
+  - KFinderUITests/SnapshotHelper.swift
+
+identifier_name:
+  min_length:
+    error: 3
+  excluded:
+    - id
+    - _id
+    - g
+    - kJ
+    - kcal
+    - mg
+    - ug
+    - URL
