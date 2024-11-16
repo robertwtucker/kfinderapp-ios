@@ -55,15 +55,16 @@ struct RecentFoodsListView: View {
           .font(.headline)
           Spacer()
         }
-        .padding(.horizontal)
+        .padding(.vertical)
         Text("foods.recent.none.message")
           .font(.subheadline)
-          .padding(.horizontal)
+          .padding(.bottom)
       }
-      .padding(.vertical)
+      .padding(.horizontal)
       .background(
         RoundedRectangle(cornerRadius: .cornerRadius)
           .fill(Color.appBackground(for: colorScheme))
+          .withCardShadow()
       )
     }
   }
