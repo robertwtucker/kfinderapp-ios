@@ -7,14 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-### Added
-
-- Use fastlane to support beta and release distribution ([#39](https://github.com/robertwtucker/kfinderapp-ios/pull/39))
+## [v1.0.1] - 2024-11-16
 
 ### Fixed
 
 - Improved reminder handling and display ([#44](https://github.com/robertwtucker/kfinderapp-ios/pull/44))
 - Adjusted view padding when recent foods list is empty ([#43](https://github.com/robertwtucker/kfinderapp-ios/pull/43))
+
+## [v1.0.0] - 2024-11-15
+
+Initial beta release to TestFlight
+
+### Added
+
+- Use fastlane to support beta and release distribution ([#39](https://github.com/robertwtucker/kfinderapp-ios/pull/39))
 
 ## [v0.5.0] - 2024-11-13
 
@@ -101,7 +107,9 @@ Initial prototype with basic search and display
   [CocoaPods](https://cocoapods.org/about) for dependency management
 - Replaced CoreData with [Realm](https://realm.io/)
 
-[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.1...HEAD
+[v1.0.1]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.0...v1.0.1
+[v1.0.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.5.0...v1.0.0
 [v0.5.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.2.1...v0.3.0
