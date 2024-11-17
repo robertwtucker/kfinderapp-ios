@@ -30,6 +30,20 @@ enum TestingStatus {
     }
   }
 
+  var reminderDueDate: String {
+    guard let reminder = reminderManager.reminder else {
+      return "Unknown"
+    }
+    return Formatter.dueDateFormatter.string(from: reminder.dueDate)
+  }
+  
+  func reminderIsComplete() -> Bool {
+    guard let reminder = reminderManager.reminder else {
+      return false
+    }
+    return reminder.isComplete
+  }
+
   func reminderIsOverdue() -> Bool {
     guard let reminder = reminderManager.reminder else {
       return false
@@ -37,5 +51,4 @@ enum TestingStatus {
 
     return reminder.dueDate.compare(Date.now) == .orderedAscending
   }
-
 }
