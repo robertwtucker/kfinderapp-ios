@@ -16,7 +16,8 @@ let package = Package(
             targets: ["Services"])
     ],
     dependencies: [
-        .package(name: "Models", path: "../Models")
+        .package(name: "Models", path: "../Models"),
+        .package(url: "https://github.com/nonstrict-hq/CloudStorage.git", from: "0.6.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +25,8 @@ let package = Package(
         .target(
             name: "Services",
             dependencies: [
-                .product(name: "Models", package: "Models")
+                .product(name: "Models", package: "Models"),
+                .product(name: "CloudStorage", package: "CloudStorage")
             ],
             swiftSettings: [
                 .swiftLanguageMode(.v6)

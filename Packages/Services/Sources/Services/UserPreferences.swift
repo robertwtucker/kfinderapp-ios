@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import CloudStorage
 import Models
 import SwiftUI
 
@@ -10,17 +11,12 @@ import SwiftUI
 @Observable public class UserPreferences {
 
   @MainActor
-  private class Storage {
-    @AppStorage("dailyKTarget", store: sharedDefaults)
-    public var dailyKTarget: Double = 120
-    @AppStorage("setProTimeReminders", store: sharedDefaults)
-    public var setProTimeReminders: Bool = false
-    @AppStorage("defaultProTimeInterval", store: sharedDefaults)
-    var defaultProTimeInterval: Int = 3
-    @AppStorage("proTimeReminderId", store: sharedDefaults)
-    var proTimeReminderId: String = ""
-    @AppStorage("recentFoodsLimit", store: sharedDefaults)
-    var recentFoodsLimit: Int = 5
+  private class Storage: ObservableObject {
+    @CloudStorage("dailyKTarget") var dailyKTarget: Double = 120
+    @CloudStorage("setProTimeReminders") var setProTimeReminders: Bool = false
+    @CloudStorage("defaultProTimeInterval") var defaultProTimeInterval: Int = 3
+    @CloudStorage("proTimeReminderId") var proTimeReminderId: String = ""
+    @CloudStorage("recentFoodsLimit") var recentFoodsLimit: Int = 5
   }
 
   public static let sharedDefaults = UserDefaults(
