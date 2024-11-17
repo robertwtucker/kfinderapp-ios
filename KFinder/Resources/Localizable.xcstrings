@@ -498,6 +498,16 @@
         }
       }
     },
+    "testing.status.completed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The last reminder has been marked complete. Click the button at right to schedule the next one."
+          }
+        }
+      }
+    },
     "testing.status.disabled" : {
       "localizations" : {
         "en" : {
@@ -523,7 +533,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The next test was due on"
+            "value" : "⚠️The last test was due on"
           }
         }
       }

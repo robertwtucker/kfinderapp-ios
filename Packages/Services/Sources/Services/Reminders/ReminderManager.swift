@@ -28,6 +28,9 @@ import SwiftUI
 
     if try await reminderStore.verifyAuthorizationStatus() {
       do {
+        logger.debug(
+          "[RM Setup] Calling fetch for reminder with ID: \(UserPreferences.shared.proTimeReminderId)"
+        )
         try await fetch(with: UserPreferences.shared.proTimeReminderId)
       } catch {
         logger.error(
@@ -45,14 +48,14 @@ import SwiftUI
     }
     logger.debug("Adding reminder with ID: \(reminder.id)")
     let id = try reminderStore.save(reminder)
-    logger.debug("Reminder saved with ID: \(id)")
+    logger.debug("[RM] Reminder saved with ID: \(id)")
     UserPreferences.shared.proTimeReminderId = id
     try await fetch(with: id)
   }
 
   public func fetch(with id: String) async throws {
     reminder = try reminderStore.fetch(with: id)
-    logger.debug("Reminder fetched with ID: \(id)")
+    logger.debug("[RM] Reminder fetched with ID: \(id)")
   }
 
   public func remove(with id: String) async throws {
@@ -61,7 +64,7 @@ import SwiftUI
     }
     try reminderStore.remove(with: id)
     reminder = nil
-    logger.debug("Reminder removed with ID: \(id)")
+    logger.debug("[RM] Reminder removed with ID: \(id)")
   }
 
   public func listenForReminderChanges() async throws {
@@ -71,12 +74,15 @@ import SwiftUI
     ).map({ (notification: Notification) in
       notification.name
     })
+    logger.debug("[RM Listener] Reminder changes received")
 
     for await _ in notifications {
       guard reminderStore.isFullAccessAvailable() else { return }
       guard let reminder = self.reminder else { return }
-      self.reminder = try reminderStore.fetch(with: reminder.id)
+      logger.debug(
+        "[RM Listener] Calling fetch for reminder with ID: \(UserPreferences.shared.proTimeReminderId)"
+      )
+      try await fetch(with: reminder.id)
     }
   }
-
 }

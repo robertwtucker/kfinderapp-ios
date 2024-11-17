@@ -23,7 +23,8 @@ struct TestingStatusView: View {
           Text("testing.status.card.title")
         }
         .font(.headline)
-        .padding()
+        .padding(.top)
+        .padding(.horizontal)
         Spacer()
       }
       switch statusHelper.status {
@@ -32,7 +33,11 @@ struct TestingStatusView: View {
       case .enabled:
         testsEnabledView()
       case .scheduled:
-        testScheduledView(statusHelper.reminderIsOverdue())
+        if statusHelper.reminderIsComplete() {
+          testCompletedView()
+        } else {
+          testScheduledView(statusHelper)
+        }
       }
     }
     .background(
@@ -50,21 +55,21 @@ struct TestingStatusView: View {
     }
   }
 
-  private func testScheduledView(_ isOverdue: Bool) -> some View {
+  private func testScheduledView(_ helper: TestingStatusHelper) -> some View {
     VStack {
       HStack {
-        if isOverdue {
+        if helper.reminderIsOverdue() {
           Text("testing.status.overdue")
             .font(.callout)
             + Text(
-              " \(reminderManager.reminder?.dueDate ?? Date.distantPast, formatter: .dueDateFormatter)."
+              " \(helper.reminderDueDate)."
             )
             .font(.callout).bold()
         } else {
           Text("testing.status.scheduled")
             .font(.callout)
             + Text(
-              " \(reminderManager.reminder?.dueDate ?? Date.distantPast, formatter: .dueDateFormatter)."
+              " \(helper.reminderDueDate)."
             )
             .font(.callout).bold()
         }
@@ -88,9 +93,33 @@ struct TestingStatusView: View {
         )
         .accentColor(Color.appForegroundInverted(for: colorScheme))
       }
-      .padding(.horizontal)
-      .padding(.bottom)
+      .padding()
     }
+  }
+
+  private func testCompletedView() -> some View {
+    HStack {
+      Text("testing.status.completed")
+        .font(.callout)
+      Spacer()
+      Button(
+        action: {
+          Task {
+            try await reminderManager.setupReminders()
+            showAddView.toggle()
+          }
+        },
+        label: {
+          Text("testing.status.button.create")
+            .font(.callout)
+            .padding()
+            .background(Color.appBackgroundInverted(for: colorScheme))
+            .cornerRadius(8)
+        }
+      )
+      .accentColor(Color.appForegroundInverted(for: colorScheme))
+    }
+    .padding()
   }
 
   private func testsEnabledView() -> some View {
@@ -142,9 +171,9 @@ struct TestingStatusView: View {
 }
 
 #if DEBUG
-#Preview {
-  TestingStatusView()
-    .environment(UserPreferences.shared)
-    .environment(ReminderManager.shared)
-}
+  #Preview {
+    TestingStatusView()
+      .environment(UserPreferences.shared)
+      .environment(ReminderManager.shared)
+  }
 #endif

@@ -10,8 +10,6 @@ import SwiftUI
 @MainActor public class ReminderStore {
   private let eventStore = EKEventStore()
 
-  init() {}
-
   func isFullAccessAvailable() -> Bool {
     EKEventStore.authorizationStatus(for: .reminder) == .fullAccess
   }
