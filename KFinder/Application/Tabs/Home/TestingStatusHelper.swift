@@ -36,7 +36,7 @@ enum TestingStatus {
     }
     return Formatter.dueDateFormatter.string(from: reminder.dueDate)
   }
-  
+
   func reminderIsComplete() -> Bool {
     guard let reminder = reminderManager.reminder else {
       return false
