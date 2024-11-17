@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [v1.0.1] - 2024-11-16
+## [v1.0.1] - 2024-11-17
+
+### Changed
+
+- Updated in-app links to use legal docs on website ([47](https://github.com/robertwtucker/kfinderapp-ios/pull/47))
 
 ### Fixed
 
