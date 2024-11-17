@@ -181,7 +181,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Copyright © 2016-2024 Robert Tucker"
+            "value" : "Copyright © 2016 Robert Tucker"
           }
         }
       }
@@ -211,7 +211,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[Disclaimer](https://www.termsfeed.com/live/e21caf09-d02c-46e8-b96c-d9aded5dcf2e)"
+            "value" : "[Disclaimer](https://kfinderapp.com/legal/disclaimer)"
           }
         }
       }
@@ -221,7 +221,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[Privacy Policy](https://www.termsfeed.com/live/a84d29ee-2bb5-4bcc-b338-c1d10d4c5cf5)"
+            "value" : "[Privacy Policy](https://kfinderapp.com/legal/privacy)"
           }
         }
       }
@@ -231,7 +231,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[Terms](https://www.termsfeed.com/live/5b99e9e3-5fbc-44fe-8d1d-c8bdc8bf4f89)"
+            "value" : "[Terms](https://kfinderapp.com/legal/terms)"
           }
         }
       }
