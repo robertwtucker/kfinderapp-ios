@@ -15,17 +15,43 @@
 
 default_platform(:ios)
 
-lane :screenshots do
-  capture_screenshots
-  frame_screenshots(white: false)
-  # upload_to_app_store
-end
-
 platform :ios do
-  desc "Push a new beta build to TestFlight"
+
+  lane :screenshots do
+    capture_screenshots
+    # frame_screenshots(white: false)
+  end
+
+  lane :development_profile do
+    sync_code_signing(
+      type: "development",
+      app_identifier: "dev.eclectic.KFinder"
+    )
+  end
+
+  lane :appstore_profile do
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: "dev.eclectic.KFinder"
+    )
+  end
+
+  lane :profiles do
+    development_profile
+    appstore_profile
+  end
+
+  lane :build_release do
+    appstore_profile
+    build_app(
+      clean: true,
+      scheme: "KFinder"
+    )
+  end
+
   lane :beta do
-    increment_build_number(xcodeproj: "KFinder.xcodeproj")
-    build_app(scheme: "KFinder")
+    build_release
     upload_to_testflight
   end
+
 end

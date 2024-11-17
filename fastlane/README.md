@@ -13,18 +13,47 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-### screenshots
+## iOS
+
+### ios screenshots
 
 ```sh
-[bundle exec] fastlane screenshots
+[bundle exec] fastlane ios screenshots
 ```
 
 
 
-----
+### ios development_profile
+
+```sh
+[bundle exec] fastlane ios development_profile
+```
 
 
-## iOS
+
+### ios appstore_profile
+
+```sh
+[bundle exec] fastlane ios appstore_profile
+```
+
+
+
+### ios profiles
+
+```sh
+[bundle exec] fastlane ios profiles
+```
+
+
+
+### ios build_release
+
+```sh
+[bundle exec] fastlane ios build_release
+```
+
+
 
 ### ios beta
 
@@ -32,7 +61,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios beta
 ```
 
-Push a new beta build to TestFlight
+
 
 ----
 
