@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v1.0.2] - 2024-11-17
+
+### Fixed
+
+- Added `nonstrict-hq/CloudStorage` to sync user settings in iCloud ([#51](https://github.com/robertwtucker/kfinderapp-ios/pull/51))
+
 ## [v1.0.1] - 2024-11-17
 
 ### Changed
 
-- Updated in-app links to use legal docs on website ([47](https://github.com/robertwtucker/kfinderapp-ios/pull/47))
+- Updated in-app links to use legal docs on website ([#47](https://github.com/robertwtucker/kfinderapp-ios/pull/47))
 
 ### Fixed
 
@@ -111,7 +117,8 @@ Initial prototype with basic search and display
   [CocoaPods](https://cocoapods.org/about) for dependency management
 - Replaced CoreData with [Realm](https://realm.io/)
 
-[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.2...HEAD
+[v1.0.2]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.5.0...v1.0.0
 [v0.5.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.4.0...v0.5.0
