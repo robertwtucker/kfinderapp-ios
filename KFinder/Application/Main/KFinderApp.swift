@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import TelemetryDeck
 
 @main
 struct KFinderApp: App {
@@ -11,5 +12,11 @@ struct KFinderApp: App {
     WindowGroup {
       ContentView()
     }
+  }
+
+  init() {
+    let config = TelemetryDeck.Config(appID: Secrets.TelemetryDeck.appId!)
+    TelemetryDeck.initialize(config: config)
+    TelemetryDeck.signal("app.launched")
   }
 }

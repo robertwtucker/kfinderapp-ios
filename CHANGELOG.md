@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Added `TelemetryDeck` for analytics ([#53](https://github.com/robertwtucker/kfinderapp-ios/issues/53))
+
 ## [v1.0.2] - 2024-11-17
 
 ### Fixed

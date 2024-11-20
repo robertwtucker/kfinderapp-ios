@@ -10,6 +10,8 @@
 	</array>
 	<key>FDC_API_KEY</key>
 	<string>$(FDC_API_KEY)</string>
+	<key>TELEMETRY_DECK_APP_ID</key>
+	<string>$(TELEMETRY_DECK_APP_ID)</string>
 	<key>NSRemindersFullAccessUsageDescription</key>
 	<string>KFinder needs access to create and view reminders for PT/INR tests.</string>
 	<key>UIBackgroundModes</key>

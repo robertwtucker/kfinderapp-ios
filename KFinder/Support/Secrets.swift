@@ -10,6 +10,10 @@ enum Secrets {
     static let apiKey = Secrets.configVariable(named: "FDC_API_KEY")
   }
 
+  enum TelemetryDeck {
+    static let appId = Secrets.configVariable(named: "TELEMETRY_DECK_APP_ID")
+  }
+
   fileprivate static func configVariable(named: String) -> String? {
     guard let infoDictionary = Bundle.main.infoDictionary else {
       return nil
