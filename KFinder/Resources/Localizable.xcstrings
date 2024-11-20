@@ -520,7 +520,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test scheduling is currently off."
+            "value" : "Test reminders are currently off."
           }
         }
       }
@@ -530,7 +530,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test scheduling is enabled, but a reminder has not been set."
+            "value" : "Test reminders are enabled, but an active one is not set. Click the button at right to create one."
           }
         }
       }

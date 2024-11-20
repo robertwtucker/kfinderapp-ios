@@ -17,7 +17,7 @@ struct HomeTab: View {
           Group {
             Text("home.section.welcome")
               .style(.sectionHeader)
-            TestingStatusView()
+            TestingStatusCardView()
           }
           Group {
             Text("home.section.recentFoods")

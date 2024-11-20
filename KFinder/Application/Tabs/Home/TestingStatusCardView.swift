@@ -6,7 +6,7 @@
 import Services
 import SwiftUI
 
-struct TestingStatusView: View {
+struct TestingStatusCardView: View {
   @Environment(\.colorScheme) private var colorScheme
   @Environment(UserPreferences.self) private var userPreferences
   @Environment(ReminderManager.self) private var reminderManager
@@ -191,7 +191,7 @@ struct CallToActionStackView<Content: View>: View {
 
 #if DEBUG
   #Preview {
-    TestingStatusView()
+    TestingStatusCardView()
       .environment(UserPreferences.shared)
       .environment(ReminderManager.shared)
   }
