@@ -6,6 +6,7 @@
 import Models
 import Services
 import SwiftUI
+import TelemetryDeck
 
 struct AddTestReminderView: View {
   @Environment(\.colorScheme) var colorScheme
@@ -66,6 +67,7 @@ struct AddTestReminderView: View {
             Task {
               try await reminderManager.add(reminder)
             }
+            TelemetryDeck.signal("reminder.added")
             dismiss()
           },
           label: {

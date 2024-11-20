@@ -6,6 +6,7 @@
 import DesignSystem
 import OSLog
 import SwiftUI
+import TelemetryDeck
 
 enum SearchScope: String, CaseIterable {
   case fdc = "FoodData Central"
@@ -67,6 +68,9 @@ struct FoodsTab: View {
         // TODO: Implement Favorites  //swiftlint:disable:this todo
         logger.debug("Searching Favorites for '\(helper.query)'")
       }
+      TelemetryDeck.signal(
+        "foods.search",
+        parameters: ["query": helper.query, "scope": searchScope.rawValue])
     }
   }
 }

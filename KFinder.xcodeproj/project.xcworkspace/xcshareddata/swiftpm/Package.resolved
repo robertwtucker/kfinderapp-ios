@@ -1,5 +1,5 @@
 {
-  "originHash" : "a369be4350341f03e542ebb7d24ba032190640ea580a20aea6e4245479d583d4",
+  "originHash" : "4d8fed9c60d4e60e03d45449aee8228fa869e42e013dda4a16e9a67dcf99b9c2",
   "pins" : [
     {
       "identity" : "cloudstorage",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "62db0c9e025430aae7caee899cc69cf15bc4579d",
         "version" : "0.6.0"
+      }
+    },
+    {
+      "identity" : "swiftsdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TelemetryDeck/SwiftSDK.git",
+      "state" : {
+        "revision" : "1d9ac496ff02969c7b87cccac17e46ee7c148453",
+        "version" : "2.5.1"
       }
     }
   ],
