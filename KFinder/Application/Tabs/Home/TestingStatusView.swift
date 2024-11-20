@@ -11,10 +11,10 @@ struct TestingStatusView: View {
   @Environment(UserPreferences.self) private var userPreferences
   @Environment(ReminderManager.self) private var reminderManager
 
-  @State private var showAddView = false
+  @State private var shouldShowAddView = false
 
   var body: some View {
-    @Bindable var statusHelper = TestingStatusHelper()
+    @Bindable var testReminder = TestReminderModel(reminderManager.reminder)
 
     VStack(alignment: .leading) {
       HStack {
@@ -27,16 +27,20 @@ struct TestingStatusView: View {
         .padding(.horizontal)
         Spacer()
       }
-      switch statusHelper.status {
+      switch testReminder.status {
       case .disabled:
-        testsDisabledView()
+        buildTestsDisabledView()
       case .enabled:
-        testsEnabledView()
+        buildTestsEnabledView()
       case .scheduled:
-        if statusHelper.reminderIsComplete() {
-          testCompletedView()
+        if testReminder.isCompleted() {
+          buildReminderCompletedView()
         } else {
-          testScheduledView(statusHelper)
+          if testReminder.isOverDue() {
+            buildReminderOverdueView(testReminder.isDueOn)
+          } else {
+            buildReminderScheduledView(testReminder.isDueOn)
+          }
         }
       }
     }
@@ -45,127 +49,142 @@ struct TestingStatusView: View {
         .fill(Color.appBackground(for: colorScheme))
         .withCardShadow()
     )
-    .sheet(isPresented: $showAddView) {
+    .sheet(isPresented: $shouldShowAddView) {
       AddTestReminderView()
     }
-    .onAppear {
-      Task {
+    .task {
+      do {
         try await reminderManager.setupReminders()
+      } catch {
+        //
       }
     }
   }
 
-  private func testScheduledView(_ helper: TestingStatusHelper) -> some View {
-    VStack {
-      HStack {
-        if helper.reminderIsOverdue() {
-          Text("testing.status.overdue")
-            .font(.callout)
-            + Text(
-              " \(helper.reminderDueDate)."
-            )
-            .font(.callout).bold()
-        } else {
-          Text("testing.status.scheduled")
-            .font(.callout)
-            + Text(
-              " \(helper.reminderDueDate)."
-            )
-            .font(.callout).bold()
-        }
-        Spacer()
-        Button(
-          action: {
-            guard let url = URL(string: "x-apple-reminderkit://") else {
-              return
-            }
-            if UIApplication.shared.canOpenURL(url) {
-              UIApplication.shared.open(url)
-            }
-          },
-          label: {
-            Text("testing.status.button.open")
-              .font(.callout)
-              .padding()
-              .background(Color.appBackgroundInverted(for: colorScheme))
-              .cornerRadius(.cornerRadius)
+  private func buildReminderScheduledView(_ due: String) -> some View {
+    let ctaMessage = LocalizedStringKey(
+      "testing.status.scheduled \(due).")
+    return CallToActionRowView(text: ctaMessage) {
+      Button(
+        action: {
+          guard let url = URL(string: "x-apple-reminderkit://") else {
+            return
           }
-        )
-        .accentColor(Color.appForegroundInverted(for: colorScheme))
-      }
-      .padding()
+          if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+          }
+        },
+        label: {
+          Text("testing.status.button.open")
+            .asCallToActionButton(colorScheme: colorScheme)
+        }
+      )
     }
   }
 
-  private func testCompletedView() -> some View {
-    HStack {
-      Text("testing.status.completed")
-        .font(.callout)
-      Spacer()
+  private func buildReminderOverdueView(_ due: String)
+  -> some View {
+    let ctaMessage = LocalizedStringKey(
+      "testing.status.overdue \(due).")
+    return CallToActionRowView(text: ctaMessage) {
+      Button(
+        action: {
+          guard let url = URL(string: "x-apple-reminderkit://") else {
+            return
+          }
+          if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+          }
+        },
+        label: {
+          Text("testing.status.button.open")
+            .asCallToActionButton(colorScheme: colorScheme)
+        }
+      )
+    }
+  }
+
+  private func buildReminderCompletedView() -> some View {
+    return CallToActionRowView(text: "testing.status.completed") {
       Button(
         action: {
           Task {
             try await reminderManager.setupReminders()
-            showAddView.toggle()
+            shouldShowAddView.toggle()
           }
         },
         label: {
           Text("testing.status.button.create")
-            .font(.callout)
-            .padding()
-            .background(Color.appBackgroundInverted(for: colorScheme))
-            .cornerRadius(8)
+            .asCallToActionButton(colorScheme: colorScheme)
         }
       )
-      .accentColor(Color.appForegroundInverted(for: colorScheme))
     }
-    .padding()
   }
 
-  private func testsEnabledView() -> some View {
-    HStack {
-      Text("testing.status.enabled")
-        .font(.callout)
-      Spacer()
+  private func buildTestsEnabledView() -> some View {
+    return CallToActionRowView(text: "testing.status.enabled") {
       Button(
         action: {
           Task {
             try await reminderManager.setupReminders()
-            showAddView.toggle()
+            shouldShowAddView.toggle()
           }
         },
         label: {
           Text("testing.status.button.create")
-            .font(.callout)
-            .padding()
-            .background(Color.appBackgroundInverted(for: colorScheme))
-            .cornerRadius(8)
+            .asCallToActionButton(colorScheme: colorScheme)
         }
       )
-      .accentColor(Color.appForegroundInverted(for: colorScheme))
     }
-    .padding()
   }
 
-  private func testsDisabledView() -> some View {
-    HStack {
-      Text("testing.status.disabled")
-        .font(.callout)
-      Spacer()
+  private func buildTestsDisabledView() -> some View {
+    return CallToActionRowView(text: "testing.status.disabled") {
       Button(
         action: {
           userPreferences.setProTimeReminders.toggle()
         },
         label: {
           Text("testing.status.button.enable")
-            .font(.callout)
-            .padding()
-            .background(Color.appBackgroundInverted(for: colorScheme))
-            .cornerRadius(8)
+            .asCallToActionButton(colorScheme: colorScheme)
         }
       )
-      .accentColor(Color.appForegroundInverted(for: colorScheme))
     }
+  }
+
+}
+
+struct CallToActionRowView<Content: View>: View {
+  @Environment(\.colorScheme) private var colorScheme
+
+  let text: LocalizedStringKey
+  @ViewBuilder let content: Content
+
+  var body: some View {
+    HStack {
+      Text(text)
+        .font(.callout)
+      Spacer()
+      content
+    }
+    .accentColor(Color.appForegroundInverted(for: colorScheme))
+    .padding()
+  }
+}
+
+struct CallToActionStackView<Content: View>: View {
+  @Environment(\.colorScheme) private var colorScheme
+
+  let text: LocalizedStringKey
+  @ViewBuilder let content: Content
+
+  var body: some View {
+    VStack(alignment: .leading) {
+      Text(text)
+        .font(.callout)
+      content
+    }
+    .accentColor(Color.appForegroundInverted(for: colorScheme))
     .padding()
   }
 }

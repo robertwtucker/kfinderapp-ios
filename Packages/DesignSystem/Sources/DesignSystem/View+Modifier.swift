@@ -24,7 +24,19 @@ struct AlignViewAndTextModifier: ViewModifier {
   }
 }
 
-struct CardShadow: ViewModifier {
+struct CallToActionButtonModifier: ViewModifier {
+  var colorScheme: ColorScheme
+
+  func body(content: Content) -> some View {
+    content
+      .font(.callout)
+      .padding()
+      .background(Color.appBackgroundInverted(for: colorScheme))
+      .clipShape(RoundedRectangle(cornerRadius: .cornerRadius))
+  }
+}
+
+struct CardShadowModifier: ViewModifier {
   func body(content: Content) -> some View {
     content
       .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
@@ -69,8 +81,12 @@ extension View {
     )
   }
 
+  public func asCallToActionButton(colorScheme: ColorScheme) -> some View {
+    self.modifier(CallToActionButtonModifier(colorScheme: colorScheme))
+  }
+
   public func withCardShadow() -> some View {
-    self.modifier(CardShadow())
+    self.modifier(CardShadowModifier())
   }
 
   public func fullWidth() -> some View {

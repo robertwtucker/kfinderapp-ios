@@ -27,17 +27,20 @@ import SwiftUI
     guard UserPreferences.shared.setProTimeReminders else { return }
 
     if try await reminderStore.verifyAuthorizationStatus() {
-      do {
-        logger.debug(
-          "[RM Setup] Calling fetch for reminder with ID: \(UserPreferences.shared.proTimeReminderId)"
-        )
-        try await fetch(with: UserPreferences.shared.proTimeReminderId)
-      } catch {
-        logger.error(
-          "Setup error fetching reminder with ID: \(UserPreferences.shared.proTimeReminderId)"
-        )
-        reminder = nil
-        UserPreferences.shared.proTimeReminderId = ""
+      let reminderId = UserPreferences.shared.proTimeReminderId
+      if !reminderId.isEmpty {
+        do {
+          logger.debug(
+            "[RM Setup] Calling fetch for Reminder(id: \(reminderId))"
+          )
+          try await fetch(with: reminderId)
+        } catch {
+          logger.error(
+            "[RM Setup] Error fetching Reminder(id: \(reminderId))"
+          )
+          reminder = nil
+          UserPreferences.shared.proTimeReminderId = ""
+        }
       }
     }
   }
@@ -48,14 +51,20 @@ import SwiftUI
     }
     logger.debug("Adding reminder with ID: \(reminder.id)")
     let id = try reminderStore.save(reminder)
-    logger.debug("[RM] Reminder saved with ID: \(id)")
+    logger.debug("[RM] Saved Reminder(id: \(id))")
     UserPreferences.shared.proTimeReminderId = id
     try await fetch(with: id)
   }
 
   public func fetch(with id: String) async throws {
-    reminder = try reminderStore.fetch(with: id)
-    logger.debug("[RM] Reminder fetched with ID: \(id)")
+    guard let reminder = try reminderStore.fetch(with: id) else {
+      logger.debug("[RM] Fetch of Reminder(id: \(id)) returned nil")
+      UserPreferences.shared.proTimeReminderId = ""
+      self.reminder = nil
+      return
+    }
+    logger.debug("[RM] Fetched Reminder(id: \(id))")
+    self.reminder = reminder
   }
 
   public func remove(with id: String) async throws {
@@ -64,25 +73,34 @@ import SwiftUI
     }
     try reminderStore.remove(with: id)
     reminder = nil
-    logger.debug("[RM] Reminder removed with ID: \(id)")
+    logger.debug("[RM] Removed Reminder(id: \(id))")
   }
 
   public func listenForReminderChanges() async throws {
     let center = NotificationCenter.default
     let notifications = center.notifications(
-      named: .EKEventStoreChanged
+      named: .EKEventStoreChanged,
+      object: reminderStore.eventStore
     ).map({ (notification: Notification) in
       notification.name
     })
-    logger.debug("[RM Listener] Reminder changes received")
 
     for await _ in notifications {
+      logger.debug("[RM Listener] Received EKEventStoreChanged notification")
       guard reminderStore.isFullAccessAvailable() else { return }
       guard let reminder = self.reminder else { return }
-      logger.debug(
-        "[RM Listener] Calling fetch for reminder with ID: \(UserPreferences.shared.proTimeReminderId)"
-      )
-      try await fetch(with: reminder.id)
+      do {
+        if try reminderStore.refresh(with: reminder.id) {
+          logger.debug("[RM Listener] Refreshing Reminder(id: \(reminder.id))")
+          try await fetch(with: reminder.id)
+        }
+      } catch {
+        // Our reminder was most likely deleted.
+        logger.error(
+          "[RM Listener] Failed to refresh Reminder(id: \(reminder.id))")
+        UserPreferences.shared.proTimeReminderId = ""
+        self.reminder = nil
+      }
     }
   }
 }

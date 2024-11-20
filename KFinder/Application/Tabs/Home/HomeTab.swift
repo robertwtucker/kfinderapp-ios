@@ -14,10 +14,12 @@ struct HomeTab: View {
     NavigationStack {
       ScrollView(Axis.Set.vertical, showsIndicators: false) {
         VStack(alignment: .leading, spacing: 16) {
-          Text("home.section.welcome")
-            .style(.sectionHeader)
-          TestingStatusView()
-          VStack(alignment: .leading) {
+          Group {
+            Text("home.section.welcome")
+              .style(.sectionHeader)
+            TestingStatusView()
+          }
+          Group {
             Text("home.section.recentFoods")
               .style(.sectionHeader)
             RecentFoodsListView()
@@ -32,10 +34,10 @@ struct HomeTab: View {
 }
 
 #if DEBUG
-#Preview {
-  HomeTab()
-    .environment(UserPreferences.shared)
-    .environment(ReminderManager.shared)
-    .modelContainer(previewContainer)
-}
+  #Preview {
+    HomeTab()
+      .environment(UserPreferences.shared)
+      .environment(ReminderManager.shared)
+      .modelContainer(previewContainer)
+  }
 #endif

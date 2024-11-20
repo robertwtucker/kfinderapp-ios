@@ -7,9 +7,6 @@
     " – " : {
 
     },
-    " %@." : {
-
-    },
     "%@ µg " : {
       "comment" : "K uom specifier"
     },
@@ -438,6 +435,16 @@
         }
       }
     },
+    "test.reminder.notes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "# Created by KFinder"
+          }
+        }
+      }
+    },
     "test.reminder.time" : {
       "localizations" : {
         "en" : {
@@ -528,22 +535,22 @@
         }
       }
     },
-    "testing.status.overdue" : {
+    "testing.status.overdue %@." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "⚠️The last test was due on"
+            "value" : "⚠️The last test was due on %@."
           }
         }
       }
     },
-    "testing.status.scheduled" : {
+    "testing.status.scheduled %@." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The next test is due on"
+            "value" : "The next test is due on %@."
           }
         }
       }

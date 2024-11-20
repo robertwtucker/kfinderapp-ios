@@ -63,7 +63,8 @@ struct AddTestReminderView: View {
           action: {
             let reminder = Reminder(
               title: String(localized: "test.reminder.title"),
-              dueDate: reminderDate)
+              dueDate: reminderDate,
+              notes: String(localized: "test.reminder.notes"))
             Task {
               try await reminderManager.add(reminder)
             }
@@ -100,9 +101,9 @@ struct AddTestReminderView: View {
 }
 
 #if DEBUG
-#Preview {
-  AddTestReminderView()
-    .environment(ReminderManager.shared)
-    .environment(UserPreferences.shared)
-}
+  #Preview {
+    AddTestReminderView()
+      .environment(ReminderManager.shared)
+      .environment(UserPreferences.shared)
+  }
 #endif
