@@ -1,40 +1,35 @@
 //
-//  File.swift
-//  Services
-//
-//  Created by Robert Tucker on 11/6/24.
+// SPDX-FileCopyrightText: (c) 2024 Robert Tucker
+// SPDX-License-Identifier: MIT
 //
 
-import Foundation
+import SwiftUI
 
 public enum ReminderStoreError: LocalizedError {
   case accessDenied
   case accessRestricted
-  case failedReadingCalendarItem
-  case failedReadingReminders
-  case failedToRemoveReminder
-  case noDefaultReminderCalendar
+  case failedReadingCalendar
+  case failedReadingReminder
+  case failedRemovingReminder
   case reminderHasNoDueDate
   case unknown
 
   public var errorDescription: String? {
     switch self {
     case .accessDenied:
-      return "KFinder doesn't have permission to reminders."
+      return String(localized: "reminder.error.access.denied")
     case .accessRestricted:
-      return "This device doesn't allow access to reminders."
-    case .failedReadingCalendarItem:
-      return "Failed to read the reminder's underlying calendar item."
-    case .failedReadingReminders:
-      return "Failed to read reminders."
-    case .failedToRemoveReminder:
-      return "Failed to remove reminder."
-    case .noDefaultReminderCalendar:
-      return "No default reminder calendar found."
+      return String(localized: "reminder.error.access.restricted")
+    case .failedReadingCalendar:
+      return String(localized: "reminder.error.failed.ekevent")
+    case .failedReadingReminder:
+      return String(localized: "reminder.error.failed.reading")
+    case .failedRemovingReminder:
+      return String(localized: "reminder.error.failed.removing")
     case .reminderHasNoDueDate:
-      return "The reminder has no due date."
+      return String(localized: "reminder.error.duedate")
     case .unknown:
-      return "An unknown error has occurred."
+      return String(localized: "reminder.error.unknown")
     }
   }
 }

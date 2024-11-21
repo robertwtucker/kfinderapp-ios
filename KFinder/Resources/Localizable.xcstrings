@@ -7,9 +7,6 @@
     " – " : {
 
     },
-    " %@." : {
-
-    },
     "%@ µg " : {
       "comment" : "K uom specifier"
     },
@@ -42,6 +39,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Save"
+          }
+        }
+      }
+    },
+    "error.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         }
       }
@@ -162,6 +170,83 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Welcome back 👋"
+          }
+        }
+      }
+    },
+    "reminder.error.access.denied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KFinder doesn't have permission to access reminders."
+          }
+        }
+      }
+    },
+    "reminder.error.access.restricted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This device doesn't allow access to reminders."
+          }
+        }
+      }
+    },
+    "reminder.error.duedate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The reminder has no due date."
+          }
+        }
+      }
+    },
+    "reminder.error.failed.ekeven" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to read the reminder's underlying calendar item."
+          }
+        }
+      }
+    },
+    "reminder.error.failed.reading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to read reminder."
+          }
+        }
+      }
+    },
+    "reminder.error.failed.removing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to remove reminder."
+          }
+        }
+      }
+    },
+    "reminder.error.unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error has occurred."
           }
         }
       }
@@ -356,7 +441,17 @@
         }
       }
     },
-    "settings.testing.enabled" : {
+    "settings.testing.interval.default" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Default Interval (weeks):"
+          }
+        }
+      }
+    },
+    "settings.testing.reminders.enabled" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -366,12 +461,22 @@
         }
       }
     },
-    "settings.testing.interval.default" : {
+    "settings.testing.title.default" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Default Interval (weeks):"
+            "value" : "Default Reminder Title"
+          }
+        }
+      }
+    },
+    "settings.testing.title.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PT/INR Test"
           }
         }
       }
@@ -434,6 +539,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reminder Date:"
+          }
+        }
+      }
+    },
+    "test.reminder.notes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "# Created by KFinder"
           }
         }
       }
@@ -513,7 +628,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test scheduling is currently off."
+            "value" : "Test reminders are currently off."
           }
         }
       }
@@ -523,27 +638,27 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Test scheduling is enabled, but a reminder has not been set."
+            "value" : "Test reminders are enabled, but an active one is not set. Click the button at right to create one."
           }
         }
       }
     },
-    "testing.status.overdue" : {
+    "testing.status.overdue %@." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "⚠️The last test was due on"
+            "value" : "⚠️The last test was due on %@."
           }
         }
       }
     },
-    "testing.status.scheduled" : {
+    "testing.status.scheduled %@." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The next test is due on"
+            "value" : "The next test is due on %@."
           }
         }
       }

@@ -16,6 +16,6 @@ extension Reminder {
     self.init(
       id: ekReminder.calendarItemIdentifier, title: ekReminder.title,
       dueDate: dueDate, notes: ekReminder.notes,
-      isComplete: ekReminder.isCompleted)
+      isCompleted: ekReminder.isCompleted)
   }
 }

@@ -11,7 +11,7 @@ extension EKReminder {
   func update(using reminder: Reminder, in store: EKEventStore) {
     title = reminder.title
     notes = reminder.notes
-    isCompleted = reminder.isComplete
+    isCompleted = reminder.isCompleted
     calendar = store.defaultCalendarForNewReminders()
     alarms?.forEach { alarm in
       guard let absoluteDate = alarm.absoluteDate else { return }

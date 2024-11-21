@@ -8,7 +8,7 @@ import Models
 import SwiftUI
 
 @MainActor public class ReminderStore {
-  private let eventStore = EKEventStore()
+  let eventStore = EKEventStore()
 
   func isFullAccessAvailable() -> Bool {
     EKEventStore.authorizationStatus(for: .reminder) == .fullAccess
@@ -66,12 +66,19 @@ import SwiftUI
     try eventStore.remove(ekReminder, commit: true)
   }
 
+  func refresh(with id: Reminder.ID) throws -> Bool {
+    guard isFullAccessAvailable() else {
+      throw ReminderStoreError.accessDenied
+    }
+    return try read(with: id).refresh()
+  }
+
   private func read(with id: Reminder.ID) throws -> EKReminder {
     guard
       let ekReminder = eventStore.calendarItem(withIdentifier: id)
         as? EKReminder
     else {
-      throw ReminderStoreError.failedReadingCalendarItem
+      throw ReminderStoreError.failedReadingCalendar
     }
     return ekReminder
   }
