@@ -353,7 +353,17 @@
         }
       }
     },
-    "settings.testing.enabled" : {
+    "settings.testing.interval.default" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Default Interval (weeks):"
+          }
+        }
+      }
+    },
+    "settings.testing.reminders.enabled" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -363,12 +373,22 @@
         }
       }
     },
-    "settings.testing.interval.default" : {
+    "settings.testing.title.default" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Default Interval (weeks):"
+            "value" : "Default Reminder Title"
+          }
+        }
+      }
+    },
+    "settings.testing.title.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PT/INR Test"
           }
         }
       }

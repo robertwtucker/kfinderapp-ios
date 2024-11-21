@@ -15,6 +15,9 @@ import SwiftUI
     @CloudStorage("dailyKTarget") var dailyKTarget: Double = 120
     @CloudStorage("setProTimeReminders") var setProTimeReminders: Bool = false
     @CloudStorage("defaultProTimeInterval") var defaultProTimeInterval: Int = 3
+    @CloudStorage("defaultProTimeReminderTitle")
+    var defaultProTimeReminderTitle: String = String(
+      localized: "test.reminder.title")
     @CloudStorage("proTimeReminderId") var proTimeReminderId: String = ""
     @CloudStorage("recentFoodsLimit") var recentFoodsLimit: Int = 5
   }
@@ -42,6 +45,12 @@ import SwiftUI
     }
   }
 
+  public var defaultProTimeReminderTitle: String {
+    didSet {
+      storage.defaultProTimeReminderTitle = defaultProTimeReminderTitle
+    }
+  }
+
   public var proTimeReminderId: String {
     didSet {
       storage.proTimeReminderId = proTimeReminderId
@@ -58,6 +67,7 @@ import SwiftUI
     dailyKTarget = storage.dailyKTarget
     setProTimeReminders = storage.setProTimeReminders
     defaultProTimeInterval = storage.defaultProTimeInterval
+    defaultProTimeReminderTitle = storage.defaultProTimeReminderTitle
     proTimeReminderId = storage.proTimeReminderId
     recentFoodsLimit = storage.recentFoodsLimit
   }

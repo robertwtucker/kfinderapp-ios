@@ -85,7 +85,7 @@ struct SettingsView: View {
 
     Section("settings.testing") {
       Toggle(isOn: $userPrefs.setProTimeReminders) {
-        Label("settings.testing.enabled", systemImage: "alarm")
+        Label("settings.testing.reminders.enabled", systemImage: "alarm")
       }
       Stepper(value: $userPrefs.defaultProTimeInterval, in: 2...6) {
         HStack {
@@ -94,6 +94,14 @@ struct SettingsView: View {
           Spacer()
           Text("\(userPrefs.defaultProTimeInterval) ")
         }
+      }
+      VStack(alignment: .leading) {
+        Label("settings.testing.title.default", systemImage: "calendar")
+        TextField(
+          "settings.testing.title.prompt",
+          text: $userPrefs.defaultProTimeReminderTitle
+        )
+        .alignViewAndText(.leading, .trailing)
       }
     }
   }
@@ -125,8 +133,8 @@ struct SettingsView: View {
 }
 
 #if DEBUG
-#Preview {
-  SettingsView()
-    .environment(UserPreferences.shared)
-}
+  #Preview {
+    SettingsView()
+      .environment(UserPreferences.shared)
+  }
 #endif

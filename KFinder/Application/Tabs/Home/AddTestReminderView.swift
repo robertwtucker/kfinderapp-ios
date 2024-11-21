@@ -14,7 +14,8 @@ struct AddTestReminderView: View {
   @Environment(ReminderManager.self) var reminderManager
   @Environment(UserPreferences.self) var userPreferences
 
-  @State private var reminderDate = Date.now
+  @State private var reminderTitle = String(localized: "test.reminder.title")
+  @State private var reminderDueDate = Date.now
 
   var body: some View {
     VStack {
@@ -34,15 +35,20 @@ struct AddTestReminderView: View {
           }
         )
       }
+      TextField(
+        "test.reminder.title",
+        text: $reminderTitle
+      )
+      .padding()
       DatePicker(
         "test.reminder.date",
-        selection: $reminderDate,
+        selection: $reminderDueDate,
         displayedComponents: .date
       )
       .datePickerStyle(.graphical)
       DatePicker(
         "test.reminder.time",
-        selection: $reminderDate,
+        selection: $reminderDueDate,
         displayedComponents: .hourAndMinute
       )
       .padding()
@@ -62,8 +68,8 @@ struct AddTestReminderView: View {
         Button(
           action: {
             let reminder = Reminder(
-              title: String(localized: "test.reminder.title"),
-              dueDate: reminderDate,
+              title: reminderTitle,
+              dueDate: reminderDueDate,
               notes: String(localized: "test.reminder.notes"))
             Task {
               try await reminderManager.add(reminder)
@@ -86,11 +92,15 @@ struct AddTestReminderView: View {
       Spacer()
     }
     .onAppear {
-      reminderDate = setDefaults(from: Date.now)
+      reminderTitle =
+        UserPreferences.shared.defaultProTimeReminderTitle.isEmpty
+        ? String(localized: "test.reminder.title")
+        : UserPreferences.shared.defaultProTimeReminderTitle
+      reminderDueDate = setDefaultReminder(from: Date.now)
     }
   }
 
-  private func setDefaults(from date: Date) -> Date {
+  private func setDefaultReminder(from date: Date) -> Date {
     let defaultDate = date.addingTimeInterval(
       .week * Double(userPreferences.defaultProTimeInterval))
     var components = Calendar.current.dateComponents(
@@ -98,6 +108,7 @@ struct AddTestReminderView: View {
     components.hour = 8
     return Calendar.current.date(from: components) ?? defaultDate
   }
+
 }
 
 #if DEBUG
