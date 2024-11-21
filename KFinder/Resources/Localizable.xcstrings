@@ -43,6 +43,17 @@
         }
       }
     },
+    "error.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        }
+      }
+    },
     "foods.nutrient.k" : {
       "localizations" : {
         "en" : {
@@ -159,6 +170,83 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Welcome back 👋"
+          }
+        }
+      }
+    },
+    "reminder.error.access.denied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KFinder doesn't have permission to access reminders."
+          }
+        }
+      }
+    },
+    "reminder.error.access.restricted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This device doesn't allow access to reminders."
+          }
+        }
+      }
+    },
+    "reminder.error.duedate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The reminder has no due date."
+          }
+        }
+      }
+    },
+    "reminder.error.failed.ekeven" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to read the reminder's underlying calendar item."
+          }
+        }
+      }
+    },
+    "reminder.error.failed.reading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to read reminder."
+          }
+        }
+      }
+    },
+    "reminder.error.failed.removing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to remove reminder."
+          }
+        }
+      }
+    },
+    "reminder.error.unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error has occurred."
           }
         }
       }

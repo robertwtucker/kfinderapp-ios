@@ -78,7 +78,7 @@ import SwiftUI
       let ekReminder = eventStore.calendarItem(withIdentifier: id)
         as? EKReminder
     else {
-      throw ReminderStoreError.failedReadingCalendarItem
+      throw ReminderStoreError.failedReadingCalendar
     }
     return ekReminder
   }
