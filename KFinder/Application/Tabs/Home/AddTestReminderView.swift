@@ -93,7 +93,7 @@ struct AddTestReminderView: View {
         )
         .accentColor(Color.appForegroundInverted(for: colorScheme))
       }
-      .padding()
+      .padding(32)
       Spacer()
     }
     .onAppear {
@@ -113,7 +113,7 @@ struct AddTestReminderView: View {
     components.hour = 8
     return Calendar.current.date(from: components) ?? defaultDate
   }
-
+  
 }
 
 #if DEBUG
