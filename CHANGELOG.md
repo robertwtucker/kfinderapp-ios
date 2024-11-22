@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- iPad needs extra padding around Add Reminder sheet ([#58](https://github.com/robertwtucker/kfinderapp-ios/issues/58))
+
 ## [v1.1.0] - 2024-11-22
 
 ### Added
