@@ -113,7 +113,7 @@ struct AddTestReminderView: View {
     components.hour = 8
     return Calendar.current.date(from: components) ?? defaultDate
   }
-  
+
 }
 
 #if DEBUG
