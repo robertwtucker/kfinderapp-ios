@@ -93,7 +93,7 @@ struct AddTestReminderView: View {
         )
         .accentColor(Color.appForegroundInverted(for: colorScheme))
       }
-      .padding()
+      .padding(32)
       Spacer()
     }
     .onAppear {
