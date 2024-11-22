@@ -13,6 +13,28 @@
     "%lld " : {
 
     },
+    "alert.dismiss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "alert.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oops!"
+          }
+        }
+      }
+    },
     "button.cancel" : {
       "localizations" : {
         "en" : {
@@ -39,17 +61,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Save"
-          }
-        }
-      }
-    },
-    "error.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error"
           }
         }
       }
@@ -180,7 +191,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "KFinder doesn't have permission to access reminders."
+            "value" : "KFinder doesn't have permission to access reminders. PT/INR test reminders will be disabled."
           }
         }
       }
@@ -191,7 +202,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This device doesn't allow access to reminders."
+            "value" : "This device doesn't allow access to reminders. PT/INR Reminders will be disabled."
           }
         }
       }

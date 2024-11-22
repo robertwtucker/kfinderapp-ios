@@ -9,13 +9,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- Added basic error handling with alerts ([#56](https://github.com/robertwtucker/kfinderapp-ios/issues/56))
 - Made testing reminder title editable, added configuration setting to save
-  a default ([#57](https://github.com/robertwtucker/kfinderapp-ios/issues/57))
+  a default ([#55](https://github.com/robertwtucker/kfinderapp-ios/issues/55))
 - Added `TelemetryDeck` for analytics ([#53](https://github.com/robertwtucker/kfinderapp-ios/issues/53))
 
 ### Changed
 
-- Refactored several aspects of reminder handling ([#57](https://github.com/robertwtucker/kfinderapp-ios/issues/57))
+- Refactored several aspects of reminder handling ([#55](https://github.com/robertwtucker/kfinderapp-ios/issues/55))
 
 ## [v1.0.2] - 2024-11-17
 

@@ -13,6 +13,7 @@ struct AddTestReminderView: View {
   @Environment(\.dismiss) var dismiss
   @Environment(ReminderManager.self) var reminderManager
   @Environment(UserPreferences.self) var userPreferences
+  @Environment(ErrorHandling.self) var errorHandling
 
   @State private var reminderTitle = String(localized: "test.reminder.title")
   @State private var reminderDueDate = Date.now
@@ -72,7 +73,11 @@ struct AddTestReminderView: View {
               dueDate: reminderDueDate,
               notes: String(localized: "test.reminder.notes"))
             Task {
-              try await reminderManager.add(reminder)
+              do {
+                try await reminderManager.add(reminder)
+              } catch {
+                errorHandling.handle(error: error)
+              }
             }
             TelemetryDeck.signal("reminder.added")
             dismiss()
