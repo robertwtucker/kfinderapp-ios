@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v1.1.0] - 2024-11-22
+
 ### Added
 
 - Added basic error handling with alerts ([#56](https://github.com/robertwtucker/kfinderapp-ios/issues/56))
@@ -128,7 +130,8 @@ Initial prototype with basic search and display
   [CocoaPods](https://cocoapods.org/about) for dependency management
 - Replaced CoreData with [Realm](https://realm.io/)
 
-[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.0...HEAD
+[v1.1.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.1...v1.1.1
 [v1.0.2]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.1...v1.0.2
 [v1.0.1]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.0...v1.0.1
 [v1.0.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v0.5.0...v1.0.0
