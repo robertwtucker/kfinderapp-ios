@@ -19,21 +19,18 @@ struct ContentView: View {
       .modelContainer(for: [
         FoodItem.self
       ])
+      .withErrorHandling()
       .task {
-        do {
-          try await reminderManager.listenForReminderChanges()
-        } catch {
-          // display error
-        }
+        await reminderManager.listenForReminderChanges()
       }
   }
 }
 
 #if DEBUG
-#Preview {
-  ContentView()
-    .environment(UserPreferences.shared)
-    .environment(ReminderManager.shared)
-    .modelContainer(previewContainer)
-}
+  #Preview {
+    ContentView()
+      .environment(UserPreferences.shared)
+      .environment(ReminderManager.shared)
+      .modelContainer(previewContainer)
+  }
 #endif

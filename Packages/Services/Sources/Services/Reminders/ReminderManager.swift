@@ -76,7 +76,7 @@ import SwiftUI
     logger.debug("[RM] Removed Reminder(id: \(id))")
   }
 
-  public func listenForReminderChanges() async throws {
+  public func listenForReminderChanges() async {
     let center = NotificationCenter.default
     let notifications = center.notifications(
       named: .EKEventStoreChanged,
