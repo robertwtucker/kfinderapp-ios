@@ -16,8 +16,7 @@ enum SearchScope: String, CaseIterable {
 struct FoodsTab: View {
   @Bindable private var helper = FoodSearchHelper()
   @State private var searchScope = SearchScope.fdc
-  @State private var isSearching = false
-  @State private var searchCount = 0
+  @State private var shouldShowHowToStart = true
 
   private let logger = Logger(
     subsystem: Bundle.main.bundleIdentifier!,
@@ -28,19 +27,14 @@ struct FoodsTab: View {
       FoodsListView(foods: helper.foods)
     }
     .overlay {
-      if isSearching {
-        LoadingView()
-      }
-    }
-    .overlay {
-      if searchCount == 0 {
+      if shouldShowHowToStart {
         ContentUnavailableView {
           Label("foods.search.init", systemImage: "magnifyingglass")
         } description: {
           Text("foods.search.description")
         }
       } else {
-        if helper.foods.isEmpty && !isSearching {
+        if helper.foods.isEmpty && helper.query.count >= 3 {
           ContentUnavailableView.search
         }
       }
@@ -54,23 +48,10 @@ struct FoodsTab: View {
     //    }
     .autocapitalization(.none)
     .disableAutocorrection(true)
-    .onSubmit(of: .search) {
-      switch searchScope {
-      case .fdc:
-        logger.debug("Dispatching FDC search for '\(helper.query)'")
-        Task {
-          isSearching.toggle()
-          searchCount += 1
-          await helper.search()
-          isSearching.toggle()
-        }
-      case .favorites:
-        // TODO: Implement Favorites  //swiftlint:disable:this todo
-        logger.debug("Searching Favorites for '\(helper.query)'")
-      }
-      TelemetryDeck.signal(
-        "foods.search",
-        parameters: ["query": helper.query, "scope": searchScope.rawValue])
-    }
+    .task(id: helper.query, {
+      guard helper.query.count >= 3 else { return }
+      shouldShowHowToStart = false
+      await helper.search()
+    })
   }
 }

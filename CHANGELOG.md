@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Food search now happens asynchronously while typing ([#61](https://github.com/robertwtucker/kfinderapp-ios/issues/61))
+
 ## [v1.1.1] - 2024-11-22
 
 ### Fixed
