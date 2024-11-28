@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v1.1.2] - 2024-11-27
+
 ### Changed
 
 - Food search now happens asynchronously while typing ([#61](https://github.com/robertwtucker/kfinderapp-ios/issues/61))
@@ -140,7 +142,8 @@ Initial prototype with basic search and display
   [CocoaPods](https://cocoapods.org/about) for dependency management
 - Replaced CoreData with [Realm](https://realm.io/)
 
-[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.2...HEAD
+[v1.1.2]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.1...v1.1.2
 [v1.1.1]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.0...v1.1.1
 [v1.1.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.2...v1.1.0
 [v1.0.2]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.0.1...v1.0.2
