@@ -45,11 +45,11 @@ import SwiftUI
     }
   }
 
-  public func add(_ reminder: Reminder) async throws {
+  public func save(_ reminder: Reminder) async throws {
     guard reminderStore.isFullAccessAvailable() else {
       throw ReminderStoreError.accessDenied
     }
-    logger.debug("Adding reminder with ID: \(reminder.id)")
+    logger.debug("[RM] Saving reminder with ID: \(reminder.id)")
     let id = try reminderStore.save(reminder)
     logger.debug("[RM] Saved Reminder(id: \(id))")
     UserPreferences.shared.proTimeReminderId = id

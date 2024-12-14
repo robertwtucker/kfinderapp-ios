@@ -74,7 +74,7 @@ struct AddTestReminderView: View {
               notes: String(localized: "test.reminder.notes"))
             Task {
               do {
-                try await reminderManager.add(reminder)
+                try await reminderManager.save(reminder)
               } catch {
                 errorHandling.handle(error: error)
               }
