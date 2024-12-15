@@ -8,20 +8,23 @@ import Services
 import SwiftUI
 import TelemetryDeck
 
-struct AddTestReminderView: View {
+struct EditTestReminderView: View {
   @Environment(\.colorScheme) var colorScheme
   @Environment(\.dismiss) var dismiss
   @Environment(ReminderManager.self) var reminderManager
   @Environment(UserPreferences.self) var userPreferences
   @Environment(ErrorHandling.self) var errorHandling
 
-  @State private var reminderTitle = String(localized: "test.reminder.title")
-  @State private var reminderDueDate = Date.now
+  @State var reminder: Reminder
+
+  init(_ reminder: Reminder) {
+    _reminder = State(initialValue: reminder)
+  }
 
   var body: some View {
     VStack {
       HStack {
-        Text("test.add.reminder.title")
+        Text("test.edit.reminder.title")
           .font(.title2).bold()
           .padding()
         Spacer()
@@ -35,18 +38,18 @@ struct AddTestReminderView: View {
       }
       TextField(
         "test.reminder.title",
-        text: $reminderTitle
+        text: $reminder.title
       )
       .padding()
       DatePicker(
         "test.reminder.date",
-        selection: $reminderDueDate,
+        selection: $reminder.dueDate,
         displayedComponents: .date
       )
       .datePickerStyle(.graphical)
       DatePicker(
         "test.reminder.time",
-        selection: $reminderDueDate,
+        selection: $reminder.dueDate,
         displayedComponents: .hourAndMinute
       )
       .padding()
@@ -61,10 +64,9 @@ struct AddTestReminderView: View {
         }
         Spacer()
         Button {
-          let reminder = Reminder(
-            title: reminderTitle,
-            dueDate: reminderDueDate,
-            notes: String(localized: "test.reminder.notes"))
+          if reminder.title.isEmpty {
+            reminder.title = String(localized: "test.reminder.title")
+          }
           Task {
             do {
               try await reminderManager.save(reminder)
@@ -72,7 +74,7 @@ struct AddTestReminderView: View {
               errorHandling.handle(error: error)
             }
           }
-          TelemetryDeck.signal("reminder.added")
+          TelemetryDeck.signal("reminder.edited")
           dismiss()
         } label: {
           Text("button.save")
@@ -87,29 +89,12 @@ struct AddTestReminderView: View {
       .padding(32)
       Spacer()
     }
-    .onAppear {
-      reminderTitle =
-        UserPreferences.shared.defaultProTimeReminderTitle.isEmpty
-        ? String(localized: "test.reminder.title")
-        : UserPreferences.shared.defaultProTimeReminderTitle
-      reminderDueDate = setDefaultReminder(from: Date.now)
-    }
   }
-
-  private func setDefaultReminder(from date: Date) -> Date {
-    let defaultDate = date.addingTimeInterval(
-      .week * Double(userPreferences.defaultProTimeInterval))
-    var components = Calendar.current.dateComponents(
-      [.year, .month, .day], from: defaultDate)
-    components.hour = 8
-    return Calendar.current.date(from: components) ?? defaultDate
-  }
-
 }
 
 #if DEBUG
   #Preview {
-    AddTestReminderView()
+    EditTestReminderView(Reminder.sample)
       .environment(ReminderManager.shared)
       .environment(UserPreferences.shared)
       .environment(ErrorHandling())
