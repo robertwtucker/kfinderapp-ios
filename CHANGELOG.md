@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## Added
+
+- Reminders can now be edited and completed directly in the app ([#63](https://github.com/robertwtucker/kfinderapp-ios/pull/63))
+
 ## [v1.1.2] - 2024-11-27
 
 ### Changed
