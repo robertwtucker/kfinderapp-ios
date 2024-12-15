@@ -43,3 +43,6 @@ fastlane/test_output
 ### Config Secrets ###
 Secrets.xcconfig
 .env.*
+
+### SweetPad ###
+buildServer.json
