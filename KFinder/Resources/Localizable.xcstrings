@@ -543,6 +543,16 @@
         }
       }
     },
+    "test.edit.reminder.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Test Reminder"
+          }
+        }
+      }
+    },
     "test.reminder.date" : {
       "comment" : "Hidden by default",
       "localizations" : {
@@ -584,6 +594,16 @@
         }
       }
     },
+    "testing.status.button.complete" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
     "testing.status.button.create" : {
       "localizations" : {
         "en" : {
@@ -594,22 +614,22 @@
         }
       }
     },
+    "testing.status.button.edit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        }
+      }
+    },
     "testing.status.button.enable" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enable"
-          }
-        }
-      }
-    },
-    "testing.status.button.open" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reminders"
           }
         }
       }

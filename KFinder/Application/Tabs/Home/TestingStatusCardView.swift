@@ -13,6 +13,7 @@ struct TestingStatusCardView: View {
   @Environment(ErrorHandling.self) private var errorHandling
 
   @State private var shouldShowAddView = false
+  @State private var shouldShowEditView = false
 
   var body: some View {
     @Bindable var testReminder = TestReminderModel(reminderManager.reminder)
@@ -31,41 +32,103 @@ struct TestingStatusCardView: View {
       switch testReminder.status {
       case .disabled:
         CallToActionRowView(text: "testing.status.disabled") {
-          Button(
-            action: {
-              userPreferences.setProTimeReminders.toggle()
-            },
-            label: {
-              Text("testing.status.button.enable")
-                .asCallToActionButton(colorScheme: colorScheme)
-            }
-          )
+          CallToActionButtonView(
+            label: "testing.status.button.enable"
+          ) {
+            userPreferences.setProTimeReminders.toggle()
+          }
         }
       case .enabled:
         CallToActionRowView(text: "testing.status.enabled") {
-          CreateReminderButton(sheetIsPresented: $shouldShowAddView)
+          CallToActionButtonView(
+            label: "testing.status.button.create"
+          ) {
+            Task {
+              do {
+                try await reminderManager.setupReminders()
+                shouldShowAddView.toggle()
+              } catch {
+                errorHandling.handle(error: error)
+                userPreferences.setProTimeReminders = false
+              }
+            }
+          }
         }
       case .scheduled:
         if testReminder.isCompleted() {
           CallToActionRowView(text: "testing.status.completed") {
-            CreateReminderButton(sheetIsPresented: $shouldShowAddView)
+            CallToActionButtonView(
+              label: "testing.status.button.create"
+            ) {
+              Task {
+                do {
+                  try await reminderManager.setupReminders()
+                  shouldShowAddView.toggle()
+                } catch {
+                  errorHandling.handle(error: error)
+                  userPreferences.setProTimeReminders = false
+                }
+              }
+            }
           }
         } else {
           if testReminder.isOverDue() {
-            CallToActionRowView(
+            CallToActionStackView(
               text:
                 LocalizedStringKey(
                   "testing.status.overdue \(testReminder.isDueOn).")
             ) {
-              RemindersButton()
+              HStack {
+                CallToActionButtonView(
+                  label: "testing.status.button.edit"
+                ) {
+                  shouldShowEditView.toggle()
+                }
+                Spacer()
+                CallToActionButtonView(
+                  label: "testing.status.button.complete"
+                ) {
+                  if var reminder = reminderManager.reminder {
+                    reminder.isCompleted = true
+                    Task {
+                      do {
+                        try await reminderManager.save(reminder)
+                      } catch {
+                        errorHandling.handle(error: error)
+                      }
+                    }
+                  }
+                }
+              }
             }
           } else {
-            CallToActionRowView(
+            CallToActionStackView(
               text:
                 LocalizedStringKey(
                   "testing.status.scheduled \(testReminder.isDueOn).")
             ) {
-              RemindersButton()
+              HStack {
+                CallToActionButtonView(
+                  label: "testing.status.button.edit"
+                ) {
+                  shouldShowEditView.toggle()
+                }
+                Spacer()
+                CallToActionButtonView(
+                  label: "testing.status.button.complete"
+                ) {
+                  if var reminder = reminderManager.reminder {
+                    reminder.isCompleted = true
+                    Task {
+                      do {
+                        try await reminderManager.save(reminder)
+                      } catch {
+                        errorHandling.handle(error: error)
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -79,6 +142,11 @@ struct TestingStatusCardView: View {
     .sheet(isPresented: $shouldShowAddView) {
       AddTestReminderView()
     }
+    .sheet(isPresented: $shouldShowEditView) {
+      if let reminder = reminderManager.reminder {
+        EditTestReminderView(reminder)
+      }
+    }
     .task {
       do {
         try await reminderManager.setupReminders()
@@ -88,92 +156,6 @@ struct TestingStatusCardView: View {
       }
     }
   }
-
-}
-
-struct RemindersButton: View {
-  @Environment(\.colorScheme) private var colorScheme
-
-  var body: some View {
-    Button(
-      action: {
-        guard let url = URL(string: "x-apple-reminderkit://") else {
-          return
-        }
-        if UIApplication.shared.canOpenURL(url) {
-          UIApplication.shared.open(url)
-        }
-      },
-      label: {
-        Text("testing.status.button.open")
-          .asCallToActionButton(colorScheme: colorScheme)
-      }
-    )
-  }
-}
-
-struct CreateReminderButton: View {
-  @Environment(\.colorScheme) private var colorScheme
-  @Environment(ReminderManager.self) private var reminderManager
-  @Environment(UserPreferences.self) private var userPreferences
-  @Environment(ErrorHandling.self) private var errorHandling
-
-  @Binding var sheetIsPresented: Bool
-
-  var body: some View {
-    Button(
-      action: {
-        Task {
-          do {
-            try await reminderManager.setupReminders()
-            sheetIsPresented.toggle()
-          } catch {
-            errorHandling.handle(error: error)
-            userPreferences.setProTimeReminders = false
-          }
-        }
-      },
-      label: {
-        Text("testing.status.button.create")
-          .asCallToActionButton(colorScheme: colorScheme)
-      }
-    )
-  }
-}
-
-struct CallToActionRowView<Content: View>: View {
-  @Environment(\.colorScheme) private var colorScheme
-
-  let text: LocalizedStringKey
-  @ViewBuilder let content: Content
-
-  var body: some View {
-    HStack {
-      Text(text)
-        .font(.callout)
-      Spacer()
-      content
-    }
-    .accentColor(Color.appForegroundInverted(for: colorScheme))
-    .padding()
-  }
-}
-
-struct CallToActionStackView<Content: View>: View {
-  @Environment(\.colorScheme) private var colorScheme
-
-  let text: LocalizedStringKey
-  @ViewBuilder let content: Content
-
-  var body: some View {
-    VStack(alignment: .leading) {
-      Text(text)
-        .font(.callout)
-      content
-    }
-    .accentColor(Color.appForegroundInverted(for: colorScheme))
-    .padding()
-  }
 }
 
 #if DEBUG
@@ -181,5 +163,6 @@ struct CallToActionStackView<Content: View>: View {
     TestingStatusCardView()
       .environment(UserPreferences.shared)
       .environment(ReminderManager.shared)
+      .environment(ErrorHandling())
   }
 #endif
