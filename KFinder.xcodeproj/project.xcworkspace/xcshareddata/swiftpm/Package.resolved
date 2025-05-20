@@ -1,22 +1,22 @@
 {
-  "originHash" : "d3991fad2b6df6fdb08c2ec7e097474fab203aca33f73cd761e39a42c1725af1",
+  "originHash" : "1252e78d6de093e42e4021e927f99cc437f04b09ebfdd44ef8afaa4699241469",
   "pins" : [
     {
       "identity" : "cloudstorage",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nonstrict-hq/CloudStorage.git",
+      "location" : "https://github.com/nonstrict-hq/CloudStorage",
       "state" : {
-        "revision" : "62db0c9e025430aae7caee899cc69cf15bc4579d",
-        "version" : "0.6.0"
+        "revision" : "d94cb14e563c1a20edeba8a861395c60c2b9d064",
+        "version" : "0.7.0"
       }
     },
     {
       "identity" : "swiftsdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/TelemetryDeck/SwiftSDK.git",
+      "location" : "https://github.com/TelemetryDeck/SwiftSDK",
       "state" : {
-        "revision" : "1d9ac496ff02969c7b87cccac17e46ee7c148453",
-        "version" : "2.5.1"
+        "revision" : "a7fd1eb469589a3c8fd8cc3abe19b092b5d674dc",
+        "version" : "2.9.4"
       }
     }
   ],
