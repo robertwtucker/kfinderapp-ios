@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Updated package dependencies ([#65](https://github.com/robertwtucker/kfinderapp-ios/issues/65))
+
 ## [v1.1.3] - 2024-12-14
 
 ## Added
