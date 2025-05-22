@@ -16,7 +16,7 @@ let package = Package(
             targets: ["Services"])
     ],
     dependencies: [
-        .package(name: "Models", path: "../Models")
+      .package(name: "Models", path: "../Models")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

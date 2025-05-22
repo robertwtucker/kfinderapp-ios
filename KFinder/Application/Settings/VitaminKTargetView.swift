@@ -3,20 +3,13 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Defaults
 import Services
 import SwiftUI
 
 struct VitaminKTargetView: View {
   @Environment(\.colorScheme) private var colorScheme
   @Environment(\.dismiss) private var dismiss
-  @Environment(UserPreferences.self) private var userPreferences
-
-  @State private var showingVitaminKInfo = false
-  @FocusState private var focusedField: Field?
-
-  enum Field: Hashable {
-    case target
-  }
 
   var body: some View {
     VStack {
@@ -29,9 +22,10 @@ struct VitaminKTargetView: View {
           Spacer()
         }
         .listRowBackground(Color.appBaseBackground(for: colorScheme))
-        valueSection
+        TargetSection()
         InfoPageView(
-          info: "settings.ktarget.info", footnote: "settings.ktarget.footnote"
+          info: "settings.ktarget.info",
+          footnote: "settings.ktarget.footnote"
         )
         .listRowBackground(Color.appBaseBackground(for: colorScheme))
       }
@@ -41,28 +35,29 @@ struct VitaminKTargetView: View {
         Text("button.dismiss")
       }
     }
-    .defaultFocus($focusedField, .target)
   }
 
-  @ViewBuilder
-  private var valueSection: some View {
-    @Bindable var userPrefs = userPreferences
+  private struct TargetSection: View {
+    @Default(.dailyKTarget) private var dailyKTarget
+    @FocusState private var isTargetFieldFocused: Bool
 
-    Section(header: Text("settings.ktarget.measure")) {
-      TextField(
-        "settings.ktarget.value", value: $userPrefs.dailyKTarget,
-        format: .number
-      )
-      .multilineTextAlignment(.trailing)
-      .keyboardType(.numbersAndPunctuation)
-      .focused($focusedField, equals: .target)
+    var body: some View {
+      Section(header: Text("settings.ktarget.measure")) {
+        TextField(
+          "settings.ktarget.value",
+          value: $dailyKTarget,
+          format: .number
+        )
+        .focused($isTargetFieldFocused)
+        .multilineTextAlignment(.trailing)
+        .keyboardType(.numbersAndPunctuation)
+      }
     }
   }
 }
 
 #if DEBUG
-#Preview {
-  VitaminKTargetView()
-    .environment(UserPreferences.shared)
-}
+  #Preview {
+    VitaminKTargetView()
+  }
 #endif

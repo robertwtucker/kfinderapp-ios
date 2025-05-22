@@ -36,7 +36,6 @@ struct HomeTab: View {
 #if DEBUG
   #Preview {
     HomeTab()
-      .environment(UserPreferences.shared)
       .environment(ReminderManager.shared)
       .modelContainer(previewContainer)
   }

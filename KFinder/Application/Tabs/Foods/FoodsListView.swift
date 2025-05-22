@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Defaults
 import Models
 import Services
 import SwiftUI
@@ -23,8 +24,6 @@ struct FoodsListView: View {
 }
 
 struct FoodsListCellView: View {
-  @Environment(UserPreferences.self) private var userPreferences
-
   let food: FoodItem
 
   var body: some View {
@@ -41,7 +40,8 @@ struct FoodsListCellView: View {
       Image(
         systemName: "ellipsis.circle",
         variableValue: displayHelper.vitaminKAsPercent(
-          of: Int(userPreferences.dailyKTarget))
+          of: Int(Defaults[.dailyKTarget])
+        )
       )
       .symbolRenderingMode(.monochrome)
       .foregroundColor(getImageColor())
@@ -54,7 +54,8 @@ struct FoodsListCellView: View {
     let displayHelper = FoodDisplayHelper(food)
 
     switch displayHelper.vitaminKAsPercent(
-      of: Int(userPreferences.dailyKTarget))
+      of: Int(Defaults[.dailyKTarget])
+    )
       * 100 {
     case 0:
       return .gray
@@ -73,9 +74,8 @@ struct FoodsListCellView: View {
 }
 
 #if DEBUG
-#Preview {
-  FoodsListView(foods: FoodItem.samples)
-    .environment(UserPreferences.shared)
-    .modelContainer(previewContainer)
-}
+  #Preview {
+    FoodsListView(foods: FoodItem.samples)
+      .modelContainer(previewContainer)
+  }
 #endif

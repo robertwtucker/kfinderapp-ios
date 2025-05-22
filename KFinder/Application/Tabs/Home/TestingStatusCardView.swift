@@ -3,12 +3,12 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Defaults
 import Services
 import SwiftUI
 
 struct TestingStatusCardView: View {
   @Environment(\.colorScheme) private var colorScheme
-  @Environment(UserPreferences.self) private var userPreferences
   @Environment(ReminderManager.self) private var reminderManager
   @Environment(ErrorHandling.self) private var errorHandling
 
@@ -35,7 +35,7 @@ struct TestingStatusCardView: View {
           CallToActionButtonView(
             label: "testing.status.button.enable"
           ) {
-            userPreferences.setProTimeReminders.toggle()
+            Defaults[.setProTimeReminders].toggle()
           }
         }
       case .enabled:
@@ -49,7 +49,7 @@ struct TestingStatusCardView: View {
                 shouldShowAddView.toggle()
               } catch {
                 errorHandling.handle(error: error)
-                userPreferences.setProTimeReminders = false
+                Defaults[.setProTimeReminders] = false
               }
             }
           }
@@ -66,7 +66,7 @@ struct TestingStatusCardView: View {
                   shouldShowAddView.toggle()
                 } catch {
                   errorHandling.handle(error: error)
-                  userPreferences.setProTimeReminders = false
+                  Defaults[.setProTimeReminders] = false
                 }
               }
             }
@@ -76,7 +76,8 @@ struct TestingStatusCardView: View {
             CallToActionStackView(
               text:
                 LocalizedStringKey(
-                  "testing.status.overdue \(testReminder.isDueOn).")
+                  "testing.status.overdue \(testReminder.isDueOn)."
+                )
             ) {
               HStack {
                 CallToActionButtonView(
@@ -105,7 +106,8 @@ struct TestingStatusCardView: View {
             CallToActionStackView(
               text:
                 LocalizedStringKey(
-                  "testing.status.scheduled \(testReminder.isDueOn).")
+                  "testing.status.scheduled \(testReminder.isDueOn)."
+                )
             ) {
               HStack {
                 CallToActionButtonView(
@@ -152,7 +154,7 @@ struct TestingStatusCardView: View {
         try await reminderManager.setupReminders()
       } catch {
         errorHandling.handle(error: error)
-        userPreferences.setProTimeReminders = false
+        Defaults[.setProTimeReminders] = false
       }
     }
   }
@@ -161,7 +163,6 @@ struct TestingStatusCardView: View {
 #if DEBUG
   #Preview {
     TestingStatusCardView()
-      .environment(UserPreferences.shared)
       .environment(ReminderManager.shared)
       .environment(ErrorHandling())
   }

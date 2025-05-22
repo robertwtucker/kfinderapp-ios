@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Defaults
 import Foundation
 import Models
 import Services
@@ -22,8 +23,8 @@ enum TestReminderStatus {
   }
 
   var status: TestReminderStatus {
-    if UserPreferences.shared.setProTimeReminders {
-      if UserPreferences.shared.proTimeReminderId.isEmpty || reminder == nil {
+    if Defaults[.setProTimeReminders] {
+      if Defaults[.proTimeReminderId].isEmpty || reminder == nil {
         return .enabled
       } else {
         return .scheduled
