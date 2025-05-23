@@ -4,6 +4,8 @@
 //
 
 @preconcurrency import EventKit
+
+import Defaults
 import Models
 import OSLog
 import SwiftUI
@@ -24,10 +26,10 @@ import SwiftUI
     category: String(describing: ReminderManager.self))
 
   public func setupReminders() async throws {
-    guard UserPreferences.shared.setProTimeReminders else { return }
+    guard Defaults[.setProTimeReminders] else { return }
 
     if try await reminderStore.verifyAuthorizationStatus() {
-      let reminderId = UserPreferences.shared.proTimeReminderId
+      let reminderId = Defaults[.proTimeReminderId]
       if !reminderId.isEmpty {
         do {
           logger.debug(
@@ -39,7 +41,7 @@ import SwiftUI
             "[RM Setup] Error fetching Reminder(id: \(reminderId))"
           )
           reminder = nil
-          UserPreferences.shared.proTimeReminderId = ""
+          Defaults[.proTimeReminderId] = ""
         }
       }
     }
@@ -52,14 +54,14 @@ import SwiftUI
     logger.debug("[RM] Saving reminder with ID: \(reminder.id)")
     let id = try reminderStore.save(reminder)
     logger.debug("[RM] Saved Reminder(id: \(id))")
-    UserPreferences.shared.proTimeReminderId = id
+    Defaults[.proTimeReminderId] = id
     try await fetch(with: id)
   }
 
   public func fetch(with id: String) async throws {
     guard let reminder = try reminderStore.fetch(with: id) else {
       logger.debug("[RM] Fetch of Reminder(id: \(id)) returned nil")
-      UserPreferences.shared.proTimeReminderId = ""
+      Defaults[.proTimeReminderId] = ""
       self.reminder = nil
       return
     }
@@ -98,7 +100,7 @@ import SwiftUI
         // Our reminder was most likely deleted.
         logger.error(
           "[RM Listener] Failed to refresh Reminder(id: \(reminder.id))")
-        UserPreferences.shared.proTimeReminderId = ""
+        Defaults[.proTimeReminderId] = ""
         self.reminder = nil
       }
     }

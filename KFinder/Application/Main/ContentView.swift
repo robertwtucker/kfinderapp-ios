@@ -9,12 +9,10 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-  @State var userPreferences = UserPreferences.shared
   @State var reminderManager = ReminderManager.shared
 
   var body: some View {
     AppTabView()
-      .environment(userPreferences)
       .environment(reminderManager)
       .modelContainer(for: [
         FoodItem.self
@@ -29,7 +27,6 @@ struct ContentView: View {
 #if DEBUG
   #Preview {
     ContentView()
-      .environment(UserPreferences.shared)
       .environment(ReminderManager.shared)
       .modelContainer(previewContainer)
   }

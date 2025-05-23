@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E11DD5302CED4530009AE571 /* CloudStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E11DD52F2CED4530009AE571 /* CloudStorage */; };
 		E11DD5332CED4585009AE571 /* TelemetryDeck in Frameworks */ = {isa = PBXBuildFile; productRef = E11DD5322CED4585009AE571 /* TelemetryDeck */; };
 		E14779542CE27F2F00261F49 /* Services in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8902CCD9CAE0091FB0C /* Services */; };
 		E14779552CE27F2F00261F49 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = E151F8922CCD9CBA0091FB0C /* Models */; };
 		E14779562CE27F2F00261F49 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = E1473E9B2CD7FF2D00D8303F /* DesignSystem */; };
+		E1508FD12DDF6F9900AB6B63 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = E1508FD02DDF6F9900AB6B63 /* Defaults */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E11DD5302CED4530009AE571 /* CloudStorage in Frameworks */,
+				E1508FD12DDF6F9900AB6B63 /* Defaults in Frameworks */,
 				E14779562CE27F2F00261F49 /* DesignSystem in Frameworks */,
 				E14779552CE27F2F00261F49 /* Models in Frameworks */,
 				E11DD5332CED4585009AE571 /* TelemetryDeck in Frameworks */,
@@ -134,8 +134,8 @@
 				E151F8902CCD9CAE0091FB0C /* Services */,
 				E151F8922CCD9CBA0091FB0C /* Models */,
 				E1473E9B2CD7FF2D00D8303F /* DesignSystem */,
-				E11DD52F2CED4530009AE571 /* CloudStorage */,
 				E11DD5322CED4585009AE571 /* TelemetryDeck */,
+				E1508FD02DDF6F9900AB6B63 /* Defaults */,
 			);
 			productName = KFinder;
 			productReference = E11C07532A9907F00024334E /* KFinder.app */;
@@ -195,8 +195,8 @@
 				E1473E9A2CD7FF2D00D8303F /* XCLocalSwiftPackageReference "Packages/DesignSystem" */,
 				E188EBB52CE18FD80080F0AB /* XCLocalSwiftPackageReference "Packages/Models" */,
 				E188EBB82CE18FEC0080F0AB /* XCLocalSwiftPackageReference "Packages/Services" */,
-				E11DD52E2CED4530009AE571 /* XCRemoteSwiftPackageReference "CloudStorage" */,
 				E11DD5312CED4585009AE571 /* XCRemoteSwiftPackageReference "SwiftSDK" */,
+				E1508FCF2DDF6F9900AB6B63 /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E11C07542A9907F00024334E /* Products */;
@@ -535,14 +535,6 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E11DD52E2CED4530009AE571 /* XCRemoteSwiftPackageReference "CloudStorage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nonstrict-hq/CloudStorage";
-			requirement = {
-				kind = exactVersion;
-				version = 0.7.0;
-			};
-		};
 		E11DD5312CED4585009AE571 /* XCRemoteSwiftPackageReference "SwiftSDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TelemetryDeck/SwiftSDK";
@@ -551,14 +543,17 @@
 				version = 2.9.4;
 			};
 		};
+		E1508FCF2DDF6F9900AB6B63 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults.git";
+			requirement = {
+				kind = exactVersion;
+				version = 9.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E11DD52F2CED4530009AE571 /* CloudStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E11DD52E2CED4530009AE571 /* XCRemoteSwiftPackageReference "CloudStorage" */;
-			productName = CloudStorage;
-		};
 		E11DD5322CED4585009AE571 /* TelemetryDeck */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E11DD5312CED4585009AE571 /* XCRemoteSwiftPackageReference "SwiftSDK" */;
@@ -567,6 +562,11 @@
 		E1473E9B2CD7FF2D00D8303F /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;
+		};
+		E1508FD02DDF6F9900AB6B63 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1508FCF2DDF6F9900AB6B63 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
 		};
 		E151F8902CCD9CAE0091FB0C /* Services */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Defaults
 import Models
 import Services
 import SwiftUI
@@ -12,7 +13,6 @@ struct AddTestReminderView: View {
   @Environment(\.colorScheme) var colorScheme
   @Environment(\.dismiss) var dismiss
   @Environment(ReminderManager.self) var reminderManager
-  @Environment(UserPreferences.self) var userPreferences
   @Environment(ErrorHandling.self) var errorHandling
 
   @State private var reminderTitle = String(localized: "test.reminder.title")
@@ -64,7 +64,8 @@ struct AddTestReminderView: View {
           let reminder = Reminder(
             title: reminderTitle,
             dueDate: reminderDueDate,
-            notes: String(localized: "test.reminder.notes"))
+            notes: String(localized: "test.reminder.notes")
+          )
           Task {
             do {
               try await reminderManager.save(reminder)
@@ -89,18 +90,21 @@ struct AddTestReminderView: View {
     }
     .onAppear {
       reminderTitle =
-        UserPreferences.shared.defaultProTimeReminderTitle.isEmpty
+        Defaults[.defaultProTimeReminderTitle].isEmpty
         ? String(localized: "test.reminder.title")
-        : UserPreferences.shared.defaultProTimeReminderTitle
+        : Defaults[.defaultProTimeReminderTitle]
       reminderDueDate = setDefaultReminder(from: Date.now)
     }
   }
 
   private func setDefaultReminder(from date: Date) -> Date {
     let defaultDate = date.addingTimeInterval(
-      .week * Double(userPreferences.defaultProTimeInterval))
+      .week * Double(Defaults[.defaultProTimeInterval])
+    )
     var components = Calendar.current.dateComponents(
-      [.year, .month, .day], from: defaultDate)
+      [.year, .month, .day],
+      from: defaultDate
+    )
     components.hour = 8
     return Calendar.current.date(from: components) ?? defaultDate
   }
@@ -111,7 +115,6 @@ struct AddTestReminderView: View {
   #Preview {
     AddTestReminderView()
       .environment(ReminderManager.shared)
-      .environment(UserPreferences.shared)
       .environment(ErrorHandling())
   }
 #endif
