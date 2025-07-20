@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- Replaced sync'd settings package with Sindre Sorhus' `Defaults` ([#66](https://github.com/robertwtucker/kfinderapp-ios/pull/66))
 - Updated package dependencies ([#65](https://github.com/robertwtucker/kfinderapp-ios/issues/65))
 
 ## [v1.1.3] - 2024-12-14

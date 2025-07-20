@@ -33,8 +33,7 @@ struct AppTabView: View {
                 .frame(width: 32, height: 32)
                 .foregroundStyle(Color.appForeground(for: colorScheme))
             }
-          }
-        )
+          })
       }
       .padding(.horizontal, 8)
       .frame(height: 72)
@@ -46,8 +45,7 @@ struct AppTabView: View {
           },
           set: { newTab in
             selectedTab = newTab
-          }
-        )
+          })
       ) {
         ForEach(Tab.validTabs) { tab in
           tab.makeContentView()
@@ -66,9 +64,10 @@ struct AppTabView: View {
 }
 
 #if DEBUG
-  #Preview {
-    AppTabView()
-      .environment(ReminderManager.shared)
-      .modelContainer(previewContainer)
-  }
+#Preview {
+  AppTabView()
+    .environment(UserPreferences.shared)
+    .environment(ReminderManager.shared)
+    .modelContainer(previewContainer)
+}
 #endif
