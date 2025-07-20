@@ -1,22 +1,13 @@
 {
-  "originHash" : "66c47076772acdb10de5c7e48179292b8db3ba13dcf6ea0c6495f25de1cf9cea",
+  "originHash" : "1252e78d6de093e42e4021e927f99cc437f04b09ebfdd44ef8afaa4699241469",
   "pins" : [
     {
-      "identity" : "defaults",
+      "identity" : "cloudstorage",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sindresorhus/Defaults.git",
+      "location" : "https://github.com/nonstrict-hq/CloudStorage",
       "state" : {
-        "revision" : "00c82eff4550c87cf9c547d7e5493a6a97837061",
-        "version" : "9.0.3"
-      }
-    },
-    {
-      "identity" : "swift-syntax",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/swiftlang/swift-syntax",
-      "state" : {
-        "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
-        "version" : "601.0.1"
+        "revision" : "d94cb14e563c1a20edeba8a861395c60c2b9d064",
+        "version" : "0.7.0"
       }
     },
     {

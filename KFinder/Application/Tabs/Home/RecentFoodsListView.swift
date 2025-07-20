@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: MIT
 //
 
-import Defaults
 import Models
 import Services
 import SwiftData
@@ -22,7 +21,7 @@ struct RecentFoodsListView: View {
         .init(\.updatedAt, order: .reverse)
       ]
     )
-    descriptor.fetchLimit = Defaults[.recentFoodsLimit]
+    descriptor.fetchLimit = UserPreferences.shared.recentFoodsLimit
     return descriptor
   }
 
@@ -72,8 +71,9 @@ struct RecentFoodsListView: View {
 }
 
 #if DEBUG
-  #Preview {
-    RecentFoodsListView()
-      .modelContainer(previewContainer)
-  }
+#Preview {
+  RecentFoodsListView()
+    .environment(UserPreferences.shared)
+    .modelContainer(previewContainer)
+}
 #endif

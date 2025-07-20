@@ -12,6 +12,7 @@ struct EditTestReminderView: View {
   @Environment(\.colorScheme) var colorScheme
   @Environment(\.dismiss) var dismiss
   @Environment(ReminderManager.self) var reminderManager
+  @Environment(UserPreferences.self) var userPreferences
   @Environment(ErrorHandling.self) var errorHandling
 
   @State var reminder: Reminder
@@ -95,6 +96,7 @@ struct EditTestReminderView: View {
   #Preview {
     EditTestReminderView(Reminder.sample)
       .environment(ReminderManager.shared)
+      .environment(UserPreferences.shared)
       .environment(ErrorHandling())
   }
 #endif
