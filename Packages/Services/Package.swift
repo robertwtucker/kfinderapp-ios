@@ -16,7 +16,8 @@ let package = Package(
             targets: ["Services"])
     ],
     dependencies: [
-      .package(name: "Models", path: "../Models")
+      .package(name: "Models", path: "../Models"),
+      .package(url: "https://github.com/sindresorhus/Defaults", from: "9.0.3"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +25,8 @@ let package = Package(
         .target(
             name: "Services",
             dependencies: [
-                .product(name: "Models", package: "Models")
+                .product(name: "Models", package: "Models"),
+                .product(name: "Defaults", package: "Defaults")
             ],
             swiftSettings: [
                 .swiftLanguageMode(.v6)
