@@ -29,7 +29,7 @@ jobs:
           xcode-version: ${{ matrix.xcode }}
 
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Build
         run: set -o pipefail && xcodebuild clean build -scheme KFinder -project KFinder.xcodeproj -destination "${{matrix.destination}}" | xcpretty && exit ${PIPESTATUS[0]}
