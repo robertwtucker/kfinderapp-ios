@@ -51,6 +51,7 @@ platform :ios do
 
   lane :beta do
     build_release
+    increment_build_number
     upload_to_testflight
   end
 
