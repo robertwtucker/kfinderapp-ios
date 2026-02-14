@@ -46,3 +46,6 @@ Secrets.xcconfig
 
 ### SweetPad ###
 buildServer.json
+
+### Claude ###
+.claude/*.local.*
