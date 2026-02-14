@@ -240,7 +240,7 @@ struct FoodSearchCriteriaTests {
         .foundation,
         .survey,
         .legacy,
-        .unspecified,
+        .unspecified
       ]
     )
     func roundTrip(dataSet: FoodSearchCriteria.DataSet) throws {
@@ -259,7 +259,7 @@ struct FoodSearchCriteriaTests {
         FoodSearchCriteria.SortBy.datatype,
         .description,
         .fdcid,
-        .published,
+        .published
       ]
     )
     func roundTrip(sortBy: FoodSearchCriteria.SortBy) throws {
@@ -276,7 +276,7 @@ struct FoodSearchCriteriaTests {
       "encodes and decodes all cases",
       arguments: [
         FoodSearchCriteria.SortOrder.ascending,
-        .descending,
+        .descending
       ]
     )
     func roundTrip(sortOrder: FoodSearchCriteria.SortOrder) throws {

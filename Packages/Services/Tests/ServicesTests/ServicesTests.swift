@@ -22,7 +22,7 @@ struct ReminderStoreErrorTests {
       .failedReadingReminder,
       .failedRemovingReminder,
       .reminderHasNoDueDate,
-      .unknown,
+      .unknown
     ]
   )
   func errorDescriptions(error: ReminderStoreError) {

@@ -92,8 +92,7 @@ import SwiftUI
         store.longLong(forKey: "defaultProTimeInterval"))
     }
     if let title = store.string(forKey: "defaultProTimeReminderTitle"),
-      !title.isEmpty
-    {
+      !title.isEmpty {
       settings.defaultProTimeReminderTitle = title
     }
     if let reminderId = store.string(forKey: "proTimeReminderId") {

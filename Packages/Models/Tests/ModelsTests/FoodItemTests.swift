@@ -157,7 +157,7 @@ struct FoodItemTests {
             unitName: "G", value: 24.7, indentLevel: 1),
           SearchFoodNutrient(
             _id: 1004, name: "Fat", number: "204",
-            unitName: "G", value: 17.6, indentLevel: 1),
+            unitName: "G", value: 17.6, indentLevel: 1)
         ]
       )
       let item = FoodItem(from: search)

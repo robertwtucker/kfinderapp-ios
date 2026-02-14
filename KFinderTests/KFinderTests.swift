@@ -28,7 +28,7 @@ struct FoodDisplayHelperTests {
             number: "430", name: "Vitamin K (phylloquinone)",
             unitName: "UG", value: 74.1),
           FoodNutrient(
-            number: "203", name: "Protein", unitName: "G", value: 24.7),
+            number: "203", name: "Protein", unitName: "G", value: 24.7)
         ])
       let helper = FoodDisplayHelper(food)
       #expect(helper.nutrientsWithVitaminK.count == 1)
@@ -69,7 +69,7 @@ struct FoodDisplayHelperTests {
           FoodNutrient(
             number: "203", name: "Protein", unitName: "G", value: 24.7),
           FoodNutrient(
-            number: "431", name: "Folic acid", unitName: "UG", value: 0.0),
+            number: "431", name: "Folic acid", unitName: "UG", value: 0.0)
         ])
       let helper = FoodDisplayHelper(food)
       #expect(helper.nutrientsWithVitaminK.isEmpty)
@@ -97,7 +97,7 @@ struct FoodDisplayHelperTests {
             number: "430", name: "Vitamin K (phylloquinone)",
             unitName: "UG", value: 74.1),
           FoodNutrient(
-            number: "203", name: "Protein", unitName: "G", value: 24.7),
+            number: "203", name: "Protein", unitName: "G", value: 24.7)
         ])
       let helper = FoodDisplayHelper(food)
       #expect(helper.nutrientsWithVitaminK.count == 3)
@@ -119,7 +119,7 @@ struct FoodDisplayHelperTests {
           FoodNutrient(
             number: "203", name: "Protein", unitName: "G", value: 24.7),
           FoodNutrient(
-            number: "208", name: "Energy", unitName: "KCAL", value: 271),
+            number: "208", name: "Energy", unitName: "KCAL", value: 271)
         ])
       let helper = FoodDisplayHelper(food)
       let result = helper.nutrientsOtherThanVitaminK
@@ -151,7 +151,7 @@ struct FoodDisplayHelperTests {
             number: "430", name: "Vitamin K",
             unitName: "UG", value: 74.1),
           FoodNutrient(
-            number: "203", name: "Protein", unitName: "G", value: 24.7),
+            number: "203", name: "Protein", unitName: "G", value: 24.7)
         ])
       let helper = FoodDisplayHelper(food)
       #expect(abs(helper.sumOfVitaminKValues - 79.1) < 0.001)
