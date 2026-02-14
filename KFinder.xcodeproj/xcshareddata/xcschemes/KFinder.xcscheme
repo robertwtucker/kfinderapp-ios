@@ -39,11 +39,11 @@
       shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
-            skipped = "YES"
+            skipped = "NO"
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E11C07622A9907F30024334E"
+               BlueprintIdentifier = "E146B3932F40467B00146C06"
                BuildableName = "KFinderTests.xctest"
                BlueprintName = "KFinderTests"
                ReferencedContainer = "container:KFinder.xcodeproj">
