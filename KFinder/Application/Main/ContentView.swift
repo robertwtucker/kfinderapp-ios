@@ -12,13 +12,22 @@ struct ContentView: View {
   @State var userPreferences = UserPreferences.shared
   @State var reminderManager = ReminderManager.shared
 
+  let container: ModelContainer
+
+  init() {
+    do {
+      container = try ModelContainer(for: FoodItem.self, UserSettings.self)
+    } catch {
+      fatalError("Failed to create ModelContainer: \(error)")
+    }
+    UserPreferences.shared.configure(with: container)
+  }
+
   var body: some View {
     AppTabView()
       .environment(userPreferences)
       .environment(reminderManager)
-      .modelContainer(for: [
-        FoodItem.self
-      ])
+      .modelContainer(container)
       .withErrorHandling()
       .task {
         await reminderManager.listenForReminderChanges()

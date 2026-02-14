@@ -11,7 +11,8 @@ import SwiftData
   let previewContainer: ModelContainer = {
     do {
       let container = try ModelContainer(
-        for: FoodItem.self, configurations: .init(isStoredInMemoryOnly: true))
+        for: FoodItem.self, UserSettings.self,
+        configurations: .init(isStoredInMemoryOnly: true))
       for sample in FoodItem.samples {
         container.mainContext.insert(sample)
       }
