@@ -14,22 +14,11 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-15
-    strategy:
-      fail-fast: false
-      matrix:
-        xcode:
-          - "16"
-        destination:
-          - "platform=iOS Simulator,OS=18.6,name=iPhone 16"
-    steps:
-      - name: Setup Xcode
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: ${{ matrix.xcode }}
+    runs-on: macos-latest
 
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
       - name: Build
-        run: set -o pipefail && xcodebuild clean build -scheme KFinder -project KFinder.xcodeproj -destination "${{matrix.destination}}" | xcpretty && exit ${PIPESTATUS[0]}
+        run: set -o pipefail && xcodebuild clean build -scheme KFinder -project KFinder.xcodeproj -destination "platform=iOS Simulator,OS=26.2,name=iPhone 17 Air" | xcpretty && exit ${PIPESTATUS[0]}
