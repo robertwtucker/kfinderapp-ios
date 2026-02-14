@@ -21,4 +21,4 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Build
-        run: set -o pipefail && xcodebuild clean build -scheme KFinder -project KFinder.xcodeproj -destination "platform=iOS Simulator,OS=26.2,name=iPhone 17 Air" | xcpretty && exit ${PIPESTATUS[0]}
+        run: set -o pipefail && xcodebuild clean build -scheme KFinder -project KFinder.xcodeproj -destination "platform=iOS Simulator,OS=26.2,name=iPhone Air" | xcpretty && exit ${PIPESTATUS[0]}
