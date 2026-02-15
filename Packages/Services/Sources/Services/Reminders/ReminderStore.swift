@@ -53,7 +53,7 @@ import SwiftUI
     } catch {
       ekReminder = EKReminder(eventStore: eventStore)
     }
-    ekReminder.update(using: reminder, in: eventStore)
+    try ekReminder.update(using: reminder, in: eventStore)
     try eventStore.save(ekReminder, commit: true)
     return ekReminder.calendarItemIdentifier
   }

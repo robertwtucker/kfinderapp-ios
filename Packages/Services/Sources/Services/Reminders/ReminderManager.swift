@@ -20,7 +20,7 @@ import SwiftUI
   }
 
   private let logger = Logger(
-    subsystem: Bundle.main.bundleIdentifier!,
+    subsystem: Bundle.main.bundleIdentifier ?? "dev.eclectic.KFinder",
     category: String(describing: ReminderManager.self))
 
   public func setupReminders() async throws {

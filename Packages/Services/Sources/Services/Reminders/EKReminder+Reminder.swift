@@ -8,11 +8,14 @@ import Foundation
 import Models
 
 extension EKReminder {
-  func update(using reminder: Reminder, in store: EKEventStore) {
+  func update(using reminder: Reminder, in store: EKEventStore) throws {
     title = reminder.title
     notes = reminder.notes
     isCompleted = reminder.isCompleted
-    calendar = store.defaultCalendarForNewReminders()
+    guard let defaultCalendar = store.defaultCalendarForNewReminders() else {
+      throw ReminderStoreError.failedReadingCalendar
+    }
+    calendar = defaultCalendar
     alarms?.forEach { alarm in
       guard let absoluteDate = alarm.absoluteDate else { return }
       let comparison = Locale.current.calendar.compare(
