@@ -35,7 +35,8 @@ import SwiftUI
 
   public var defaultProTimeReminderTitle: String = String(
     localized: "test.reminder.title"
-  ) {
+  )
+  {
     didSet { save() }
   }
 
@@ -50,10 +51,21 @@ import SwiftUI
   private init() {}
 
   public func configure(with container: ModelContainer) {
-    let context = ModelContext(container)
-    context.autosaveEnabled = true
-    self.modelContext = context
+    modelContext = container.mainContext
+    observeRemoteChanges()
     loadSettings()
+  }
+
+  private func observeRemoteChanges() {
+    NotificationCenter.default.addObserver(
+      forName: NSNotification.Name.NSPersistentStoreRemoteChange,
+      object: nil,
+      queue: nil
+    ) { [weak self] _ in
+      Task { @MainActor [weak self] in
+        self?.loadSettings()
+      }
+    }
   }
 
   private func loadSettings() {
@@ -69,6 +81,14 @@ import SwiftUI
     } catch {
       logger.error("loadSettings fetch failed: \(error)")
       return
+    }
+
+    if results.count > 1 {
+      logger.warning("loadSettings: deduplicating \(results.count) settings records")
+      for duplicate in results.dropFirst() {
+        modelContext.delete(duplicate)
+      }
+      try? modelContext.save()
     }
 
     let settings: UserSettings
@@ -114,7 +134,8 @@ import SwiftUI
         store.longLong(forKey: "defaultProTimeInterval"))
     }
     if let title = store.string(forKey: "defaultProTimeReminderTitle"),
-      !title.isEmpty {
+      !title.isEmpty
+    {
       settings.defaultProTimeReminderTitle = title
     }
     if let reminderId = store.string(forKey: "proTimeReminderId") {
