@@ -52,14 +52,14 @@ import SwiftData
 
 // MARK: - Samples
 #if DEBUG
-  extension FoodItem: @unchecked Sendable {
-    public static let empty = FoodItem(
+  extension FoodItem {
+    nonisolated(unsafe) public static let empty = FoodItem(
       id: 0,
       name: "",
       dataType: FoodSearchCriteria.DataSet.unspecified.rawValue
     )
 
-    public static let samples = [
+    nonisolated(unsafe) public static let samples = [
       FoodItem(
         id: 2_341_130,
         name: "Cheese, Muenster, reduced fat",

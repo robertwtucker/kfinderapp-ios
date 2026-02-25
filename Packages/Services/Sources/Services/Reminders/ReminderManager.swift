@@ -79,8 +79,7 @@ import SwiftUI
   public func listenForReminderChanges() async {
     let center = NotificationCenter.default
     let notifications = center.notifications(
-      named: .EKEventStoreChanged,
-      object: reminderStore.eventStore
+      named: .EKEventStoreChanged
     ).map({ (notification: Notification) in
       notification.name
     })
