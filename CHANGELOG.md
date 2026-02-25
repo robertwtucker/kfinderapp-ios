@@ -7,13 +7,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v1.2.0] - 2026-02-25
+
+### Added
+
+- Unit tests now run with builds to help detect regressions ([#79](https://github.com/robertwtucker/kfinderapp-ios/issues/79))
+- SwiftData is now used to sync settings ([#77](https://github.com/robertwtucker/kfinderapp-ios/issues/77))
+
 ### Changed
 
-- Updated package dependencies ([#65](https://github.com/robertwtucker/kfinderapp-ios/issues/65))
+- Updated app package dependencies ([#80](https://github.com/robertwtucker/kfinderapp-ios/issues/80),[#65](https://github.com/robertwtucker/kfinderapp-ios/issues/65))
+- Updated CI workflows and dependencies ([#76](https://github.com/robertwtucker/kfinderapp-ios/issues/76),
+  [#74](https://github.com/robertwtucker/kfinderapp-ios/issues/74),
+  [#73](https://github.com/robertwtucker/kfinderapp-ios/issues/73),
+  [#72](https://github.com/robertwtucker/kfinderapp-ios/issues/72),
+  [#71](https://github.com/robertwtucker/kfinderapp-ios/issues/71),
+  [#70](https://github.com/robertwtucker/kfinderapp-ios/issues/70))
 
 ## [v1.1.3] - 2024-12-14
 
-## Added
+### Added
 
 - Reminders can now be edited and completed directly in the app ([#63](https://github.com/robertwtucker/kfinderapp-ios/pull/63))
 
@@ -76,7 +89,7 @@ Feature-complete MVP to begin testing for release in the app store.
 - Added CI and code scanning scripts ([#28](https://github.com/robertwtucker/kfinderapp-ios/pull/28))
 - Feature to create and track PT/INR testing reminders ([#32](https://github.com/robertwtucker/kfinderapp-ios/pull/32),
   [#25](https://github.com/robertwtucker/kfinderapp-ios/pull/25))
-- Support for listing configurable number of most-recenly viewed foods ([#35](https://github.com/robertwtucker/kfinderapp-ios/pull/35),
+- Support for listing configurable number of most-recently viewed foods ([#35](https://github.com/robertwtucker/kfinderapp-ios/pull/35),
   [#26](https://github.com/robertwtucker/kfinderapp-ios/pull/26),
   [#22](https://github.com/robertwtucker/kfinderapp-ios/pull/22))
 - Synchronized storage with SwiftData and CloudKit ([#17](https://github.com/robertwtucker/kfinderapp-ios/pull/17))
@@ -152,7 +165,8 @@ Initial prototype with basic search and display
   [CocoaPods](https://cocoapods.org/about) for dependency management
 - Replaced CoreData with [Realm](https://realm.io/)
 
-[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.3...HEAD
+[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.2.0...HEAD
+[v1.2.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.3...v1.2.0
 [v1.1.3]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.2...v1.1.3
 [v1.1.2]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.1...v1.1.2
 [v1.1.1]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.0...v1.1.1
