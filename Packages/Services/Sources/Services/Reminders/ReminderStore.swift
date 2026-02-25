@@ -35,8 +35,9 @@ import SwiftUI
       throw ReminderStoreError.accessDenied
     }
     guard
-      let ekReminder = eventStore.calendarItem(withIdentifier: id)
-        as? EKReminder
+      let ekReminder = eventStore.calendarItems(withExternalIdentifier: id)
+        .compactMap({ $0 as? EKReminder })
+        .first
     else {
       return nil
     }
@@ -55,7 +56,7 @@ import SwiftUI
     }
     try ekReminder.update(using: reminder, in: eventStore)
     try eventStore.save(ekReminder, commit: true)
-    return ekReminder.calendarItemIdentifier
+    return ekReminder.calendarItemExternalIdentifier
   }
 
   func remove(with id: Reminder.ID) throws {
@@ -75,8 +76,9 @@ import SwiftUI
 
   private func read(with id: Reminder.ID) throws -> EKReminder {
     guard
-      let ekReminder = eventStore.calendarItem(withIdentifier: id)
-        as? EKReminder
+      let ekReminder = eventStore.calendarItems(withExternalIdentifier: id)
+        .compactMap({ $0 as? EKReminder })
+        .first
     else {
       throw ReminderStoreError.failedReadingCalendar
     }
