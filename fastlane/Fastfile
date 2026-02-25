@@ -50,9 +50,13 @@ platform :ios do
   end
 
   lane :beta do
-    build_release
     increment_build_number
+    build_release
     upload_to_testflight
+    commit_version_bump(
+      xcodeproj: "KFinder.xcodeproj",
+      message: "build: auto-bump"
+    )
   end
 
 end
