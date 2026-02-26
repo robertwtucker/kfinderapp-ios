@@ -1,4 +1,4 @@
-git_url("ENV[MATCH_GIT_URL]")
+git_url("git@github.com:robertwtucker/certificates.git")
 
 storage_mode("git")
 

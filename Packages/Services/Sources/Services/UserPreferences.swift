@@ -4,6 +4,7 @@
 //
 
 import Models
+import OSLog
 import SwiftData
 import SwiftUI
 
@@ -12,8 +13,13 @@ import SwiftUI
 
   public static let shared = UserPreferences()
 
+  private let logger = Logger(
+    subsystem: Bundle.main.bundleIdentifier ?? "dev.eclectic.KFinder",
+    category: "UserPreferences"
+  )
   private var modelContext: ModelContext?
   private var settings: UserSettings?
+  private var isLoading = false
 
   public var dailyKTarget: Double = 120 {
     didSet { save() }
@@ -44,17 +50,45 @@ import SwiftUI
   private init() {}
 
   public func configure(with container: ModelContainer) {
-    let context = ModelContext(container)
-    context.autosaveEnabled = true
-    self.modelContext = context
+    modelContext = container.mainContext
+    observeRemoteChanges()
     loadSettings()
   }
 
-  private func loadSettings() {
-    guard let modelContext else { return }
+  private func observeRemoteChanges() {
+    NotificationCenter.default.addObserver(
+      forName: NSNotification.Name.NSPersistentStoreRemoteChange,
+      object: nil,
+      queue: nil
+    ) { [weak self] _ in
+      Task { @MainActor [weak self] in
+        self?.loadSettings()
+      }
+    }
+  }
 
-    let descriptor = FetchDescriptor<UserSettings>()
-    let results = (try? modelContext.fetch(descriptor)) ?? []
+  private func loadSettings() {
+    guard let modelContext else {
+      logger.error("loadSettings called before context was configured")
+      return
+    }
+
+    let results: [UserSettings]
+    do {
+      results = try modelContext.fetch(FetchDescriptor<UserSettings>())
+      logger.debug("loadSettings: found \(results.count) record(s)")
+    } catch {
+      logger.error("loadSettings fetch failed: \(error)")
+      return
+    }
+
+    if results.count > 1 {
+      logger.warning("loadSettings: deduplicating \(results.count) settings records")
+      for duplicate in results.dropFirst() {
+        modelContext.delete(duplicate)
+      }
+      try? modelContext.save()
+    }
 
     let settings: UserSettings
     if let existing = results.first {
@@ -62,10 +96,17 @@ import SwiftUI
     } else {
       settings = migrateFromCloudStorage()
       modelContext.insert(settings)
-      try? modelContext.save()
+      do {
+        try modelContext.save()
+        logger.debug("loadSettings: inserted and saved new settings record")
+      } catch {
+        logger.error("loadSettings initial save failed: \(error)")
+      }
     }
 
     self.settings = settings
+    isLoading = true
+    defer { isLoading = false }
     dailyKTarget = settings.dailyKTarget
     setProTimeReminders = settings.setProTimeReminders
     defaultProTimeInterval = settings.defaultProTimeInterval
@@ -107,13 +148,17 @@ import SwiftUI
   }
 
   private func save() {
-    guard let settings else { return }
+    guard !isLoading, let settings else { return }
     settings.dailyKTarget = dailyKTarget
     settings.setProTimeReminders = setProTimeReminders
     settings.defaultProTimeInterval = defaultProTimeInterval
     settings.defaultProTimeReminderTitle = defaultProTimeReminderTitle
     settings.proTimeReminderId = proTimeReminderId
     settings.recentFoodsLimit = recentFoodsLimit
-    try? modelContext?.save()
+    do {
+      try modelContext?.save()
+    } catch {
+      logger.error("save failed: \(error)")
+    }
   }
 }

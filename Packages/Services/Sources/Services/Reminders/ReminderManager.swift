@@ -20,7 +20,7 @@ import SwiftUI
   }
 
   private let logger = Logger(
-    subsystem: Bundle.main.bundleIdentifier!,
+    subsystem: Bundle.main.bundleIdentifier ?? "dev.eclectic.KFinder",
     category: String(describing: ReminderManager.self))
 
   public func setupReminders() async throws {
@@ -79,8 +79,7 @@ import SwiftUI
   public func listenForReminderChanges() async {
     let center = NotificationCenter.default
     let notifications = center.notifications(
-      named: .EKEventStoreChanged,
-      object: reminderStore.eventStore
+      named: .EKEventStoreChanged
     ).map({ (notification: Notification) in
       notification.name
     })

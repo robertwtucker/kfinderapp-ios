@@ -1,8 +1,6 @@
 //
-//  File.swift
-//  Services
-//
-//  Created by Robert Tucker on 11/6/24.
+// SPDX-FileCopyrightText: (c) 2024 Robert Tucker
+// SPDX-License-Identifier: MIT
 //
 
 import EventKit
@@ -14,7 +12,7 @@ extension Reminder {
       throw ReminderStoreError.reminderHasNoDueDate
     }
     self.init(
-      id: ekReminder.calendarItemIdentifier, title: ekReminder.title,
+      id: ekReminder.calendarItemExternalIdentifier, title: ekReminder.title,
       dueDate: dueDate, notes: ekReminder.notes,
       isCompleted: ekReminder.isCompleted)
   }
