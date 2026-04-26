@@ -72,5 +72,5 @@ EventKit for reminders.
 
 ## Dependencies
 
-- **TelemetryDeck** (v2.9.4) — Privacy-first analytics
+- **TelemetryDeck** (v2.12.0) — Privacy-first analytics
 - **fastlane** — Build automation (Ruby gem)
