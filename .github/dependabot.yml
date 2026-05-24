@@ -4,4 +4,11 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      day: sunday
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    groups:
+      fastlane-and-deps:
+        patterns: ["*"]
