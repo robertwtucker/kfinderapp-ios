@@ -40,6 +40,12 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
+# Local bundle and vendor packages from running fastlane with Bundler
+.bundle/*
+vendor/bundle
+# bundle config file not ignored (project-level settings)
+!.bundle/config
+
 ### Config Secrets ###
 Secrets.xcconfig
 .env.*
