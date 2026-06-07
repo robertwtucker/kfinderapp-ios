@@ -1,0 +1,8 @@
+schemaVersion: 1
+sessionDefaults:
+  projectPath: /Users/robert/projects/kfinderapp-ios/KFinder.xcodeproj
+  scheme: KFinder
+  simulatorName: iPhone Air
+  simulatorId: 694B5363-1BB9-40E9-A01F-EDA4247A8CA7
+  simulatorPlatform: iOS Simulator
+  bundleId: dev.eclectic.KFinder
