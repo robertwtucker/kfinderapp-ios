@@ -44,7 +44,12 @@ import SwiftUI
   }
 
   public var recentFoodsLimit: Int = 5 {
-    didSet { save() }
+    didSet {
+      save()
+      if !isLoading {
+        enforceRecentFoodsLimit()
+      }
+    }
   }
 
   private init() {}
@@ -113,6 +118,8 @@ import SwiftUI
     defaultProTimeReminderTitle = settings.defaultProTimeReminderTitle
     proTimeReminderId = settings.proTimeReminderId
     recentFoodsLimit = settings.recentFoodsLimit
+
+    enforceRecentFoodsLimit()
   }
 
   private func migrateFromCloudStorage() -> UserSettings {
@@ -159,6 +166,27 @@ import SwiftUI
       try modelContext?.save()
     } catch {
       logger.error("save failed: \(error)")
+    }
+  }
+
+  public func enforceRecentFoodsLimit() {
+    guard let modelContext else { return }
+    let limit = recentFoodsLimit
+    let descriptor = FetchDescriptor<FoodItem>(
+      sortBy: [.init(\.updatedAt, order: .forward)]
+    )
+    do {
+      let items = try modelContext.fetch(descriptor)
+      if items.count > limit {
+        let toDelete = items.prefix(items.count - limit)
+        for item in toDelete {
+          modelContext.delete(item)
+        }
+        try? modelContext.save()
+        logger.debug("enforceRecentFoodsLimit: pruned \(toDelete.count) FoodItem record(s) to limit \(limit)")
+      }
+    } catch {
+      logger.error("enforceRecentFoodsLimit failed: \(error)")
     }
   }
 }
