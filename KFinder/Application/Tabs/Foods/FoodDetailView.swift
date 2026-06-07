@@ -5,6 +5,7 @@
 
 import Models
 import OSLog
+import Services
 import SwiftData
 import SwiftUI
 
@@ -52,6 +53,8 @@ struct FoodDetailView: View {
         food.updatedAt = Date.now
         context.insert(food)
       }
+      try? context.save()
+      UserPreferences.shared.enforceRecentFoodsLimit()
     }
   }
 }
