@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v1.2.1] - 2026-06-08
+
+### Fixed
+
+- Recently viewed foods no longer accumulate indefinitely in the SwiftData + CloudKit store. The `recentFoodsLimit` setting now prunes excess `FoodItem` records (with full nutrients and measures) from storage (oldest first by `updatedAt`). Pruning is enforced after viewing a food, on limit changes, and at launch. ([#87](https://github.com/robertwtucker/kfinderapp-ios/pull/87))
+
+### Changed
+
+- Updated TelemetryDeck/SwiftSDK to v2.12.0 ([#83](https://github.com/robertwtucker/kfinderapp-ios/pull/83))
+
 ## [v1.2.0] - 2026-02-25
 
 ### Added
@@ -165,7 +175,8 @@ Initial prototype with basic search and display
   [CocoaPods](https://cocoapods.org/about) for dependency management
 - Replaced CoreData with [Realm](https://realm.io/)
 
-[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.2.1...HEAD
+[v1.2.1]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.2.0...v1.2.1
 [v1.2.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.3...v1.2.0
 [v1.1.3]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.2...v1.1.3
 [v1.1.2]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.1...v1.1.2
