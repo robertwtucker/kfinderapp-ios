@@ -31,6 +31,7 @@ struct KFinderApp: App {
     } catch {
       fatalError("Failed to create ModelContainer: \(error)")
     }
+    RecentFoodMigrator.migrateIfNeeded(in: container)
     UserPreferences.shared.configure(with: container)
   }
 }
