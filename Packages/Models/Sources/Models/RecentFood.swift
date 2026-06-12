@@ -62,7 +62,7 @@ import SwiftData
         category: "Other vegetables and combinations",
         dataType: "Survey (FNDDS)",
         vitaminKPer100g: 74.1
-      ),
+      )
     ]
   }
 #endif

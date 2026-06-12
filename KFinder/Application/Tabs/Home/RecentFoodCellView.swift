@@ -34,8 +34,8 @@ struct RecentFoodCellView: View {
 
   private var vitaminKPercent: Double {
     let target = userPreferences.dailyKTarget
-    guard let k = food.vitaminKPer100g, k > 0, target > 0 else { return 0 }
-    return k / target
+    guard let vitaminK = food.vitaminKPer100g, vitaminK > 0, target > 0 else { return 0 }
+    return vitaminK / target
   }
 
   private var vitaminKColor: Color {
