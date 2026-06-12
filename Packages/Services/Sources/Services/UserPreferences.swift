@@ -172,8 +172,8 @@ import SwiftUI
   public func enforceRecentFoodsLimit() {
     guard let modelContext else { return }
     let limit = recentFoodsLimit
-    let descriptor = FetchDescriptor<FoodItem>(
-      sortBy: [.init(\.updatedAt, order: .forward)]
+    let descriptor = FetchDescriptor<RecentFood>(
+      sortBy: [.init(\.viewedAt, order: .forward)]
     )
     do {
       let items = try modelContext.fetch(descriptor)
@@ -183,7 +183,7 @@ import SwiftUI
           modelContext.delete(item)
         }
         try? modelContext.save()
-        logger.debug("enforceRecentFoodsLimit: pruned \(toDelete.count) FoodItem record(s) to limit \(limit)")
+        logger.debug("enforceRecentFoodsLimit: pruned \(toDelete.count) RecentFood record(s) to limit \(limit)")
       }
     } catch {
       logger.error("enforceRecentFoodsLimit failed: \(error)")

@@ -13,12 +13,12 @@ struct RecentFoodsListView: View {
   @Environment(\.modelContext) private var modelContext
   @Environment(\.defaultMinListRowHeight) var minRowHeight
 
-  @Query(RecentFoodsListView.fetchDescriptor) private var foods: [FoodItem]
+  @Query(RecentFoodsListView.fetchDescriptor) private var foods: [RecentFood]
 
-  static var fetchDescriptor: FetchDescriptor<FoodItem> {
-    var descriptor = FetchDescriptor<FoodItem>(
+  static var fetchDescriptor: FetchDescriptor<RecentFood> {
+    var descriptor = FetchDescriptor<RecentFood>(
       sortBy: [
-        .init(\.updatedAt, order: .reverse)
+        .init(\.viewedAt, order: .reverse)
       ]
     )
     descriptor.fetchLimit = UserPreferences.shared.recentFoodsLimit
@@ -28,22 +28,21 @@ struct RecentFoodsListView: View {
   var body: some View {
     if foods.count > 0 {
       ForEach(foods, id: \.self) { food in
-        NavigationLink(destination: FoodDetailView(food: food)) {
-          FoodsListCellView(food: food)
-            .padding(.vertical)
-        }
-        .background(
-          RoundedRectangle(cornerRadius: .cornerRadius)
-            .fill(Color.appBackground(for: colorScheme))
-            .withCardShadow()
-        )
-        .contextMenu {
-          Button {
-            modelContext.delete(food)
-          } label: {
-            Label("foods.recent.remove", systemImage: "trash")
+        // Tap-through to detail is restored by #96 (fetchFood by fdcId).
+        RecentFoodCellView(food: food)
+          .padding(.vertical)
+          .background(
+            RoundedRectangle(cornerRadius: .cornerRadius)
+              .fill(Color.appBackground(for: colorScheme))
+              .withCardShadow()
+          )
+          .contextMenu {
+            Button {
+              modelContext.delete(food)
+            } label: {
+              Label("foods.recent.remove", systemImage: "trash")
+            }
           }
-        }
       }
     } else {
       VStack(alignment: .leading) {
