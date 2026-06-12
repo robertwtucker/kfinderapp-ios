@@ -44,6 +44,17 @@ import SwiftData
       viewedAt: .now
     )
   }
+
+  // FDC nutrient numbers 428/429/430 are the vitamin K family
+  // (menaquinone-4, dihydrophylloquinone, phylloquinone). Values
+  // are reported per 100 g, so summing matches the cache contract.
+  public static func vitaminKPer100g(from nutrients: [FoodNutrient]?) -> Double? {
+    guard let nutrients else { return nil }
+    let sum = nutrients
+      .filter { ["428", "429", "430"].contains($0.number) }
+      .reduce(0.0) { $0 + $1.value }
+    return sum > 0 ? sum : nil
+  }
 }
 
 #if DEBUG
