@@ -11,7 +11,7 @@ import SwiftUI
 
 struct FoodDetailView: View {
   @Environment(\.modelContext) private var context
-  @Query private var foods: [FoodItem]
+  @Query private var recents: [RecentFood]
   @State var food: FoodItem
 
   private let logger = Logger(
@@ -20,8 +20,8 @@ struct FoodDetailView: View {
 
   init(food: FoodItem) {
     self.food = food
-    let id = food.id
-    _foods = Query(filter: #Predicate<FoodItem> { $0.id == id })
+    let fdcId = food.id
+    _recents = Query(filter: #Predicate<RecentFood> { $0.fdcId == fdcId })
   }
 
   var body: some View {
@@ -45,13 +45,15 @@ struct FoodDetailView: View {
       FoodNutrientListView(food: food)
     }
     .onAppear {
-      if let stored = foods.first {
-        logger.debug("Updating stored food item: '[\(food.id)]  \(food.name)'")
-        stored.updatedAt = Date.now
+      let vitaminKPer100g = helper.sumOfVitaminKValues
+      if let stored = recents.first {
+        logger.debug("Updating recent food: '[\(food.id)]  \(food.name)'")
+        stored.viewedAt = .now
+        stored.vitaminKPer100g = vitaminKPer100g
       } else {
-        logger.debug("Storing new food item: '[\(food.id)]  \(food.name)'")
-        food.updatedAt = Date.now
-        context.insert(food)
+        logger.debug("Storing new recent food: '[\(food.id)]  \(food.name)'")
+        context.insert(
+          RecentFood(from: food, vitaminKPer100g: vitaminKPer100g))
       }
       try? context.save()
       UserPreferences.shared.enforceRecentFoodsLimit()

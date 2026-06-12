@@ -26,7 +26,8 @@ struct KFinderApp: App {
     TelemetryDeck.signal("app.launched")
 
     do {
-      container = try ModelContainer(for: FoodItem.self, UserSettings.self)
+      container = try ModelContainer(
+        for: FoodItem.self, RecentFood.self, UserSettings.self)
     } catch {
       fatalError("Failed to create ModelContainer: \(error)")
     }
