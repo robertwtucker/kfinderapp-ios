@@ -48,6 +48,65 @@ import SwiftData
     self.nutrients = from.foodNutrients?.map { FoodNutrient(from: $0) } ?? []
     self.measures = from.foodMeasures?.map { FoodMeasure(from: $0) } ?? []
   }
+
+  // Maps the `/food/{fdcId}?format=full` payload (issue #96). Filters out
+  // header rows in `foodNutrients` (Proximates, Minerals, …) that have no
+  // `id`/`amount`, and prefers `modifier` text for portions because the
+  // FNDDS `portionDescription` is usually a generic "Quantity not specified".
+  public init(from response: FoodDetailResponse) {
+    self.id = response.fdcId
+    self.name = response.description
+    self.dataType = response.dataType ?? response.foodClass
+      ?? FoodSearchCriteria.DataSet.unspecified.rawValue
+    self.category = response.wweiaFoodCategory?.wweiaFoodCategoryDescription
+
+    self.extra = response.foodAttributes?
+      .filter { $0.foodAttributeType?.name == "Additional Description" }
+      .compactMap { attribute -> (Int, String)? in
+        guard let value = attribute.value, !value.isEmpty else { return nil }
+        return (attribute.sequenceNumber ?? Int.max, value)
+      }
+      .sorted { $0.0 < $1.0 }
+      .map { $0.1 }
+      .joined(separator: ";")
+      .nonEmpty
+
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+    dateFormatter.dateFormat = "M/d/yyyy"
+    self.publishedOn = response.publicationDate
+      .flatMap { dateFormatter.date(from: $0) } ?? Date.distantPast
+
+    self.nutrients = response.foodNutrients.compactMap { entry in
+      guard let nutrient = entry.nutrient,
+            let amount = entry.amount,
+            let number = nutrient.number else {
+        return nil
+      }
+      return FoodNutrient(
+        number: number,
+        name: nutrient.name ?? "",
+        unitName: nutrient.unitName ?? "",
+        value: amount)
+    }
+
+    self.measures = response.foodPortions?
+      .sorted { ($0.sequenceNumber ?? .max) < ($1.sequenceNumber ?? .max) }
+      .map { portion in
+        let text = portion.modifier?.nonEmpty
+          ?? portion.portionDescription
+          ?? ""
+        return FoodMeasure(
+          id: portion.id,
+          text: text,
+          gramWeight: portion.gramWeight,
+          rank: portion.sequenceNumber ?? 0)
+      } ?? []
+  }
+}
+
+extension String {
+  fileprivate var nonEmpty: String? { isEmpty ? nil : self }
 }
 
 // MARK: - Samples

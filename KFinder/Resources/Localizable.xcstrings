@@ -105,6 +105,26 @@
         }
       }
     },
+    "foods.recent.fetch.error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't load food details"
+          }
+        }
+      }
+    },
+    "foods.recent.fetch.error.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your connection and try again."
+          }
+        }
+      }
+    },
     "foods.recent.none" : {
       "localizations" : {
         "en" : {
