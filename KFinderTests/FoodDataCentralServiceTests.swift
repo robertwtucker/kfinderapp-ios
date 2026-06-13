@@ -11,11 +11,17 @@ import Testing
 // MARK: - URLProtocol stub
 
 // Mocks a single response per request by inspecting the URL. Tests register
-// expected (status, body) tuples keyed by URL path before exercising the
-// service; this intercepts the actual network call.
+// a `MockResponse` before exercising the service; this intercepts the actual
+// network call.
+struct MockResponse: Sendable {
+  let response: HTTPURLResponse
+  let data: Data?
+  let error: Error?
+}
+
 final class MockURLProtocol: URLProtocol, @unchecked Sendable {
   nonisolated(unsafe) static var responder:
-    (@Sendable (URLRequest) -> (HTTPURLResponse, Data?, Error?))?
+    (@Sendable (URLRequest) -> MockResponse)?
 
   override class func canInit(with request: URLRequest) -> Bool { true }
   override class func canonicalRequest(for request: URLRequest) -> URLRequest {
@@ -31,14 +37,14 @@ final class MockURLProtocol: URLProtocol, @unchecked Sendable {
           userInfo: [NSLocalizedDescriptionKey: "no responder registered"]))
       return
     }
-    let (response, data, error) = responder(request)
-    if let error = error {
+    let mock = responder(request)
+    if let error = mock.error {
       client?.urlProtocol(self, didFailWithError: error)
       return
     }
     client?.urlProtocol(
-      self, didReceive: response, cacheStoragePolicy: .notAllowed)
-    if let data = data {
+      self, didReceive: mock.response, cacheStoragePolicy: .notAllowed)
+    if let data = mock.data {
       client?.urlProtocol(self, didLoad: data)
     }
     client?.urlProtocolDidFinishLoading(self)
@@ -71,7 +77,7 @@ struct FoodDataCentralServiceTests {
       let response = HTTPURLResponse(
         url: request.url!, statusCode: status,
         httpVersion: nil, headerFields: nil)!
-      return (response, body, error)
+      return MockResponse(response: response, data: body, error: error)
     }
   }
 
