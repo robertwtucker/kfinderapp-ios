@@ -31,4 +31,4 @@ jobs:
             ${{ runner.os }}-spm-
 
       - name: Build and Test
-        run: set -o pipefail && xcodebuild test -scheme KFinder -project KFinder.xcodeproj -destination "platform=iOS Simulator,OS=26.2,name=iPhone Air" | xcpretty && exit ${PIPESTATUS[0]}
+        run: set -o pipefail && xcodebuild test -scheme KFinder -project KFinder.xcodeproj -destination "platform=iOS Simulator,OS=26.5,name=iPhone Air" | xcpretty && exit ${PIPESTATUS[0]}
