@@ -48,6 +48,7 @@ import SwiftData
     self.nutrients = from.foodNutrients?.map { FoodNutrient(from: $0) } ?? []
     self.measures = from.foodMeasures?.map { FoodMeasure(from: $0) } ?? []
   }
+
 }
 
 // MARK: - Samples
