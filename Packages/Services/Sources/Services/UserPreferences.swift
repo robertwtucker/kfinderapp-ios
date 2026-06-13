@@ -171,22 +171,32 @@ import SwiftUI
 
   public func enforceRecentFoodsLimit() {
     guard let modelContext else { return }
-    let limit = recentFoodsLimit
+    UserPreferences.enforceRecentFoodsLimit(
+      in: modelContext, limit: recentFoodsLimit, logger: logger)
+  }
+
+  // Static so callers (and tests) can prune any `ModelContext` without
+  // going through the singleton's configure/observer lifecycle.
+  public static func enforceRecentFoodsLimit(
+    in modelContext: ModelContext, limit: Int, logger: Logger? = nil
+  ) {
     let descriptor = FetchDescriptor<RecentFood>(
-      sortBy: [.init(\.viewedAt, order: .forward)]
+      sortBy: [
+        .init(\.viewedAt, order: .forward),
+        .init(\.fdcId, order: .forward)
+      ]
     )
     do {
       let items = try modelContext.fetch(descriptor)
-      if items.count > limit {
-        let toDelete = items.prefix(items.count - limit)
-        for item in toDelete {
-          modelContext.delete(item)
-        }
-        try? modelContext.save()
-        logger.debug("enforceRecentFoodsLimit: pruned \(toDelete.count) RecentFood record(s) to limit \(limit)")
+      guard items.count > limit else { return }
+      let toDelete = items.prefix(items.count - limit)
+      for item in toDelete {
+        modelContext.delete(item)
       }
+      try? modelContext.save()
+      logger?.debug("enforceRecentFoodsLimit: pruned \(toDelete.count) RecentFood record(s) to limit \(limit)")
     } catch {
-      logger.error("enforceRecentFoodsLimit failed: \(error)")
+      logger?.error("enforceRecentFoodsLimit failed: \(error)")
     }
   }
 }

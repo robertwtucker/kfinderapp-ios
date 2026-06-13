@@ -56,6 +56,7 @@ struct FoodDetailView: View {
           RecentFood(from: food, vitaminKPer100g: vitaminKPer100g))
       }
       try? context.save()
+      // Write-time prune — bounds the store, not the fetch (#95).
       UserPreferences.shared.enforceRecentFoodsLimit()
     }
   }

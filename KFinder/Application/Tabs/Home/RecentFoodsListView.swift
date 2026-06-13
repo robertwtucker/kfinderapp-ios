@@ -13,17 +13,9 @@ struct RecentFoodsListView: View {
   @Environment(\.modelContext) private var modelContext
   @Environment(\.defaultMinListRowHeight) var minRowHeight
 
-  @Query(RecentFoodsListView.fetchDescriptor) private var foods: [RecentFood]
-
-  static var fetchDescriptor: FetchDescriptor<RecentFood> {
-    var descriptor = FetchDescriptor<RecentFood>(
-      sortBy: [
-        .init(\.viewedAt, order: .reverse)
-      ]
-    )
-    descriptor.fetchLimit = UserPreferences.shared.recentFoodsLimit
-    return descriptor
-  }
+  // Store is bounded by `UserPreferences.enforceRecentFoodsLimit()` (#95);
+  // no `fetchLimit` needed here.
+  @Query(sort: \RecentFood.viewedAt, order: .reverse) private var foods: [RecentFood]
 
   var body: some View {
     if foods.count > 0 {
