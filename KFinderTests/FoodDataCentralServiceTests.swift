@@ -23,8 +23,8 @@ final class MockURLProtocol: URLProtocol, @unchecked Sendable {
   nonisolated(unsafe) static var responder:
     (@Sendable (URLRequest) -> MockResponse)?
 
-  override class func canInit(with request: URLRequest) -> Bool { true }
-  override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+  override static func canInit(with request: URLRequest) -> Bool { true }
+  override static func canonicalRequest(for request: URLRequest) -> URLRequest {
     request
   }
 
