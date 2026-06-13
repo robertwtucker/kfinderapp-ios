@@ -183,7 +183,7 @@ import SwiftUI
     let descriptor = FetchDescriptor<RecentFood>(
       sortBy: [
         .init(\.viewedAt, order: .forward),
-        .init(\.fdcId, order: .forward),
+        .init(\.fdcId, order: .forward)
       ]
     )
     do {
