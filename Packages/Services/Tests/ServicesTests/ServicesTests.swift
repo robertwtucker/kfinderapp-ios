@@ -91,7 +91,7 @@ struct UserPreferencesTests {
 
   private func makeContainer() throws -> ModelContainer {
     try ModelContainer(
-      for: UserSettings.self,
+      for: UserSettings.self, RecentFood.self,
       configurations: ModelConfiguration(isStoredInMemoryOnly: true)
     )
   }

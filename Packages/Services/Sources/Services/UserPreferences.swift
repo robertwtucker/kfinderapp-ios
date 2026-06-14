@@ -20,6 +20,8 @@ import SwiftUI
   private var modelContext: ModelContext?
   private var settings: UserSettings?
   private var isLoading = false
+  private var remoteChangeObserver: NSObjectProtocol?
+  private var configurationGeneration: Int = 0
 
   public var dailyKTarget: Double = 120 {
     didSet { save() }
@@ -55,19 +57,39 @@ import SwiftUI
   private init() {}
 
   public func configure(with container: ModelContainer) {
+    configurationGeneration &+= 1
     modelContext = container.mainContext
     observeRemoteChanges()
     loadSettings()
   }
 
   private func observeRemoteChanges() {
-    NotificationCenter.default.addObserver(
+    if let token = remoteChangeObserver {
+      NotificationCenter.default.removeObserver(token)
+      remoteChangeObserver = nil
+    }
+    // Only observe in the production app bundle. Elsewhere (xctest,
+    // previews, alternate hosts), the configuring caller's container is
+    // short-lived; an async notification delivery can race ahead of the
+    // container's deallocation and trap `loadSettings()` on a dangling
+    // context. CloudKit isn't reachable in those hosts anyway.
+    guard
+      Bundle.main.bundleIdentifier?.hasPrefix("dev.eclectic") == true
+    else { return }
+    // Tie the observer to the configuration it was registered under. If
+    // `configure(with:)` runs again (future re-init), the bumped generation
+    // drops any in-flight notification scheduled before reconfigure.
+    let observedGeneration = configurationGeneration
+    remoteChangeObserver = NotificationCenter.default.addObserver(
       forName: NSNotification.Name.NSPersistentStoreRemoteChange,
       object: nil,
       queue: nil
     ) { [weak self] _ in
       Task { @MainActor [weak self] in
-        self?.loadSettings()
+        guard let self,
+          self.configurationGeneration == observedGeneration
+        else { return }
+        self.loadSettings()
       }
     }
   }
@@ -123,6 +145,16 @@ import SwiftUI
   }
 
   private func migrateFromCloudStorage() -> UserSettings {
+    // NSUbiquitousKeyValueStore traps without the ubiquity-kvstore-identifier
+    // entitlement (xctest, previews, alt bundles). Skip when we can't tell
+    // we're in the production app bundle — there's nothing to migrate
+    // elsewhere anyway.
+    guard
+      Bundle.main.bundleIdentifier?.hasPrefix("dev.eclectic") == true
+    else {
+      return UserSettings()
+    }
+
     let store = NSUbiquitousKeyValueStore.default
     store.synchronize()
 

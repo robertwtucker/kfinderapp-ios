@@ -50,6 +50,17 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ServicesTests"
+               BuildableName = "ServicesTests"
+               BlueprintName = "ServicesTests"
+               ReferencedContainer = "container:Packages/Services">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
             skipped = "YES"
             parallelizable = "YES">
             <BuildableReference
