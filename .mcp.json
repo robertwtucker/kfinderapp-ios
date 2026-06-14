@@ -3,7 +3,10 @@
     "xcodebuildmcp": {
       "type": "stdio",
       "command": "xcodebuildmcp",
-      "args": ["mcp"]
+      "args": ["mcp"],
+      "env": {
+        "XCODEBUILDMCP_ENABLED_WORKFLOWS": "session-management,simulator,ui-automation,debugging,utilities"
+      }
     }
   }
 }

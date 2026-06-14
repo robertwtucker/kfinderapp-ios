@@ -1,0 +1,45 @@
+{
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild:*)",
+      "Bash(xcrun simctl:*)",
+      "Bash(swiftlint:*)",
+      "Bash(xcpretty:*)",
+      "Bash(bundle exec fastlane:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh api:*)",
+      "Bash(gh release view:*)",
+      "Bash(gh release list:*)",
+      "Bash(git pull:*)"
+    ],
+    "deny": [
+      "Read(./Secrets.xcconfig)",
+      "Read(./fastlane/.env)",
+      "Read(./fastlane/.env.*)",
+      "Read(./**/*.p12)",
+      "Read(./**/*.p8)",
+      "Read(./**/AuthKey_*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "file=$(jq -r '.tool_input.file_path // empty'); case \"$file\" in *.swift) out=$(swiftlint lint --strict --quiet \"$file\" 2>&1) || jq -nc --arg ctx \"SwiftLint --strict violations on $file: $out\" '{hookSpecificOutput:{hookEventName:\"PostToolUse\",additionalContext:$ctx}}' ;; esac"
+          }
+        ]
+      }
+    ]
+  }
+}
