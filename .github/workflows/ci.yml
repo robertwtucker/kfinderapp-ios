@@ -20,15 +20,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Cache SwiftPM dependencies
-        uses: actions/cache@v4
+      # Tier 3: caches the full DerivedData tree (Xcode's real SwiftPM build
+      # outputs + incremental build state) keyed by commit, with source-file
+      # mtime restoration so Xcode trusts unchanged-source equality on hit.
+      # SourcePackages is cached separately keyed by Package.resolved hash.
+      - name: Cache Xcode DerivedData and SwiftPM
+        uses: irgaly/xcode-cache@v1.9.2
         with:
-          path: |
-            ~/Library/Caches/org.swift.swiftpm
-            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
-          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          key: ${{ runner.os }}-xcode-deriveddata-${{ github.workflow }}-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-spm-
+            ${{ runner.os }}-xcode-deriveddata-${{ github.workflow }}-
+          verbose: true
 
       - name: Build and Test
         run: set -o pipefail && xcodebuild test -scheme KFinder -project KFinder.xcodeproj -destination "platform=iOS Simulator,OS=26.2,name=iPhone Air" | xcpretty && exit ${PIPESTATUS[0]}
