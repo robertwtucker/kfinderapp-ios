@@ -67,6 +67,23 @@ jobs:
       # - name: Setup runtime (example)
       #   uses: actions/setup-example@v1
 
+      # Cache SwiftPM deps only for the Swift analysis job — explicitly NOT
+      # DerivedData. Caching the project's own DerivedData would let Xcode
+      # skip recompiling KFinder sources on a hit, which would silently
+      # cause the CodeQL Swift extractor to miss those compilations and
+      # return an incomplete analysis. SwiftPM dependencies are safe to
+      # cache because the extractor doesn't analyze them anyway.
+      - name: Cache SwiftPM dependencies
+        if: matrix.build-mode == 'manual'
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Caches/org.swift.swiftpm
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: ${{ runner.os }}-codeql-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-codeql-spm-
+
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
