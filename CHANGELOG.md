@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v1.3.0] - 2026-06-14
+
+### Changed
+
+- Recently viewed foods are now stored in a dedicated `RecentFood` SwiftData model, separate from the cached `FoodItem` graph. Existing `FoodItem`-as-Recent records are migrated automatically on first launch. ([#92](https://github.com/robertwtucker/kfinderapp-ios/pull/92), [#97](https://github.com/robertwtucker/kfinderapp-ios/pull/97))
+- The `recentFoodsLimit` setting now bounds the underlying store, not just the query, so the Recents list cannot grow past the configured size. ([#102](https://github.com/robertwtucker/kfinderapp-ios/pull/102))
+- Tapping a recent food rehydrates the full record via `FoodDataCentralService.fetchFood`, ensuring nutrient and measure data is current. ([#105](https://github.com/robertwtucker/kfinderapp-ios/pull/105))
+- `UserPreferences` is now testable, and `ServicesTests` runs in CI. ([#106](https://github.com/robertwtucker/kfinderapp-ios/pull/106))
+- CI now caches Xcode `DerivedData` (via `irgaly/xcode-cache`) and SwiftPM dependencies for faster builds. ([#99](https://github.com/robertwtucker/kfinderapp-ios/pull/99), [#107](https://github.com/robertwtucker/kfinderapp-ios/pull/107))
+
 ## [v1.2.1] - 2026-06-08
 
 ### Fixed
@@ -175,7 +185,8 @@ Initial prototype with basic search and display
   [CocoaPods](https://cocoapods.org/about) for dependency management
 - Replaced CoreData with [Realm](https://realm.io/)
 
-[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.3.0...HEAD
+[v1.3.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.2.1...v1.3.0
 [v1.2.1]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.2.0...v1.2.1
 [v1.2.0]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.3...v1.2.0
 [v1.1.3]: https://github.com/robertwtucker/kfinderapp-ios/compare/v1.1.2...v1.1.3
