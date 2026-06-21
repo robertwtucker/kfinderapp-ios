@@ -20,6 +20,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      # Pin Xcode explicitly. macos-latest ships multiple Xcode versions
+      # (16.x and 26.x) and its default selection is non-deterministic
+      # across the image rollout, which leaves xcodebuild unable to resolve
+      # an iOS Simulator destination on some runners. latest-stable tracks
+      # the toolchain used for local development.
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
       # Tier 3: caches the full DerivedData tree (Xcode's real SwiftPM build
       # outputs + incremental build state) keyed by commit, with source-file
       # mtime restoration so Xcode trusts unchanged-source equality on hit.
@@ -31,14 +41,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-xcode-deriveddata-${{ github.workflow }}-
           verbose: true
-
-      - name: Diagnostics (simulator environment)
-        run: |
-          echo "=== Selected Xcode ==="; xcode-select -p; xcodebuild -version
-          echo "=== Installed Xcodes ==="; ls -d /Applications/Xcode*.app 2>/dev/null || true
-          echo "=== iOS SDKs ==="; xcodebuild -showsdks 2>/dev/null | grep -i ios || true
-          echo "=== Simulator runtimes ==="; xcrun simctl list runtimes
-          echo "=== Available devices ==="; xcrun simctl list devices available
 
       - name: Build and Test
         run: set -o pipefail && xcodebuild test -scheme KFinder -project KFinder.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=iPhone 16" | xcpretty && exit ${PIPESTATUS[0]}
