@@ -32,5 +32,13 @@ jobs:
             ${{ runner.os }}-xcode-deriveddata-${{ github.workflow }}-
           verbose: true
 
+      - name: Diagnostics (simulator environment)
+        run: |
+          echo "=== Selected Xcode ==="; xcode-select -p; xcodebuild -version
+          echo "=== Installed Xcodes ==="; ls -d /Applications/Xcode*.app 2>/dev/null || true
+          echo "=== iOS SDKs ==="; xcodebuild -showsdks 2>/dev/null | grep -i ios || true
+          echo "=== Simulator runtimes ==="; xcrun simctl list runtimes
+          echo "=== Available devices ==="; xcrun simctl list devices available
+
       - name: Build and Test
         run: set -o pipefail && xcodebuild test -scheme KFinder -project KFinder.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=iPhone 16" | xcpretty && exit ${PIPESTATUS[0]}
