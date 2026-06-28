@@ -106,11 +106,16 @@ jobs:
       - name: Build for CodeQL analysis
         if: matrix.build-mode == 'manual'
         shell: bash
+        # Use a generic simulator destination: CodeQL only needs the Swift
+        # sources to compile so the extractor observes them — no device is
+        # booted. A generic destination also avoids the device-name/OS drift
+        # that breaks hardcoded specifiers as the runner image changes (e.g.
+        # iPhone 16 was dropped for the iPhone 17 family).
         run: |
           xcodebuild build \
             -scheme KFinder \
             -project KFinder.xcodeproj \
-            -destination "platform=iOS Simulator,OS=latest,name=iPhone 16"
+            -destination "generic/platform=iOS Simulator"
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
