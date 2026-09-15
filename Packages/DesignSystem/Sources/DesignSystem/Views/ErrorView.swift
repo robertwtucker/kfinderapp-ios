@@ -28,7 +28,7 @@ public struct ErrorView: View {
       VStack {
         Image(systemName: "exclamationmark.triangle.fill")
           .resizable()
-          .aspectRatio(contentMode: .fit)
+          .scaledToFit()
           .frame(maxHeight: 50)
         Text(title)
           .font(.headline)
