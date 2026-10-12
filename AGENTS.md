@@ -86,6 +86,14 @@ bundle exec fastlane build_release
 bundle exec fastlane beta
 ```
 
+### Upgrading SwiftLint
+
+CI pins SwiftLint via the `version` input in `.github/workflows/swiftlint.yml` (Dependabot does not track it). To upgrade:
+
+1. Bump `version` in the workflow.
+2. Install the same version locally and run `swiftlint --strict`.
+3. Fix or configure any new rule violations in the same PR.
+
 ## Architecture
 
 **Modular SPM packages** under `Packages/`:

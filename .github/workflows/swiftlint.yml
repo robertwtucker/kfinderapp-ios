@@ -29,6 +29,9 @@ jobs:
       - name: Run SwiftLint
         uses: stanfordbdhg/action-swiftlint@v4
         with:
+          # Pinned deliberately: Dependabot does not track this input, so bump
+          # it manually (see AGENTS.md and #120).
+          version: 0.65.1
           args: --strict --reporter sarif --output lint-results.sarif
 
       - name: Upload SwiftLint app report
