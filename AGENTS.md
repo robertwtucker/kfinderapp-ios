@@ -117,7 +117,7 @@ Each package has its own test target (`ModelsTests`, `ServicesTests`, `DesignSys
 
 ## Key Conventions
 
-- **iOS 17.0** deployment target; SPM packages use **Swift Tools 6.0** with Swift 6 language mode in Services
+- **iOS 18.0** deployment target; SPM packages use **Swift Tools 6.0** with Swift 6 language mode in Services
 - All source files require SPDX license headers: `SPDX-FileCopyrightText: (c) 2026 Robert Tucker` / `SPDX-License-Identifier: MIT`
 - SwiftLint enforced: minimum 3-char identifiers (exceptions: `id`, `g`, `kJ`, `kcal`, `mg`, `ug`, `URL`)
 - PR titles must follow semantic commit convention (enforced by CI)
