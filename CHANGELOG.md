@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- The minimum supported iOS version is now 18.0. ([#112](https://github.com/robertwtucker/kfinderapp-ios/pull/112))
+- Image views use `scaledToFit()` in place of `aspectRatio(contentMode: .fit)`. ([#119](https://github.com/robertwtucker/kfinderapp-ios/pull/119))
+- CI test destinations no longer pin simulator OS versions that drift with the runner image, and the SwiftLint version is now pinned in the lint workflow. ([#111](https://github.com/robertwtucker/kfinderapp-ios/pull/111), [#115](https://github.com/robertwtucker/kfinderapp-ios/pull/115), [#122](https://github.com/robertwtucker/kfinderapp-ios/pull/122))
+- Updated fastlane and the CI actions (`actions/checkout` v7, `actions/cache` v6). ([#108](https://github.com/robertwtucker/kfinderapp-ios/pull/108), [#110](https://github.com/robertwtucker/kfinderapp-ios/pull/110), [#114](https://github.com/robertwtucker/kfinderapp-ios/pull/114), [#116](https://github.com/robertwtucker/kfinderapp-ios/pull/116), [#117](https://github.com/robertwtucker/kfinderapp-ios/pull/117), [#118](https://github.com/robertwtucker/kfinderapp-ios/pull/118), [#121](https://github.com/robertwtucker/kfinderapp-ios/pull/121))
+
 ## [v1.3.0] - 2026-06-14
 
 ### Changed
